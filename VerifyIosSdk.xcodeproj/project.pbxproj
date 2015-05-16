@@ -7,123 +7,560 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A5E4D6C1B03643800AAFAA1 /* VerifyIosSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A5E4D6B1B03643800AAFAA1 /* VerifyIosSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A5E4D721B03643800AAFAA1 /* VerifyIosSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5E4D661B03643800AAFAA1 /* VerifyIosSdk.framework */; };
-		2A5E4D791B03643800AAFAA1 /* VerifyIosSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E4D781B03643800AAFAA1 /* VerifyIosSdkTests.swift */; };
+		2A1E47DD1B78869B00C02690 /* ControlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47D91B78869B00C02690 /* ControlResponse.swift */; };
+		2A1E47DE1B78869B00C02690 /* ControlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47D91B78869B00C02690 /* ControlResponse.swift */; };
+		2A1E47DF1B78869B00C02690 /* SDKControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47DA1B78869B00C02690 /* SDKControlService.swift */; };
+		2A1E47E01B78869B00C02690 /* SDKControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47DA1B78869B00C02690 /* SDKControlService.swift */; };
+		2A26A77F1B6168C20062B9FD /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7651B6168C20062B9FD /* BaseResponse.swift */; };
+		2A26A7801B6168C20062B9FD /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7661B6168C20062B9FD /* ServiceHelper.swift */; };
+		2A26A7821B6168C20062B9FD /* CheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7681B6168C20062B9FD /* CheckRequest.swift */; };
+		2A26A7831B6168C20062B9FD /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7691B6168C20062B9FD /* CheckResponse.swift */; };
+		2A26A7841B6168C30062B9FD /* SDKCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */; };
+		2A26A7851B6168C30062B9FD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76B1B6168C20062B9FD /* Config.swift */; };
+		2A26A7881B6168C30062B9FD /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76E1B6168C20062B9FD /* HttpRequest.swift */; };
+		2A26A7891B6168C30062B9FD /* HttpRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76F1B6168C20062B9FD /* HttpRequestBuilder.swift */; };
+		2A26A78A1B6168C30062B9FD /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7701B6168C20062B9FD /* HttpResponse.swift */; };
+		2A26A78B1B6168C30062B9FD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7711B6168C20062B9FD /* Logger.swift */; };
+		2A26A78C1B6168C30062B9FD /* NexmoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7721B6168C20062B9FD /* NexmoClient.swift */; };
+		2A26A78F1B6168C30062B9FD /* ResultCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7751B6168C20062B9FD /* ResultCodes.swift */; };
+		2A26A7901B6168C30062B9FD /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7761B6168C20062B9FD /* TokenResponse.swift */; };
+		2A26A7911B6168C30062B9FD /* SDKTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7771B6168C20062B9FD /* SDKTokenService.swift */; };
+		2A26A7921B6168C30062B9FD /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7781B6168C20062B9FD /* UserStatus.swift */; };
+		2A26A7941B6168C30062B9FD /* VerifyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77A1B6168C20062B9FD /* VerifyError.swift */; };
+		2A26A7951B6168C30062B9FD /* VerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77B1B6168C20062B9FD /* VerifyRequest.swift */; };
+		2A26A7961B6168C30062B9FD /* VerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */; };
+		2A26A7971B6168C30062B9FD /* SDKVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */; };
+		2A26A7981B6168C30062B9FD /* VerifyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77E1B6168C20062B9FD /* VerifyTask.swift */; };
+		2A32B2291B6A759200AB5ADB /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7651B6168C20062B9FD /* BaseResponse.swift */; };
+		2A32B22A1B6A759200AB5ADB /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7661B6168C20062B9FD /* ServiceHelper.swift */; };
+		2A32B22C1B6A759200AB5ADB /* CheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7681B6168C20062B9FD /* CheckRequest.swift */; };
+		2A32B22D1B6A759200AB5ADB /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7691B6168C20062B9FD /* CheckResponse.swift */; };
+		2A32B22E1B6A759200AB5ADB /* SDKCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */; };
+		2A32B22F1B6A759200AB5ADB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76B1B6168C20062B9FD /* Config.swift */; };
+		2A32B2301B6A759200AB5ADB /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76E1B6168C20062B9FD /* HttpRequest.swift */; };
+		2A32B2311B6A759200AB5ADB /* HttpRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76F1B6168C20062B9FD /* HttpRequestBuilder.swift */; };
+		2A32B2321B6A759200AB5ADB /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7701B6168C20062B9FD /* HttpResponse.swift */; };
+		2A32B2331B6A759200AB5ADB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7711B6168C20062B9FD /* Logger.swift */; };
+		2A32B2341B6A759200AB5ADB /* NexmoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7721B6168C20062B9FD /* NexmoClient.swift */; };
+		2A32B2351B6A759200AB5ADB /* ResultCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7751B6168C20062B9FD /* ResultCodes.swift */; };
+		2A32B2361B6A759200AB5ADB /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7761B6168C20062B9FD /* TokenResponse.swift */; };
+		2A32B2371B6A759200AB5ADB /* SDKTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7771B6168C20062B9FD /* SDKTokenService.swift */; };
+		2A32B2381B6A759200AB5ADB /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7781B6168C20062B9FD /* UserStatus.swift */; };
+		2A32B23A1B6A759200AB5ADB /* VerifyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77A1B6168C20062B9FD /* VerifyError.swift */; };
+		2A32B23B1B6A759200AB5ADB /* VerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77B1B6168C20062B9FD /* VerifyRequest.swift */; };
+		2A32B23C1B6A759200AB5ADB /* VerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */; };
+		2A32B23D1B6A759200AB5ADB /* SDKVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */; };
+		2A32B23E1B6A759200AB5ADB /* VerifyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77E1B6168C20062B9FD /* VerifyTask.swift */; };
+		2A6B607B1B67A04B005378E0 /* SDKRequestSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A6B60811B67A04B005378E0 /* RequestSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6B60761B67A04B005378E0 /* RequestSigning.framework */; };
+		2A6B609D1B67A078005378E0 /* SDKDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A6B60A31B67A078005378E0 /* DeviceProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6B60981B67A078005378E0 /* DeviceProperties.framework */; };
+		2A9014E51B6A6FC600147451 /* DeviceProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6B60981B67A078005378E0 /* DeviceProperties.framework */; };
+		2A9014E61B6A6FC600147451 /* RequestSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6B60761B67A04B005378E0 /* RequestSigning.framework */; };
+		2A9152311B6A6E6600F404E4 /* SDKRequestSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9152301B6A6E6600F404E4 /* SDKRequestSigner.m */; };
+		2A9152331B6A6E7500F404E4 /* SDKDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */; };
+		2A9325451B8A1D4200217D87 /* ControlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325441B8A1D4200217D87 /* ControlRequest.swift */; };
+		2A9325461B8A1D6900217D87 /* ControlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325441B8A1D4200217D87 /* ControlRequest.swift */; };
+		2A9325C81B8F310600217D87 /* VerifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325C71B8F310600217D87 /* VerifyClient.swift */; };
+		2A9325C91B8F311600217D87 /* VerifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325C71B8F310600217D87 /* VerifyClient.swift */; };
+		2ABA3ABF1B6166A800EB4842 /* VerifyIosSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ABA3AC51B6166A900EB4842 /* VerifyIosSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */; };
+		2ADD5E2B1B7B574E00650E1B /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */; };
+		2ADD5E2D1B7B578D00650E1B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */; };
+		2ADD5E2E1B7B57DB00650E1B /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */; };
+		2ADD5E2F1B7B57DB00650E1B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */; };
+		2ADD5E331B7B59FC00650E1B /* SDKLogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */; };
+		2ADD5E341B7B5B3C00650E1B /* SDKLogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */; };
+		2ADD5E3B1B7B5D1F00650E1B /* CheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */; };
+		2ADD5E3D1B7B5D6200650E1B /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */; };
+		2ADD5E3F1B7B5DAA00650E1B /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */; };
+		2ADD5E411B7B5DCB00650E1B /* VerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */; };
+		2ADD5E421B7B5F9300650E1B /* VerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */; };
+		2ADD5E431B7B5F9700650E1B /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */; };
+		2ADD5E441B7B5F9B00650E1B /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */; };
+		2ADD5E451B7B5F9F00650E1B /* CheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */; };
+		2ADD5E491B7C82F800650E1B /* RequestSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADD5E481B7C82AF00650E1B /* RequestSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ADD5E4B1B7C8D1000650E1B /* RequestSigning.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADD5E4A1B7C8D1000650E1B /* RequestSigning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ADD5E551B7CF77400650E1B /* DevicePropertyAccessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADD5E541B7CF77400650E1B /* DevicePropertyAccessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ADD5E561B7CF80000650E1B /* DeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADD5E531B7CF50700650E1B /* DeviceProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ADD5E571B7CFA5A00650E1B /* SDKDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */; };
+		2ADD5E591B7D10F600650E1B /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E581B7D10F600650E1B /* LogoutRequest.swift */; };
+		2ADD5E5A1B7D118500650E1B /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E581B7D10F600650E1B /* LogoutRequest.swift */; };
+		2AE0DE6A1B80F8F4008C308F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE691B80F8F4008C308F /* SearchService.swift */; };
+		2AE0DE6B1B80F8F4008C308F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE691B80F8F4008C308F /* SearchService.swift */; };
+		2AE0DE6D1B80F92E008C308F /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE6C1B80F92E008C308F /* SearchRequest.swift */; };
+		2AE0DE6E1B80F92E008C308F /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE6C1B80F92E008C308F /* SearchRequest.swift */; };
+		2AE0DE701B80F937008C308F /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE6F1B80F937008C308F /* SearchResponse.swift */; };
+		2AE0DE711B80F937008C308F /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE6F1B80F937008C308F /* SearchResponse.swift */; };
+		2AE0DE731B80FDD9008C308F /* SDKSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE721B80FDD9008C308F /* SDKSearchService.swift */; };
+		2AE0DE741B80FDD9008C308F /* SDKSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE721B80FDD9008C308F /* SDKSearchService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2A5E4D731B03643800AAFAA1 /* PBXContainerItemProxy */ = {
+		2A6B60821B67A04B005378E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A5E4D5D1B03643800AAFAA1 /* Project object */;
+			containerPortal = 2ABA3AB01B6166A800EB4842 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2A5E4D651B03643800AAFAA1;
+			remoteGlobalIDString = 2A6B60751B67A04B005378E0;
+			remoteInfo = RequestSigning;
+		};
+		2A6B60A41B67A078005378E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ABA3AB01B6166A800EB4842 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A6B60971B67A078005378E0;
+			remoteInfo = DeviceProperties;
+		};
+		2ABA3AC61B6166A900EB4842 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ABA3AB01B6166A800EB4842 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ABA3AB81B6166A800EB4842;
 			remoteInfo = VerifyIosSdk;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2A5E4D661B03643800AAFAA1 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerifyIosSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A5E4D6A1B03643800AAFAA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A5E4D6B1B03643800AAFAA1 /* VerifyIosSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyIosSdk.h; sourceTree = "<group>"; };
-		2A5E4D711B03643800AAFAA1 /* VerifyIosSdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerifyIosSdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A5E4D771B03643800AAFAA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A5E4D781B03643800AAFAA1 /* VerifyIosSdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIosSdkTests.swift; sourceTree = "<group>"; };
+		2A1E47D91B78869B00C02690 /* ControlResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlResponse.swift; sourceTree = "<group>"; };
+		2A1E47DA1B78869B00C02690 /* SDKControlService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKControlService.swift; sourceTree = "<group>"; };
+		2A26A7651B6168C20062B9FD /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		2A26A7661B6168C20062B9FD /* ServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelper.swift; sourceTree = "<group>"; };
+		2A26A7681B6168C20062B9FD /* CheckRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckRequest.swift; sourceTree = "<group>"; };
+		2A26A7691B6168C20062B9FD /* CheckResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResponse.swift; sourceTree = "<group>"; };
+		2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKCheckService.swift; sourceTree = "<group>"; };
+		2A26A76B1B6168C20062B9FD /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2A26A76E1B6168C20062B9FD /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		2A26A76F1B6168C20062B9FD /* HttpRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestBuilder.swift; sourceTree = "<group>"; };
+		2A26A7701B6168C20062B9FD /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		2A26A7711B6168C20062B9FD /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		2A26A7721B6168C20062B9FD /* NexmoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexmoClient.swift; sourceTree = "<group>"; };
+		2A26A7751B6168C20062B9FD /* ResultCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCodes.swift; sourceTree = "<group>"; };
+		2A26A7761B6168C20062B9FD /* TokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		2A26A7771B6168C20062B9FD /* SDKTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKTokenService.swift; sourceTree = "<group>"; };
+		2A26A7781B6168C20062B9FD /* UserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
+		2A26A77A1B6168C20062B9FD /* VerifyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyError.swift; sourceTree = "<group>"; };
+		2A26A77B1B6168C20062B9FD /* VerifyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequest.swift; sourceTree = "<group>"; };
+		2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyResponse.swift; sourceTree = "<group>"; };
+		2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKVerifyService.swift; sourceTree = "<group>"; };
+		2A26A77E1B6168C20062B9FD /* VerifyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyTask.swift; sourceTree = "<group>"; };
+		2A6B60761B67A04B005378E0 /* RequestSigning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RequestSigning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6B60791B67A04B005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKRequestSigner.h; sourceTree = "<group>"; };
+		2A6B60801B67A04B005378E0 /* RequestSigningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RequestSigningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6B60861B67A04B005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A6B60981B67A078005378E0 /* DeviceProperties.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeviceProperties.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6B609B1B67A078005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKDeviceProperties.h; sourceTree = "<group>"; };
+		2A6B60A21B67A078005378E0 /* DevicePropertiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevicePropertiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6B60A81B67A078005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A9152301B6A6E6600F404E4 /* SDKRequestSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKRequestSigner.m; sourceTree = "<group>"; };
+		2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKDeviceProperties.m; sourceTree = "<group>"; };
+		2A9325441B8A1D4200217D87 /* ControlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlRequest.swift; sourceTree = "<group>"; };
+		2A9325C71B8F310600217D87 /* VerifyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyClient.swift; sourceTree = "<group>"; };
+		2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerifyIosSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ABA3ABD1B6166A800EB4842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyIosSdk.h; sourceTree = "<group>"; };
+		2ABA3AC41B6166A900EB4842 /* VerifyIosSdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerifyIosSdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ABA3ACA1B6166A900EB4842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutService.swift; sourceTree = "<group>"; };
+		2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKLogoutService.swift; sourceTree = "<group>"; };
+		2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckService.swift; sourceTree = "<group>"; };
+		2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlService.swift; sourceTree = "<group>"; };
+		2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyService.swift; sourceTree = "<group>"; };
+		2ADD5E481B7C82AF00650E1B /* RequestSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestSigner.h; sourceTree = "<group>"; };
+		2ADD5E4A1B7C8D1000650E1B /* RequestSigning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestSigning.h; sourceTree = "<group>"; };
+		2ADD5E531B7CF50700650E1B /* DeviceProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceProperties.h; sourceTree = "<group>"; };
+		2ADD5E541B7CF77400650E1B /* DevicePropertyAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevicePropertyAccessor.h; sourceTree = "<group>"; };
+		2ADD5E581B7D10F600650E1B /* LogoutRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
+		2AE0DE691B80F8F4008C308F /* SearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		2AE0DE6C1B80F92E008C308F /* SearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		2AE0DE6F1B80F937008C308F /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		2AE0DE721B80FDD9008C308F /* SDKSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKSearchService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2A5E4D621B03643800AAFAA1 /* Frameworks */ = {
+		2A6B60721B67A04B005378E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A5E4D6E1B03643800AAFAA1 /* Frameworks */ = {
+		2A6B607D1B67A04B005378E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5E4D721B03643800AAFAA1 /* VerifyIosSdk.framework in Frameworks */,
+				2A6B60811B67A04B005378E0 /* RequestSigning.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6B60941B67A078005378E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6B609F1B67A078005378E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6B60A31B67A078005378E0 /* DeviceProperties.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ABA3AB51B6166A800EB4842 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9014E51B6A6FC600147451 /* DeviceProperties.framework in Frameworks */,
+				2A9014E61B6A6FC600147451 /* RequestSigning.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ABA3AC11B6166A900EB4842 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ABA3AC51B6166A900EB4842 /* VerifyIosSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A5E4D5C1B03643800AAFAA1 = {
+		2A6B60771B67A04B005378E0 /* SDKRequestSigner */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E4D681B03643800AAFAA1 /* VerifyIosSdk */,
-				2A5E4D751B03643800AAFAA1 /* VerifyIosSdkTests */,
-				2A5E4D671B03643800AAFAA1 /* Products */,
+				2A9152301B6A6E6600F404E4 /* SDKRequestSigner.m */,
+				2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */,
+				2ADD5E481B7C82AF00650E1B /* RequestSigner.h */,
+				2ADD5E4A1B7C8D1000650E1B /* RequestSigning.h */,
+				2A6B60781B67A04B005378E0 /* Supporting Files */,
+			);
+			name = SDKRequestSigner;
+			path = RequestSigning;
+			sourceTree = "<group>";
+		};
+		2A6B60781B67A04B005378E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A6B60791B67A04B005378E0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A6B60841B67A04B005378E0 /* RequestSigningTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A6B60851B67A04B005378E0 /* Supporting Files */,
+			);
+			path = RequestSigningTests;
+			sourceTree = "<group>";
+		};
+		2A6B60851B67A04B005378E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A6B60861B67A04B005378E0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A6B60991B67A078005378E0 /* DeviceProperties */ = {
+			isa = PBXGroup;
+			children = (
+				2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */,
+				2ADD5E541B7CF77400650E1B /* DevicePropertyAccessor.h */,
+				2ADD5E531B7CF50700650E1B /* DeviceProperties.h */,
+				2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */,
+				2A6B609A1B67A078005378E0 /* Supporting Files */,
+			);
+			path = DeviceProperties;
+			sourceTree = "<group>";
+		};
+		2A6B609A1B67A078005378E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A6B609B1B67A078005378E0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A6B60A61B67A078005378E0 /* DevicePropertiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A6B60A71B67A078005378E0 /* Supporting Files */,
+			);
+			path = DevicePropertiesTests;
+			sourceTree = "<group>";
+		};
+		2A6B60A71B67A078005378E0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A6B60A81B67A078005378E0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2ABA3AAF1B6166A800EB4842 = {
+			isa = PBXGroup;
+			children = (
+				2ABA3ABB1B6166A800EB4842 /* VerifyIosSdk */,
+				2ABA3AC81B6166A900EB4842 /* VerifyIosSdkTests */,
+				2A6B60771B67A04B005378E0 /* SDKRequestSigner */,
+				2A6B60841B67A04B005378E0 /* RequestSigningTests */,
+				2A6B60991B67A078005378E0 /* DeviceProperties */,
+				2A6B60A61B67A078005378E0 /* DevicePropertiesTests */,
+				2ABA3ABA1B6166A800EB4842 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2A5E4D671B03643800AAFAA1 /* Products */ = {
+		2ABA3ABA1B6166A800EB4842 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E4D661B03643800AAFAA1 /* VerifyIosSdk.framework */,
-				2A5E4D711B03643800AAFAA1 /* VerifyIosSdkTests.xctest */,
+				2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */,
+				2ABA3AC41B6166A900EB4842 /* VerifyIosSdkTests.xctest */,
+				2A6B60761B67A04B005378E0 /* RequestSigning.framework */,
+				2A6B60801B67A04B005378E0 /* RequestSigningTests.xctest */,
+				2A6B60981B67A078005378E0 /* DeviceProperties.framework */,
+				2A6B60A21B67A078005378E0 /* DevicePropertiesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2A5E4D681B03643800AAFAA1 /* VerifyIosSdk */ = {
+		2ABA3ABB1B6166A800EB4842 /* VerifyIosSdk */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E4D6B1B03643800AAFAA1 /* VerifyIosSdk.h */,
-				2A5E4D691B03643800AAFAA1 /* Supporting Files */,
+				2AE0DE681B80F8E6008C308F /* SearchService */,
+				2ADD5E391B7B5C7F00650E1B /* VerifyService */,
+				2ADD5E381B7B5C7500650E1B /* TokenService */,
+				2ADD5E371B7B5C6D00650E1B /* ControlService */,
+				2ADD5E361B7B5C6700650E1B /* CheckService */,
+				2ADD5E351B7B5C5700650E1B /* LogoutService */,
+				2A26A7651B6168C20062B9FD /* BaseResponse.swift */,
+				2A26A7661B6168C20062B9FD /* ServiceHelper.swift */,
+				2A26A76B1B6168C20062B9FD /* Config.swift */,
+				2A26A76E1B6168C20062B9FD /* HttpRequest.swift */,
+				2A26A76F1B6168C20062B9FD /* HttpRequestBuilder.swift */,
+				2A26A7701B6168C20062B9FD /* HttpResponse.swift */,
+				2A26A7711B6168C20062B9FD /* Logger.swift */,
+				2A26A7721B6168C20062B9FD /* NexmoClient.swift */,
+				2A9325C71B8F310600217D87 /* VerifyClient.swift */,
+				2A26A7751B6168C20062B9FD /* ResultCodes.swift */,
+				2A26A7781B6168C20062B9FD /* UserStatus.swift */,
+				2A26A77A1B6168C20062B9FD /* VerifyError.swift */,
+				2A26A77E1B6168C20062B9FD /* VerifyTask.swift */,
+				2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */,
+				2ABA3ABC1B6166A800EB4842 /* Supporting Files */,
 			);
 			path = VerifyIosSdk;
 			sourceTree = "<group>";
 		};
-		2A5E4D691B03643800AAFAA1 /* Supporting Files */ = {
+		2ABA3ABC1B6166A800EB4842 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E4D6A1B03643800AAFAA1 /* Info.plist */,
+				2ABA3ABD1B6166A800EB4842 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A5E4D751B03643800AAFAA1 /* VerifyIosSdkTests */ = {
+		2ABA3AC81B6166A900EB4842 /* VerifyIosSdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E4D781B03643800AAFAA1 /* VerifyIosSdkTests.swift */,
-				2A5E4D761B03643800AAFAA1 /* Supporting Files */,
+				2ABA3AC91B6166A900EB4842 /* Supporting Files */,
 			);
 			path = VerifyIosSdkTests;
 			sourceTree = "<group>";
 		};
-		2A5E4D761B03643800AAFAA1 /* Supporting Files */ = {
+		2ABA3AC91B6166A900EB4842 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E4D771B03643800AAFAA1 /* Info.plist */,
+				2ABA3ACA1B6166A900EB4842 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2ADD5E351B7B5C5700650E1B /* LogoutService */ = {
+			isa = PBXGroup;
+			children = (
+				2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */,
+				2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */,
+				2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */,
+				2ADD5E581B7D10F600650E1B /* LogoutRequest.swift */,
+			);
+			name = LogoutService;
+			sourceTree = "<group>";
+		};
+		2ADD5E361B7B5C6700650E1B /* CheckService */ = {
+			isa = PBXGroup;
+			children = (
+				2A26A7681B6168C20062B9FD /* CheckRequest.swift */,
+				2A26A7691B6168C20062B9FD /* CheckResponse.swift */,
+				2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */,
+				2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */,
+			);
+			name = CheckService;
+			sourceTree = "<group>";
+		};
+		2ADD5E371B7B5C6D00650E1B /* ControlService */ = {
+			isa = PBXGroup;
+			children = (
+				2A1E47D91B78869B00C02690 /* ControlResponse.swift */,
+				2A9325441B8A1D4200217D87 /* ControlRequest.swift */,
+				2A1E47DA1B78869B00C02690 /* SDKControlService.swift */,
+				2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */,
+			);
+			name = ControlService;
+			sourceTree = "<group>";
+		};
+		2ADD5E381B7B5C7500650E1B /* TokenService */ = {
+			isa = PBXGroup;
+			children = (
+				2A26A7761B6168C20062B9FD /* TokenResponse.swift */,
+				2A26A7771B6168C20062B9FD /* SDKTokenService.swift */,
+				2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */,
+			);
+			name = TokenService;
+			sourceTree = "<group>";
+		};
+		2ADD5E391B7B5C7F00650E1B /* VerifyService */ = {
+			isa = PBXGroup;
+			children = (
+				2A26A77B1B6168C20062B9FD /* VerifyRequest.swift */,
+				2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */,
+				2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */,
+				2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */,
+			);
+			name = VerifyService;
+			sourceTree = "<group>";
+		};
+		2AE0DE681B80F8E6008C308F /* SearchService */ = {
+			isa = PBXGroup;
+			children = (
+				2AE0DE691B80F8F4008C308F /* SearchService.swift */,
+				2AE0DE6C1B80F92E008C308F /* SearchRequest.swift */,
+				2AE0DE6F1B80F937008C308F /* SearchResponse.swift */,
+				2AE0DE721B80FDD9008C308F /* SDKSearchService.swift */,
+			);
+			name = SearchService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2A5E4D631B03643800AAFAA1 /* Headers */ = {
+		2A6B60731B67A04B005378E0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5E4D6C1B03643800AAFAA1 /* VerifyIosSdk.h in Headers */,
+				2ADD5E4B1B7C8D1000650E1B /* RequestSigning.h in Headers */,
+				2ADD5E491B7C82F800650E1B /* RequestSigner.h in Headers */,
+				2A6B607B1B67A04B005378E0 /* SDKRequestSigner.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6B60951B67A078005378E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ADD5E551B7CF77400650E1B /* DevicePropertyAccessor.h in Headers */,
+				2ADD5E561B7CF80000650E1B /* DeviceProperties.h in Headers */,
+				2A6B609D1B67A078005378E0 /* SDKDeviceProperties.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ABA3AB61B6166A800EB4842 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ABA3ABF1B6166A800EB4842 /* VerifyIosSdk.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2A5E4D651B03643800AAFAA1 /* VerifyIosSdk */ = {
+		2A6B60751B67A04B005378E0 /* RequestSigning */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A5E4D7C1B03643800AAFAA1 /* Build configuration list for PBXNativeTarget "VerifyIosSdk" */;
+			buildConfigurationList = 2A6B608D1B67A04B005378E0 /* Build configuration list for PBXNativeTarget "RequestSigning" */;
 			buildPhases = (
-				2A5E4D611B03643800AAFAA1 /* Sources */,
-				2A5E4D621B03643800AAFAA1 /* Frameworks */,
-				2A5E4D631B03643800AAFAA1 /* Headers */,
-				2A5E4D641B03643800AAFAA1 /* Resources */,
+				2A6B60711B67A04B005378E0 /* Sources */,
+				2A6B60721B67A04B005378E0 /* Frameworks */,
+				2A6B60731B67A04B005378E0 /* Headers */,
+				2A6B60741B67A04B005378E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RequestSigning;
+			productName = RequestSigning;
+			productReference = 2A6B60761B67A04B005378E0 /* RequestSigning.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2A6B607F1B67A04B005378E0 /* RequestSigningTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A6B608E1B67A04B005378E0 /* Build configuration list for PBXNativeTarget "RequestSigningTests" */;
+			buildPhases = (
+				2A6B607C1B67A04B005378E0 /* Sources */,
+				2A6B607D1B67A04B005378E0 /* Frameworks */,
+				2A6B607E1B67A04B005378E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A6B60831B67A04B005378E0 /* PBXTargetDependency */,
+			);
+			name = RequestSigningTests;
+			productName = RequestSigningTests;
+			productReference = 2A6B60801B67A04B005378E0 /* RequestSigningTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2A6B60971B67A078005378E0 /* DeviceProperties */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A6B60AB1B67A078005378E0 /* Build configuration list for PBXNativeTarget "DeviceProperties" */;
+			buildPhases = (
+				2A6B60931B67A078005378E0 /* Sources */,
+				2A6B60941B67A078005378E0 /* Frameworks */,
+				2A6B60951B67A078005378E0 /* Headers */,
+				2A6B60961B67A078005378E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceProperties;
+			productName = DeviceProperties;
+			productReference = 2A6B60981B67A078005378E0 /* DeviceProperties.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2A6B60A11B67A078005378E0 /* DevicePropertiesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A6B60AE1B67A078005378E0 /* Build configuration list for PBXNativeTarget "DevicePropertiesTests" */;
+			buildPhases = (
+				2A6B609E1B67A078005378E0 /* Sources */,
+				2A6B609F1B67A078005378E0 /* Frameworks */,
+				2A6B60A01B67A078005378E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A6B60A51B67A078005378E0 /* PBXTargetDependency */,
+			);
+			name = DevicePropertiesTests;
+			productName = DevicePropertiesTests;
+			productReference = 2A6B60A21B67A078005378E0 /* DevicePropertiesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2ABA3AB81B6166A800EB4842 /* VerifyIosSdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ABA3ACF1B6166A900EB4842 /* Build configuration list for PBXNativeTarget "VerifyIosSdk" */;
+			buildPhases = (
+				2ABA3AB41B6166A800EB4842 /* Sources */,
+				2ABA3AB51B6166A800EB4842 /* Frameworks */,
+				2ABA3AB61B6166A800EB4842 /* Headers */,
+				2ABA3AB71B6166A800EB4842 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -131,71 +568,115 @@
 			);
 			name = VerifyIosSdk;
 			productName = VerifyIosSdk;
-			productReference = 2A5E4D661B03643800AAFAA1 /* VerifyIosSdk.framework */;
+			productReference = 2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2A5E4D701B03643800AAFAA1 /* VerifyIosSdkTests */ = {
+		2ABA3AC31B6166A900EB4842 /* VerifyIosSdkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A5E4D7F1B03643800AAFAA1 /* Build configuration list for PBXNativeTarget "VerifyIosSdkTests" */;
+			buildConfigurationList = 2ABA3AD21B6166A900EB4842 /* Build configuration list for PBXNativeTarget "VerifyIosSdkTests" */;
 			buildPhases = (
-				2A5E4D6D1B03643800AAFAA1 /* Sources */,
-				2A5E4D6E1B03643800AAFAA1 /* Frameworks */,
-				2A5E4D6F1B03643800AAFAA1 /* Resources */,
+				2ABA3AC01B6166A900EB4842 /* Sources */,
+				2ABA3AC11B6166A900EB4842 /* Frameworks */,
+				2ABA3AC21B6166A900EB4842 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2A5E4D741B03643800AAFAA1 /* PBXTargetDependency */,
+				2ABA3AC71B6166A900EB4842 /* PBXTargetDependency */,
 			);
 			name = VerifyIosSdkTests;
 			productName = VerifyIosSdkTests;
-			productReference = 2A5E4D711B03643800AAFAA1 /* VerifyIosSdkTests.xctest */;
+			productReference = 2ABA3AC41B6166A900EB4842 /* VerifyIosSdkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2A5E4D5D1B03643800AAFAA1 /* Project object */ = {
+		2ABA3AB01B6166A800EB4842 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = Nexmo;
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Nexmo Inc.";
 				TargetAttributes = {
-					2A5E4D651B03643800AAFAA1 = {
-						CreatedOnToolsVersion = 6.3.1;
+					2A6B60751B67A04B005378E0 = {
+						CreatedOnToolsVersion = 6.4;
 					};
-					2A5E4D701B03643800AAFAA1 = {
-						CreatedOnToolsVersion = 6.3.1;
+					2A6B607F1B67A04B005378E0 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					2A6B60971B67A078005378E0 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					2A6B60A11B67A078005378E0 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					2ABA3AB81B6166A800EB4842 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					2ABA3AC31B6166A900EB4842 = {
+						CreatedOnToolsVersion = 6.4;
 					};
 				};
 			};
-			buildConfigurationList = 2A5E4D601B03643800AAFAA1 /* Build configuration list for PBXProject "VerifyIosSdk" */;
+			buildConfigurationList = 2ABA3AB31B6166A800EB4842 /* Build configuration list for PBXProject "VerifyIosSdk" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2A5E4D5C1B03643800AAFAA1;
-			productRefGroup = 2A5E4D671B03643800AAFAA1 /* Products */;
+			mainGroup = 2ABA3AAF1B6166A800EB4842;
+			productRefGroup = 2ABA3ABA1B6166A800EB4842 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2A5E4D651B03643800AAFAA1 /* VerifyIosSdk */,
-				2A5E4D701B03643800AAFAA1 /* VerifyIosSdkTests */,
+				2ABA3AB81B6166A800EB4842 /* VerifyIosSdk */,
+				2ABA3AC31B6166A900EB4842 /* VerifyIosSdkTests */,
+				2A6B60751B67A04B005378E0 /* RequestSigning */,
+				2A6B607F1B67A04B005378E0 /* RequestSigningTests */,
+				2A6B60971B67A078005378E0 /* DeviceProperties */,
+				2A6B60A11B67A078005378E0 /* DevicePropertiesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2A5E4D641B03643800AAFAA1 /* Resources */ = {
+		2A6B60741B67A04B005378E0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A5E4D6F1B03643800AAFAA1 /* Resources */ = {
+		2A6B607E1B67A04B005378E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6B60961B67A078005378E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6B60A01B67A078005378E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ABA3AB71B6166A800EB4842 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ABA3AC21B6166A900EB4842 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,33 +686,284 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2A5E4D611B03643800AAFAA1 /* Sources */ = {
+		2A6B60711B67A04B005378E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A9152311B6A6E6600F404E4 /* SDKRequestSigner.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6B607C1B67A04B005378E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A5E4D6D1B03643800AAFAA1 /* Sources */ = {
+		2A6B60931B67A078005378E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5E4D791B03643800AAFAA1 /* VerifyIosSdkTests.swift in Sources */,
+				2A9152331B6A6E7500F404E4 /* SDKDeviceProperties.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A6B609E1B67A078005378E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ADD5E571B7CFA5A00650E1B /* SDKDeviceProperties.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ABA3AB41B6166A800EB4842 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ADD5E2D1B7B578D00650E1B /* LogoutResponse.swift in Sources */,
+				2ADD5E3D1B7B5D6200650E1B /* ControlService.swift in Sources */,
+				2A26A7821B6168C20062B9FD /* CheckRequest.swift in Sources */,
+				2AE0DE6A1B80F8F4008C308F /* SearchService.swift in Sources */,
+				2A26A7951B6168C30062B9FD /* VerifyRequest.swift in Sources */,
+				2A26A7891B6168C30062B9FD /* HttpRequestBuilder.swift in Sources */,
+				2A26A7981B6168C30062B9FD /* VerifyTask.swift in Sources */,
+				2A26A7801B6168C20062B9FD /* ServiceHelper.swift in Sources */,
+				2ADD5E331B7B59FC00650E1B /* SDKLogoutService.swift in Sources */,
+				2A26A7971B6168C30062B9FD /* SDKVerifyService.swift in Sources */,
+				2A26A7921B6168C30062B9FD /* UserStatus.swift in Sources */,
+				2A26A7831B6168C20062B9FD /* CheckResponse.swift in Sources */,
+				2A1E47DD1B78869B00C02690 /* ControlResponse.swift in Sources */,
+				2A26A7851B6168C30062B9FD /* Config.swift in Sources */,
+				2A26A7941B6168C30062B9FD /* VerifyError.swift in Sources */,
+				2A26A7881B6168C30062B9FD /* HttpRequest.swift in Sources */,
+				2A26A78B1B6168C30062B9FD /* Logger.swift in Sources */,
+				2AE0DE6D1B80F92E008C308F /* SearchRequest.swift in Sources */,
+				2A26A77F1B6168C20062B9FD /* BaseResponse.swift in Sources */,
+				2ADD5E591B7D10F600650E1B /* LogoutRequest.swift in Sources */,
+				2AE0DE701B80F937008C308F /* SearchResponse.swift in Sources */,
+				2A26A78A1B6168C30062B9FD /* HttpResponse.swift in Sources */,
+				2A26A78F1B6168C30062B9FD /* ResultCodes.swift in Sources */,
+				2ADD5E411B7B5DCB00650E1B /* VerifyService.swift in Sources */,
+				2A26A78C1B6168C30062B9FD /* NexmoClient.swift in Sources */,
+				2A9325C81B8F310600217D87 /* VerifyClient.swift in Sources */,
+				2A1E47DF1B78869B00C02690 /* SDKControlService.swift in Sources */,
+				2ADD5E2B1B7B574E00650E1B /* LogoutService.swift in Sources */,
+				2A26A7961B6168C30062B9FD /* VerifyResponse.swift in Sources */,
+				2A26A7911B6168C30062B9FD /* SDKTokenService.swift in Sources */,
+				2A9325451B8A1D4200217D87 /* ControlRequest.swift in Sources */,
+				2A26A7841B6168C30062B9FD /* SDKCheckService.swift in Sources */,
+				2A26A7901B6168C30062B9FD /* TokenResponse.swift in Sources */,
+				2ADD5E3F1B7B5DAA00650E1B /* TokenService.swift in Sources */,
+				2AE0DE731B80FDD9008C308F /* SDKSearchService.swift in Sources */,
+				2ADD5E3B1B7B5D1F00650E1B /* CheckService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ABA3AC01B6166A900EB4842 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A32B22C1B6A759200AB5ADB /* CheckRequest.swift in Sources */,
+				2ADD5E441B7B5F9B00650E1B /* ControlService.swift in Sources */,
+				2ADD5E2E1B7B57DB00650E1B /* LogoutService.swift in Sources */,
+				2A32B23A1B6A759200AB5ADB /* VerifyError.swift in Sources */,
+				2ADD5E451B7B5F9F00650E1B /* CheckService.swift in Sources */,
+				2AE0DE6B1B80F8F4008C308F /* SearchService.swift in Sources */,
+				2A32B2311B6A759200AB5ADB /* HttpRequestBuilder.swift in Sources */,
+				2ADD5E421B7B5F9300650E1B /* VerifyService.swift in Sources */,
+				2A9325461B8A1D6900217D87 /* ControlRequest.swift in Sources */,
+				2AE0DE711B80F937008C308F /* SearchResponse.swift in Sources */,
+				2ADD5E2F1B7B57DB00650E1B /* LogoutResponse.swift in Sources */,
+				2A32B22E1B6A759200AB5ADB /* SDKCheckService.swift in Sources */,
+				2A32B23B1B6A759200AB5ADB /* VerifyRequest.swift in Sources */,
+				2A32B2351B6A759200AB5ADB /* ResultCodes.swift in Sources */,
+				2A32B2361B6A759200AB5ADB /* TokenResponse.swift in Sources */,
+				2A9325C91B8F311600217D87 /* VerifyClient.swift in Sources */,
+				2A32B2291B6A759200AB5ADB /* BaseResponse.swift in Sources */,
+				2A32B2381B6A759200AB5ADB /* UserStatus.swift in Sources */,
+				2ADD5E5A1B7D118500650E1B /* LogoutRequest.swift in Sources */,
+				2AE0DE6E1B80F92E008C308F /* SearchRequest.swift in Sources */,
+				2A32B22D1B6A759200AB5ADB /* CheckResponse.swift in Sources */,
+				2A32B2301B6A759200AB5ADB /* HttpRequest.swift in Sources */,
+				2A32B2331B6A759200AB5ADB /* Logger.swift in Sources */,
+				2A32B22F1B6A759200AB5ADB /* Config.swift in Sources */,
+				2A32B2321B6A759200AB5ADB /* HttpResponse.swift in Sources */,
+				2A32B23D1B6A759200AB5ADB /* SDKVerifyService.swift in Sources */,
+				2ADD5E341B7B5B3C00650E1B /* SDKLogoutService.swift in Sources */,
+				2A32B2341B6A759200AB5ADB /* NexmoClient.swift in Sources */,
+				2A32B22A1B6A759200AB5ADB /* ServiceHelper.swift in Sources */,
+				2A32B23C1B6A759200AB5ADB /* VerifyResponse.swift in Sources */,
+				2AE0DE741B80FDD9008C308F /* SDKSearchService.swift in Sources */,
+				2A32B2371B6A759200AB5ADB /* SDKTokenService.swift in Sources */,
+				2A1E47E01B78869B00C02690 /* SDKControlService.swift in Sources */,
+				2ADD5E431B7B5F9700650E1B /* TokenService.swift in Sources */,
+				2A1E47DE1B78869B00C02690 /* ControlResponse.swift in Sources */,
+				2A32B23E1B6A759200AB5ADB /* VerifyTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2A5E4D741B03643800AAFAA1 /* PBXTargetDependency */ = {
+		2A6B60831B67A04B005378E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2A5E4D651B03643800AAFAA1 /* VerifyIosSdk */;
-			targetProxy = 2A5E4D731B03643800AAFAA1 /* PBXContainerItemProxy */;
+			target = 2A6B60751B67A04B005378E0 /* RequestSigning */;
+			targetProxy = 2A6B60821B67A04B005378E0 /* PBXContainerItemProxy */;
+		};
+		2A6B60A51B67A078005378E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A6B60971B67A078005378E0 /* DeviceProperties */;
+			targetProxy = 2A6B60A41B67A078005378E0 /* PBXContainerItemProxy */;
+		};
+		2ABA3AC71B6166A900EB4842 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ABA3AB81B6166A800EB4842 /* VerifyIosSdk */;
+			targetProxy = 2ABA3AC61B6166A900EB4842 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2A5E4D7A1B03643800AAFAA1 /* Debug */ = {
+		2A6B60891B67A04B005378E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RequestSigning/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2A6B608A1B67A04B005378E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = RequestSigning/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2A6B608B1B67A04B005378E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RequestSigningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2A6B608C1B67A04B005378E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RequestSigningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2A6B60AC1B67A078005378E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DeviceProperties/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2A6B60AD1B67A078005378E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DeviceProperties/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2A6B60AF1B67A078005378E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DevicePropertiesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2A6B60B01B67A078005378E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DevicePropertiesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2ABA3ACD1B6166A900EB4842 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -268,9 +1000,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -279,7 +1011,7 @@
 			};
 			name = Debug;
 		};
-		2A5E4D7B1B03643800AAFAA1 /* Release */ = {
+		2ABA3ACE1B6166A900EB4842 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -310,8 +1042,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -320,42 +1053,58 @@
 			};
 			name = Release;
 		};
-		2A5E4D7D1B03643800AAFAA1 /* Debug */ = {
+		2ABA3AD01B6166A900EB4842 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VerifyIosSdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
-		2A5E4D7E1B03643800AAFAA1 /* Release */ = {
+		2ABA3AD11B6166A900EB4842 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = VerifyIosSdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
-		2A5E4D801B03643800AAFAA1 /* Debug */ = {
+		2ABA3AD31B6166A900EB4842 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(SDKROOT)/Developer/Library/Frameworks",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -367,12 +1116,12 @@
 			};
 			name = Debug;
 		};
-		2A5E4D811B03643800AAFAA1 /* Release */ = {
+		2ABA3AD41B6166A900EB4842 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(SDKROOT)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = VerifyIosSdkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -383,32 +1132,70 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A5E4D601B03643800AAFAA1 /* Build configuration list for PBXProject "VerifyIosSdk" */ = {
+		2A6B608D1B67A04B005378E0 /* Build configuration list for PBXNativeTarget "RequestSigning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A5E4D7A1B03643800AAFAA1 /* Debug */,
-				2A5E4D7B1B03643800AAFAA1 /* Release */,
+				2A6B60891B67A04B005378E0 /* Debug */,
+				2A6B608A1B67A04B005378E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A5E4D7C1B03643800AAFAA1 /* Build configuration list for PBXNativeTarget "VerifyIosSdk" */ = {
+		2A6B608E1B67A04B005378E0 /* Build configuration list for PBXNativeTarget "RequestSigningTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A5E4D7D1B03643800AAFAA1 /* Debug */,
-				2A5E4D7E1B03643800AAFAA1 /* Release */,
+				2A6B608B1B67A04B005378E0 /* Debug */,
+				2A6B608C1B67A04B005378E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		2A5E4D7F1B03643800AAFAA1 /* Build configuration list for PBXNativeTarget "VerifyIosSdkTests" */ = {
+		2A6B60AB1B67A078005378E0 /* Build configuration list for PBXNativeTarget "DeviceProperties" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A5E4D801B03643800AAFAA1 /* Debug */,
-				2A5E4D811B03643800AAFAA1 /* Release */,
+				2A6B60AC1B67A078005378E0 /* Debug */,
+				2A6B60AD1B67A078005378E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A6B60AE1B67A078005378E0 /* Build configuration list for PBXNativeTarget "DevicePropertiesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A6B60AF1B67A078005378E0 /* Debug */,
+				2A6B60B01B67A078005378E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ABA3AB31B6166A800EB4842 /* Build configuration list for PBXProject "VerifyIosSdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ABA3ACD1B6166A900EB4842 /* Debug */,
+				2ABA3ACE1B6166A900EB4842 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ABA3ACF1B6166A900EB4842 /* Build configuration list for PBXNativeTarget "VerifyIosSdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ABA3AD01B6166A900EB4842 /* Debug */,
+				2ABA3AD11B6166A900EB4842 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ABA3AD21B6166A900EB4842 /* Build configuration list for PBXNativeTarget "VerifyIosSdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ABA3AD31B6166A900EB4842 /* Debug */,
+				2ABA3AD41B6166A900EB4842 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2A5E4D5D1B03643800AAFAA1 /* Project object */;
+	rootObject = 2ABA3AB01B6166A800EB4842 /* Project object */;
 }

@@ -1,15 +1,15 @@
 //
-//  VerifyIosSdkTests.swift
-//  VerifyIosSdkTests
+//  VerifyIosSdk_ExampleTests.swift
+//  VerifyIosSdk_ExampleTests
 //
-//  Created by Dorian Peake on 13/05/2015.
-//  Copyright (c) 2015 Nexmo. All rights reserved.
+//  Created by Dorian Peake on 27/07/2015.
+//  Copyright (c) 2015 Nexmo Inc. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class VerifyIosSdkTests: XCTestCase {
+class VerifyIosSdk_ExampleTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
