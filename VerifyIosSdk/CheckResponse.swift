@@ -18,7 +18,7 @@ class CheckResponse : BaseResponse {
     required init?(_ httpResponse: HttpResponse) {
         super.init(httpResponse)
         
-        if let userStatus = self.json[ServiceHelper.PARAM_RESULT_USER_STATUS] as? String {
+        if let userStatus = self.json[ServiceExecutor.PARAM_RESULT_USER_STATUS] as? String {
                 self.userStatus = userStatus
         }
     }

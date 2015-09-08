@@ -17,15 +17,23 @@ $ git submodule add https://github.com/nexmo/verify-ios-sdk.git
 ```
 
 - Open the new `verify-ios-sdk` folder, and drag the `VerifyIosSdk.xcodeproj` into the Project Navigator of your application's Xcode project.
+
     > It should appear nested underneath your applications blue project icon. Whether it is above or below all the other Xcode groups does not matter.
+
 - Select the `VerifyIosSdk.xcodeproj` in the Project Navigator and verify the deployment target matches that of your application target.
 - Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the `Targets` heading in the sidebar.
 - In the tab bar at the top of that window, open the "General" panel.
 - Click on the `+` button under the "Embedded Binaries" section.
 - You will two different `VerifyIosSdk.xcodeproj` each containing the files `VerifyIosSdk.framework`, `DeviceProperties.framework` and `RequestSigning.framework`, nested inside a `Products` folder.
+
     > It does not matter which `Products` folder you choose from.
+
 - Select each of the three files listed above.
+
+    > If you are importing the SDK into an Objective-C based application you must also navigate to your target's Build Settings and enable `Embedded Content Contains Swift Code` under `Build Options`.
+
 - And that's it!
+
     > The framework files are automagically added as a target dependencies, linked frameworks and embedded frameworks in a copy files build phase which is all you need to build on the simulator and a device.
 
 ## Getting Started

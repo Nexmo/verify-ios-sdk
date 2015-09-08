@@ -15,17 +15,21 @@ public class VerifyRequest {
 
     let countryCode : String?
     let phoneNumber : String
-    let token : String
     let gcmToken : String?
     
-    init(countryCode: String?, phoneNumber: String, token: String, gcmToken: String?) {
+    init(countryCode: String?, phoneNumber: String, gcmToken: String?) {
         self.countryCode = countryCode
         self.phoneNumber = phoneNumber
-        self.token = token
         self.gcmToken = gcmToken
     }
     
-    convenience init(countryCode: String?, phoneNumber: String, token: String) {
-        self.init(countryCode: countryCode, phoneNumber: phoneNumber, token: token, gcmToken: nil)
+    convenience init(countryCode: String?, phoneNumber: String) {
+        self.init(countryCode: countryCode, phoneNumber: phoneNumber, gcmToken: nil)
     }
+}
+
+public func ==(lhs: VerifyRequest, rhs: VerifyRequest) -> Bool {
+    return (lhs.countryCode == rhs.countryCode &&
+            lhs.phoneNumber == rhs.phoneNumber &&
+            lhs.gcmToken == rhs.gcmToken)
 }

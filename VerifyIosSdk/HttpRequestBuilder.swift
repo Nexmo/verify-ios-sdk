@@ -51,7 +51,9 @@ class HttpRequestBuilder {
     }
     
     func setParams(params: [String:String]) -> HttpRequestBuilder {
-        self.params = params
+        if (params.count > 0) {
+            self.params = params
+        }
         return self
     }
     

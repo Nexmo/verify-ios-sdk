@@ -14,7 +14,7 @@ class SearchResponse : BaseResponse {
     required init?(_ httpResponse: HttpResponse) {
         super.init(httpResponse)
         
-        if let userStatus = self.json[ServiceHelper.PARAM_RESULT_USER_STATUS] as? String {
+        if let userStatus = self.json[ServiceExecutor.PARAM_RESULT_USER_STATUS] as? String {
                 self.userStatus = userStatus
         }
     }
@@ -22,5 +22,9 @@ class SearchResponse : BaseResponse {
     init(userStatus: String, signature: String, resultCode: Int, resultMessage: String, timestamp: String, messageBody: String) {
         self.userStatus = userStatus
         super.init(signature: signature, resultCode: resultCode, resultMessage: resultMessage, timestamp: timestamp, messageBody: messageBody)
+    }
+    
+    convenience init(userStatus: String, signature: String, resultCode: Int, resultMessage: String, timestamp: NSDate, messageBody: String) {
+        self.init(userStatus: userStatus, signature: signature, resultCode: resultCode, resultMessage: resultMessage, timestamp: "\(Int(timestamp.timeIntervalSince1970))", messageBody: messageBody)
     }
 }

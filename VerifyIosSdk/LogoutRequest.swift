@@ -8,15 +8,18 @@
 
 import Foundation
 
-class LogoutRequest {
+class LogoutRequest : Equatable {
 
-    let token : String
     let number : String
     let countryCode : String?
     
-    init(token: String, number: String, countryCode: String?) {
-        self.token = token
+    init(number: String, countryCode: String?) {
         self.number = number
         self.countryCode = countryCode
     }
+}
+
+func ==(lhs: LogoutRequest, rhs: LogoutRequest) -> Bool {
+    return (lhs.number == rhs.number &&
+            lhs.countryCode == rhs.countryCode)
 }

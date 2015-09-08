@@ -15,20 +15,20 @@ class SDKLogoutService : LogoutService {
     private static let Log = Logger(toString(SDKLogoutService))
 
     private let nexmoClient : NexmoClient
-    private let serviceHelper : ServiceHelper
+    private let serviceExecutor : ServiceExecutor
     private let requestSigner : RequestSigner
     private let deviceProperties : DevicePropertyAccessor
     
     init() {
         self.nexmoClient = NexmoClient.sharedInstance
-        self.serviceHelper = ServiceHelper.sharedInstance
+        self.serviceExecutor = ServiceExecutor.sharedInstance
         self.requestSigner = SDKRequestSigner.sharedInstance()
         self.deviceProperties = SDKDeviceProperties.sharedInstance()
     }
     
-    init(nexmoClient: NexmoClient, serviceHelper: ServiceHelper, requestSigner: RequestSigner, deviceProperties: DevicePropertyAccessor) {
+    init(nexmoClient: NexmoClient, serviceExecutor: ServiceExecutor, requestSigner: RequestSigner, deviceProperties: DevicePropertyAccessor) {
         self.nexmoClient = nexmoClient
-        self.serviceHelper = serviceHelper
+        self.serviceExecutor = serviceExecutor
         self.requestSigner = requestSigner
         self.deviceProperties = deviceProperties
     }
@@ -37,7 +37,7 @@ class SDKLogoutService : LogoutService {
         var params = NSMutableDictionary()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceHelper.PARAM_DEVICE_ID)) {
+            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
                 let error = NSError(domain: "SDKLogoutService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKLogoutService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -47,7 +47,7 @@ class SDKLogoutService : LogoutService {
                 return
             }
             
-            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceHelper.PARAM_SOURCE_IP)) {
+            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKLogoutService", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKLogoutService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -57,41 +57,22 @@ class SDKLogoutService : LogoutService {
                 return
             }
             
-            params[ServiceHelper.PARAM_TOKEN] = request.token
-            params[ServiceHelper.PARAM_NUMBER] = request.number
+            params[ServiceExecutor.PARAM_NUMBER] = request.number
             
             if let countryCode = request.countryCode {
-                params[ServiceHelper.PARAM_COUNTRY_CODE] = countryCode
+                params[ServiceExecutor.PARAM_COUNTRY_CODE] = countryCode
             }
             
             let swiftParams = params.copy() as! [String:String]
-            if let httpRequest = self.serviceHelper.generateHttpRequestForService(self.nexmoClient, path: ServiceHelper.METHOD_LOGOUT, timestamp: NSDate(), params: swiftParams) {
-                httpRequest.execute() { httpResponse, error in
-                    SDKLogoutService.Log.info("httpResponse callback")
-                    if let error = error {
-                        SDKLogoutService.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
-                        }
-                    } else if let logoutResponse = LogoutResponse(httpResponse!) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: logoutResponse, error: nil)
-                        }
-                    } else {
-                        let error = NSError(domain: "SDKLogoutService", code: 3, userInfo: [NSLocalizedDescriptionKey : "Failed to create LogoutResponse object!"])
-                        SDKLogoutService.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
-                        }
+            self.serviceExecutor.performHttpRequestForService(LogoutResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_LOGOUT, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+                if let error = error {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        onResponse(response: nil, error: error)
                     }
-                    
-                    return
-                }
-            } else {
-                let error = NSError(domain: "SDKLogoutService", code: 4, userInfo: [NSLocalizedDescriptionKey : "Failed to create HttpRequest object!"])
-                SDKLogoutService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        onResponse(response: (response as! LogoutResponse), error: nil)
+                    }
                 }
             }
             return

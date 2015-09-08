@@ -30,7 +30,7 @@ import DeviceProperties
     
     // nexmo sdk services
     private let nexmoClient : NexmoClient
-    private let tokenService : TokenService
+    private let serviceExecutor : ServiceExecutor
     private let verifyService : VerifyService
     private let checkService : CheckService
     private let controlService : ControlService
@@ -39,9 +39,9 @@ import DeviceProperties
     
     private var currentVerifyTask : VerifyTask?
 
-    init(nexmoClient: NexmoClient, tokenService: TokenService, verifyService: VerifyService, checkService: CheckService, controlService: ControlService, logoutService: LogoutService, searchService: SearchService) {
+    init(nexmoClient: NexmoClient, serviceExecutor: ServiceExecutor, verifyService: VerifyService, checkService: CheckService, controlService: ControlService, logoutService: LogoutService, searchService: SearchService) {
             self.nexmoClient = nexmoClient
-            self.tokenService = tokenService
+            self.serviceExecutor = serviceExecutor
             self.verifyService = verifyService
             self.checkService = checkService
             self.controlService = controlService
@@ -51,7 +51,7 @@ import DeviceProperties
     
     convenience init(nexmoClient: NexmoClient) {
         self.init(nexmoClient: nexmoClient,
-                  tokenService: SDKTokenService(),
+                  serviceExecutor: ServiceExecutor(),
                   verifyService: SDKVerifyService(),
                   checkService: SDKCheckService(),
                   controlService: SDKControlService(),
@@ -97,63 +97,46 @@ import DeviceProperties
         }
         
         // acquire new token for this verification attempt
-        tokenService.start(request: ()) { response, error in
+        let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: phoneNumber, gcmToken: self.nexmoClient.gcmToken, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
+        self.currentVerifyTask = verifyTask
+        
+        // begin verification process
+        self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest()) { response, error in
             if let error = error {
                 onError(error: .INTERNAL_ERROR)
                 return
             }
             
-            let resultCode = ResponseCode.Code(rawValue: response!.resultCode)!
-            switch (resultCode) {
-                case .RESULT_CODE_OK:
-                if let token = response!.token {
-                    let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: phoneNumber, token: token, gcmToken: self.nexmoClient.gcmToken, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
-                    self.currentVerifyTask = verifyTask
+            if let response = response {
+                if let responseCode =  ResponseCode.Code(rawValue: response.resultCode) where
+                        (responseCode == .RESULT_CODE_OK ||
+                        responseCode == .VERIFICATION_RESTARTED ||
+                        responseCode == .VERIFICATION_EXPIRED_RESTARTED) {
                     
-                    // begin verification process
-                    self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest()) { response, error in
-                        if let error = error {
-                            onError(error: .INTERNAL_ERROR)
-                            return
-                        }
+                    verifyTask.setUserState(response.userStatus!)
+                    
+                    switch (response.userStatus!) {
+                        case UserStatus.USER_PENDING:
+                            verifyTask.onVerifyInProgress()
                         
-                        if let response = response {
-                            if let responseCode =  ResponseCode.Code(rawValue: response.resultCode) where
-                                    (responseCode == .RESULT_CODE_OK ||
-                                    responseCode == .VERIFICATION_RESTARTED ||
-                                    responseCode == .VERIFICATION_EXPIRED_RESTARTED) {
-                                
-                                verifyTask.setUserState(response.userStatus!)
-                                
-                                switch (response.userStatus!) {
-                                    case UserStatus.USER_PENDING:
-                                        verifyTask.onVerifyInProgress()
-                                    
-                                    case UserStatus.USER_VERIFIED:
-                                        verifyTask.onUserVerified()
-                                    
-                                    case UserStatus.USER_EXPIRED:
-                                        verifyTask.onError(error: .USER_EXPIRED)
-                                    
-                                    case UserStatus.USER_BLACKLISTED:
-                                        verifyTask.onError(error: .USER_BLACKLISTED)
-                                    
-                                    default:
-                                        verifyTask.onError(error: .INTERNAL_ERROR)
-                                }
-                            } else if let responseCode = ResponseCode.Code(rawValue: response.resultCode),
-                                      let error = ResponseCode.responseCodeToVerifyError[responseCode] {
-                                verifyTask.onError(error: error)
-                            } else {
-                                verifyTask.onError(error: .INTERNAL_ERROR)
-                            }
-                        }
+                        case UserStatus.USER_VERIFIED:
+                            verifyTask.onUserVerified()
+                        
+                        case UserStatus.USER_EXPIRED:
+                            verifyTask.onError(error: .USER_EXPIRED)
+                        
+                        case UserStatus.USER_BLACKLISTED:
+                            verifyTask.onError(error: .USER_BLACKLISTED)
+                        
+                        default:
+                            verifyTask.onError(error: .INTERNAL_ERROR)
                     }
+                } else if let responseCode = ResponseCode.Code(rawValue: response.resultCode),
+                          let error = ResponseCode.responseCodeToVerifyError[responseCode] {
+                    verifyTask.onError(error: error)
+                } else {
+                    verifyTask.onError(error: .INTERNAL_ERROR)
                 }
-                
-                default:
-                let error = ResponseCode.responseCodeToVerifyError[resultCode]!
-                onError(error: error)
             }
         }
     }
@@ -221,15 +204,13 @@ import DeviceProperties
             controlService.start(request: ControlRequest(.Cancel, verifyTask: currentVerifyTask)) { response, error in
                 if let error = error {
                     completionBlock(error: error)
-                } else if (response?.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
+                } else {
                     completionBlock(error: nil)
                     self.currentVerifyTask = nil
-                } else {
-                    completionBlock(error: NSError(domain: "SDKCheckService", code: response!.resultCode, userInfo: [NSLocalizedDescriptionKey : response!.resultMessage]))
                 }
             }
         } else {
-            completionBlock(error: NSError(domain: "SDKCheckService", code: 1, userInfo: [NSLocalizedDescriptionKey : "No verification attempt in progress"]))
+            completionBlock(error: NSError(domain: "VerifyClient", code: 1, userInfo: [NSLocalizedDescriptionKey : "No verification attempt in progress"]))
         }
     }
     
@@ -253,14 +234,12 @@ import DeviceProperties
             controlService.start(request: ControlRequest(.NextEvent, verifyTask: currentVerifyTask)) { response, error in
                 if let error = error {
                     completionBlock(error: error)
-                } else if (response?.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
-                    completionBlock(error: nil)
                 } else {
-                    completionBlock(error: NSError(domain: "SDKCheckService", code: response!.resultCode, userInfo: [NSLocalizedDescriptionKey : response!.resultMessage]))
+                    completionBlock(error: nil)
                 }
             }
         } else {
-            completionBlock(error: NSError(domain: "SDKCheckService", code: 1, userInfo: [NSLocalizedDescriptionKey : "No verification attempt in progress"]))
+            completionBlock(error: NSError(domain: "VerifyClient", code: 1, userInfo: [NSLocalizedDescriptionKey : "No verification attempt in progress"]))
         }
     }
     
@@ -279,25 +258,15 @@ import DeviceProperties
     }
     
     func logoutUser(#countryCode: String?, number: String, completionBlock: (error: NSError?) -> ()) {
-        tokenService.start(request: (), onResponse: { response, error in
+
+        var logoutRequest = LogoutRequest(number: number, countryCode: countryCode)
+        self.logoutService.start(request: logoutRequest) { response, error in
             if let error = error {
                 completionBlock(error: error)
-            } else if (response?.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
-                let token = response!.token!
-                var logoutRequest = LogoutRequest(token: token, number: number, countryCode: countryCode)
-                self.logoutService.start(request: logoutRequest, onResponse: { response, error in
-                    if let error = error {
-                        completionBlock(error: error)
-                    } else if (response?.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
-                        completionBlock(error: nil)
-                    } else {
-                        completionBlock(error: NSError(domain: "VerifyClient", code: 1, userInfo: [NSLocalizedDescriptionKey : response!.resultMessage]))
-                    }
-                })
             } else {
-                completionBlock(error: NSError(domain: "VerifyClient", code: 1, userInfo: [NSLocalizedDescriptionKey : response!.resultMessage]))
+                completionBlock(error: nil)
             }
-        })
+        }
     }
     
     /**
@@ -347,22 +316,12 @@ import DeviceProperties
     }
     
     func getUserStatus(#countryCode: String?, number: String, completionBlock: (status: String?, error: NSError?) -> ()) {
-        self.tokenService.start(request: ()) { response, error in
+        let searchRequest = SearchRequest(number: number, countryCode: countryCode)
+        self.searchService.start(request: searchRequest) { response, error in
             if let error = error {
                 completionBlock(status: nil, error: error)
-            } else if (response!.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
-                let searchRequest = SearchRequest(number: number, token: response!.token!, countryCode: countryCode)
-                self.searchService.start(request: searchRequest) { response, error in
-                    if let error = error {
-                        completionBlock(status: nil, error: error)
-                    } else if (response!.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
-                        completionBlock(status: response!.userStatus, error: nil)
-                    } else {
-                        completionBlock(status: nil, error: NSError(domain: "SDKSearchService", code: 1, userInfo: [NSLocalizedDescriptionKey : response!.resultMessage]))
-                    }
-                }
             } else {
-                completionBlock(status: nil, error: NSError(domain: "SDKSearchService", code: 1, userInfo: [NSLocalizedDescriptionKey : response!.resultMessage]))
+                completionBlock(status: response!.userStatus, error: nil)
             }
         }
         return

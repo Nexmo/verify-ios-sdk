@@ -8,15 +8,18 @@
 
 import Foundation
 
-class SearchRequest {
+class SearchRequest : Equatable {
 
     var number : String
-    var token : String
     var countryCode : String?
     
-    init(number: String, token: String, countryCode: String?) {
+    init(number: String, countryCode: String?) {
         self.number = number
-        self.token = token
         self.countryCode = countryCode
     }
+}
+
+func ==(lhs: SearchRequest, rhs: SearchRequest) -> Bool {
+    return (lhs.number == rhs.number &&
+            lhs.countryCode == rhs.countryCode)
 }

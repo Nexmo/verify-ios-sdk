@@ -16,18 +16,18 @@ class SDKControlService : ControlService {
     private static let Log = Logger(toString(SDKControlService))
     
     private let nexmoClient : NexmoClient
-    private let serviceHelper : ServiceHelper
+    private let serviceExecutor : ServiceExecutor
     private let deviceProperties : DevicePropertyAccessor
     
-    init(nexmoClient: NexmoClient, serviceHelper: ServiceHelper, deviceProperties: DevicePropertyAccessor) {
+    init(nexmoClient: NexmoClient, serviceExecutor: ServiceExecutor, deviceProperties: DevicePropertyAccessor) {
         self.nexmoClient = nexmoClient
-        self.serviceHelper = serviceHelper
+        self.serviceExecutor = serviceExecutor
         self.deviceProperties = deviceProperties
     }
     
     init() {
         self.nexmoClient = NexmoClient.sharedInstance
-        self.serviceHelper = ServiceHelper.sharedInstance
+        self.serviceExecutor = ServiceExecutor.sharedInstance
         self.deviceProperties = SDKDeviceProperties.sharedInstance()
     }
     
@@ -35,7 +35,7 @@ class SDKControlService : ControlService {
     
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             var params = NSMutableDictionary()
-            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceHelper.PARAM_SOURCE_IP)) {
+            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKControlService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKControlService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -45,7 +45,7 @@ class SDKControlService : ControlService {
                 return
             }
             
-            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceHelper.PARAM_DEVICE_ID)) {
+            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
                 let error = NSError(domain: "SDKControlService", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKControlService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -55,41 +55,23 @@ class SDKControlService : ControlService {
                 return
             }
             
-            params.setObject(request.command, forKey: ServiceHelper.PARAM_COMMAND)
-            params.setObject(request.phoneNumber, forKey: ServiceHelper.PARAM_NUMBER)
-            params.setObject(request.token, forKey: ServiceHelper.PARAM_TOKEN)
+            params[ServiceExecutor.PARAM_COMMAND] = request.command
+            params[ServiceExecutor.PARAM_NUMBER] = request.phoneNumber
             
             if let countryCode = request.countryCode {
-                params.setObject(countryCode, forKey: ServiceHelper.PARAM_COUNTRY_CODE)
+                params[ServiceExecutor.PARAM_COUNTRY_CODE] = countryCode
             }
             
             let swiftParams = params.copy() as! [String:String]
-            if let httpRequest = self.serviceHelper.generateHttpRequestForService(self.nexmoClient, path: ServiceHelper.METHOD_CONTROL, timestamp: NSDate(), params: swiftParams) {
-                httpRequest.execute() { httpResponse, error in
-                    SDKControlService.Log.info("httpResponse callback")
-                    if let error = error {
-                        SDKControlService.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
-                        }
-                    } else if let controlResponse = ControlResponse(httpResponse!) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: controlResponse, error: nil)
-                        }
-                    } else {
-                        let error = NSError(domain: "SDKControlService", code: 3, userInfo: [NSLocalizedDescriptionKey : "Failed to create ControlResponse object!"])
-                        SDKControlService.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
-                        }
+            self.serviceExecutor.performHttpRequestForService(ControlResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_CONTROL, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+                if let error = error {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        onResponse(response: nil, error: error)
                     }
-                }
-            // if let httpRequest
-            } else {
-                let error = NSError(domain: "SDKControlService", code: 4, userInfo: [NSLocalizedDescriptionKey : "Failed to create HttpRequest object!"])
-                SDKControlService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        onResponse(response: (response as! ControlResponse), error: nil)
+                    }
                 }
             }
         }

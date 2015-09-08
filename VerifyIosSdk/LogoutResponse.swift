@@ -10,7 +10,7 @@ import Foundation
 
 class LogoutResponse : BaseResponse {
 
-    override init(signature: String, resultCode: Int, resultMessage: String, timestamp: String, messageBody: String) {
+    override init(signature: String?, resultCode: Int, resultMessage: String, timestamp: String, messageBody: String) {
         super.init(signature: signature, resultCode: resultCode, resultMessage: resultMessage, timestamp: timestamp, messageBody: messageBody)
     }
 

@@ -14,18 +14,18 @@ class SDKSearchService : SearchService {
     private static let Log = Logger(toString(SDKSearchService))
     
     private let nexmoClient : NexmoClient
-    private let serviceHelper : ServiceHelper
+    private let serviceExecutor : ServiceExecutor
     private let deviceProperties : DevicePropertyAccessor
 
-    init(nexmoClient: NexmoClient, deviceProperties: DevicePropertyAccessor, serviceHelper: ServiceHelper) {
+    init(nexmoClient: NexmoClient, deviceProperties: DevicePropertyAccessor, serviceExecutor: ServiceExecutor) {
         self.nexmoClient = nexmoClient
-        self.serviceHelper = serviceHelper
+        self.serviceExecutor = serviceExecutor
         self.deviceProperties = deviceProperties
     }
     
     init() {
         self.nexmoClient = NexmoClient.sharedInstance
-        self.serviceHelper = ServiceHelper.sharedInstance
+        self.serviceExecutor = ServiceExecutor.sharedInstance
         self.deviceProperties = SDKDeviceProperties.sharedInstance()
     }
     
@@ -33,7 +33,7 @@ class SDKSearchService : SearchService {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             var params = NSMutableDictionary()
 
-            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceHelper.PARAM_SOURCE_IP)) {
+            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKSearchService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKSearchService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -43,7 +43,7 @@ class SDKSearchService : SearchService {
                 return
             }
             
-            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceHelper.PARAM_DEVICE_ID)) {
+            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
                 let error = NSError(domain: "SDKSearchService", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKSearchService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
@@ -53,43 +53,24 @@ class SDKSearchService : SearchService {
                 return
             }
             
-            params[ServiceHelper.PARAM_TOKEN] = request.token
-            params[ServiceHelper.PARAM_NUMBER] = request.number
+            params[ServiceExecutor.PARAM_NUMBER] = request.number
 
             if let countryCode = request.countryCode {
-                params[ServiceHelper.PARAM_COUNTRY_CODE] = countryCode
+                params[ServiceExecutor.PARAM_COUNTRY_CODE] = countryCode
             }
             
             let swiftParams = params.copy() as! [String:String]
-            if let httpRequest = self.serviceHelper.generateHttpRequestForService(self.nexmoClient, path: ServiceHelper.METHOD_SEARCH, timestamp: NSDate(), params: swiftParams) {
-                httpRequest.execute() {httpResponse, error in
-                    if let error = error {
-                        SDKSearchService.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
-                        }
-                    } else if let searchResponse = SearchResponse(httpResponse!) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: searchResponse, error: nil)
-                        }
-                    } else {
-                        let error = NSError(domain: "SDKSearchService", code: 3, userInfo: [NSLocalizedDescriptionKey : "Failed to create VerifyResponse object!"])
-                        SDKSearchService.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
-                        }
+            self.serviceExecutor.performHttpRequestForService(SearchResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_SEARCH, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+                if let error = error {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        onResponse(response: nil, error: error)
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        onResponse(response: (response as! SearchResponse), error: nil)
                     }
                 }
-            // if let httpRequest
-            } else {
-                let error = NSError(domain: "SDKSearchService", code: 4, userInfo: [NSLocalizedDescriptionKey : "Failed to create HttpRequest object!"])
-                SDKSearchService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
-                }
             }
-
-            
         }
     }
 }

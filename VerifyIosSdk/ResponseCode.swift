@@ -1,5 +1,5 @@
 //
-//  ResultCodes.swift
+//  ResponseCode.swift
 //  VerifyIosSdk
 //
 //  Created by Dorian Peake on 16/05/2015.

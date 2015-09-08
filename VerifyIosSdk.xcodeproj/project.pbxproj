@@ -12,7 +12,7 @@
 		2A1E47DF1B78869B00C02690 /* SDKControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47DA1B78869B00C02690 /* SDKControlService.swift */; };
 		2A1E47E01B78869B00C02690 /* SDKControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47DA1B78869B00C02690 /* SDKControlService.swift */; };
 		2A26A77F1B6168C20062B9FD /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7651B6168C20062B9FD /* BaseResponse.swift */; };
-		2A26A7801B6168C20062B9FD /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7661B6168C20062B9FD /* ServiceHelper.swift */; };
+		2A26A7801B6168C20062B9FD /* ServiceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7661B6168C20062B9FD /* ServiceExecutor.swift */; };
 		2A26A7821B6168C20062B9FD /* CheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7681B6168C20062B9FD /* CheckRequest.swift */; };
 		2A26A7831B6168C20062B9FD /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7691B6168C20062B9FD /* CheckResponse.swift */; };
 		2A26A7841B6168C30062B9FD /* SDKCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */; };
@@ -22,17 +22,18 @@
 		2A26A78A1B6168C30062B9FD /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7701B6168C20062B9FD /* HttpResponse.swift */; };
 		2A26A78B1B6168C30062B9FD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7711B6168C20062B9FD /* Logger.swift */; };
 		2A26A78C1B6168C30062B9FD /* NexmoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7721B6168C20062B9FD /* NexmoClient.swift */; };
-		2A26A78F1B6168C30062B9FD /* ResultCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7751B6168C20062B9FD /* ResultCodes.swift */; };
+		2A26A78F1B6168C30062B9FD /* ResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7751B6168C20062B9FD /* ResponseCode.swift */; };
 		2A26A7901B6168C30062B9FD /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7761B6168C20062B9FD /* TokenResponse.swift */; };
-		2A26A7911B6168C30062B9FD /* SDKTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7771B6168C20062B9FD /* SDKTokenService.swift */; };
 		2A26A7921B6168C30062B9FD /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7781B6168C20062B9FD /* UserStatus.swift */; };
 		2A26A7941B6168C30062B9FD /* VerifyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77A1B6168C20062B9FD /* VerifyError.swift */; };
 		2A26A7951B6168C30062B9FD /* VerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77B1B6168C20062B9FD /* VerifyRequest.swift */; };
 		2A26A7961B6168C30062B9FD /* VerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */; };
 		2A26A7971B6168C30062B9FD /* SDKVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */; };
 		2A26A7981B6168C30062B9FD /* VerifyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77E1B6168C20062B9FD /* VerifyTask.swift */; };
+		2A2DDAFE1B946F36009E4AE9 /* ResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DDAFD1B946F36009E4AE9 /* ResponseFactory.swift */; };
+		2A2DDB011B947192009E4AE9 /* ResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2DDAFD1B946F36009E4AE9 /* ResponseFactory.swift */; };
 		2A32B2291B6A759200AB5ADB /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7651B6168C20062B9FD /* BaseResponse.swift */; };
-		2A32B22A1B6A759200AB5ADB /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7661B6168C20062B9FD /* ServiceHelper.swift */; };
+		2A32B22A1B6A759200AB5ADB /* ServiceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7661B6168C20062B9FD /* ServiceExecutor.swift */; };
 		2A32B22C1B6A759200AB5ADB /* CheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7681B6168C20062B9FD /* CheckRequest.swift */; };
 		2A32B22D1B6A759200AB5ADB /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7691B6168C20062B9FD /* CheckResponse.swift */; };
 		2A32B22E1B6A759200AB5ADB /* SDKCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */; };
@@ -42,15 +43,23 @@
 		2A32B2321B6A759200AB5ADB /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7701B6168C20062B9FD /* HttpResponse.swift */; };
 		2A32B2331B6A759200AB5ADB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7711B6168C20062B9FD /* Logger.swift */; };
 		2A32B2341B6A759200AB5ADB /* NexmoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7721B6168C20062B9FD /* NexmoClient.swift */; };
-		2A32B2351B6A759200AB5ADB /* ResultCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7751B6168C20062B9FD /* ResultCodes.swift */; };
+		2A32B2351B6A759200AB5ADB /* ResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7751B6168C20062B9FD /* ResponseCode.swift */; };
 		2A32B2361B6A759200AB5ADB /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7761B6168C20062B9FD /* TokenResponse.swift */; };
-		2A32B2371B6A759200AB5ADB /* SDKTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7771B6168C20062B9FD /* SDKTokenService.swift */; };
 		2A32B2381B6A759200AB5ADB /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7781B6168C20062B9FD /* UserStatus.swift */; };
 		2A32B23A1B6A759200AB5ADB /* VerifyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77A1B6168C20062B9FD /* VerifyError.swift */; };
 		2A32B23B1B6A759200AB5ADB /* VerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77B1B6168C20062B9FD /* VerifyRequest.swift */; };
 		2A32B23C1B6A759200AB5ADB /* VerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */; };
 		2A32B23D1B6A759200AB5ADB /* SDKVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */; };
 		2A32B23E1B6A759200AB5ADB /* VerifyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A77E1B6168C20062B9FD /* VerifyTask.swift */; };
+		2A4994CC1B9DFF5E005E313C /* LogoutResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4994CB1B9DFF5E005E313C /* LogoutResponseFactory.swift */; };
+		2A573E871B9F423F00D16EE0 /* SearchResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E861B9F423F00D16EE0 /* SearchResponseFactory.swift */; };
+		2A573E881B9F428B00D16EE0 /* SearchResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E861B9F423F00D16EE0 /* SearchResponseFactory.swift */; };
+		2A573E8A1B9F453600D16EE0 /* CheckReponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E891B9F453600D16EE0 /* CheckReponseFactory.swift */; };
+		2A573E8B1B9F453900D16EE0 /* CheckReponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E891B9F453600D16EE0 /* CheckReponseFactory.swift */; };
+		2A573E8D1B9F45F400D16EE0 /* VerifyResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E8C1B9F45F400D16EE0 /* VerifyResponseFactory.swift */; };
+		2A573E8E1B9F45F400D16EE0 /* VerifyResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E8C1B9F45F400D16EE0 /* VerifyResponseFactory.swift */; };
+		2A573E901B9F467D00D16EE0 /* ControlResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E8F1B9F467D00D16EE0 /* ControlResponseFactory.swift */; };
+		2A573E911B9F467D00D16EE0 /* ControlResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E8F1B9F467D00D16EE0 /* ControlResponseFactory.swift */; };
 		2A6B607B1B67A04B005378E0 /* SDKRequestSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A6B60811B67A04B005378E0 /* RequestSigning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6B60761B67A04B005378E0 /* RequestSigning.framework */; };
 		2A6B609D1B67A078005378E0 /* SDKDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +74,7 @@
 		2A9325C91B8F311600217D87 /* VerifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325C71B8F310600217D87 /* VerifyClient.swift */; };
 		2ABA3ABF1B6166A800EB4842 /* VerifyIosSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2ABA3AC51B6166A900EB4842 /* VerifyIosSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */; };
+		2AD1A0A71B9EFDE900A19FDC /* LogoutResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4994CB1B9DFF5E005E313C /* LogoutResponseFactory.swift */; };
 		2ADD5E2B1B7B574E00650E1B /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */; };
 		2ADD5E2D1B7B578D00650E1B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */; };
 		2ADD5E2E1B7B57DB00650E1B /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */; };
@@ -73,10 +83,8 @@
 		2ADD5E341B7B5B3C00650E1B /* SDKLogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */; };
 		2ADD5E3B1B7B5D1F00650E1B /* CheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */; };
 		2ADD5E3D1B7B5D6200650E1B /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */; };
-		2ADD5E3F1B7B5DAA00650E1B /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */; };
 		2ADD5E411B7B5DCB00650E1B /* VerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */; };
 		2ADD5E421B7B5F9300650E1B /* VerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */; };
-		2ADD5E431B7B5F9700650E1B /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */; };
 		2ADD5E441B7B5F9B00650E1B /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */; };
 		2ADD5E451B7B5F9F00650E1B /* CheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */; };
 		2ADD5E491B7C82F800650E1B /* RequestSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADD5E481B7C82AF00650E1B /* RequestSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -124,7 +132,7 @@
 		2A1E47D91B78869B00C02690 /* ControlResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlResponse.swift; sourceTree = "<group>"; };
 		2A1E47DA1B78869B00C02690 /* SDKControlService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKControlService.swift; sourceTree = "<group>"; };
 		2A26A7651B6168C20062B9FD /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
-		2A26A7661B6168C20062B9FD /* ServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelper.swift; sourceTree = "<group>"; };
+		2A26A7661B6168C20062B9FD /* ServiceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceExecutor.swift; sourceTree = "<group>"; };
 		2A26A7681B6168C20062B9FD /* CheckRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckRequest.swift; sourceTree = "<group>"; };
 		2A26A7691B6168C20062B9FD /* CheckResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResponse.swift; sourceTree = "<group>"; };
 		2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKCheckService.swift; sourceTree = "<group>"; };
@@ -134,25 +142,28 @@
 		2A26A7701B6168C20062B9FD /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		2A26A7711B6168C20062B9FD /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2A26A7721B6168C20062B9FD /* NexmoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NexmoClient.swift; sourceTree = "<group>"; };
-		2A26A7751B6168C20062B9FD /* ResultCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCodes.swift; sourceTree = "<group>"; };
+		2A26A7751B6168C20062B9FD /* ResponseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCode.swift; sourceTree = "<group>"; };
 		2A26A7761B6168C20062B9FD /* TokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
-		2A26A7771B6168C20062B9FD /* SDKTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKTokenService.swift; sourceTree = "<group>"; };
 		2A26A7781B6168C20062B9FD /* UserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
 		2A26A77A1B6168C20062B9FD /* VerifyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyError.swift; sourceTree = "<group>"; };
 		2A26A77B1B6168C20062B9FD /* VerifyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyRequest.swift; sourceTree = "<group>"; };
 		2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyResponse.swift; sourceTree = "<group>"; };
 		2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKVerifyService.swift; sourceTree = "<group>"; };
 		2A26A77E1B6168C20062B9FD /* VerifyTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyTask.swift; sourceTree = "<group>"; };
+		2A2DDAFD1B946F36009E4AE9 /* ResponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseFactory.swift; sourceTree = "<group>"; };
+		2A4994CB1B9DFF5E005E313C /* LogoutResponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutResponseFactory.swift; sourceTree = "<group>"; };
+		2A573E861B9F423F00D16EE0 /* SearchResponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponseFactory.swift; sourceTree = "<group>"; };
+		2A573E891B9F453600D16EE0 /* CheckReponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckReponseFactory.swift; sourceTree = "<group>"; };
+		2A573E8C1B9F45F400D16EE0 /* VerifyResponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyResponseFactory.swift; sourceTree = "<group>"; };
+		2A573E8F1B9F467D00D16EE0 /* ControlResponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlResponseFactory.swift; sourceTree = "<group>"; };
 		2A6B60761B67A04B005378E0 /* RequestSigning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RequestSigning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6B60791B67A04B005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKRequestSigner.h; sourceTree = "<group>"; };
 		2A6B60801B67A04B005378E0 /* RequestSigningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RequestSigningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A6B60861B67A04B005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6B60981B67A078005378E0 /* DeviceProperties.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeviceProperties.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6B609B1B67A078005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKDeviceProperties.h; sourceTree = "<group>"; };
 		2A6B60A21B67A078005378E0 /* DevicePropertiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevicePropertiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A6B60A81B67A078005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9152301B6A6E6600F404E4 /* SDKRequestSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKRequestSigner.m; sourceTree = "<group>"; };
 		2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKDeviceProperties.m; sourceTree = "<group>"; };
 		2A9325441B8A1D4200217D87 /* ControlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlRequest.swift; sourceTree = "<group>"; };
@@ -161,13 +172,11 @@
 		2ABA3ABD1B6166A800EB4842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyIosSdk.h; sourceTree = "<group>"; };
 		2ABA3AC41B6166A900EB4842 /* VerifyIosSdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VerifyIosSdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ABA3ACA1B6166A900EB4842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutService.swift; sourceTree = "<group>"; };
 		2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKLogoutService.swift; sourceTree = "<group>"; };
 		2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckService.swift; sourceTree = "<group>"; };
 		2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlService.swift; sourceTree = "<group>"; };
-		2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyService.swift; sourceTree = "<group>"; };
 		2ADD5E481B7C82AF00650E1B /* RequestSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestSigner.h; sourceTree = "<group>"; };
 		2ADD5E4A1B7C8D1000650E1B /* RequestSigning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestSigning.h; sourceTree = "<group>"; };
@@ -252,22 +261,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A6B60841B67A04B005378E0 /* RequestSigningTests */ = {
-			isa = PBXGroup;
-			children = (
-				2A6B60851B67A04B005378E0 /* Supporting Files */,
-			);
-			path = RequestSigningTests;
-			sourceTree = "<group>";
-		};
-		2A6B60851B67A04B005378E0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2A6B60861B67A04B005378E0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		2A6B60991B67A078005378E0 /* DeviceProperties */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,31 +281,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A6B60A61B67A078005378E0 /* DevicePropertiesTests */ = {
-			isa = PBXGroup;
-			children = (
-				2A6B60A71B67A078005378E0 /* Supporting Files */,
-			);
-			path = DevicePropertiesTests;
-			sourceTree = "<group>";
-		};
-		2A6B60A71B67A078005378E0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2A6B60A81B67A078005378E0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		2ABA3AAF1B6166A800EB4842 = {
 			isa = PBXGroup;
 			children = (
 				2ABA3ABB1B6166A800EB4842 /* VerifyIosSdk */,
-				2ABA3AC81B6166A900EB4842 /* VerifyIosSdkTests */,
 				2A6B60771B67A04B005378E0 /* SDKRequestSigner */,
-				2A6B60841B67A04B005378E0 /* RequestSigningTests */,
 				2A6B60991B67A078005378E0 /* DeviceProperties */,
-				2A6B60A61B67A078005378E0 /* DevicePropertiesTests */,
 				2ABA3ABA1B6166A800EB4842 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -340,7 +314,7 @@
 				2ADD5E361B7B5C6700650E1B /* CheckService */,
 				2ADD5E351B7B5C5700650E1B /* LogoutService */,
 				2A26A7651B6168C20062B9FD /* BaseResponse.swift */,
-				2A26A7661B6168C20062B9FD /* ServiceHelper.swift */,
+				2A26A7661B6168C20062B9FD /* ServiceExecutor.swift */,
 				2A26A76B1B6168C20062B9FD /* Config.swift */,
 				2A26A76E1B6168C20062B9FD /* HttpRequest.swift */,
 				2A26A76F1B6168C20062B9FD /* HttpRequestBuilder.swift */,
@@ -348,10 +322,11 @@
 				2A26A7711B6168C20062B9FD /* Logger.swift */,
 				2A26A7721B6168C20062B9FD /* NexmoClient.swift */,
 				2A9325C71B8F310600217D87 /* VerifyClient.swift */,
-				2A26A7751B6168C20062B9FD /* ResultCodes.swift */,
+				2A26A7751B6168C20062B9FD /* ResponseCode.swift */,
 				2A26A7781B6168C20062B9FD /* UserStatus.swift */,
 				2A26A77A1B6168C20062B9FD /* VerifyError.swift */,
 				2A26A77E1B6168C20062B9FD /* VerifyTask.swift */,
+				2A2DDAFD1B946F36009E4AE9 /* ResponseFactory.swift */,
 				2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */,
 				2ABA3ABC1B6166A800EB4842 /* Supporting Files */,
 			);
@@ -366,22 +341,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2ABA3AC81B6166A900EB4842 /* VerifyIosSdkTests */ = {
-			isa = PBXGroup;
-			children = (
-				2ABA3AC91B6166A900EB4842 /* Supporting Files */,
-			);
-			path = VerifyIosSdkTests;
-			sourceTree = "<group>";
-		};
-		2ABA3AC91B6166A900EB4842 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2ABA3ACA1B6166A900EB4842 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		2ADD5E351B7B5C5700650E1B /* LogoutService */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +348,7 @@
 				2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */,
 				2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */,
 				2ADD5E581B7D10F600650E1B /* LogoutRequest.swift */,
+				2A4994CB1B9DFF5E005E313C /* LogoutResponseFactory.swift */,
 			);
 			name = LogoutService;
 			sourceTree = "<group>";
@@ -400,6 +360,7 @@
 				2A26A7691B6168C20062B9FD /* CheckResponse.swift */,
 				2A26A76A1B6168C20062B9FD /* SDKCheckService.swift */,
 				2ADD5E3A1B7B5D1F00650E1B /* CheckService.swift */,
+				2A573E891B9F453600D16EE0 /* CheckReponseFactory.swift */,
 			);
 			name = CheckService;
 			sourceTree = "<group>";
@@ -411,6 +372,7 @@
 				2A9325441B8A1D4200217D87 /* ControlRequest.swift */,
 				2A1E47DA1B78869B00C02690 /* SDKControlService.swift */,
 				2ADD5E3C1B7B5D6200650E1B /* ControlService.swift */,
+				2A573E8F1B9F467D00D16EE0 /* ControlResponseFactory.swift */,
 			);
 			name = ControlService;
 			sourceTree = "<group>";
@@ -419,8 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				2A26A7761B6168C20062B9FD /* TokenResponse.swift */,
-				2A26A7771B6168C20062B9FD /* SDKTokenService.swift */,
-				2ADD5E3E1B7B5DAA00650E1B /* TokenService.swift */,
 			);
 			name = TokenService;
 			sourceTree = "<group>";
@@ -432,6 +392,7 @@
 				2A26A77C1B6168C20062B9FD /* VerifyResponse.swift */,
 				2A26A77D1B6168C20062B9FD /* SDKVerifyService.swift */,
 				2ADD5E401B7B5DCB00650E1B /* VerifyService.swift */,
+				2A573E8C1B9F45F400D16EE0 /* VerifyResponseFactory.swift */,
 			);
 			name = VerifyService;
 			sourceTree = "<group>";
@@ -443,6 +404,7 @@
 				2AE0DE6C1B80F92E008C308F /* SearchRequest.swift */,
 				2AE0DE6F1B80F937008C308F /* SearchResponse.swift */,
 				2AE0DE721B80FDD9008C308F /* SDKSearchService.swift */,
+				2A573E861B9F423F00D16EE0 /* SearchResponseFactory.swift */,
 			);
 			name = SearchService;
 			sourceTree = "<group>";
@@ -728,7 +690,7 @@
 				2A26A7951B6168C30062B9FD /* VerifyRequest.swift in Sources */,
 				2A26A7891B6168C30062B9FD /* HttpRequestBuilder.swift in Sources */,
 				2A26A7981B6168C30062B9FD /* VerifyTask.swift in Sources */,
-				2A26A7801B6168C20062B9FD /* ServiceHelper.swift in Sources */,
+				2A26A7801B6168C20062B9FD /* ServiceExecutor.swift in Sources */,
 				2ADD5E331B7B59FC00650E1B /* SDKLogoutService.swift in Sources */,
 				2A26A7971B6168C30062B9FD /* SDKVerifyService.swift in Sources */,
 				2A26A7921B6168C30062B9FD /* UserStatus.swift in Sources */,
@@ -740,23 +702,27 @@
 				2A26A78B1B6168C30062B9FD /* Logger.swift in Sources */,
 				2AE0DE6D1B80F92E008C308F /* SearchRequest.swift in Sources */,
 				2A26A77F1B6168C20062B9FD /* BaseResponse.swift in Sources */,
+				2A4994CC1B9DFF5E005E313C /* LogoutResponseFactory.swift in Sources */,
 				2ADD5E591B7D10F600650E1B /* LogoutRequest.swift in Sources */,
 				2AE0DE701B80F937008C308F /* SearchResponse.swift in Sources */,
 				2A26A78A1B6168C30062B9FD /* HttpResponse.swift in Sources */,
-				2A26A78F1B6168C30062B9FD /* ResultCodes.swift in Sources */,
+				2A26A78F1B6168C30062B9FD /* ResponseCode.swift in Sources */,
 				2ADD5E411B7B5DCB00650E1B /* VerifyService.swift in Sources */,
 				2A26A78C1B6168C30062B9FD /* NexmoClient.swift in Sources */,
 				2A9325C81B8F310600217D87 /* VerifyClient.swift in Sources */,
 				2A1E47DF1B78869B00C02690 /* SDKControlService.swift in Sources */,
 				2ADD5E2B1B7B574E00650E1B /* LogoutService.swift in Sources */,
 				2A26A7961B6168C30062B9FD /* VerifyResponse.swift in Sources */,
-				2A26A7911B6168C30062B9FD /* SDKTokenService.swift in Sources */,
+				2A573E8A1B9F453600D16EE0 /* CheckReponseFactory.swift in Sources */,
+				2A573E871B9F423F00D16EE0 /* SearchResponseFactory.swift in Sources */,
 				2A9325451B8A1D4200217D87 /* ControlRequest.swift in Sources */,
+				2A573E8D1B9F45F400D16EE0 /* VerifyResponseFactory.swift in Sources */,
+				2A2DDAFE1B946F36009E4AE9 /* ResponseFactory.swift in Sources */,
 				2A26A7841B6168C30062B9FD /* SDKCheckService.swift in Sources */,
 				2A26A7901B6168C30062B9FD /* TokenResponse.swift in Sources */,
-				2ADD5E3F1B7B5DAA00650E1B /* TokenService.swift in Sources */,
 				2AE0DE731B80FDD9008C308F /* SDKSearchService.swift in Sources */,
 				2ADD5E3B1B7B5D1F00650E1B /* CheckService.swift in Sources */,
+				2A573E901B9F467D00D16EE0 /* ControlResponseFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +734,7 @@
 				2ADD5E441B7B5F9B00650E1B /* ControlService.swift in Sources */,
 				2ADD5E2E1B7B57DB00650E1B /* LogoutService.swift in Sources */,
 				2A32B23A1B6A759200AB5ADB /* VerifyError.swift in Sources */,
+				2A573E881B9F428B00D16EE0 /* SearchResponseFactory.swift in Sources */,
 				2ADD5E451B7B5F9F00650E1B /* CheckService.swift in Sources */,
 				2AE0DE6B1B80F8F4008C308F /* SearchService.swift in Sources */,
 				2A32B2311B6A759200AB5ADB /* HttpRequestBuilder.swift in Sources */,
@@ -776,8 +743,9 @@
 				2AE0DE711B80F937008C308F /* SearchResponse.swift in Sources */,
 				2ADD5E2F1B7B57DB00650E1B /* LogoutResponse.swift in Sources */,
 				2A32B22E1B6A759200AB5ADB /* SDKCheckService.swift in Sources */,
+				2A573E8B1B9F453900D16EE0 /* CheckReponseFactory.swift in Sources */,
 				2A32B23B1B6A759200AB5ADB /* VerifyRequest.swift in Sources */,
-				2A32B2351B6A759200AB5ADB /* ResultCodes.swift in Sources */,
+				2A32B2351B6A759200AB5ADB /* ResponseCode.swift in Sources */,
 				2A32B2361B6A759200AB5ADB /* TokenResponse.swift in Sources */,
 				2A9325C91B8F311600217D87 /* VerifyClient.swift in Sources */,
 				2A32B2291B6A759200AB5ADB /* BaseResponse.swift in Sources */,
@@ -787,19 +755,21 @@
 				2A32B22D1B6A759200AB5ADB /* CheckResponse.swift in Sources */,
 				2A32B2301B6A759200AB5ADB /* HttpRequest.swift in Sources */,
 				2A32B2331B6A759200AB5ADB /* Logger.swift in Sources */,
+				2AD1A0A71B9EFDE900A19FDC /* LogoutResponseFactory.swift in Sources */,
 				2A32B22F1B6A759200AB5ADB /* Config.swift in Sources */,
+				2A573E8E1B9F45F400D16EE0 /* VerifyResponseFactory.swift in Sources */,
 				2A32B2321B6A759200AB5ADB /* HttpResponse.swift in Sources */,
 				2A32B23D1B6A759200AB5ADB /* SDKVerifyService.swift in Sources */,
 				2ADD5E341B7B5B3C00650E1B /* SDKLogoutService.swift in Sources */,
 				2A32B2341B6A759200AB5ADB /* NexmoClient.swift in Sources */,
-				2A32B22A1B6A759200AB5ADB /* ServiceHelper.swift in Sources */,
+				2A32B22A1B6A759200AB5ADB /* ServiceExecutor.swift in Sources */,
 				2A32B23C1B6A759200AB5ADB /* VerifyResponse.swift in Sources */,
 				2AE0DE741B80FDD9008C308F /* SDKSearchService.swift in Sources */,
-				2A32B2371B6A759200AB5ADB /* SDKTokenService.swift in Sources */,
 				2A1E47E01B78869B00C02690 /* SDKControlService.swift in Sources */,
-				2ADD5E431B7B5F9700650E1B /* TokenService.swift in Sources */,
 				2A1E47DE1B78869B00C02690 /* ControlResponse.swift in Sources */,
 				2A32B23E1B6A759200AB5ADB /* VerifyTask.swift in Sources */,
+				2A2DDB011B947192009E4AE9 /* ResponseFactory.swift in Sources */,
+				2A573E911B9F467D00D16EE0 /* ControlResponseFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

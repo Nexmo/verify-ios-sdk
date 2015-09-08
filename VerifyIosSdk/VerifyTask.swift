@@ -18,7 +18,6 @@ class VerifyTask {
 
     let countryCode : String?
     let phoneNumber : String
-    let token : String
     let gcmToken : String?
     var userStatus = UserStatus.USER_NEW
     var pinCode : String?
@@ -26,10 +25,9 @@ class VerifyTask {
     let onUserVerified : () -> ()
     let onError : (error: VerifyError) -> ()
 
-    init(countryCode: String?, phoneNumber: String, token: String, gcmToken: String?, onVerifyInProgress: () -> (), onUserVerified: () -> (), onError: (error: VerifyError) -> ()) {
+    init(countryCode: String?, phoneNumber: String, gcmToken: String?, onVerifyInProgress: () -> (), onUserVerified: () -> (), onError: (error: VerifyError) -> ()) {
         self.countryCode = countryCode
         self.phoneNumber = phoneNumber
-        self.token = token
         self.onVerifyInProgress = onVerifyInProgress
         self.onUserVerified = onUserVerified
         self.onError = onError
@@ -40,7 +38,7 @@ class VerifyTask {
         Create the VerifyRequest object for this VerifyTask
     */
     func createVerifyRequest() -> VerifyRequest {
-        return VerifyRequest(countryCode: self.countryCode, phoneNumber: self.phoneNumber, token: self.token, gcmToken: gcmToken)
+        return VerifyRequest(countryCode: self.countryCode, phoneNumber: self.phoneNumber, gcmToken: gcmToken)
     }
     
     /**

@@ -17,6 +17,7 @@ import Foundation
     
     let applicationId : String
     let sharedSecretKey : String
+    var sdkToken : String!
     var gcmToken : String?
     
     static var sharedInstance : NexmoClient {

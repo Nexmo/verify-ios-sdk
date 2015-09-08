@@ -8,10 +8,9 @@
 
 import Foundation
 
-class ControlRequest {
+class ControlRequest : Equatable {
 
     let command : String
-    let token : String
     let phoneNumber : String
     let countryCode : String?
     
@@ -19,11 +18,16 @@ class ControlRequest {
         self.command = command.rawValue
         self.phoneNumber = verifyTask.phoneNumber
         self.countryCode = verifyTask.countryCode
-        self.token = verifyTask.token
     }
     
     enum ControlCommand : String {
         case Cancel = "cancel"
         case NextEvent = "trigger_next_event"
     }
+}
+
+func ==(lhs: ControlRequest, rhs: ControlRequest) -> Bool {
+    return (lhs.command == rhs.command &&
+            lhs.phoneNumber == rhs.phoneNumber &&
+            lhs.countryCode == rhs.countryCode)
 }

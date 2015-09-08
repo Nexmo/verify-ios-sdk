@@ -16,7 +16,7 @@ final class TokenResponse : BaseResponse {
     private static var Log = Logger(toString(TokenResponse))
     private(set) var token : String?
     
-    init(token: String, signature: String, resultCode: Int, resultMessage: String, timestamp: String, messageBody: String) {
+    init(token: String?, signature: String?, resultCode: Int, resultMessage: String, timestamp: String, messageBody: String) {
         self.token = token
         super.init(signature: signature, resultCode: resultCode, resultMessage: resultMessage, timestamp: timestamp, messageBody: messageBody)
     }
@@ -24,7 +24,7 @@ final class TokenResponse : BaseResponse {
     required init?(_ httpResponse: HttpResponse) {
         super.init(httpResponse)
         
-        if let token = self.json[ServiceHelper.PARAM_TOKEN] as? String {
+        if let token = self.json[ServiceExecutor.PARAM_TOKEN] as? String {
             self.token = token
         }
     }
