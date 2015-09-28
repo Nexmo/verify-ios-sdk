@@ -17,7 +17,7 @@ class SDKCheckService : CheckService {
     typealias RequestType = CheckRequest
     typealias ResponseType = CheckResponse
     
-    private static let Log = Logger(toString(SDKCheckService))
+    private static let Log = Logger(String(SDKCheckService))
     
     private let nexmoClient : NexmoClient
     private let serviceExecutor : ServiceExecutor
@@ -38,15 +38,15 @@ class SDKCheckService : CheckService {
     /**
         Begin a check request
         
-        :param: #request the CheckRequest object, which contains the pin code to be checked
+        - parameter #request: the CheckRequest object, which contains the pin code to be checked
         
-        :param: onResponse callback for completion or failure of the current check request.
+        - parameter onResponse: callback for completion or failure of the current check request.
         Contains a response from the server or an NSError if something wen't catastrophically wrong.
         Note: The response object may be negative and therefore the resultCode parameter should be checked.
     */
-    func start(#request: CheckRequest, onResponse: (response: CheckResponse?, error: NSError?) -> ()) {
+    func start(request request: CheckRequest, onResponse: (response: CheckResponse?, error: NSError?) -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            var params = NSMutableDictionary()
+            let params = NSMutableDictionary()
             if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKCheckService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKCheckService.Log.error(error.localizedDescription)

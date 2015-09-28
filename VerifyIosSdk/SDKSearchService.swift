@@ -11,7 +11,7 @@ import DeviceProperties
 
 class SDKSearchService : SearchService {
 
-    private static let Log = Logger(toString(SDKSearchService))
+    private static let Log = Logger(String(SDKSearchService))
     
     private let nexmoClient : NexmoClient
     private let serviceExecutor : ServiceExecutor
@@ -29,9 +29,9 @@ class SDKSearchService : SearchService {
         self.deviceProperties = SDKDeviceProperties.sharedInstance()
     }
     
-    func start(#request: SearchRequest, onResponse: (response: SearchResponse?, error: NSError?) -> ()) {
+    func start(request request: SearchRequest, onResponse: (response: SearchResponse?, error: NSError?) -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            var params = NSMutableDictionary()
+            let params = NSMutableDictionary()
 
             if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKSearchService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])

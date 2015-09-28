@@ -13,7 +13,7 @@ class SDKControlService : ControlService {
     typealias RequestType = ControlRequest
     typealias ResponseType = ControlResponse
     
-    private static let Log = Logger(toString(SDKControlService))
+    private static let Log = Logger(String(SDKControlService))
     
     private let nexmoClient : NexmoClient
     private let serviceExecutor : ServiceExecutor
@@ -31,10 +31,10 @@ class SDKControlService : ControlService {
         self.deviceProperties = SDKDeviceProperties.sharedInstance()
     }
     
-    func start(#request: ControlRequest, onResponse: (response: ControlResponse?, error: NSError?) -> ()) {
+    func start(request request: ControlRequest, onResponse: (response: ControlResponse?, error: NSError?) -> ()) {
     
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            var params = NSMutableDictionary()
+            let params = NSMutableDictionary()
             if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKControlService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKControlService.Log.error(error.localizedDescription)

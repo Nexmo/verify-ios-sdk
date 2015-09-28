@@ -45,38 +45,38 @@ import Foundation
     /**
         Start the NexmoClient. This is required for all other Nexmo Clients, e.g. VerifyClient
         
-        :param: applicationId your application id/key
+        - parameter applicationId: your application id/key
 
-        :param: sharedSecretKey your shared secret key
+        - parameter sharedSecretKey: your shared secret key
     */
     @objc(startWithApplicationId:sharedSecretKey:)
-    public static func start(#applicationId: String, sharedSecretKey: String) {
+    public static func start(applicationId applicationId: String, sharedSecretKey: String) {
         NexmoClient.instance = NexmoClient(applicationId: applicationId, sharedSecretKey: sharedSecretKey)
     }
     
     /**
         Start the NexmoClient. This is required for all other Nexmo Clients, e.g. VerifyClient
         
-        :param: applicationId your application id/key
+        - parameter applicationId: your application id/key
 
-        :param: sharedSecretKey your shared secret key
+        - parameter sharedSecretKey: your shared secret key
         
-        :param: gcmToken Google Cloud Messaging registration token of the device. Used for Verification via push notification.
+        - parameter gcmToken: Google Cloud Messaging registration token of the device. Used for Verification via push notification.
     */
     @objc(startWithApplicationId:sharedSecretKey:gcmToken:)
-    public static func start(#applicationId: String, sharedSecretKey: String, gcmToken: String) {
+    public static func start(applicationId applicationId: String, sharedSecretKey: String, gcmToken: String) {
         NexmoClient.instance = NexmoClient(applicationId: applicationId, sharedSecretKey: sharedSecretKey, gcmToken: gcmToken)
     }
     
     /**
         Set the Google Cloud Messaging registration token in the Nexmo Client to enable verification via push notification.
         
-        :param: gcmToken The Google Cloud Messaging registration token
+        - parameter gcmToken: The Google Cloud Messaging registration token
     */
     @objc(setGcmToken:)
     public static func setGcmToken(gcmToken: String) {
         if (instance == nil) {
-            println("NexmoClient has not yet been started!")
+            print("NexmoClient has not yet been started!")
             return
         }
         NexmoClient.sharedInstance.gcmToken = gcmToken

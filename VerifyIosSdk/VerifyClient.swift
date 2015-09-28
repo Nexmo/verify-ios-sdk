@@ -14,7 +14,7 @@ import DeviceProperties
 */
 @objc public class VerifyClient : NSObject {
     
-    private static var Log = Logger(toString(VerifyClient))
+    private static var Log = Logger(String(VerifyClient))
     private static var instance : VerifyClient?
     static var PARAM_PIN = "pin"
     static var sharedInstance : VerifyClient {
@@ -67,25 +67,25 @@ import DeviceProperties
         To check if a user's verification pin code is correct, a subsequent call to checkPinCode should be
         initiated, along with the code provided by the user.
         
-        :param: countryCode the ISO 3166-1 alpha-2 two-letter country code
+        - parameter countryCode: the ISO 3166-1 alpha-2 two-letter country code
         
-        :param: phoneNumber the local phone number/msisdn of the mobile to verify
+        - parameter phoneNumber: the local phone number/msisdn of the mobile to verify
         
-        :param: onVerifyInProgress callback triggered when a verification process has been successfully triggered
+        - parameter onVerifyInProgress: callback triggered when a verification process has been successfully triggered
         
-        :param: onUserVerified callback triggered when a user has been successfully verified
+        - parameter onUserVerified: callback triggered when a user has been successfully verified
         
-        :param: onError callback triggered when some error has occurred, e.g. wrong pin entered
+        - parameter onError: callback triggered when some error has occurred, e.g. wrong pin entered
     */
     @objc(getVerifiedUserWithCountryCode:phoneNumber:verifyInProgressBlock:userVerifiedBlock:errorBlock:)
-    public static func getVerifiedUser(#countryCode: String?, phoneNumber: String,
+    public static func getVerifiedUser(countryCode countryCode: String?, phoneNumber: String,
                                         onVerifyInProgress: () -> (),
                                         onUserVerified: () -> (),
                                         onError: (error: VerifyError) -> ()) {
         sharedInstance.getVerifiedUser(countryCode: countryCode, phoneNumber: phoneNumber, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
     }
     
-    func getVerifiedUser(#countryCode: String?, phoneNumber: String,
+    func getVerifiedUser(countryCode countryCode: String?, phoneNumber: String,
                                         onVerifyInProgress: () -> (),
                                         onUserVerified: () -> (),
                                         onError: (error: VerifyError) -> ()) {
@@ -102,7 +102,7 @@ import DeviceProperties
         
         // begin verification process
         self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest()) { response, error in
-            if let error = error {
+            if let _ = error {
                 onError(error: .INTERNAL_ERROR)
                 return
             }
@@ -148,7 +148,7 @@ import DeviceProperties
         will simply quit and no callbacks will be triggered. If a verification request *is currently in progress*,
         either the onError or onUserVerified callbacks will be triggered, depending on whether the code is correct.
         
-        :param: pinCode a string containing the pin code to check.
+        - parameter pinCode: a string containing the pin code to check.
     */
     @objc(checkPinCode:)
     public static func checkPinCode(pinCode: String) {
@@ -160,7 +160,7 @@ import DeviceProperties
         if let verifyTask = currentVerifyTask where verifyTask.userStatus == UserStatus.USER_PENDING {
             checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode),
                 onResponse: { response, error in
-                    if let error = error {
+                    if let _ = error {
                         verifyTask.onError(error: .INTERNAL_ERROR)
                         return
                     }
@@ -192,7 +192,7 @@ import DeviceProperties
     /**
         Cancel the ongoing verification request - if one exists
         
-        :param: completionBlock A callback which is invoked when the cancel request completes or fails (with an NSError)
+        - parameter completionBlock: A callback which is invoked when the cancel request completes or fails (with an NSError)
     */
     @objc(cancelVerificationWithBlock:)
     public static func cancelVerification(completionBlock: (error: NSError?) -> ()) {
@@ -221,7 +221,7 @@ import DeviceProperties
         invoking this function will move the verification stage onto the first TTS stage:
         SMS->(TTS)->TTS.
         
-        :param: completionBlock A callback which is invoked when the 'next event'
+        - parameter completionBlock: A callback which is invoked when the 'next event'
                 request completes or fails (with an NSError)
     */
     @objc(triggerNextEventWithBlock:)
@@ -247,19 +247,19 @@ import DeviceProperties
         Log's out the current user - if they have already been verified.
         To log out a user is to assume them unverified again.
         
-        :param: number The user's phone number
+        - parameter number: The user's phone number
         
-        :param: completionBlock A callback which is invoked when the logout
+        - parameter completionBlock: A callback which is invoked when the logout
                 request completes of fails (with an NSError)
     */
     @objc(logoutUserWithCountryCode:WithNumber:WithBlock:)
-    public static func logoutUser(#countryCode: String?, number: String, completionBlock: (error: NSError?) -> ()) {
+    public static func logoutUser(countryCode countryCode: String?, number: String, completionBlock: (error: NSError?) -> ()) {
         sharedInstance.logoutUser(countryCode: countryCode, number: number, completionBlock: completionBlock)
     }
     
-    func logoutUser(#countryCode: String?, number: String, completionBlock: (error: NSError?) -> ()) {
+    func logoutUser(countryCode countryCode: String?, number: String, completionBlock: (error: NSError?) -> ()) {
 
-        var logoutRequest = LogoutRequest(number: number, countryCode: countryCode)
+        let logoutRequest = LogoutRequest(number: number, countryCode: countryCode)
         self.logoutService.start(request: logoutRequest) { response, error in
             if let error = error {
                 completionBlock(error: error)
@@ -307,15 +307,15 @@ import DeviceProperties
             *unknown*
                 The user is unknown to the SDK service.
         
-        :param: completionBlock A callback which is invoked when the logout request
+        - parameter completionBlock: A callback which is invoked when the logout request
                 completes or fails (with an NSError)
     */
     @objc(getUserStatusWithCountryCode:WithNumber:WithBlock:)
-    public static func getUserStatus(#countryCode: String?, number: String, completionBlock: (status: String?, error: NSError?) -> ()) {
+    public static func getUserStatus(countryCode countryCode: String?, number: String, completionBlock: (status: String?, error: NSError?) -> ()) {
         VerifyClient.sharedInstance.getUserStatus(countryCode: countryCode, number: number, completionBlock: completionBlock)
     }
     
-    func getUserStatus(#countryCode: String?, number: String, completionBlock: (status: String?, error: NSError?) -> ()) {
+    func getUserStatus(countryCode countryCode: String?, number: String, completionBlock: (status: String?, error: NSError?) -> ()) {
         let searchRequest = SearchRequest(number: number, countryCode: countryCode)
         self.searchService.start(request: searchRequest) { response, error in
             if let error = error {
@@ -330,10 +330,10 @@ import DeviceProperties
     /**
         Filters Nexmo Verify push notifications and returns the verify pin code where possible.
         
-        :param: userInfo The push data passed in through UIApplicationDelegate's
+        - parameter userInfo: The push data passed in through UIApplicationDelegate's
                 application:didReceiveRemoteNotification: function.
         
-        :param: performSilentCheck if true, Nexmo Verify SDK will complete the verification request
+        - parameter performSilentCheck: if true, Nexmo Verify SDK will complete the verification request
                 automatically, which verifies the user.
     */
     static func handleNotification(userInfo: [String : String], performSilentCheck: Bool) -> Bool {

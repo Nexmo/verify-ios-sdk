@@ -17,7 +17,7 @@ class SDKVerifyService : VerifyService {
     typealias RequestType = VerifyRequest
     typealias ResponseType = VerifyResponse
     
-    static private let Log = Logger(toString(SDKVerifyService))
+    static private let Log = Logger(String(SDKVerifyService))
     private let nexmoClient : NexmoClient
     private let serviceExecutor : ServiceExecutor
     private let deviceProperties : DevicePropertyAccessor
@@ -38,16 +38,16 @@ class SDKVerifyService : VerifyService {
     /**
         Begin a verification request
         
-        :param: #request the VerifyRequest object, created from a VerifyTask
+        - parameter #request: the VerifyRequest object, created from a VerifyTask
         
-        :param: onResponse callback for completion or failure of the current verify request.
+        - parameter onResponse: callback for completion or failure of the current verify request.
         Contains a response from the server or an NSError if something wen't catastrophically wrong.
         Note: The response object may be negative and therefore the resultCode parameter should be checked.
     */
-    func start(#request: VerifyRequest, onResponse: (response: VerifyResponse?, error: NSError?) -> ()) {
+    func start(request request: VerifyRequest, onResponse: (response: VerifyResponse?, error: NSError?) -> ()) {
         SDKVerifyService.Log.info("Beginning verify request")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            var params = NSMutableDictionary()
+            let params = NSMutableDictionary()
             if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKVerifyService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKVerifyService.Log.error(error.localizedDescription)

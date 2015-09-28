@@ -21,7 +21,7 @@ class HttpRequest {
         case FORM = "application/x-www-form-urlencoded"
     }
     
-    private static let Log = Logger(toString(HttpRequest))
+    private static let Log = Logger(String(HttpRequest))
     
     private let request : NSURLRequest
     private let encoding : NSStringEncoding
@@ -42,14 +42,14 @@ class HttpRequest {
     /**
         Execute the current HttpRequest
         
-        :param: completionHandler Callback containing either the HttpResponse or an NSError object upon failure.
+        - parameter completionHandler: Callback containing either the HttpResponse or an NSError object upon failure.
         Only one of these parameters will be nil at a time.
     */
     func execute(completionHandler: (HttpResponse?, NSError?) -> Void) {
         HttpRequest.Log.info("executing http request...")
         let task = NSURLSession.sharedSession().dataTaskWithRequest(self.request) { (data, response, error) in
             HttpRequest.Log.info("http request completed..")
-            if (error != nil) {
+            if let error = error {
                 HttpRequest.Log.error("failed with error: \(error.localizedDescription)")
                 completionHandler(nil, error)
                 return

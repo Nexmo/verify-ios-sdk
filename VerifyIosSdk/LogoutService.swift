@@ -18,11 +18,11 @@ protocol LogoutService {
     /**
         Begin a service operation
         
-        :param: request The request object a service will use to make the request
+        - parameter request: The request object a service will use to make the request
         
-        :param: onResponse A callback containing either a valid response or an error if something went wrong.
+        - parameter onResponse: A callback containing either a valid response or an error if something went wrong.
         Only one of these variables will be nil at a time.
     */
-    func start(#request: LogoutRequest,
+    func start(request request: LogoutRequest,
                onResponse: (response: LogoutResponse?, error: NSError?) -> ())
 }

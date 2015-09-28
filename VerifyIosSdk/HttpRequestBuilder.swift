@@ -15,7 +15,7 @@ import Foundation
 */
 class HttpRequestBuilder {
 
-    private static let Log = Logger(toString(HttpRequestBuilder))
+    private static let Log = Logger(String(HttpRequestBuilder))
 
     private var headers = [String:String]()
     private var params = [String:String]()
@@ -113,7 +113,7 @@ class HttpRequestBuilder {
         if !self.isPost {
             var urlString : String
             if self.url.query != nil {
-                urlString = self.url.absoluteString!
+                urlString = self.url.absoluteString
                 if (queryString != "") {
                     urlString += "&\(queryString)"
                 }
@@ -126,7 +126,7 @@ class HttpRequestBuilder {
                     return nil
                 }
             } else {
-                urlString = self.url.absoluteString!
+                urlString = self.url.absoluteString
                 if (queryString != "") {
                     urlString += "?\(queryString)"
                 }
@@ -140,7 +140,7 @@ class HttpRequestBuilder {
                 }
             }
         } else {
-            HttpRequestBuilder.Log.info("url =\(url.absoluteString!)")
+            HttpRequestBuilder.Log.info("url =\(url.absoluteString)")
             request = NSMutableURLRequest(URL: self.url)
             request.HTTPMethod = "POST"
             if self.contentType == HttpRequest.ContentType.FORM {

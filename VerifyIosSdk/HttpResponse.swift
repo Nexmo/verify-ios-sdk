@@ -17,7 +17,7 @@ import Foundation
 */
 class HttpResponse {
     
-    private static var Log = Logger(toString(HttpResponse))
+    private static var Log = Logger(String(HttpResponse))
     
     let statusCode: Int
     let body: String?

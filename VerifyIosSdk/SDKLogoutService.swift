@@ -12,7 +12,7 @@ import DeviceProperties
 
 class SDKLogoutService : LogoutService {
 
-    private static let Log = Logger(toString(SDKLogoutService))
+    private static let Log = Logger(String(SDKLogoutService))
 
     private let nexmoClient : NexmoClient
     private let serviceExecutor : ServiceExecutor
@@ -33,8 +33,8 @@ class SDKLogoutService : LogoutService {
         self.deviceProperties = deviceProperties
     }
     
-    func start(#request: LogoutRequest, onResponse: (response: LogoutResponse?, error: NSError?) -> ()) {
-        var params = NSMutableDictionary()
+    func start(request request: LogoutRequest, onResponse: (response: LogoutResponse?, error: NSError?) -> ()) {
+        let params = NSMutableDictionary()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {

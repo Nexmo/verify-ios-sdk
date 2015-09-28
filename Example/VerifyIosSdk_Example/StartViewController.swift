@@ -25,7 +25,7 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -48,13 +48,13 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (phoneNumberField.isFirstResponder() && (event.allTouches()?.first as? UITouch)?.view != phoneNumberField) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (phoneNumberField.isFirstResponder() && (event?.allTouches()?.first)?.view != phoneNumberField) {
             phoneNumberField.resignFirstResponder()
             return
         }
         
-        if (countryField.isFirstResponder() && (event.allTouches()?.first as? UITouch)?.view != countryField) {
+        if (countryField.isFirstResponder() && (event?.allTouches()?.first)?.view != countryField) {
             countryField.resignFirstResponder()
             return
         }
@@ -66,7 +66,7 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     @IBAction func beginVerification(sender: UIButton) {
-        println("beginVerification")
+        print("beginVerification")
         
         if (countryField.isFirstResponder()) {
             countryField.resignFirstResponder()

@@ -13,7 +13,7 @@ import Foundation
 */
 final class TokenResponse : BaseResponse {
 
-    private static var Log = Logger(toString(TokenResponse))
+    private static var Log = Logger(String(TokenResponse))
     private(set) var token : String?
     
     init(token: String?, signature: String?, resultCode: Int, resultMessage: String, timestamp: String, messageBody: String) {

@@ -14,7 +14,7 @@ import Foundation
 */
 class VerifyTask {
 
-    private static let Log = Logger(toString(VerifyTask))
+    private static let Log = Logger(String(VerifyTask))
 
     let countryCode : String?
     let phoneNumber : String

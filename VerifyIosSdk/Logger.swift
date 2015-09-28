@@ -33,9 +33,7 @@ class Logger {
             case .INFO,
                  .WARN,
                  .ERROR:
-                println("\(dateFormat.stringFromDate(NSDate())) \(level.rawValue) [\(className)]  \(message)")
-            
-            default: break
+                print("\(dateFormat.stringFromDate(NSDate())) \(level.rawValue) [\(className)]  \(message)")
         }
     }
     

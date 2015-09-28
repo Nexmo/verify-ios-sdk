@@ -39,8 +39,8 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     }
     
     func beginVerification() {
-        VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry.countryCode, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text, onVerifyInProgress: {
-                println("verify progress")
+        VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry.countryCode, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: {
+                print("verify progress")
                 self.toCheckPage()
             },
             onUserVerified: {
@@ -72,18 +72,18 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
                         UIAlertView(title: "iOS version not supported", message: "This iOS version is not supported", delegate: nil, cancelButtonTitle: "Okay").show()
                     
                     case .VERIFICATION_ALREADY_STARTED:
-                        UIAlertView(title: "Verification already started", message: "A verification is already in progress!", delegate: nil, cancelButtonTitle: "Oh, okay")
+                        UIAlertView(title: "Verification already started", message: "A verification is already in progress!", delegate: nil, cancelButtonTitle: "Oh, okay").show()
                         
                     default: break
                 }
                 
                 // other errors can be silenced for the test app
-                println("some error \(verifyError.rawValue)")
+                print("some error \(verifyError.rawValue)")
             })
     }
     
     func checkPinCode() {
-        VerifyClient.checkPinCode((pages[1] as! CheckViewController).pinField.text)
+        VerifyClient.checkPinCode((pages[1] as! CheckViewController).pinField.text!)
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
