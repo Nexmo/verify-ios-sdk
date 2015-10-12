@@ -13,9 +13,13 @@ import VerifyIosSdk
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    // Your parameters go here!
+    private var applicationId = "YOUR_APP_KEY"
+    private var sharedSecretKey = "YOUR_SECRET_KEY"
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        NexmoClient.start(applicationId: "YOUR_APP_ID", sharedSecretKey: "YOUR_SHARED_SECRET")
+        NexmoClient.start(applicationId: applicationId, sharedSecretKey: sharedSecretKey)
         return true
     }
 

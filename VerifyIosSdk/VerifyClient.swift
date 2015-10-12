@@ -336,16 +336,20 @@ import DeviceProperties
         - parameter performSilentCheck: if true, Nexmo Verify SDK will complete the verification request
                 automatically, which verifies the user.
     */
-    static func handleNotification(userInfo: [String : String], performSilentCheck: Bool) -> Bool {
+    @objc(handleNotificationWithUserInfo:performSilentCheck:)
+    public static func handleNotification(userInfo: [NSObject : AnyObject], performSilentCheck: Bool) -> Bool {
         return VerifyClient.sharedInstance.handleNotification(userInfo, performSilentCheck: performSilentCheck)
     }
     
-    func handleNotification(userInfo: [String : String], performSilentCheck: Bool) -> Bool {
-        if let pin = userInfo[VerifyClient.PARAM_PIN] {
+    func handleNotification(userInfo: [NSObject : AnyObject], performSilentCheck: Bool) -> Bool {
+        if let pin = userInfo[VerifyClient.PARAM_PIN] as? String {
             if (performSilentCheck) {
                 checkPinCode(pin)
             } else {
-                UIAlertView(title: "Verify Pin", message: "Your verification pin is \(pin)", delegate: nil, cancelButtonTitle: "Okay").show()
+                let controller = UIAlertController(title: "Verify Pin", message: "Your verification pin is \(pin)", preferredStyle: .Alert)
+                let okAction = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+                controller.addAction(okAction)
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(controller, animated: true, completion: nil)
             }
             return true
         }

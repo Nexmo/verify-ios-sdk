@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckViewController" customModule="VerifyIosSdk_Example_PushEnabled" customModuleProvider="target">
+            <connections>
+                <outlet property="pinField" destination="A19-gp-UIP" id="0oX-D4-BYt"/>
+                <outlet property="statusImage" destination="eEt-Pl-Gl7" id="Xz5-Ej-cGI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="CgN-zC-LEf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick2" translatesAutoresizingMaskIntoConstraints="NO" id="eEt-Pl-Gl7">
+                    <rect key="frame" x="220" y="334" width="160" height="120"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="8nd-xP-v0n">
+                            <variation key="heightClass=compact" constant="121"/>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A19-gp-UIP">
+                    <rect key="frame" x="183" y="194" width="235" height="72"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="235" id="ykR-U8-qQ9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wV-cM-AC7">
+                    <rect key="frame" x="253" y="274" width="94" height="52"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                    <state key="normal" title="Check">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="checkPinCode:" destination="-1" eventType="touchUpInside" id="vkw-Jj-UjA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.070588235294117646" green="0.55686274509803924" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="eEt-Pl-Gl7" firstAttribute="width" secondItem="eEt-Pl-Gl7" secondAttribute="height" multiplier="1:1" constant="40" id="12R-hh-DXm">
+                    <variation key="heightClass=compact" constant="31"/>
+                </constraint>
+                <constraint firstItem="9wV-cM-AC7" firstAttribute="top" secondItem="A19-gp-UIP" secondAttribute="bottom" constant="8" id="41p-8X-9qJ">
+                    <variation key="heightClass=compact" constant="8"/>
+                </constraint>
+                <constraint firstAttribute="centerY" secondItem="9wV-cM-AC7" secondAttribute="centerY" id="B61-kt-y8P"/>
+                <constraint firstAttribute="centerX" secondItem="9wV-cM-AC7" secondAttribute="centerX" id="FJB-Pb-fNB"/>
+                <constraint firstItem="eEt-Pl-Gl7" firstAttribute="top" secondItem="9wV-cM-AC7" secondAttribute="bottom" constant="8" id="voe-KI-vUx">
+                    <variation key="heightClass=compact" constant="8"/>
+                </constraint>
+                <constraint firstAttribute="centerX" secondItem="eEt-Pl-Gl7" secondAttribute="centerX" id="z62-sr-0p8"/>
+                <constraint firstAttribute="centerX" secondItem="A19-gp-UIP" secondAttribute="centerX" id="zGH-TA-HuX"/>
+            </constraints>
+            <point key="canvasLocation" x="325" y="330"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tick2" width="356" height="279"/>
+    </resources>
+</document>

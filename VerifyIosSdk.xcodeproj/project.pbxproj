@@ -145,7 +145,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A6B60771B67A04B005378E0 /* RequestSigning */ = {
+		2A6B60771B67A04B005378E0 /* SDKRequestSigner */ = {
 			isa = PBXGroup;
 			children = (
 				2A9152301B6A6E6600F404E4 /* SDKRequestSigner.m */,
@@ -154,6 +154,7 @@
 				2ADD5E4A1B7C8D1000650E1B /* RequestSigning.h */,
 				2A6B60781B67A04B005378E0 /* Supporting Files */,
 			);
+			name = SDKRequestSigner;
 			path = RequestSigning;
 			sourceTree = "<group>";
 		};
@@ -189,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				2ABA3ABB1B6166A800EB4842 /* VerifyIosSdk */,
-				2A6B60771B67A04B005378E0 /* RequestSigning */,
+				2A6B60771B67A04B005378E0 /* SDKRequestSigner */,
 				2A6B60991B67A078005378E0 /* DeviceProperties */,
 				2ABA3ABA1B6166A800EB4842 /* Products */,
 			);
