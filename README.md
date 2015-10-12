@@ -21,7 +21,7 @@ In order to integrate the Nexmo Verify iOS SDK in your App, see:
 * [Integrating the Nexmo Verify iOS SDK](https://github.com/Nexmo/verify-ios-sdk/blob/master/Integrating the Nexmo Verify iOS SDK.md)
 * [Advanced use of the Nexmo Verify iOS SDK](https://github.com/Nexmo/verify-ios-sdk/blob/master/Advanced Use of the Nexmo Verify iOS SDK.md)
 
-Feel free to checkout the [Verify iOS SDK codebase] (https://github.com/Nexmo/verify-ios-sdk/blob/master) if you wish to contribute to our open source library.
+Feel free to checkout the [Verify iOS SDK codebase] (https://github.com/Nexmo/verify-ios-sdk/blob/master/VerifyIosSdk) if you wish to contribute to our open source library.
 
 License
 =======
