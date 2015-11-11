@@ -64,4 +64,7 @@ import Foundation
     
     /** This Nexmo Account has been barred from sending messages */
     case ACCOUNT_BARRED
+    
+    /** Having problems accessing the network */
+    case NETWORK_ERROR
 }

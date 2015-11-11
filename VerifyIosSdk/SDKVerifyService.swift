@@ -44,12 +44,12 @@ class SDKVerifyService : VerifyService {
         Contains a response from the server or an NSError if something wen't catastrophically wrong.
         Note: The response object may be negative and therefore the resultCode parameter should be checked.
     */
-    func start(request request: VerifyRequest, onResponse: (response: VerifyResponse?, error: NSError?) -> ()) {
+    func start(request request: VerifyRequest, standalone: Bool, onResponse: (response: VerifyResponse?, error: NSError?) -> ()) {
         SDKVerifyService.Log.info("Beginning verify request")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let params = NSMutableDictionary()
             if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
-                let error = NSError(domain: "SDKVerifyService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
+                let error = NSError(domain: "SDKVerifyService", code: 1000, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKVerifyService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
                     onResponse(response: nil, error: error)
@@ -59,7 +59,7 @@ class SDKVerifyService : VerifyService {
             }
             
             if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
-                let error = NSError(domain: "SDKVerifyService", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
+                let error = NSError(domain: "SDKVerifyService", code: 2000, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKVerifyService.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
                     onResponse(response: nil, error: error)
@@ -78,7 +78,13 @@ class SDKVerifyService : VerifyService {
             }
             
             let swiftParams = params.copy() as! [String:String]
-            self.serviceExecutor.performHttpRequestForService(VerifyResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_VERIFY, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+            var path : String
+            if standalone {
+                path = ServiceExecutor.METHOD_ONESHOT_VERIFY
+            } else {
+                path = ServiceExecutor.METHOD_VERIFY
+            }
+            self.serviceExecutor.performHttpRequestForService(VerifyResponseFactory(), nexmoClient: self.nexmoClient, path: path, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
                 if let error = error {
                     dispatch_async(dispatch_get_main_queue()) {
                         onResponse(response: nil, error: error)

@@ -44,7 +44,7 @@ class SDKCheckService : CheckService {
         Contains a response from the server or an NSError if something wen't catastrophically wrong.
         Note: The response object may be negative and therefore the resultCode parameter should be checked.
     */
-    func start(request request: CheckRequest, onResponse: (response: CheckResponse?, error: NSError?) -> ()) {
+    func start(request request: CheckRequest, standalone: Bool, onResponse: (response: CheckResponse?, error: NSError?) -> ()) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let params = NSMutableDictionary()
             if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
@@ -74,7 +74,14 @@ class SDKCheckService : CheckService {
             }
             
             let swiftParams = params.copy() as! [String:String]
-            self.serviceExecutor.performHttpRequestForService(CheckResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_CHECK, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+            var path : String
+            if standalone {
+                path = ServiceExecutor.METHOD_ONESHOT_CHECK
+            } else {
+                path = ServiceExecutor.METHOD_CHECK
+            }
+            
+            self.serviceExecutor.performHttpRequestForService(CheckResponseFactory(), nexmoClient: self.nexmoClient, path: path, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
                 if let error = error {
                     dispatch_async(dispatch_get_main_queue()) {
                         onResponse(response: nil, error: error)

@@ -34,6 +34,12 @@ class ServiceExecutor {
     
     /// Path for search sdk service
     static let METHOD_SEARCH = "verify/search/json"
+    
+    /// Path for one shot verification sdk service
+    static let METHOD_ONESHOT_VERIFY = "verify/oneshot/json"
+    
+    /// Path for one shot check sdk service
+    static let METHOD_ONESHOT_CHECK = "verify/oneshot/json"
 
     /** Custom HTTP header fields. */
     static let OS_FAMILY = "X-NEXMO-SDK-OS-FAMILY"
@@ -178,14 +184,14 @@ class ServiceExecutor {
         getToken(nexmoClient) { response, error in
             if let error = error {
                 callback(response: nil, error: error)
-            } else {
-                if (response!.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
-                    nexmoClient.sdkToken = response!.token!
-                }
-                
+            } else if (response!.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
+                nexmoClient.sdkToken = response!.token!
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                     self.performHttpRequestForService(responseFactory, nexmoClient: nexmoClient, path: path, timestamp: timestamp, params: params, isPost: isPost, callback: callback)
                 }
+            } else {
+                let error = NSError(domain: "ServiceExecutor", code: response!.resultCode, userInfo: [NSLocalizedDescriptionKey : "Failed to get token with error \(response!.resultCode): \(response!.resultMessage)"])
+                callback(response: nil, error: error)
             }
         }
     }

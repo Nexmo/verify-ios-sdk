@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A1E47DD1B78869B00C02690 /* ControlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47D91B78869B00C02690 /* ControlResponse.swift */; };
 		2A1E47DF1B78869B00C02690 /* SDKControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E47DA1B78869B00C02690 /* SDKControlService.swift */; };
+		2A2536401BE1346100107884 /* VerifyUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A25363F1BE1346100107884 /* VerifyUI.storyboard */; };
 		2A26A77F1B6168C20062B9FD /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7651B6168C20062B9FD /* BaseResponse.swift */; };
 		2A26A7801B6168C20062B9FD /* ServiceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7661B6168C20062B9FD /* ServiceExecutor.swift */; };
 		2A26A7821B6168C20062B9FD /* CheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26A7681B6168C20062B9FD /* CheckRequest.swift */; };
@@ -42,7 +43,12 @@
 		2A9152331B6A6E7500F404E4 /* SDKDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */; };
 		2A9325451B8A1D4200217D87 /* ControlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325441B8A1D4200217D87 /* ControlRequest.swift */; };
 		2A9325C81B8F310600217D87 /* VerifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325C71B8F310600217D87 /* VerifyClient.swift */; };
+		2A9B5B281BF10E3500764007 /* VerifyUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B5B271BF10E3500764007 /* VerifyUIController.swift */; };
 		2ABA3ABF1B6166A800EB4842 /* VerifyIosSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AC2D0A41BF14866004925B0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A31BF14866004925B0 /* Country.swift */; };
+		2AC2D0A61BF148C3004925B0 /* CountryPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A51BF148C3004925B0 /* CountryPickerController.swift */; };
+		2AC2D0A81BF149B8004925B0 /* CountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A71BF149B8004925B0 /* CountryPickerDelegate.swift */; };
+		2AC2D0AA1BF16A59004925B0 /* VerifyUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A91BF16A59004925B0 /* VerifyUIDelegate.swift */; };
 		2ADD5E2B1B7B574E00650E1B /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */; };
 		2ADD5E2D1B7B578D00650E1B /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */; };
 		2ADD5E331B7B59FC00650E1B /* SDKLogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */; };
@@ -63,6 +69,7 @@
 /* Begin PBXFileReference section */
 		2A1E47D91B78869B00C02690 /* ControlResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlResponse.swift; sourceTree = "<group>"; };
 		2A1E47DA1B78869B00C02690 /* SDKControlService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKControlService.swift; sourceTree = "<group>"; };
+		2A25363F1BE1346100107884 /* VerifyUI.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VerifyUI.storyboard; sourceTree = "<group>"; };
 		2A26A7651B6168C20062B9FD /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		2A26A7661B6168C20062B9FD /* ServiceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceExecutor.swift; sourceTree = "<group>"; };
 		2A26A7681B6168C20062B9FD /* CheckRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckRequest.swift; sourceTree = "<group>"; };
@@ -98,9 +105,14 @@
 		2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKDeviceProperties.m; sourceTree = "<group>"; };
 		2A9325441B8A1D4200217D87 /* ControlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlRequest.swift; sourceTree = "<group>"; };
 		2A9325C71B8F310600217D87 /* VerifyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyClient.swift; sourceTree = "<group>"; };
+		2A9B5B271BF10E3500764007 /* VerifyUIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyUIController.swift; sourceTree = "<group>"; };
 		2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerifyIosSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ABA3ABD1B6166A800EB4842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyIosSdk.h; sourceTree = "<group>"; };
+		2AC2D0A31BF14866004925B0 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		2AC2D0A51BF148C3004925B0 /* CountryPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerController.swift; sourceTree = "<group>"; };
+		2AC2D0A71BF149B8004925B0 /* CountryPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerDelegate.swift; sourceTree = "<group>"; };
+		2AC2D0A91BF16A59004925B0 /* VerifyUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyUIDelegate.swift; sourceTree = "<group>"; };
 		2ADD5E2A1B7B574E00650E1B /* LogoutService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutService.swift; sourceTree = "<group>"; };
 		2ADD5E2C1B7B578D00650E1B /* LogoutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		2ADD5E321B7B59FC00650E1B /* SDKLogoutService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKLogoutService.swift; sourceTree = "<group>"; };
@@ -186,6 +198,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2A9B5B261BF10E1200764007 /* VerifyUI */ = {
+			isa = PBXGroup;
+			children = (
+				2AC2D0A31BF14866004925B0 /* Country.swift */,
+				2A25363F1BE1346100107884 /* VerifyUI.storyboard */,
+				2A9B5B271BF10E3500764007 /* VerifyUIController.swift */,
+				2AC2D0A71BF149B8004925B0 /* CountryPickerDelegate.swift */,
+				2AC2D0A51BF148C3004925B0 /* CountryPickerController.swift */,
+				2AC2D0A91BF16A59004925B0 /* VerifyUIDelegate.swift */,
+			);
+			name = VerifyUI;
+			sourceTree = "<group>";
+		};
 		2ABA3AAF1B6166A800EB4842 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +255,7 @@
 				2A26A77E1B6168C20062B9FD /* VerifyTask.swift */,
 				2A2DDAFD1B946F36009E4AE9 /* ResponseFactory.swift */,
 				2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */,
+				2A9B5B261BF10E1200764007 /* VerifyUI */,
 				2ABA3ABC1B6166A800EB4842 /* Supporting Files */,
 			);
 			path = VerifyIosSdk;
@@ -412,12 +438,15 @@
 				TargetAttributes = {
 					2A6B60751B67A04B005378E0 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = WA7RC9M55T;
 					};
 					2A6B60971B67A078005378E0 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = WA7RC9M55T;
 					};
 					2ABA3AB81B6166A800EB4842 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = WA7RC9M55T;
 					};
 				};
 			};
@@ -459,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A2536401BE1346100107884 /* VerifyUI.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +524,7 @@
 				2A26A7981B6168C30062B9FD /* VerifyTask.swift in Sources */,
 				2A26A7801B6168C20062B9FD /* ServiceExecutor.swift in Sources */,
 				2ADD5E331B7B59FC00650E1B /* SDKLogoutService.swift in Sources */,
+				2AC2D0AA1BF16A59004925B0 /* VerifyUIDelegate.swift in Sources */,
 				2A26A7971B6168C30062B9FD /* SDKVerifyService.swift in Sources */,
 				2A26A7921B6168C30062B9FD /* UserStatus.swift in Sources */,
 				2A26A7831B6168C20062B9FD /* CheckResponse.swift in Sources */,
@@ -503,6 +534,7 @@
 				2A26A7881B6168C30062B9FD /* HttpRequest.swift in Sources */,
 				2A26A78B1B6168C30062B9FD /* Logger.swift in Sources */,
 				2AE0DE6D1B80F92E008C308F /* SearchRequest.swift in Sources */,
+				2A9B5B281BF10E3500764007 /* VerifyUIController.swift in Sources */,
 				2A26A77F1B6168C20062B9FD /* BaseResponse.swift in Sources */,
 				2A4994CC1B9DFF5E005E313C /* LogoutResponseFactory.swift in Sources */,
 				2ADD5E591B7D10F600650E1B /* LogoutRequest.swift in Sources */,
@@ -512,6 +544,7 @@
 				2ADD5E411B7B5DCB00650E1B /* VerifyService.swift in Sources */,
 				2A26A78C1B6168C30062B9FD /* NexmoClient.swift in Sources */,
 				2A9325C81B8F310600217D87 /* VerifyClient.swift in Sources */,
+				2AC2D0A41BF14866004925B0 /* Country.swift in Sources */,
 				2A1E47DF1B78869B00C02690 /* SDKControlService.swift in Sources */,
 				2ADD5E2B1B7B574E00650E1B /* LogoutService.swift in Sources */,
 				2A26A7961B6168C30062B9FD /* VerifyResponse.swift in Sources */,
@@ -524,7 +557,9 @@
 				2A26A7901B6168C30062B9FD /* TokenResponse.swift in Sources */,
 				2AE0DE731B80FDD9008C308F /* SDKSearchService.swift in Sources */,
 				2ADD5E3B1B7B5D1F00650E1B /* CheckService.swift in Sources */,
+				2AC2D0A61BF148C3004925B0 /* CountryPickerController.swift in Sources */,
 				2A573E901B9F467D00D16EE0 /* ControlResponseFactory.swift in Sources */,
+				2AC2D0A81BF149B8004925B0 /* CountryPickerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +570,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -550,6 +587,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -559,6 +597,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -569,6 +609,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -576,6 +617,8 @@
 		2A6B60AC1B67A078005378E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -591,6 +634,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -598,6 +642,8 @@
 		2A6B60AD1B67A078005378E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -608,6 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -708,6 +755,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -720,6 +768,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -732,6 +781,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -744,6 +794,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "";
 				USER_HEADER_SEARCH_PATHS = "";

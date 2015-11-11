@@ -15,7 +15,7 @@ import UIKit
 */
 class Config {
     // Device and SDK information 
-    static let sdkVersion = "0.2"
+    static let sdkVersion = "1.0"
     static let osFamily = UIDevice.currentDevice().systemName
     static let osRevision = UIDevice.currentDevice().systemVersion
     

@@ -1,27 +1,15 @@
 The Nexmo Verify iOS SDK
 ============
 
-You use Nexmo Verify to check that a person has access to a specific phone number.
+With Verify SDK you add password replacement, 2-factor authentication, or user and transaction verification to your App with a single line of code.
 
-To complete phone verification:
+Verify SDK:
+ - Adds a new level of security to your App by tying phone numbers to unique device IDs.
+ - Provides user management support. You easily manage user identity across multiple devices and platforms without building a complex user management backend. No need to create and manage a user database, or query your database on each login request.
+ - Enables you to re-verify users with push notifications.
+ - Offers a UX framework to integrate in your App.
 
-1. Verify sends a PIN in an SMS and/or Text-to-speech (TTS) call to your user.
-
-    > You can also enable Google Cloud Messaging (GCM) in order to send a PIN using push notifications.
-
-2. The user enters this PIN into your App or website.
-3. You use Verify to check that the PIN entered by your user is the one you sent.
-
-Using the Nexmo Verify iOS SDK you easily integrate Verify functionality into your iOS App. With the Nexmo Verify iOS SDK, you enter the user's phone number and the SDK completes verification for you.
-
-In order to integrate the Nexmo Verify iOS SDK in your App, see:
-
-* [The Verify iOS SDK Sample App](https://github.com/Nexmo/verify-ios-sdk/blob/master/Example/The Verify iOS SDK Sample App.md)
-* [The Verify iOS SDK PUSH Enabled Sample App](https://github.com/Nexmo/verify-ios-sdk/blob/master/Example_PushEnabled/The Verify iOS SDK PUSH Enabled Sample App.md)
-* [Integrating the Nexmo Verify iOS SDK](https://github.com/Nexmo/verify-ios-sdk/blob/master/Integrating the Nexmo Verify iOS SDK.md)
-* [Advanced use of the Nexmo Verify iOS SDK](https://github.com/Nexmo/verify-ios-sdk/blob/master/Advanced Use of the Nexmo Verify iOS SDK.md)
-
-Feel free to checkout the [Verify iOS SDK codebase] (https://github.com/Nexmo/verify-ios-sdk/blob/master/VerifyIosSdk) if you wish to contribute to our open source library.
+Learn how to use Verify SDK at https://docs.nexmo.com/libraries/verify-sdk
 
 License
 =======

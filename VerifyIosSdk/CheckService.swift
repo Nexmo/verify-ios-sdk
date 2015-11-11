@@ -23,6 +23,6 @@ protocol CheckService {
         - parameter onResponse: A callback containing either a valid response or an error if something went wrong.
         Only one of these variables will be nil at a time.
     */
-    func start(request request: CheckRequest,
+    func start(request request: CheckRequest, standalone: Bool,
                onResponse: (response: CheckResponse?, error: NSError?) -> ())
 }
