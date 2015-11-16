@@ -23,6 +23,6 @@ protocol VerifyService {
         - parameter onResponse: A callback containing either a valid response or an error if something went wrong.
         Only one of these variables will be nil at a time.
     */
-    func start(request request: VerifyRequest, standalone: Bool,
+    func start(request request: VerifyRequest,
                onResponse: (response: VerifyResponse?, error: NSError?) -> ())
 }

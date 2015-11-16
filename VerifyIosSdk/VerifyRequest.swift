@@ -15,16 +15,18 @@ public class VerifyRequest {
 
     let countryCode : String?
     let phoneNumber : String
+    let standalone : Bool
     let gcmToken : String?
     
-    init(countryCode: String?, phoneNumber: String, gcmToken: String?) {
+    init(countryCode: String?, phoneNumber: String, standalone: Bool, gcmToken: String?) {
         self.countryCode = countryCode
         self.phoneNumber = phoneNumber
+        self.standalone = standalone
         self.gcmToken = gcmToken
     }
     
-    convenience init(countryCode: String?, phoneNumber: String) {
-        self.init(countryCode: countryCode, phoneNumber: phoneNumber, gcmToken: nil)
+    convenience init(countryCode: String?, phoneNumber: String, standalone: Bool) {
+        self.init(countryCode: countryCode, phoneNumber: phoneNumber, standalone: standalone, gcmToken: nil)
     }
 }
 

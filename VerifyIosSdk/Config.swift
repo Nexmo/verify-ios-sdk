@@ -19,6 +19,11 @@ class Config {
     static let osFamily = UIDevice.currentDevice().systemName
     static let osRevision = UIDevice.currentDevice().systemVersion
     
-    /** Endpoint for all sdk services */
-    static let ENDPOINT_PRODUCTION = "https://api.nexmo.com/sdk"
+    /** Load properties from plist file */
+    static let properties = NSDictionary(contentsOfFile: NSBundle(forClass: NexmoClient.self).pathForResource("SDKProperties", ofType: "plist")!) as! [String : AnyObject]
+    static let ENDPOINT_PRODUCTION = Config.properties["ENDPOINT_PRODUCTION"] as! String
+    static let APP_ID : String! = Config.properties["APP_ID"] as? String
+    static let SECRET_KEY : String! = Config.properties["SECRET_KEY"] as? String
+    static let TEST_APP_ID : String! = Config.properties["TEST_APP_ID"] as? String
+    static let TEST_SECRET_KEY : String! = Config.properties["TEST_SECRET_KEY"] as? String
 }

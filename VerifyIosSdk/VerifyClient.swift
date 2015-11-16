@@ -39,7 +39,6 @@ import UIKit
     private let searchService : SearchService
     
     private var currentVerifyTask : VerifyTask?
-    private var currentStandaloneVerifyTask : VerifyTask?
 
     init(nexmoClient: NexmoClient, serviceExecutor: ServiceExecutor, verifyService: VerifyService, checkService: CheckService, controlService: ControlService, logoutService: LogoutService, searchService: SearchService) {
             self.nexmoClient = nexmoClient
@@ -99,11 +98,11 @@ import UIKit
         }
         
         // acquire new token for this verification attempt
-        let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: phoneNumber, gcmToken: self.nexmoClient.gcmToken, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
+        let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: phoneNumber, standalone: false, gcmToken: self.nexmoClient.gcmToken, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
         self.currentVerifyTask = verifyTask
         
         // begin verification process
-        self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest(), standalone: false) { response, error in
+        self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest()) { response, error in
             if let error = error {
                 if (error.code == 1000) {
                     onError(error: .NETWORK_ERROR)
@@ -163,33 +162,33 @@ import UIKit
     
     func checkPinCode(pinCode: String) {
         VerifyClient.Log.info("checkPinCode called")
-        if let verifyTask = currentVerifyTask where verifyTask.userStatus == UserStatus.USER_PENDING {
-            checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode), standalone: false) { response, error in
-                    if let _ = error {
-                        verifyTask.onError(error: .INTERNAL_ERROR)
-                        return
-                    }
-                    
-                    if let response = response,
-                            let responseCode = ResponseCode.Code(rawValue: response.resultCode) {
-                        switch (responseCode) {
-                            case .RESULT_CODE_OK:
-                                if (response.userStatus! == UserStatus.USER_VERIFIED) {
-                                    self.currentVerifyTask?.setUserState(UserStatus.USER_VERIFIED)
-                                    self.currentVerifyTask?.onUserVerified()
-                                }
-                            
-                            default:
-                                if let error = ResponseCode.responseCodeToVerifyError[responseCode] {
-                                    verifyTask.onError(error: error)
-                                } else {
-                                    verifyTask.onError(error: .INTERNAL_ERROR)
-                                }
-                        }
-                    } else {
-                        verifyTask.onError(error: .INTERNAL_ERROR)
-                    }
+        if let verifyTask = currentVerifyTask where verifyTask.userStatus == UserStatus.USER_PENDING || verifyTask.standalone {
+            checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode)) { response, error in
+                if let _ = error {
+                    verifyTask.onError(error: .INTERNAL_ERROR)
+                    return
                 }
+                
+                if let response = response,
+                        let responseCode = ResponseCode.Code(rawValue: response.resultCode) {
+                    switch (responseCode) {
+                        case .RESULT_CODE_OK:
+                            if (response.userStatus! == UserStatus.USER_VERIFIED) {
+                                self.currentVerifyTask?.setUserState(UserStatus.USER_VERIFIED)
+                                self.currentVerifyTask?.onUserVerified()
+                            }
+                        
+                        default:
+                            if let error = ResponseCode.responseCodeToVerifyError[responseCode] {
+                                verifyTask.onError(error: error)
+                            } else {
+                                verifyTask.onError(error: .INTERNAL_ERROR)
+                            }
+                    }
+                } else {
+                    verifyTask.onError(error: .INTERNAL_ERROR)
+                }
+            }
         } else {
             VerifyClient.Log.error("no verify task currently in progress")
         }
@@ -219,9 +218,15 @@ import UIKit
     
     func checkPinCode(pinCode: String, countryCode: String?, number: String, onUserVerified: () -> (), onError: (VerifyError) -> ()) {
         VerifyClient.Log.info("checkPinCode called")
-        let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: number, gcmToken: nil, onVerifyInProgress: {}, onUserVerified: onUserVerified, onError: onError)
+        let verifyTask = VerifyTask(countryCode: countryCode,
+                                    phoneNumber: number,
+                                    standalone: false, /* doesn't mean anything here */
+                                    gcmToken: nil,
+                                    onVerifyInProgress: {},
+                                    onUserVerified: onUserVerified,
+                                    onError: onError)
         self.currentVerifyTask = verifyTask
-        checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode), standalone: false) { response, error in
+        checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode)) { response, error in
             if let _ = error {
                 verifyTask.onError(error: .INTERNAL_ERROR)
                 return
@@ -429,18 +434,18 @@ import UIKit
                                         onUserVerified: () -> (),
                                         onError: (error: VerifyError) -> ()) {
         
-        if let _ = self.currentStandaloneVerifyTask {
+        if (self.currentVerifyTask?.userStatus == UserStatus.USER_PENDING) {
             VerifyClient.Log.info("Verification attempted but one is already in progress.")
             onError(error: VerifyError.VERIFICATION_ALREADY_STARTED)
             return
         }
         
         // acquire new token for this verification attempt
-        let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: phoneNumber, gcmToken: self.nexmoClient.gcmToken, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
-        self.currentStandaloneVerifyTask = verifyTask
+        let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: phoneNumber, standalone: true, gcmToken: self.nexmoClient.gcmToken, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
+        self.currentVerifyTask = verifyTask
         
         // begin verification process
-        self.verifyService.start(request: self.currentStandaloneVerifyTask!.createVerifyRequest(), standalone: true) { response, error in
+        self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest()) { response, error in
             if let _ = error {
                 onError(error: .INTERNAL_ERROR)
                 return
@@ -475,106 +480,6 @@ import UIKit
         }
     }
 
-    /**
-        Check whether a pin code (ususally entered by the user) is the correct verification code.
-        
-        Note: This command is only useful if a verification request is in progress, otherwise the command
-        will simply quit and no callbacks will be triggered. If a verification request *is currently in progress*,
-        either the onError or onUserVerified callbacks will be triggered, depending on whether the code is correct.
-        
-        - parameter pinCode: a string containing the pin code to check.
-    */
-    @objc(verifyStandaloneCheckPinCode:)
-    public static func verifyStandaloneCheckPinCode(pinCode: String) {
-        sharedInstance.verifyStandaloneCheckPinCode(pinCode)
-    }
-    
-    func verifyStandaloneCheckPinCode(pinCode: String) {
-        VerifyClient.Log.info("checkPinCode called")
-        if let verifyTask = currentStandaloneVerifyTask {
-            checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode), standalone: true) { response, error in
-                    if let _ = error {
-                        verifyTask.onError(error: .INTERNAL_ERROR)
-                        return
-                    }
-                    
-                    if let response = response,
-                            let responseCode = ResponseCode.Code(rawValue: response.resultCode) {
-                        switch (responseCode) {
-                            case .RESULT_CODE_OK:
-                                if (response.userStatus! == UserStatus.USER_VERIFIED) {
-                                    self.currentStandaloneVerifyTask?.onUserVerified()
-                                }
-                            
-                            default:
-                                if let error = ResponseCode.responseCodeToVerifyError[responseCode] {
-                                    verifyTask.onError(error: error)
-                                } else {
-                                    verifyTask.onError(error: .INTERNAL_ERROR)
-                                }
-                        }
-                    } else {
-                        verifyTask.onError(error: .INTERNAL_ERROR)
-                    }
-                }
-        } else {
-            VerifyClient.Log.error("no verify task currently in progress")
-        }
-    }
-    
-    /**
-        Check whether a pin code (ususally entered by the user) is the correct verification code.
-        A verification attempt does not need to be in progress to call this command. This is useful in the
-        case that an App is restarted before the verification is complete.
-        
-        Note: This version of the command should only be used in cases where an app may restart before verification is complete. Then you have the opportunity to continue with the verification process by calling this function with the appropriate parameters.
-        
-        - parameter pinCode: a string containing the pin code to check.
-    
-        - parameter countryCode: The ISO 3166 alpha-2 country code for the specified number
-    
-        - parameter number: Mobile number to verify
-    
-        - parameter onUserVerified: Callback which is executed when a user is verified
-        
-        - parameter onError: Callback which is executed when an error occurs
-    */
-    @objc(verifyStandaloneCheckPinCode:WithCountryCode:WithNumber:verifyInProgressBlock:errorBlock:)
-    public static func verifyStandaloneCheckPinCode(pinCode: String, countryCode: String?, number: String, onUserVerified: () -> (), onError: (VerifyError) -> ()) {
-        sharedInstance.verifyStandaloneCheckPinCode(pinCode, countryCode: countryCode, number: number, onUserVerified: onUserVerified, onError: onError)
-    }
-    
-    func verifyStandaloneCheckPinCode(pinCode: String, countryCode: String?, number: String, onUserVerified: () -> (), onError: (VerifyError) -> ()) {
-        VerifyClient.Log.info("checkPinCode called")
-        let verifyTask = VerifyTask(countryCode: countryCode, phoneNumber: number, gcmToken: nil, onVerifyInProgress: {}, onUserVerified: onUserVerified, onError: onError)
-        self.currentStandaloneVerifyTask = verifyTask
-        checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode), standalone: true) { response, error in
-            if let _ = error {
-                verifyTask.onError(error: .INTERNAL_ERROR)
-                return
-            }
-            
-            if let response = response,
-                    let responseCode = ResponseCode.Code(rawValue: response.resultCode) {
-                switch (responseCode) {
-                    case .RESULT_CODE_OK:
-                        if (response.userStatus! == UserStatus.USER_VERIFIED) {
-                            self.currentStandaloneVerifyTask?.onUserVerified()
-                        }
-                    
-                    default:
-                        if let error = ResponseCode.responseCodeToVerifyError[responseCode] {
-                            verifyTask.onError(error: error)
-                        } else {
-                            verifyTask.onError(error: .INTERNAL_ERROR)
-                        }
-                }
-            } else {
-                verifyTask.onError(error: .INTERNAL_ERROR)
-            }
-        }
-    }
-    
     @objc(beginManagedVerificationWithMessage:withDelegate:)
     public static func beginManagedVerification(message: String, delegate: VerifyUIDelegate) {
         sharedInstance.beginManagedVerification(message, delegate: delegate)

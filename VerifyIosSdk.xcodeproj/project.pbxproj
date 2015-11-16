@@ -44,6 +44,7 @@
 		2A9325451B8A1D4200217D87 /* ControlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325441B8A1D4200217D87 /* ControlRequest.swift */; };
 		2A9325C81B8F310600217D87 /* VerifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9325C71B8F310600217D87 /* VerifyClient.swift */; };
 		2A9B5B281BF10E3500764007 /* VerifyUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B5B271BF10E3500764007 /* VerifyUIController.swift */; };
+		2AAB53EE1BF643E1004874B6 /* SDKProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AAB53ED1BF643E1004874B6 /* SDKProperties.plist */; };
 		2ABA3ABF1B6166A800EB4842 /* VerifyIosSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AC2D0A41BF14866004925B0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A31BF14866004925B0 /* Country.swift */; };
 		2AC2D0A61BF148C3004925B0 /* CountryPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A51BF148C3004925B0 /* CountryPickerController.swift */; };
@@ -65,6 +66,23 @@
 		2AE0DE701B80F937008C308F /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE6F1B80F937008C308F /* SearchResponse.swift */; };
 		2AE0DE731B80FDD9008C308F /* SDKSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE0DE721B80FDD9008C308F /* SDKSearchService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2AAB54561BF810DC004874B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ABA3AB01B6166A800EB4842 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A6B60751B67A04B005378E0;
+			remoteInfo = RequestSigning;
+		};
+		2AAB54581BF810DC004874B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ABA3AB01B6166A800EB4842 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A6B60971B67A078005378E0;
+			remoteInfo = DeviceProperties;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2A1E47D91B78869B00C02690 /* ControlResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlResponse.swift; sourceTree = "<group>"; };
@@ -106,6 +124,7 @@
 		2A9325441B8A1D4200217D87 /* ControlRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlRequest.swift; sourceTree = "<group>"; };
 		2A9325C71B8F310600217D87 /* VerifyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyClient.swift; sourceTree = "<group>"; };
 		2A9B5B271BF10E3500764007 /* VerifyUIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyUIController.swift; sourceTree = "<group>"; };
+		2AAB53ED1BF643E1004874B6 /* SDKProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SDKProperties.plist; sourceTree = "<group>"; };
 		2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerifyIosSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ABA3ABD1B6166A800EB4842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyIosSdk.h; sourceTree = "<group>"; };
@@ -265,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				2ABA3ABD1B6166A800EB4842 /* Info.plist */,
+				2AAB53ED1BF643E1004874B6 /* SDKProperties.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -419,6 +439,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				2AAB54571BF810DC004874B6 /* PBXTargetDependency */,
+				2AAB54591BF810DC004874B6 /* PBXTargetDependency */,
 			);
 			name = VerifyIosSdk;
 			productName = VerifyIosSdk;
@@ -488,6 +510,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AAB53EE1BF643E1004874B6 /* SDKProperties.plist in Resources */,
 				2A2536401BE1346100107884 /* VerifyUI.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +587,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2AAB54571BF810DC004874B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A6B60751B67A04B005378E0 /* RequestSigning */;
+			targetProxy = 2AAB54561BF810DC004874B6 /* PBXContainerItemProxy */;
+		};
+		2AAB54591BF810DC004874B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A6B60971B67A078005378E0 /* DeviceProperties */;
+			targetProxy = 2AAB54581BF810DC004874B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2A6B60891B67A04B005378E0 /* Debug */ = {

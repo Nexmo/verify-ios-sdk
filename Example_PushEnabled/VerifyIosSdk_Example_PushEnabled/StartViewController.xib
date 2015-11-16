@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -78,6 +78,17 @@
                         <action selector="logoutUser:" destination="-1" eventType="touchUpInside" id="laH-1P-Vao"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yc1-SS-BFG">
+                    <rect key="frame" x="187" y="473" width="227" height="39"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <state key="normal" title="Standalone Verification">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="standaloneVerification:" destination="-1" eventType="touchUpInside" id="n4N-cq-5vE"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.070588235294117646" green="0.55686274509803924" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,12 +104,14 @@
                     <variation key="heightClass=compact" constant="-24.5"/>
                 </constraint>
                 <constraint firstItem="4W1-xF-hnA" firstAttribute="top" secondItem="6gc-r4-gIb" secondAttribute="bottom" constant="5" id="GAG-HH-yCn"/>
+                <constraint firstItem="Yc1-SS-BFG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KTs-bn-Ky2"/>
                 <constraint firstItem="jzY-9k-8mq" firstAttribute="centerY" secondItem="4W1-xF-hnA" secondAttribute="centerY" id="LAN-lQ-X3s"/>
                 <constraint firstItem="P6J-UL-R8j" firstAttribute="top" secondItem="4W1-xF-hnA" secondAttribute="bottom" constant="34" id="VBw-go-CaO">
                     <variation key="heightClass=compact" constant="8"/>
                 </constraint>
                 <constraint firstItem="L5X-qb-oHv" firstAttribute="centerX" secondItem="P6J-UL-R8j" secondAttribute="centerX" id="dcu-JM-wZv"/>
                 <constraint firstAttribute="centerX" secondItem="4W1-xF-hnA" secondAttribute="centerX" constant="-53" id="oYe-9n-cpV"/>
+                <constraint firstItem="Yc1-SS-BFG" firstAttribute="top" secondItem="L5X-qb-oHv" secondAttribute="bottom" constant="8" id="xdz-hm-6CI"/>
                 <constraint firstItem="4W1-xF-hnA" firstAttribute="leading" secondItem="jzY-9k-8mq" secondAttribute="trailing" constant="8" id="yic-MF-ZQ1"/>
             </constraints>
         </view>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>APP_ID</key>
+	<string></string>
+	<key>SECRET_KEY</key>
+	<string></string>
+	<key>ENDPOINT_PRODUCTION</key>
+	<string>https://api.nexmo.com/sdk</string>
+</dict>
+</plist>

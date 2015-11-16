@@ -87,6 +87,10 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         parentPageViewController.logoutUser()
     }
     
+    @IBAction func standaloneVerification(sender: AnyObject) {
+        parentPageViewController.standaloneVerification()
+    }
+    
     // Mark: - UIPickerViewDataSource
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

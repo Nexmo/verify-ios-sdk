@@ -16,6 +16,14 @@ import DeviceProperties
 */
 
 class ServiceExecutor {
+
+    private enum ErrorCode : Int {
+        case CANNOT_GENERATE_SIGNATURE = 1
+        case CANNOT_PARSE_RESPONSE
+        case CANNOT_BUILD_HTTP_REQUEST
+        case CANNOT_GET_IP_ADDRESS
+        
+    }
         
     /// Path for token sdk service
     static let METHOD_TOKEN = "token/json"
@@ -229,7 +237,7 @@ class ServiceExecutor {
             mutableParams[ServiceExecutor.PARAM_SIGNATURE] = signature
         } else {
             ServiceExecutor.Log.error("unable to generate signature")
-            callback(response: nil, error: NSError(domain: "ServiceExecutor", code: 1, userInfo: [NSLocalizedDescriptionKey : "unable to generate signature"]))
+            callback(response: nil, error: NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_GENERATE_SIGNATURE.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to generate signature"]))
             return
         }
         
@@ -259,11 +267,11 @@ class ServiceExecutor {
                     }
                 // if let resultCode, resultMessage
                 } else {
-                    callback(response: nil, error: NSError(domain: "ServiceExecutor", code: 3, userInfo: [NSLocalizedDescriptionKey : "Un-parseable response returned from server!"]))
+                    callback(response: nil, error: NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_PARSE_RESPONSE.rawValue, userInfo: [NSLocalizedDescriptionKey : "Un-parseable response returned from server!"]))
                 }
             }
         } else {
-            callback(response: nil, error: NSError(domain: "ServiceExecutor", code: 2, userInfo: [NSLocalizedDescriptionKey : "unable to build http request"]))
+            callback(response: nil, error: NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_BUILD_HTTP_REQUEST.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to build http request"]))
         }
     }
     
@@ -311,7 +319,7 @@ class ServiceExecutor {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let params = NSMutableDictionary()
             if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
-                let error = NSError(domain: "ServiceExecutor", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
+                let error = NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_GET_IP_ADDRESS.rawValue, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 ServiceExecutor.Log.error(error.localizedDescription)
                 dispatch_async(dispatch_get_main_queue()) {
                     onResponse(response: nil, error: error)

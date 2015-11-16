@@ -26,7 +26,7 @@ import Foundation
                 return instance
             }
             
-            instance = NexmoClient(applicationId: "", sharedSecretKey: "")
+            instance = NexmoClient(applicationId: Config.APP_ID ?? "", sharedSecretKey: Config.SECRET_KEY ?? "")
             return instance!
         }
     }
@@ -75,10 +75,6 @@ import Foundation
     */
     @objc(setGcmToken:)
     public static func setGcmToken(gcmToken: String) {
-        if (instance == nil) {
-            print("NexmoClient has not yet been started!")
-            return
-        }
         NexmoClient.sharedInstance.gcmToken = gcmToken
     }
 }

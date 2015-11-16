@@ -44,7 +44,7 @@ class SDKVerifyService : VerifyService {
         Contains a response from the server or an NSError if something wen't catastrophically wrong.
         Note: The response object may be negative and therefore the resultCode parameter should be checked.
     */
-    func start(request request: VerifyRequest, standalone: Bool, onResponse: (response: VerifyResponse?, error: NSError?) -> ()) {
+    func start(request request: VerifyRequest, onResponse: (response: VerifyResponse?, error: NSError?) -> ()) {
         SDKVerifyService.Log.info("Beginning verify request")
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let params = NSMutableDictionary()
@@ -79,7 +79,7 @@ class SDKVerifyService : VerifyService {
             
             let swiftParams = params.copy() as! [String:String]
             var path : String
-            if standalone {
+            if request.standalone {
                 path = ServiceExecutor.METHOD_ONESHOT_VERIFY
             } else {
                 path = ServiceExecutor.METHOD_VERIFY
