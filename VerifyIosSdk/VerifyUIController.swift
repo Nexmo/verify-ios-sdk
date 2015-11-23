@@ -37,7 +37,7 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
     var delegate : VerifyUIDelegate?
     
     private let countryController = CountryPickerController()
-    private var currentCountry = Country.UNITED_KINGDOM
+    private var currentCountry = Countries.list[2] as [String : AnyObject]
     private var verificationSuccessful = false
     private var pinTry = 0
     private var called = false
@@ -202,12 +202,12 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
         checkCodeField.resignFirstResponder()
     }
     
-    func didSelectCountry(country: Country) {
-        print("selected country \(country.country)")
+    func didSelectCountry(country: [String : AnyObject]) {
+        print("selected country \(country["country"] as! String)")
         
         currentCountry = country
-        countryField.text = country.country
-        intPrefixText.text = "+\(country.intPrefix[0])"
+        countryField.text = (country["country"] as! String)
+        intPrefixText.text = "+\((country["int_prefix"] as! NSArray)[0])"
     }
     
     func onVerifyInProgressCallback() {
@@ -287,7 +287,7 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
     }
     
     func sendCode(sender: AnyObject) {
-        VerifyClient.getVerifiedUser(countryCode: currentCountry.countryCode, phoneNumber: numberField.text!,
+        VerifyClient.getVerifiedUser(countryCode: (currentCountry["country_code"] as! String), phoneNumber: numberField.text!,
         onVerifyInProgress: onVerifyInProgressCallback,
         onUserVerified: onUserVerifiedCallback,
         onError: onErrorCallback)
@@ -360,7 +360,7 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
             
             self.pinTry = 0
             self.called = false
-            VerifyClient.getVerifiedUser(countryCode: self.currentCountry.countryCode, phoneNumber: self.numberField.text!,
+            VerifyClient.getVerifiedUser(countryCode: (self.currentCountry["country_code"] as! String), phoneNumber: self.numberField.text!,
             onVerifyInProgress: self.onVerifyInProgressCallback,
             onUserVerified: self.onUserVerifiedCallback,
             onError: self.onErrorCallback)

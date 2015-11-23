@@ -27,16 +27,16 @@ class CountryPickerController : NSObject, UIPickerViewDataSource, UIPickerViewDe
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Country.countries.count
+        return Countries.list.count
     }
     
     // Mark: - UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: Country.countries[row].country, attributes: [:])
+        return NSAttributedString(string: Countries.list[row]["country"] as! String, attributes: [:])
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        delegate?.didSelectCountry(Country.countries[row])
+        delegate?.didSelectCountry(Countries.list[row])
     }
 }

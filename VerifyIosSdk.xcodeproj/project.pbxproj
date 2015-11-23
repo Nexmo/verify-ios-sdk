@@ -35,6 +35,8 @@
 		2A573E8A1B9F453600D16EE0 /* CheckReponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E891B9F453600D16EE0 /* CheckReponseFactory.swift */; };
 		2A573E8D1B9F45F400D16EE0 /* VerifyResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E8C1B9F45F400D16EE0 /* VerifyResponseFactory.swift */; };
 		2A573E901B9F467D00D16EE0 /* ControlResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A573E8F1B9F467D00D16EE0 /* ControlResponseFactory.swift */; };
+		2A5FEF041C036F870019AAA7 /* Countries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5FEF031C036F870019AAA7 /* Countries.plist */; };
+		2A5FEF061C037DA90019AAA7 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5FEF051C037DA90019AAA7 /* Countries.swift */; };
 		2A6B607B1B67A04B005378E0 /* SDKRequestSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A6B609D1B67A078005378E0 /* SDKDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A9014E51B6A6FC600147451 /* DeviceProperties.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6B60981B67A078005378E0 /* DeviceProperties.framework */; };
@@ -46,7 +48,6 @@
 		2A9B5B281BF10E3500764007 /* VerifyUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B5B271BF10E3500764007 /* VerifyUIController.swift */; };
 		2AAB53EE1BF643E1004874B6 /* SDKProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AAB53ED1BF643E1004874B6 /* SDKProperties.plist */; };
 		2ABA3ABF1B6166A800EB4842 /* VerifyIosSdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AC2D0A41BF14866004925B0 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A31BF14866004925B0 /* Country.swift */; };
 		2AC2D0A61BF148C3004925B0 /* CountryPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A51BF148C3004925B0 /* CountryPickerController.swift */; };
 		2AC2D0A81BF149B8004925B0 /* CountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A71BF149B8004925B0 /* CountryPickerDelegate.swift */; };
 		2AC2D0AA1BF16A59004925B0 /* VerifyUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2D0A91BF16A59004925B0 /* VerifyUIDelegate.swift */; };
@@ -113,6 +114,8 @@
 		2A573E891B9F453600D16EE0 /* CheckReponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckReponseFactory.swift; sourceTree = "<group>"; };
 		2A573E8C1B9F45F400D16EE0 /* VerifyResponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyResponseFactory.swift; sourceTree = "<group>"; };
 		2A573E8F1B9F467D00D16EE0 /* ControlResponseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlResponseFactory.swift; sourceTree = "<group>"; };
+		2A5FEF031C036F870019AAA7 /* Countries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Countries.plist; sourceTree = "<group>"; };
+		2A5FEF051C037DA90019AAA7 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		2A6B60761B67A04B005378E0 /* RequestSigning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RequestSigning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A6B60791B67A04B005378E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKRequestSigner.h; sourceTree = "<group>"; };
@@ -128,7 +131,6 @@
 		2ABA3AB91B6166A800EB4842 /* VerifyIosSdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VerifyIosSdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ABA3ABD1B6166A800EB4842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyIosSdk.h; sourceTree = "<group>"; };
-		2AC2D0A31BF14866004925B0 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2AC2D0A51BF148C3004925B0 /* CountryPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerController.swift; sourceTree = "<group>"; };
 		2AC2D0A71BF149B8004925B0 /* CountryPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryPickerDelegate.swift; sourceTree = "<group>"; };
 		2AC2D0A91BF16A59004925B0 /* VerifyUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyUIDelegate.swift; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 		2A9B5B261BF10E1200764007 /* VerifyUI */ = {
 			isa = PBXGroup;
 			children = (
-				2AC2D0A31BF14866004925B0 /* Country.swift */,
+				2A5FEF051C037DA90019AAA7 /* Countries.swift */,
 				2A25363F1BE1346100107884 /* VerifyUI.storyboard */,
 				2A9B5B271BF10E3500764007 /* VerifyUIController.swift */,
 				2AC2D0A71BF149B8004925B0 /* CountryPickerDelegate.swift */,
@@ -283,6 +285,7 @@
 		2ABA3ABC1B6166A800EB4842 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A5FEF031C036F870019AAA7 /* Countries.plist */,
 				2ABA3ABD1B6166A800EB4842 /* Info.plist */,
 				2AAB53ED1BF643E1004874B6 /* SDKProperties.plist */,
 			);
@@ -511,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAB53EE1BF643E1004874B6 /* SDKProperties.plist in Resources */,
+				2A5FEF041C036F870019AAA7 /* Countries.plist in Resources */,
 				2A2536401BE1346100107884 /* VerifyUI.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,10 +568,10 @@
 				2AE0DE701B80F937008C308F /* SearchResponse.swift in Sources */,
 				2A26A78A1B6168C30062B9FD /* HttpResponse.swift in Sources */,
 				2A26A78F1B6168C30062B9FD /* ResponseCode.swift in Sources */,
+				2A5FEF061C037DA90019AAA7 /* Countries.swift in Sources */,
 				2ADD5E411B7B5DCB00650E1B /* VerifyService.swift in Sources */,
 				2A26A78C1B6168C30062B9FD /* NexmoClient.swift in Sources */,
 				2A9325C81B8F310600217D87 /* VerifyClient.swift in Sources */,
-				2AC2D0A41BF14866004925B0 /* Country.swift in Sources */,
 				2A1E47DF1B78869B00C02690 /* SDKControlService.swift in Sources */,
 				2ADD5E2B1B7B574E00650E1B /* LogoutService.swift in Sources */,
 				2A26A7961B6168C30062B9FD /* VerifyResponse.swift in Sources */,
