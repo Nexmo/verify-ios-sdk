@@ -1,15 +1,29 @@
-The Nexmo Verify iOS SDK
+The Nexmo Verify SDK for iOS
 ============
 
-With Verify SDK you add password replacement, 2-factor authentication, or user and transaction verification to your App with a single line of code.
+You use Nexmo Verify to check that a person has access to a specific phone number.
 
-Verify SDK:
- - Adds a new level of security to your App by tying phone numbers to unique device IDs.
- - Provides user management support. You easily manage user identity across multiple devices and platforms without building a complex user management backend. No need to create and manage a user database, or query your database on each login request.
- - Enables you to re-verify users with push notifications.
- - Offers a UX framework to integrate in your App.
+To complete phone verification:
 
-Learn how to use Verify SDK at https://docs.nexmo.com/libraries/verify-sdk
+1. Verify sends a PIN in an SMS and/or Text-to-speech (TTS) call to your user.
+
+    > You can also enable Google Cloud Messaging (GCM) in order to send a PIN using push notifications.
+
+2. The user enters this PIN into your app or website.
+3. You use Verify to check that the PIN entered by your user is the one you sent.
+
+Using Verify SDK for iOS you easily integrate Verify functionality into your iOS app. With the Verify SDK for iOS, you enter the user's phone number and the SDK completes verification for you.
+
+In order to integrate the Verify SDK for iOS in your app, see:
+* [Setting up your environment](https://docs.nexmo.com/sdks/verify-sdk/verify-sdk-for-iOS/prerequisites): before you start coding, create a Verify SDK app in the Dashboard and configure Android Studio.
+* [Integrate Verify SDK for iOS](https://docs.nexmo.com/sdks/verify-sdk/verify-sdk-for-iOS/integration): create and run your first app.
+* [Verify SDK for iOS sample app](https://docs.nexmo.com/sdks/verify-sdk/verify-sdk-for-iOS/verify-sample): integrate and run a more complete app.
+* [Configuring GCM push](https://docs.nexmo.com/sdks/verify-sdk/verify-sdk-for-iOS/integrating-gcm-push): create and use a GCM token in your app.
+* [Verify SDK for iOS push enabled sample app](https://docs.nexmo.com/sdks/verify-sdk/verify-sdk-for-iOS/verify-push-sample): integrate and run a more complete app with GCM.
+* [Verify SDK for iOS, advanced use](https://docs.nexmo.com/sdks/verify-sdk/verify-sdk-for-iOS/advanced): use the advanced features in Verify SDK for iOS.
+* [Example configurations](https://docs.nexmo.com/sdks/verify-sdk/verify-sdk-for-iOS/example-configurations): configurations for different types of app.
+
+Feel free to checkout the [Verify iOS SDK codebase] (https://github.com/Nexmo/verify-ios-sdk/blob/master/VerifyIosSdk) if you wish to contribute to our open source library.
 
 License
 =======
