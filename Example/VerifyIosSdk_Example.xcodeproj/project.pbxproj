@@ -12,7 +12,6 @@
 		2A63DA1E1B66565900E49F42 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A63DA131B66565900E49F42 /* CheckViewController.swift */; };
 		2A63DA1F1B66565900E49F42 /* CheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A63DA141B66565900E49F42 /* CheckViewController.xib */; };
 		2A63DA201B66565900E49F42 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A63DA151B66565900E49F42 /* Colors.swift */; };
-		2A63DA211B66565900E49F42 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A63DA161B66565900E49F42 /* Country.swift */; };
 		2A63DA241B66565900E49F42 /* PageIndexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A63DA191B66565900E49F42 /* PageIndexable.swift */; };
 		2A63DA251B66565900E49F42 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A63DA1A1B66565900E49F42 /* StartViewController.swift */; };
 		2A63DA261B66565900E49F42 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A63DA1B1B66565900E49F42 /* StartViewController.xib */; };
@@ -55,7 +54,6 @@
 		2A63DA131B66565900E49F42 /* CheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		2A63DA141B66565900E49F42 /* CheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckViewController.xib; sourceTree = "<group>"; };
 		2A63DA151B66565900E49F42 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		2A63DA161B66565900E49F42 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2A63DA191B66565900E49F42 /* PageIndexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndexable.swift; sourceTree = "<group>"; };
 		2A63DA1A1B66565900E49F42 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		2A63DA1B1B66565900E49F42 /* StartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				2A63DA131B66565900E49F42 /* CheckViewController.swift */,
 				2A63DA141B66565900E49F42 /* CheckViewController.xib */,
 				2A63DA151B66565900E49F42 /* Colors.swift */,
-				2A63DA161B66565900E49F42 /* Country.swift */,
 				2A63DA191B66565900E49F42 /* PageIndexable.swift */,
 				2A63DA1A1B66565900E49F42 /* StartViewController.swift */,
 				2A63DA1B1B66565900E49F42 /* StartViewController.xib */,
@@ -251,7 +248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A63DA211B66565900E49F42 /* Country.swift in Sources */,
 				2A63DA251B66565900E49F42 /* StartViewController.swift in Sources */,
 				2A63DA271B66565900E49F42 /* VerifyPageViewController.swift in Sources */,
 				2A63DA1D1B66565900E49F42 /* AppDelegate.swift in Sources */,

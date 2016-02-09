@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		288A28C02FC048407F51AB0B /* libPods-VerifyIosSdk_Example_PushEnabled.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0680243C5F768A7E2FA983D5 /* libPods-VerifyIosSdk_Example_PushEnabled.a */; };
 		2AEC2C0F1BC4201C001114D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC2C0E1BC4201C001114D0 /* AppDelegate.swift */; };
 		2AEC2C241BC4201D001114D0 /* VerifyIosSdk_Example_PushEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC2C231BC4201D001114D0 /* VerifyIosSdk_Example_PushEnabledTests.swift */; };
 		2AEC2C2F1BC4201D001114D0 /* VerifyIosSdk_Example_PushEnabledUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AEC2C2E1BC4201D001114D0 /* VerifyIosSdk_Example_PushEnabledUITests.swift */; };
-		2AF474C81BC5796500FBE0EE /* CheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474C21BC5796500FBE0EE /* CheckViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		2AF474C91BC5796500FBE0EE /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474C31BC5796500FBE0EE /* StartViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		2AF474CA1BC5796500FBE0EE /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474C41BC5796500FBE0EE /* CheckViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF474CB1BC5796500FBE0EE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474C51BC5796500FBE0EE /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF474CC1BC5796500FBE0EE /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474C61BC5796500FBE0EE /* Country.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF474CD1BC5796500FBE0EE /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474C71BC5796500FBE0EE /* StartViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF474D11BC5798200FBE0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474CE1BC5798200FBE0EE /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		2AF474D21BC5798200FBE0EE /* PageIndexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474CF1BC5798200FBE0EE /* PageIndexable.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF474D31BC5798200FBE0EE /* VerifyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474D01BC5798200FBE0EE /* VerifyPageViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2AF474D61BC579BC00FBE0EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474D41BC579BC00FBE0EE /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
-		2AF474F21BC57BE200FBE0EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474F01BC57BE200FBE0EE /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		2AF474C81BC5796500FBE0EE /* CheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474C21BC5796500FBE0EE /* CheckViewController.xib */; };
+		2AF474C91BC5796500FBE0EE /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474C31BC5796500FBE0EE /* StartViewController.xib */; };
+		2AF474CA1BC5796500FBE0EE /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474C41BC5796500FBE0EE /* CheckViewController.swift */; };
+		2AF474CB1BC5796500FBE0EE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474C51BC5796500FBE0EE /* Colors.swift */; };
+		2AF474CD1BC5796500FBE0EE /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474C71BC5796500FBE0EE /* StartViewController.swift */; };
+		2AF474D11BC5798200FBE0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474CE1BC5798200FBE0EE /* Assets.xcassets */; };
+		2AF474D21BC5798200FBE0EE /* PageIndexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474CF1BC5798200FBE0EE /* PageIndexable.swift */; };
+		2AF474D31BC5798200FBE0EE /* VerifyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF474D01BC5798200FBE0EE /* VerifyPageViewController.swift */; };
+		2AF474D61BC579BC00FBE0EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474D41BC579BC00FBE0EE /* LaunchScreen.xib */; };
+		2AF474F21BC57BE200FBE0EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF474F01BC57BE200FBE0EE /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0680243C5F768A7E2FA983D5 /* libPods-VerifyIosSdk_Example_PushEnabled.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VerifyIosSdk_Example_PushEnabled.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ABB84F21BC6AB720001EB15 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		2AEC2C0B1BC4201C001114D0 /* VerifyIosSdk_Example_PushEnabled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerifyIosSdk_Example_PushEnabled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AEC2C0E1BC4201C001114D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,13 +69,14 @@
 		2AF474C31BC5796500FBE0EE /* StartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
 		2AF474C41BC5796500FBE0EE /* CheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		2AF474C51BC5796500FBE0EE /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		2AF474C61BC5796500FBE0EE /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2AF474C71BC5796500FBE0EE /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		2AF474CE1BC5798200FBE0EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AF474CF1BC5798200FBE0EE /* PageIndexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndexable.swift; sourceTree = "<group>"; };
 		2AF474D01BC5798200FBE0EE /* VerifyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyPageViewController.swift; sourceTree = "<group>"; };
 		2AF474D51BC579BC00FBE0EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2AF474F11BC57BE200FBE0EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C7C59E869F749BE3288F695 /* Pods-VerifyIosSdk_Example_PushEnabled.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerifyIosSdk_Example_PushEnabled.release.xcconfig"; path = "Pods/Target Support Files/Pods-VerifyIosSdk_Example_PushEnabled/Pods-VerifyIosSdk_Example_PushEnabled.release.xcconfig"; sourceTree = "<group>"; };
+		A92AA04C1E5892C98F826CE9 /* Pods-VerifyIosSdk_Example_PushEnabled.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VerifyIosSdk_Example_PushEnabled.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VerifyIosSdk_Example_PushEnabled/Pods-VerifyIosSdk_Example_PushEnabled.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288A28C02FC048407F51AB0B /* libPods-VerifyIosSdk_Example_PushEnabled.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D7FA1BCF17BA5E62448904C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0680243C5F768A7E2FA983D5 /* libPods-VerifyIosSdk_Example_PushEnabled.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2AEC2C021BC4201C001114D0 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +120,8 @@
 				2AEC2C221BC4201D001114D0 /* VerifyIosSdk_Example_PushEnabledTests */,
 				2AEC2C2D1BC4201D001114D0 /* VerifyIosSdk_Example_PushEnabledUITests */,
 				2AEC2C0C1BC4201C001114D0 /* Products */,
+				75F099A575344E7907866C4E /* Pods */,
+				1D7FA1BCF17BA5E62448904C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,7 +147,6 @@
 				2AF474C31BC5796500FBE0EE /* StartViewController.xib */,
 				2AF474C41BC5796500FBE0EE /* CheckViewController.swift */,
 				2AF474C51BC5796500FBE0EE /* Colors.swift */,
-				2AF474C61BC5796500FBE0EE /* Country.swift */,
 				2AF474C71BC5796500FBE0EE /* StartViewController.swift */,
 				2AEC2C0E1BC4201C001114D0 /* AppDelegate.swift */,
 				2ABB84F21BC6AB720001EB15 /* BridgingHeader.h */,
@@ -161,6 +173,15 @@
 			path = VerifyIosSdk_Example_PushEnabledUITests;
 			sourceTree = "<group>";
 		};
+		75F099A575344E7907866C4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A92AA04C1E5892C98F826CE9 /* Pods-VerifyIosSdk_Example_PushEnabled.debug.xcconfig */,
+				2C7C59E869F749BE3288F695 /* Pods-VerifyIosSdk_Example_PushEnabled.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,12 +189,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AEC2C331BC4201D001114D0 /* Build configuration list for PBXNativeTarget "VerifyIosSdk_Example_PushEnabled" */;
 			buildPhases = (
-				7242FCF1341EBF84A5942BCB /* Check Pods Manifest.lock */,
+				88F22797A37D9ACEA2EF9D46 /* Check Pods Manifest.lock */,
 				2AEC2C071BC4201C001114D0 /* Sources */,
 				2AEC2C081BC4201C001114D0 /* Frameworks */,
 				2AEC2C091BC4201C001114D0 /* Resources */,
 				2AF474EF1BC579FC00FBE0EE /* Embed Frameworks */,
-				105FC2F5B92240D48F45B9F6 /* Copy Pods Resources */,
+				5114C1FB4ED20F9DD3DD33A6 /* Embed Pods Frameworks */,
+				CE50B7D6AC947959AA1C8607 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,7 +253,6 @@
 				TargetAttributes = {
 					2AEC2C0A1BC4201C001114D0 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = WA7RC9M55T;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -298,22 +319,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		105FC2F5B92240D48F45B9F6 /* Copy Pods Resources */ = {
+		5114C1FB4ED20F9DD3DD33A6 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerifyIosSdk_Example_PushEnabled/Pods-VerifyIosSdk_Example_PushEnabled-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerifyIosSdk_Example_PushEnabled/Pods-VerifyIosSdk_Example_PushEnabled-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7242FCF1341EBF84A5942BCB /* Check Pods Manifest.lock */ = {
+		88F22797A37D9ACEA2EF9D46 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -328,6 +349,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		CE50B7D6AC947959AA1C8607 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VerifyIosSdk_Example_PushEnabled/Pods-VerifyIosSdk_Example_PushEnabled-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -339,7 +375,6 @@
 				2AF474CB1BC5796500FBE0EE /* Colors.swift in Sources */,
 				2AF474D31BC5798200FBE0EE /* VerifyPageViewController.swift in Sources */,
 				2AF474D21BC5798200FBE0EE /* PageIndexable.swift in Sources */,
-				2AF474CC1BC5796500FBE0EE /* Country.swift in Sources */,
 				2AEC2C0F1BC4201C001114D0 /* AppDelegate.swift in Sources */,
 				2AF474CD1BC5796500FBE0EE /* StartViewController.swift in Sources */,
 			);
@@ -483,6 +518,7 @@
 		};
 		2AEC2C341BC4201D001114D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92AA04C1E5892C98F826CE9 /* Pods-VerifyIosSdk_Example_PushEnabled.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -504,6 +540,7 @@
 		};
 		2AEC2C351BC4201D001114D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C7C59E869F749BE3288F695 /* Pods-VerifyIosSdk_Example_PushEnabled.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

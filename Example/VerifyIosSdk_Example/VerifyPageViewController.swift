@@ -38,49 +38,74 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
         // Dispose of any resources that can be recreated.
     }
     
-    func beginVerification() {
-        VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry.countryCode, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: {
-                print("verify progress")
-                self.toCheckPage()
-            },
-            onUserVerified: {
-                    self.toCheckPage()
-                    UIView.animateWithDuration(0.5) {
-                    (self.pages[VerifyPageViewController.CHECK_CONTROLLER_INDEX] as! CheckViewController).statusImage.alpha = 1
-                }
-            },
-            onError: { verifyError in
-                switch (verifyError) {
-                    case .INVALID_NUMBER:
-                        UIAlertView(title: "Invalid Phone Number", message: "The phone number you entered is invalid.", delegate: nil, cancelButtonTitle: "Oh, gosh darnit!").show()
-                    
-                    case .INVALID_PIN_CODE:
-                        UIAlertView(title: "Wrong Pin Code", message: "The pin code you entered is invalid.", delegate: nil, cancelButtonTitle: "Whoops!").show()
-                    case .INVALID_CODE_TOO_MANY_TIMES:
-                        UIAlertView(title: "Invalid code too many times", message: "You have entered an invalid code too many times, verification process has stopped..", delegate: nil, cancelButtonTitle: "Okay").show()
-                    case .INVALID_CREDENTIALS:
-                        UIAlertView(title: "Invalid Credentials", message: "Having trouble connecting to your account. Please check your app key and secret.", delegate: nil, cancelButtonTitle: "Sure thing.").show()
-                    case .USER_EXPIRED:
-                        UIAlertView(title: "User Expired", message: "Verification for current use expired (usually due to timeout), please start verification again.", delegate: nil, cancelButtonTitle: "Okay").show()
-                    case .USER_BLACKLISTED:
-                        UIAlertView(title: "User Blacklisted", message: "Unable to verify this user due to blacklisting!", delegate: nil, cancelButtonTitle: "Whoa...").show()
-                    case .QUOTA_EXCEEDED:
-                        UIAlertView(title: "Quota Exceeded", message: "You do not have enough credit to complete the verification.", delegate: nil, cancelButtonTitle: "Okay").show()
-                    case .SDK_REVISION_NOT_SUPPORTED:
-                        UIAlertView(title: "SDK Revision too old", message: "This SDK revision is not supported anymore!", delegate: nil, cancelButtonTitle: "Okay").show()
-                    case .OS_NOT_SUPPORTED:
-                        UIAlertView(title: "iOS version not supported", message: "This iOS version is not supported", delegate: nil, cancelButtonTitle: "Okay").show()
-                    
-                    case .VERIFICATION_ALREADY_STARTED:
-                        UIAlertView(title: "Verification already started", message: "A verification is already in progress!", delegate: nil, cancelButtonTitle: "Oh, okay").show()
-                        
-                    default: break
-                }
-                
-                // other errors can be silenced for the test app
-                print("some error \(verifyError.rawValue)")
-            })
+    private func onVerifyInProgress() {
+        print("verify progress")
+        toCheckPage()
     }
+    
+    private func onUserVerified() {
+        toCheckPage()
+        UIView.animateWithDuration(0.5) {
+        (self.pages[VerifyPageViewController.CHECK_CONTROLLER_INDEX] as! CheckViewController).statusImage.alpha = 1
+        }
+    }
+    
+    private func onError(verifyError: VerifyError) {
+        let okAction = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+        switch (verifyError) {
+            case .INVALID_NUMBER:
+                let controller = UIAlertController(title: "Invalid Phone Number", message: "The phone number you entered is invalid", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .INVALID_PIN_CODE:
+            let controller = UIAlertController(title: "Wrong Pin Code", message: "The pin code you entered is invalid.", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .INVALID_CODE_TOO_MANY_TIMES:
+                let controller = UIAlertController(title: "Invalid code too many times", message: "You have entered an invalid code too many times, verification process has stopped..", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .INVALID_CREDENTIALS:
+                let controller = UIAlertController(title: "Invalid Credentials", message: "Having trouble connecting to your account. Please check your app key and secret.", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .USER_EXPIRED:
+                let controller = UIAlertController(title: "User Expired", message: "Verification for current use expired (usually due to timeout), please start verification again.", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .USER_BLACKLISTED:
+                let controller = UIAlertController(title: "User Blacklisted", message: "Unable to verify this user due to blacklisting!", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .QUOTA_EXCEEDED:
+                let controller = UIAlertController(title: "Quota Exceeded", message: "You do not have enough credit to complete the verification.", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .SDK_REVISION_NOT_SUPPORTED:
+                let controller = UIAlertController(title: "SDK Revision too old", message: "This SDK revision is not supported anymore!", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .OS_NOT_SUPPORTED:
+                let controller = UIAlertController(title: "iOS version not supported", message: "This iOS version is not supported", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)
+            case .VERIFICATION_ALREADY_STARTED:
+                let controller = UIAlertController(title: "Verification already started", message: "A verification is already in progress!", preferredStyle: .Alert)
+                controller.addAction(okAction)
+                self.presentViewController(controller, animated: true, completion: nil)                        
+            default: break
+        }
+        
+        // other errors can be silenced for the test app
+        print("some error \(verifyError.rawValue)")
+    }
+    
+    func beginVerification() {
+        VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry["country_code"] as? String, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: onVerifyInProgress,
+            onUserVerified: onUserVerified,
+            onError: onError)
+    }
+    
     
     func checkPinCode() {
         VerifyClient.checkPinCode((pages[1] as! CheckViewController).pinField.text!)
@@ -119,15 +144,15 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     
     func toCheckPage() {
         if (currentControllerIndex != 1) {
-            setViewControllers([pages[1]], direction: .Forward, animated: true, completion: nil)
             currentControllerIndex = 1
+            setViewControllers([pages[1]], direction: .Forward, animated: true, completion: nil)
         }
     }
     
     func toStartPage() {
         if (currentControllerIndex != 0) {
-            setViewControllers([pages[VerifyPageViewController.START_CONTROLLER_INDEX]], direction: .Forward, animated: true, completion: nil)
             currentControllerIndex = 0
+            setViewControllers([pages[VerifyPageViewController.START_CONTROLLER_INDEX]], direction: .Forward, animated: true, completion: nil)
         }
     }
 }

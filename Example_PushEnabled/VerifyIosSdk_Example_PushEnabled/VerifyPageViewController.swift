@@ -107,14 +107,14 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     }
     
     func beginVerification() {
-        VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry.countryCode, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: onVerifyInProgress,
+        VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry["country_code"] as? String, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: onVerifyInProgress,
             onUserVerified: onUserVerified,
             onError: onError)
     }
     
     func logoutUser() {
         let startViewController = pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController
-        let countryCode = startViewController.currentCountry.countryCode
+        let countryCode = startViewController.currentCountry["country_code"] as! String
         let number = startViewController.phoneNumberField.text!
         VerifyClient.logoutUser(countryCode: countryCode, number: number) { error in
             let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
@@ -140,7 +140,7 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     }
 
     func standaloneVerification() {
-        VerifyClient.verifyStandalone(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry.countryCode, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: onVerifyInProgress,
+        VerifyClient.verifyStandalone(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry["country_code"] as? String, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: onVerifyInProgress,
             onUserVerified: onUserVerified,
             onError: onError)
     }
@@ -178,15 +178,15 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     
     func toCheckPage() {
         if (currentControllerIndex != 1) {
-            setViewControllers([pages[VerifyPageViewController.CHECK_CONTROLLER_INDEX]], direction: .Forward, animated: true, completion: nil)
             currentControllerIndex = 1
+            setViewControllers([pages[VerifyPageViewController.CHECK_CONTROLLER_INDEX]], direction: .Forward, animated: true, completion: nil)
         }
     }
     
     func toStartPage() {
         if (currentControllerIndex != 0) {
-            setViewControllers([pages[VerifyPageViewController.START_CONTROLLER_INDEX]], direction: .Forward, animated: true, completion: nil)
             currentControllerIndex = 0
+            setViewControllers([pages[VerifyPageViewController.START_CONTROLLER_INDEX]], direction: .Forward, animated: true, completion: nil)
         }
     }
 }

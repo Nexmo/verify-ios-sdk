@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import VerifyIosSdk
 
 class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, PageIndexable {
     
@@ -19,7 +20,7 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         get { return 0 }
     }
     
-    var currentCountry = Country.UNITED_KINGDOM
+    var currentCountry = Countries.list[2] as [String : AnyObject]
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -98,25 +99,29 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Country.countries.count
+        return Countries.list.count
     }
     
     // Mark: - UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: Country.countries[row].country, attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+        return NSAttributedString(string: Countries.list[row]["country"] as! String, attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentCountry = Country.countries[row]
+        currentCountry = Countries.list[row]
         countryField.text = describeCountry(currentCountry)
     }
-    
-    func describeCountry(country: Country) -> String {
-        if (country.intPrefix.count > 0) {
-            return "\(country.countryCode) (+\(country.intPrefix[0]))"
+
+    func describeCountry(country: [String : AnyObject]) -> String {
+        if let prefix_list = country["int_prefix"] as? NSArray {
+            if prefix_list.count > 0 {
+                if let int_prefix = prefix_list[0] as? String {
+                    return "\(country["country_code"] as! String) (+\(int_prefix))"
+                }
+            }
         }
         
-        return country.countryCode
+        return country["country_code"] as! String
     }
 }

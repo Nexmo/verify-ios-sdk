@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Countries {
+public class Countries {
 
-    static let list = (NSDictionary(contentsOfFile: NSBundle(forClass: VerifyClient.self).pathForResource("Countries", ofType: "plist")!) as! [String : AnyObject])["country_list"] as! [[String: AnyObject]]
+    public static let list = (NSDictionary(contentsOfFile: NSBundle(forClass: VerifyClient.self).pathForResource("Countries", ofType: "plist")!) as! [String : AnyObject])["country_list"] as! [[String: AnyObject]]
 }
