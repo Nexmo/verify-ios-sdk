@@ -530,9 +530,7 @@
                 <key>country_code_alpha_3</key>
                 <string>BES</string>
                 <key>country</key>
-                <string>
-                    Bonaire, Sint Eustatius and Saba
-                </string>
+                <string>Bonaire, Sint Eustatius and Saba</string>
                 <key>int_prefix</key>
                 <array>
                     <string>599</string>
@@ -864,9 +862,7 @@
                 <key>country_code_alpha_3</key>
                 <string>COD</string>
                     <key>country</key>
-                <string>
-                    Congo, Dem. Rep. of (former Zaire)
-                </string>
+                <string>Congo, Dem. Rep. of (former Zaire)</string>
                 <key>int_prefix</key>
                 <array>
                     <string>243</string>
@@ -2830,9 +2826,7 @@
                 <key>country_code_alpha_3</key>
                 <string>MNP</string>
                 <key>country</key>
-                <string>
-                    Northern Marianas Islands (Saipan, Rota, &amp; Tinian)
-                </string>
+                <string>Northern Marianas Islands (Saipan, Rota, &amp; Tinian)</string>
                 <key>int_prefix</key>
                 <array>
                     <string>1670</string>
