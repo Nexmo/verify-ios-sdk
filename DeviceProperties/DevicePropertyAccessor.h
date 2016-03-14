@@ -14,6 +14,7 @@
 -(NSString*)getIpAddress;
 -(NSString*)getUniqueDeviceIdentifierAsString;
 -(bool)deleteUniqueDeviceIdentifier;
+-(NSString*)addUniqueDeviceIdentifierToKeychain;
 -(bool)addIpAddressToParams:(NSMutableDictionary*)params withKey:(NSString*)key;
 -(bool)addDeviceIdentifierToParams:(NSMutableDictionary*)params withKey:(NSString*)key;
 
