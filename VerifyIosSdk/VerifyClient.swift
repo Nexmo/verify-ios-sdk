@@ -414,7 +414,17 @@ import UIKit
                 let controller = UIAlertController(title: "Verify Pin", message: "Your verification pin is \(pin)", preferredStyle: .Alert)
                 let okAction = UIAlertAction(title: "Okay", style: .Default, handler: nil)
                 controller.addAction(okAction)
-                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(controller, animated: true, completion: nil)
+                if let rootViewController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                    var topViewController = rootViewController
+                    while (topViewController.presentedViewController != nil) {
+                        topViewController = topViewController.presentedViewController!
+                    }
+
+                    topViewController.presentViewController(controller, animated: true, completion: nil)
+
+                } else {
+                    VerifyClient.Log.error("Unable to find root view controller! Cannot present pin [ \(pin) ]")
+                }
             }
             return true
         }
