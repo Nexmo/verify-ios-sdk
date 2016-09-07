@@ -46,13 +46,13 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
             switch(state) {
                 case .VERIFY:
                 // change the function of the send code button
-                sendCodeButton.removeTarget(self, action: "checkCode:", forControlEvents: .TouchUpInside)
-                sendCodeButton.addTarget(self, action: "sendCode:", forControlEvents: .TouchUpInside)
+                sendCodeButton.removeTarget(self, action: #selector(VerifyUIController.checkCode(_:)), forControlEvents: .TouchUpInside)
+                sendCodeButton.addTarget(self, action: #selector(VerifyUIController.sendCode(_:)), forControlEvents: .TouchUpInside)
                 sendCodeButton.setTitle("CONTINUE", forState: .Normal)
                 
                 // change function of cancel button
-                cancelButton.removeTarget(self, action: "cancelCheck:", forControlEvents: .TouchUpInside)
-                cancelButton.addTarget(self, action: "cancelVerify:", forControlEvents: .TouchUpInside)
+                cancelButton.removeTarget(self, action: #selector(VerifyUIController.cancelCheck(_:)), forControlEvents: .TouchUpInside)
+                cancelButton.addTarget(self, action: #selector(VerifyUIController.cancelVerify(_:)), forControlEvents: .TouchUpInside)
 
 
                 // do some nice animations
@@ -81,13 +81,13 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
                 
                 case .CHECK:
                 // change the function of the send code button
-                sendCodeButton.removeTarget(self, action: "sendCode:", forControlEvents: .TouchUpInside)
-                sendCodeButton.addTarget(self, action: "checkCode:", forControlEvents: .TouchUpInside)
+                sendCodeButton.removeTarget(self, action: #selector(VerifyUIController.sendCode(_:)), forControlEvents: .TouchUpInside)
+                sendCodeButton.addTarget(self, action: #selector(VerifyUIController.checkCode(_:)), forControlEvents: .TouchUpInside)
                 sendCodeButton.setTitle("CONTINUE", forState: .Normal)
                 
                 // change function of cancel button
-                cancelButton.removeTarget(self, action: "cancelVerify:", forControlEvents: .TouchUpInside)
-                cancelButton.addTarget(self, action: "cancelCheck:", forControlEvents: .TouchUpInside)
+                cancelButton.removeTarget(self, action: #selector(VerifyUIController.cancelVerify(_:)), forControlEvents: .TouchUpInside)
+                cancelButton.addTarget(self, action: #selector(VerifyUIController.cancelCheck(_:)), forControlEvents: .TouchUpInside)
 
                 // do some nice animations
                 UIView.animateWithDuration(0.5) {
@@ -114,13 +114,13 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
                 
                 case .TRYAGAIN:
                 // change the function of the send code button
-                sendCodeButton.removeTarget(self, action: "sendCode:", forControlEvents: .TouchUpInside)
-                sendCodeButton.addTarget(self, action: "checkCode:", forControlEvents: .TouchUpInside)
+                sendCodeButton.removeTarget(self, action: #selector(VerifyUIController.sendCode(_:)), forControlEvents: .TouchUpInside)
+                sendCodeButton.addTarget(self, action: #selector(VerifyUIController.checkCode(_:)), forControlEvents: .TouchUpInside)
                 sendCodeButton.setTitle("CONTINUE", forState: .Normal)
                 
                 // change function of cancel button
-                cancelButton.removeTarget(self, action: "cancelVerify:", forControlEvents: .TouchUpInside)
-                cancelButton.addTarget(self, action: "cancelCheck:", forControlEvents: .TouchUpInside)
+                cancelButton.removeTarget(self, action: #selector(VerifyUIController.cancelVerify(_:)), forControlEvents: .TouchUpInside)
+                cancelButton.addTarget(self, action: #selector(VerifyUIController.cancelCheck(_:)), forControlEvents: .TouchUpInside)
 
                 // do some nice animations
                 UIView.animateWithDuration(0.5) {
@@ -180,17 +180,17 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
         checkCodeField.layer.addSublayer(border)
         
         // move keyboard when tapped
-        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard:")
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(VerifyUIController.hideKeyboard(_:)))
         self.view.addGestureRecognizer(hideKeyboardGesture)
         
         // select UK as first country
         didSelectCountry(currentCountry)
         
         // set up send code button
-        sendCodeButton.addTarget(self, action: "sendCode:", forControlEvents: .TouchUpInside)
+        sendCodeButton.addTarget(self, action: #selector(VerifyUIController.sendCode(_:)), forControlEvents: .TouchUpInside)
         
         // set up cancel button
-        cancelButton.addTarget(self, action: "cancelVerify:", forControlEvents: .TouchUpInside)
+        cancelButton.addTarget(self, action: #selector(VerifyUIController.cancelVerify(_:)), forControlEvents: .TouchUpInside)
         
         // set up message text
         infoText.text = message
@@ -239,7 +239,7 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
                 controller.addAction(action)
                 self.presentViewController(controller, animated: true, completion: nil)
     
-                self.pinTry++
+                self.pinTry += 1
     
                 if (self.pinTry == 3) {
                     self.state = .TRYAGAIN
