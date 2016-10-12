@@ -8,124 +8,124 @@
 
 import Foundation
 
-public class ResponseCode {
+open class ResponseCode {
 
     enum Code : Int {
         /** The request was successfully accepted by Nexmo. */
-        case RESULT_CODE_OK = 0
+        case result_CODE_OK = 0
         
         /** Exceeded maximum throughput - response has been throttled */
-        case RESPONSE_THROTTLE = 1
+        case response_THROTTLE = 1
         
         /** Missing or invalid App ID */
-        case INVALID_APP_ID = 2
+        case invalid_APP_ID = 2
         
         /** Invalid token. Expired token needs to be re-generated. */
-        case INVALID_TOKEN = 3
+        case invalid_TOKEN = 3
         
         /** Invalid app_id. Supplied app_id is not listed under your accepted application list. */
-        case INVALID_CREDENTIALS = 4
+        case invalid_CREDENTIALS = 4
         
         /** Internal error occurred */
-        case INTERNAL_ERROR = 5
+        case internal_ERROR = 5
         
         /** Unable to route your verify request! */
-        case UNROUTABLE_REQUEST = 6
+        case unroutable_REQUEST = 6
         
         /** Number blacklisted from verification */
-        case NUMBER_BLACKLISTED = 7
+        case number_BLACKLISTED = 7
         
         /** This account has been barred from sending messages */
-        case ACCOUNT_BARRED = 8
+        case account_BARRED = 8
         
         /** Your account does not have sufficient credit to process this request. */
-        case QUOTA_EXCEEDED = 9
+        case quota_EXCEEDED = 9
         
         /** Concurrent verifications are not allowed - this error should never occur */
-        case CONCURRENT_VERIFICATIONS_NOT_ALLOWED = 10
+        case concurrent_VERIFICATIONS_NOT_ALLOWED = 10
         
         /////////** Invalid signature (usually related to bad secret) **/
-        case INVALID_SIGNATURE = 14
+        case invalid_SIGNATURE = 14
         
         /** Destination number does not reside within a supported network */
-        case DESTINATION_NUMBER_NOT_SUPPORTED = 15
+        case destination_NUMBER_NOT_SUPPORTED = 15
 
         /** Missing or invalid PIN code supplied. */
-        case INVALID_PIN_CODE = 16
+        case invalid_PIN_CODE = 16
 
         /** A wrong PIN code was provided too many times. */
-        case INVALID_CODE_TOO_MANY_TIMES = 17
+        case invalid_CODE_TOO_MANY_TIMES = 17
         
         /** Too many request_ids provided - this error should never occur */
-        case TOO_MANY_REQUEST_IDS = 18
+        case too_MANY_REQUEST_IDS = 18
         
         /** Control command could not be executed */
-        case CANNOT_EXECUTE_COMMAND = 19
+        case cannot_EXECUTE_COMMAND = 19
 
         /** Device ID was missing or invalid */
-        case INVALID_DEVICE_ID = 50
+        case invalid_DEVICE_ID = 50
         
         /** Source IP Address was missing or invalid */
-        case INVALID_SOURCE_IP_ADDRESS = 51
+        case invalid_SOURCE_IP_ADDRESS = 51
         
         /** Source IP differs from previous communication with sdk service */
-        case SOURCE_IP_MISMATCH = 52
+        case source_IP_MISMATCH = 52
 
         /** Missing or invalid phone number. */
-        case INVALID_NUMBER = 53
+        case invalid_NUMBER = 53
 
         /** Missing or invalid PIN code. */
-        case INVALID_CODE = 54
+        case invalid_CODE = 54
 
         /** User must be in pending status to be able to perform a PIN check. */
-        case CANNOT_PERFORM_CHECK = 55
+        case cannot_PERFORM_CHECK = 55
 
         /** User verified with another phone number - we will verify again. */
-        case VERIFICATION_RESTARTED = 56
+        case verification_RESTARTED = 56
 
         /** Verified User returning after too long a duration - we will verify again. */
-        case VERIFICATION_EXPIRED_RESTARTED = 57
+        case verification_EXPIRED_RESTARTED = 57
 
         /** This Number SDK revision is not supported anymore. Please upgrade the SDK version to be able to perform verifications. */
-        case SDK_NOT_SUPPORTED = 58
+        case sdk_NOT_SUPPORTED = 58
 
         /** The device  iOS version is not supported. */
-        case OS_NOT_SUPPORTED = 59
+        case os_NOT_SUPPORTED = 59
 
         /** Throttled. Too many failed requests. */
-        case REQUEST_REJECTED = 60
+        case request_REJECTED = 60
         
         /** Command missing or invalid */
-        case INVALID_COMMAND = 61
+        case invalid_COMMAND = 61
         
         /** User status invalid for this Control request - user's should be in pending status */
-        case INVALID_USER_STATUS_FOR_COMMAND = 62
+        case invalid_USER_STATUS_FOR_COMMAND = 62
     }
     
     static let responseCodeToVerifyError : [ Code : VerifyError ] =
-        [.RESPONSE_THROTTLE     :   .THROTTLED,
-         .INVALID_APP_ID        :   .INVALID_CREDENTIALS,
-         .INVALID_TOKEN         :   .INTERNAL_ERROR,
-         .INTERNAL_ERROR        :   .INTERNAL_ERROR,
-         .UNROUTABLE_REQUEST    :   .INVALID_NUMBER,
-         .NUMBER_BLACKLISTED    :   .USER_BLACKLISTED,
-         .ACCOUNT_BARRED        :   .ACCOUNT_BARRED,
-         .QUOTA_EXCEEDED        :   .QUOTA_EXCEEDED,
-         .CONCURRENT_VERIFICATIONS_NOT_ALLOWED  : .INTERNAL_ERROR,
-         .INVALID_SIGNATURE     :   .INVALID_CREDENTIALS,
-         .DESTINATION_NUMBER_NOT_SUPPORTED  :   .INVALID_NUMBER,
-         .INVALID_PIN_CODE      :   .INVALID_PIN_CODE,
-         .INVALID_CODE_TOO_MANY_TIMES   :   .INVALID_CODE_TOO_MANY_TIMES,
-         .TOO_MANY_REQUEST_IDS  :   .INTERNAL_ERROR,
-         .INVALID_DEVICE_ID     :   .INTERNAL_ERROR,
-         .INVALID_SOURCE_IP_ADDRESS     :   .INTERNAL_ERROR,
-         .SOURCE_IP_MISMATCH    :   .INTERNAL_ERROR,
-         .INVALID_NUMBER        :   .INVALID_NUMBER,
-         .INVALID_CODE          :   .INVALID_PIN_CODE,
-         .CANNOT_PERFORM_CHECK  :   .CANNOT_PERFORM_CHECK,
-         .SDK_NOT_SUPPORTED     :   .SDK_REVISION_NOT_SUPPORTED,
-         .OS_NOT_SUPPORTED      :   .OS_NOT_SUPPORTED,
-         .REQUEST_REJECTED      :   .THROTTLED,
-         .INVALID_COMMAND       :   .INTERNAL_ERROR
+        [.response_THROTTLE     :   .throttled,
+         .invalid_APP_ID        :   .invalid_CREDENTIALS,
+         .invalid_TOKEN         :   .internal_ERROR,
+         .internal_ERROR        :   .internal_ERROR,
+         .unroutable_REQUEST    :   .invalid_NUMBER,
+         .number_BLACKLISTED    :   .user_BLACKLISTED,
+         .account_BARRED        :   .account_BARRED,
+         .quota_EXCEEDED        :   .quota_EXCEEDED,
+         .concurrent_VERIFICATIONS_NOT_ALLOWED  : .internal_ERROR,
+         .invalid_SIGNATURE     :   .invalid_CREDENTIALS,
+         .destination_NUMBER_NOT_SUPPORTED  :   .invalid_NUMBER,
+         .invalid_PIN_CODE      :   .invalid_PIN_CODE,
+         .invalid_CODE_TOO_MANY_TIMES   :   .invalid_CODE_TOO_MANY_TIMES,
+         .too_MANY_REQUEST_IDS  :   .internal_ERROR,
+         .invalid_DEVICE_ID     :   .internal_ERROR,
+         .invalid_SOURCE_IP_ADDRESS     :   .internal_ERROR,
+         .source_IP_MISMATCH    :   .internal_ERROR,
+         .invalid_NUMBER        :   .invalid_NUMBER,
+         .invalid_CODE          :   .invalid_PIN_CODE,
+         .cannot_PERFORM_CHECK  :   .cannot_PERFORM_CHECK,
+         .sdk_NOT_SUPPORTED     :   .sdk_REVISION_NOT_SUPPORTED,
+         .os_NOT_SUPPORTED      :   .os_NOT_SUPPORTED,
+         .request_REJECTED      :   .throttled,
+         .invalid_COMMAND       :   .internal_ERROR
         ]
 }

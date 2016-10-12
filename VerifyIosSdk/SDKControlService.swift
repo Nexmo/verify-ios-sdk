@@ -13,11 +13,11 @@ class SDKControlService : ControlService {
     typealias RequestType = ControlRequest
     typealias ResponseType = ControlResponse
     
-    private static let Log = Logger(String(SDKControlService))
+    fileprivate static let Log = Logger(String(describing: SDKControlService.self))
     
-    private let nexmoClient : NexmoClient
-    private let serviceExecutor : ServiceExecutor
-    private let deviceProperties : DevicePropertyAccessor
+    fileprivate let nexmoClient : NexmoClient
+    fileprivate let serviceExecutor : ServiceExecutor
+    fileprivate let deviceProperties : DevicePropertyAccessor
     
     init(nexmoClient: NexmoClient, serviceExecutor: ServiceExecutor, deviceProperties: DevicePropertyAccessor) {
         self.nexmoClient = nexmoClient
@@ -31,25 +31,25 @@ class SDKControlService : ControlService {
         self.deviceProperties = SDKDeviceProperties.sharedInstance()
     }
     
-    func start(request request: ControlRequest, onResponse: (response: ControlResponse?, error: NSError?) -> ()) {
+    func start(request: ControlRequest, onResponse: @escaping (_ response: ControlResponse?, _ error: NSError?) -> ()) {
     
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global().async{
             let params = NSMutableDictionary()
-            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
+            if (!self.deviceProperties.addIpAddress(toParams: params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKControlService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKControlService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
             }
             
-            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
+            if (!self.deviceProperties.addDeviceIdentifier(toParams: params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
                 let error = NSError(domain: "SDKControlService", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKControlService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
@@ -63,14 +63,14 @@ class SDKControlService : ControlService {
             }
             
             let swiftParams = params.copy() as! [String:String]
-            self.serviceExecutor.performHttpRequestForService(ControlResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_CONTROL, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+            self.serviceExecutor.performHttpRequestForService(ControlResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_CONTROL, timestamp: Date(), params: swiftParams, isPost: false) { response, error in
                 if let error = error {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        onResponse(response: nil, error: error)
+                    DispatchQueue.main.async {
+                        onResponse(nil, error)
                     }
                 } else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        onResponse(response: (response as! ControlResponse), error: nil)
+                    DispatchQueue.main.async {
+                        onResponse((response as! ControlResponse), nil)
                     }
                 }
             }

@@ -13,5 +13,5 @@ protocol ResponseFactory {
     // Create a response from a HttpResponse object
     // may actually returns some sub-class of BaseResponse, but swift restrictions
     // do not allow generic protocols or typaliased protocols to be used like normal types
-    func createResponse(httpResponse: HttpResponse) -> BaseResponse?
+    func createResponse(_ httpResponse: HttpResponse) -> BaseResponse?
 }

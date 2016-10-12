@@ -9,7 +9,7 @@
 import Foundation
 
 class SearchResponseFactory : ResponseFactory {
-    func createResponse(httpResponse: HttpResponse) -> BaseResponse? {
+    func createResponse(_ httpResponse: HttpResponse) -> BaseResponse? {
         return SearchResponse(httpResponse)
     }
 }

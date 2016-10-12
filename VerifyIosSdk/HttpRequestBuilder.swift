@@ -15,55 +15,56 @@ import Foundation
 */
 class HttpRequestBuilder {
 
-    private static let Log = Logger(String(HttpRequestBuilder))
+    fileprivate static let Log = Logger(String(describing: HttpRequestBuilder.self))
 
-    private var headers = [String:String]()
-    private var params = [String:String]()
-    private var url : NSURL
-    private var postBody: String?
-    private var isPost = false
-    private var contentType = HttpRequest.ContentType.TEXT
-    private var encoding = NSUTF8StringEncoding
-    private var urlQueryPartAllowedCharacterSet : NSMutableCharacterSet
+    fileprivate var headers = [String:String]()
+    fileprivate var params = [String:String]()
+    fileprivate var url : URL
+    fileprivate var postBody: String?
+    fileprivate var isPost = false
+    fileprivate var contentType = HttpRequest.ContentType.TEXT
+    fileprivate var encoding = String.Encoding.utf8
+    fileprivate var urlQueryPartAllowedCharacterSet : NSMutableCharacterSet
     
     init?(_ urlString: String) {
-        if let nsUrl = NSURL(string: urlString) {
+        if let nsUrl = URL(string: urlString) {
             self.url = nsUrl
-            urlQueryPartAllowedCharacterSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-            urlQueryPartAllowedCharacterSet.removeCharactersInString("=?&+")
+            urlQueryPartAllowedCharacterSet = (CharacterSet.urlQueryAllowed as NSCharacterSet).mutableCopy() as! NSMutableCharacterSet
+            urlQueryPartAllowedCharacterSet.removeCharacters(in: "=?&+")
         } else {
             // bug in swift means must instantiate all neccessary vars before returning nil
-            self.url = NSURL()
+            //self.url = URL()
             urlQueryPartAllowedCharacterSet = NSMutableCharacterSet()
             return nil
         }
     }
     
-    init(_ url: NSURL) {
+    init(_ url: URL) {
         self.url = url
-        urlQueryPartAllowedCharacterSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        urlQueryPartAllowedCharacterSet.removeCharactersInString("=?&+")
+        urlQueryPartAllowedCharacterSet = (CharacterSet.urlQueryAllowed as NSCharacterSet).mutableCopy() as! NSMutableCharacterSet
+        urlQueryPartAllowedCharacterSet.removeCharacters(in: "=?&+")
     }
     
-    func setHeaders(headers: [String:String]) -> HttpRequestBuilder {
+    func setHeaders(_ headers: [String:String]) -> HttpRequestBuilder {
         self.headers = headers
         return self
     }
     
-    func setParams(params: [String:String]) -> HttpRequestBuilder {
+    @discardableResult
+    func setParams(_ params: [String:String]) -> HttpRequestBuilder {
         if (params.count > 0) {
             self.params = params
         }
         return self
     }
     
-    func setUrl(url: NSURL) -> HttpRequestBuilder {
+    func setUrl(_ url: URL) -> HttpRequestBuilder {
         self.url = url
         return self
     }
     
-    func setUrl(urlString: String) -> HttpRequestBuilder? {
-        if let newUrl = NSURL(string: urlString) {
+    func setUrl(_ urlString: String) -> HttpRequestBuilder? {
+        if let newUrl = URL(string: urlString) {
             self.url = newUrl
             return self
         }
@@ -71,17 +72,17 @@ class HttpRequestBuilder {
         return nil
     }
     
-    func setPost(isPost: Bool) -> HttpRequestBuilder {
+    func setPost(_ isPost: Bool) -> HttpRequestBuilder {
         self.isPost = isPost
         return self
     }
     
-    func setContentType(contentType: HttpRequest.ContentType) -> HttpRequestBuilder {
+    func setContentType(_ contentType: HttpRequest.ContentType) -> HttpRequestBuilder {
         self.contentType = contentType
         return self
     }
     
-    func setCharset(encoding: NSStringEncoding) -> HttpRequestBuilder {
+    func setCharset(_ encoding: String.Encoding) -> HttpRequestBuilder {
         self.encoding = encoding
         return self
     }
@@ -97,8 +98,8 @@ class HttpRequestBuilder {
         if (params.count > 0) {
             for (key, value) in params {
                 
-                let encodedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(self.urlQueryPartAllowedCharacterSet)
-                let encodedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(self.urlQueryPartAllowedCharacterSet)
+                let encodedKey = key.addingPercentEncoding(withAllowedCharacters: self.urlQueryPartAllowedCharacterSet as CharacterSet)
+                let encodedValue = value.addingPercentEncoding(withAllowedCharacters: self.urlQueryPartAllowedCharacterSet as CharacterSet)
                 
                 if encodedKey == nil || encodedValue == nil {
                     HttpRequestBuilder.Log.error("Error urlencoding parameters for get request: key [ \(key) ], value [ \(value) ]")
@@ -106,7 +107,7 @@ class HttpRequestBuilder {
                 }
                 queryString += "\(encodedKey!)=\(encodedValue!)&"
             }
-            queryString = queryString.substringToIndex(queryString.endIndex.predecessor())
+            queryString = queryString.substring(to: queryString.characters.index(before: queryString.endIndex))
         }
         
         let request : NSMutableURLRequest
@@ -119,8 +120,8 @@ class HttpRequestBuilder {
                 }
                 
                 HttpRequestBuilder.Log.info("url = \(urlString)")
-                if let newUrl = NSURL(string: urlString) {
-                    request = NSMutableURLRequest(URL: newUrl)
+                if let newUrl = URL(string: urlString) {
+                    request = NSMutableURLRequest(url: newUrl)
                 } else {
                     HttpRequestBuilder.Log.error("unable to construct a new url from build variables")
                     return nil
@@ -132,8 +133,8 @@ class HttpRequestBuilder {
                 }
                 
                 HttpRequestBuilder.Log.info(urlString)
-                if let newUrl = NSURL(string: urlString) {
-                    request = NSMutableURLRequest(URL: newUrl)
+                if let newUrl = URL(string: urlString) {
+                    request = NSMutableURLRequest(url: newUrl)
                 } else {
                     HttpRequestBuilder.Log.error("unable to construct a new url from build variables")
                     return nil
@@ -141,13 +142,13 @@ class HttpRequestBuilder {
             }
         } else {
             HttpRequestBuilder.Log.info("url =\(url.absoluteString)")
-            request = NSMutableURLRequest(URL: self.url)
-            request.HTTPMethod = "POST"
+            request = NSMutableURLRequest(url: self.url)
+            request.httpMethod = "POST"
             if self.contentType == HttpRequest.ContentType.FORM {
-                request.HTTPBody = queryString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                request.httpBody = queryString.data(using: String.Encoding.utf8, allowLossyConversion: false)
                 HttpRequestBuilder.Log.info("post data = \(queryString)")
             } else if let postBody = self.postBody {
-                request.HTTPBody = postBody.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                request.httpBody = postBody.data(using: String.Encoding.utf8, allowLossyConversion: false)
                 HttpRequestBuilder.Log.info("post data = \(postBody)")
             } else {
                 HttpRequestBuilder.Log.warn("Warning: HTTP POST request has no post data!")
@@ -160,9 +161,9 @@ class HttpRequestBuilder {
         }
 
         // content-type and charset
-        let charsetName = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(self.encoding))
-        request.addValue(self.contentType.rawValue + "; charset=" + (charsetName as String), forHTTPHeaderField: "Content-Type")
+        let charsetName = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(self.encoding.rawValue))
+        request.addValue(self.contentType.rawValue + "; charset=" + (charsetName as! String), forHTTPHeaderField: "Content-Type")
         
-        return HttpRequest(request: request, encoding: self.encoding)
+        return HttpRequest(request: request as URLRequest, encoding: self.encoding)
     }
 }

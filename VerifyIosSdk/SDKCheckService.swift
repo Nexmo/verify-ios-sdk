@@ -17,11 +17,11 @@ class SDKCheckService : CheckService {
     typealias RequestType = CheckRequest
     typealias ResponseType = CheckResponse
     
-    private static let Log = Logger(String(SDKCheckService))
+    fileprivate static let Log = Logger(String(describing: SDKCheckService.self))
     
-    private let nexmoClient : NexmoClient
-    private let serviceExecutor : ServiceExecutor
-    private let deviceProperties : DevicePropertyAccessor
+    fileprivate let nexmoClient : NexmoClient
+    fileprivate let serviceExecutor : ServiceExecutor
+    fileprivate let deviceProperties : DevicePropertyAccessor
     
     init(nexmoClient: NexmoClient, serviceExecutor: ServiceExecutor, deviceProperties: DevicePropertyAccessor) {
         self.nexmoClient = nexmoClient
@@ -44,24 +44,24 @@ class SDKCheckService : CheckService {
         Contains a response from the server or an NSError if something wen't catastrophically wrong.
         Note: The response object may be negative and therefore the resultCode parameter should be checked.
     */
-    func start(request request: CheckRequest, onResponse: (response: CheckResponse?, error: NSError?) -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+    func start(request: CheckRequest, onResponse: @escaping (_ response: CheckResponse?, _ error: NSError?) -> ()) {
+        DispatchQueue.global().async {
             let params = NSMutableDictionary()
-            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
+            if (!self.deviceProperties.addIpAddress(toParams: params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKCheckService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 SDKCheckService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
             }
             
-            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
+            if (!self.deviceProperties.addDeviceIdentifier(toParams: params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
                 let error = NSError(domain: "SDKCheckService", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKCheckService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
@@ -75,14 +75,14 @@ class SDKCheckService : CheckService {
             
             let swiftParams = params.copy() as! [String:String]
             
-            self.serviceExecutor.performHttpRequestForService(CheckResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_CHECK, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+            self.serviceExecutor.performHttpRequestForService(CheckResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_CHECK, timestamp: Date(), params: swiftParams, isPost: false) { response, error in
                 if let error = error {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        onResponse(response: nil, error: error)
+                    DispatchQueue.main.async {
+                        onResponse(nil, error)
                     }
                 } else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        onResponse(response: (response as! CheckResponse), error: nil)
+                    DispatchQueue.main.async {
+                        onResponse((response as! CheckResponse), nil)
                     }
                 }
             }

@@ -11,7 +11,7 @@ import Foundation
 /**
     Contains information required by the verify service to begin a request, such as a mobile number
 */
-public class VerifyRequest {
+open class VerifyRequest {
 
     let countryCode : String?
     let phoneNumber : String

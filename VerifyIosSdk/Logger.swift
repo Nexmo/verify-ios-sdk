@@ -19,8 +19,8 @@ class Logger {
         case ERROR = "ERROR"
     }
     
-    private let className : String
-    private let dateFormat = NSDateFormatter()
+    fileprivate let className : String
+    fileprivate let dateFormat = DateFormatter()
     
     @objc(initWithClassName:)
     init(_ className: String) {
@@ -28,27 +28,27 @@ class Logger {
         dateFormat.dateFormat = "yyyy-MM-dd HH-mm-ss"
     }
     
-    private func log(level: LogLevel, message: String) {
+    fileprivate func log(_ level: LogLevel, message: String) {
         switch (level) {
             case .INFO,
                  .WARN,
                  .ERROR:
-                print("\(dateFormat.stringFromDate(NSDate())) \(level.rawValue) [\(className)]  \(message)")
+                print("\(dateFormat.string(from: Date())) \(level.rawValue) [\(className)]  \(message)")
         }
     }
     
     /** Log an 'INFO' level debug statement */
-    func info(message: String) {
+    func info(_ message: String) {
         log(LogLevel.INFO, message: message)
     }
     
     /** Log a 'WARN' level debug statement */
-    func warn(message: String) {
+    func warn(_ message: String) {
         log(LogLevel.WARN, message: message)
     }
     
     /** Log an 'ERROR' level debug statement */
-    func error(message: String) {
+    func error(_ message: String) {
         log(LogLevel.ERROR, message: message)
     }
 }

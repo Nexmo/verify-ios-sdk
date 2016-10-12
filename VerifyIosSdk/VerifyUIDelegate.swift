@@ -17,5 +17,5 @@ import Foundation
     /**
         Called once a verification attempt has terminated, with the result of the verification
     */
-    optional func userVerified(verified: Bool)
+    @objc optional func userVerified(_ verified: Bool)
 }

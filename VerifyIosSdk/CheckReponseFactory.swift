@@ -9,7 +9,7 @@
 import Foundation
 
 class CheckResponseFactory : ResponseFactory {
-    func createResponse(httpResponse: HttpResponse) -> BaseResponse? {
+    func createResponse(_ httpResponse: HttpResponse) -> BaseResponse? {
         return CheckResponse(httpResponse)
     }
 }

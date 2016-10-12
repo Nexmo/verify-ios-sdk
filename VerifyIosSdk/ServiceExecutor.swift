@@ -17,11 +17,11 @@ import DeviceProperties
 
 class ServiceExecutor {
 
-    private enum ErrorCode : Int {
-        case CANNOT_GENERATE_SIGNATURE = 1
-        case CANNOT_PARSE_RESPONSE
-        case CANNOT_BUILD_HTTP_REQUEST
-        case CANNOT_GET_IP_ADDRESS
+    fileprivate enum ErrorCode : Int {
+        case cannot_GENERATE_SIGNATURE = 1
+        case cannot_PARSE_RESPONSE
+        case cannot_BUILD_HTTP_REQUEST
+        case cannot_GET_IP_ADDRESS
         
     }
         
@@ -106,11 +106,11 @@ class ServiceExecutor {
                           SDK_REVISION : Config.sdkVersion]
     
     /// The current class logger
-    static private let Log = Logger(String(ServiceExecutor))
+    static fileprivate let Log = Logger(String(describing: ServiceExecutor.self))
     
-    private var requestSigner : RequestSigner
-    private var deviceProperties : DevicePropertyAccessor
-    private static var instance : ServiceExecutor?
+    fileprivate var requestSigner : RequestSigner
+    fileprivate var deviceProperties : DevicePropertyAccessor
+    fileprivate static var instance : ServiceExecutor?
     static var sharedInstance : ServiceExecutor {
         get {
             if let sharedInstance = ServiceExecutor.instance {
@@ -143,7 +143,7 @@ class ServiceExecutor {
         
         - returns: HttpRequest Object which is constructed to call the service
     */
-    func generateHttpRequestForService(nexmoClient: NexmoClient, path: String, timestamp: NSDate, params: [String:String]?, isPost: Bool = false) -> HttpRequest? {
+    func generateHttpRequestForService(_ nexmoClient: NexmoClient, path: String, timestamp: Date, params: [String:String]?, isPost: Bool = false) -> HttpRequest? {
         var mutableParams : [String : String]
         if let params = params {
             mutableParams = params
@@ -169,7 +169,7 @@ class ServiceExecutor {
             // TODO: need to acquire new token here... but for now do nothing
             //return nil
         }
-        if let signature = requestSigner.generateSignatureWithParams(mutableParams, sharedSecretKey: nexmoClient.sharedSecretKey) {
+        if let signature = requestSigner.generateSignature(withParams: mutableParams, sharedSecretKey: nexmoClient.sharedSecretKey) {
             mutableParams[ServiceExecutor.PARAM_SIGNATURE] = signature
         } else {
             ServiceExecutor.Log.error("unable to generate signature")
@@ -177,7 +177,7 @@ class ServiceExecutor {
         }
         
         let requestBuilder = HttpRequestBuilder("\(Config.ENDPOINT_PRODUCTION)/\(path)")?
-                          .setCharset(NSUTF8StringEncoding)
+                          .setCharset(String.Encoding.utf8)
                           .setContentType(HttpRequest.ContentType.TEXT)
                           .setHeaders(ServiceExecutor.headers)
                           .setPost(isPost)
@@ -188,23 +188,23 @@ class ServiceExecutor {
         return requestBuilder?.build()
     }
     
-    private func redispatchRequest(responseFactory: ResponseFactory, nexmoClient: NexmoClient, path: String, timestamp: NSDate, params: [String : String]?, isPost : Bool = false, callback: (response: BaseResponse?, error: NSError?) -> ()) {
+    fileprivate func redispatchRequest(_ responseFactory: ResponseFactory, nexmoClient: NexmoClient, path: String, timestamp: Date, params: [String : String]?, isPost : Bool = false, callback: @escaping (_ response: BaseResponse?, _ error: NSError?) -> ()) {
         getToken(nexmoClient) { response, error in
             if let error = error {
-                callback(response: nil, error: error)
-            } else if (response!.resultCode == ResponseCode.Code.RESULT_CODE_OK.rawValue) {
+                callback(nil, error)
+            } else if (response!.resultCode == ResponseCode.Code.result_CODE_OK.rawValue) {
                 nexmoClient.sdkToken = response!.token!
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                DispatchQueue.global().async {
                     self.performHttpRequestForService(responseFactory, nexmoClient: nexmoClient, path: path, timestamp: timestamp, params: params, isPost: isPost, callback: callback)
                 }
             } else {
                 let error = NSError(domain: "ServiceExecutor", code: response!.resultCode, userInfo: [NSLocalizedDescriptionKey : "Failed to get token with error \(response!.resultCode): \(response!.resultMessage)"])
-                callback(response: nil, error: error)
+                callback(nil, error)
             }
         }
     }
     
-    func performHttpRequestForService(responseFactory: ResponseFactory, nexmoClient: NexmoClient, path: String, timestamp: NSDate, params: [String : String]?, isPost : Bool = false, callback: (response: BaseResponse?, error: NSError?) -> ()) {
+    func performHttpRequestForService(_ responseFactory: ResponseFactory, nexmoClient: NexmoClient, path: String, timestamp: Date, params: [String : String]?, isPost : Bool = false, callback: @escaping (_ response: BaseResponse?, _ error: NSError?) -> ()) {
         
         // if no token, then get a new one and restart the request
         if  (nexmoClient.sdkToken == nil) {
@@ -233,16 +233,16 @@ class ServiceExecutor {
         }
         mutableParams[ServiceExecutor.PARAM_TIMESTAMP] = timestampString
         mutableParams[ServiceExecutor.PARAM_TOKEN] = token
-        if let signature = requestSigner.generateSignatureWithParams(mutableParams, sharedSecretKey: nexmoClient.sharedSecretKey) {
+        if let signature = requestSigner.generateSignature(withParams: mutableParams, sharedSecretKey: nexmoClient.sharedSecretKey) {
             mutableParams[ServiceExecutor.PARAM_SIGNATURE] = signature
         } else {
             ServiceExecutor.Log.error("unable to generate signature")
-            callback(response: nil, error: NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_GENERATE_SIGNATURE.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to generate signature"]))
+            callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_GENERATE_SIGNATURE.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to generate signature"]))
             return
         }
         
         if let request = makeHttpRequestBuilder("\(Config.ENDPOINT_PRODUCTION)/\(path)")?
-                          .setCharset(NSUTF8StringEncoding)
+                          .setCharset(String.Encoding.utf8)
                           .setContentType(HttpRequest.ContentType.TEXT)
                           .setHeaders(ServiceExecutor.headers)
                           .setPost(isPost)
@@ -252,30 +252,30 @@ class ServiceExecutor {
             request.execute() { httpResponse, error in
                 if let error = error {
                     ServiceExecutor.Log.info("received error '\(error.localizedDescription)' from HttpRequest object")
-                    callback(response: nil, error: error)
+                    callback(nil, error)
                 } else if let resultCode = self.getResultCode(httpResponse!),
-                              resultMessage = self.getResultMessage(httpResponse!) {
+                              let resultMessage = self.getResultMessage(httpResponse!) {
                     ServiceExecutor.Log.warn("error code was '\(resultCode.rawValue)' and message was '\(resultMessage)'")
-                    if (resultCode == ResponseCode.Code.INVALID_TOKEN) {
+                    if (resultCode == ResponseCode.Code.invalid_TOKEN) {
                         ServiceExecutor.Log.info("received invalid token request - attempting to acquire new token")
                         self.redispatchRequest(responseFactory, nexmoClient: nexmoClient, path: path, timestamp: timestamp, params: params, isPost: isPost, callback: callback)
                     } else if let customResponse = responseFactory.createResponse(httpResponse!) {
-                        callback(response: customResponse, error: nil)
+                        callback(customResponse, nil)
                     } else {
                         ServiceExecutor.Log.warn("unable to create response object using factory, could be an error from sdk service")
-                        callback(response: nil, error: NSError(domain: "ServiceExecutor", code: resultCode.rawValue, userInfo: [NSLocalizedDescriptionKey : resultMessage]))
+                        callback(nil, NSError(domain: "ServiceExecutor", code: resultCode.rawValue, userInfo: [NSLocalizedDescriptionKey : resultMessage]))
                     }
                 // if let resultCode, resultMessage
                 } else {
-                    callback(response: nil, error: NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_PARSE_RESPONSE.rawValue, userInfo: [NSLocalizedDescriptionKey : "Un-parseable response returned from server!"]))
+                    callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_PARSE_RESPONSE.rawValue, userInfo: [NSLocalizedDescriptionKey : "Un-parseable response returned from server!"]))
                 }
             }
         } else {
-            callback(response: nil, error: NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_BUILD_HTTP_REQUEST.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to build http request"]))
+            callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_BUILD_HTTP_REQUEST.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to build http request"]))
         }
     }
     
-    func makeHttpRequestBuilder(url: String) -> HttpRequestBuilder? {
+    func makeHttpRequestBuilder(_ url: String) -> HttpRequestBuilder? {
         return HttpRequestBuilder(url)
     }
     
@@ -286,11 +286,11 @@ class ServiceExecutor {
         
         - returns: Optional ResponseCode enum if the code exists and is recognised.
     */ 
-    func getResultCode(httpResponse: HttpResponse) -> ResponseCode.Code? {
+    func getResultCode(_ httpResponse: HttpResponse) -> ResponseCode.Code? {
         if let body = httpResponse.body,
-                messageData = body.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false),
-                json = (try? NSJSONSerialization.JSONObjectWithData(messageData, options: NSJSONReadingOptions())) as? [String:AnyObject],
-                resultCode = json[ServiceExecutor.PARAM_RESULT_CODE] as? Int {
+                let messageData = body.data(using: String.Encoding.utf8, allowLossyConversion: false),
+                let json = (try? JSONSerialization.jsonObject(with: messageData, options: JSONSerialization.ReadingOptions())) as? [String:AnyObject],
+                let resultCode = json[ServiceExecutor.PARAM_RESULT_CODE] as? Int {
             return ResponseCode.Code(rawValue: resultCode)
         }
         
@@ -304,36 +304,36 @@ class ServiceExecutor {
         
         - returns: Optional String of the response message if it exists
     */
-    func getResultMessage(httpResponse: HttpResponse) -> String? {
+    func getResultMessage(_ httpResponse: HttpResponse) -> String? {
         if let body = httpResponse.body,
-                messageData = body.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false),
-                json = (try? NSJSONSerialization.JSONObjectWithData(messageData, options: NSJSONReadingOptions())) as? [String:AnyObject],
-                resultMessage = json[ServiceExecutor.PARAM_RESULT_MESSAGE] as? String {
+                let messageData = body.data(using: String.Encoding.utf8, allowLossyConversion: false),
+                let json = (try? JSONSerialization.jsonObject(with: messageData, options: JSONSerialization.ReadingOptions())) as? [String:AnyObject],
+                let resultMessage = json[ServiceExecutor.PARAM_RESULT_MESSAGE] as? String {
             return resultMessage
         }
 
         return nil
     }
         
-    func getToken(nexmoClient: NexmoClient, onResponse: (response: TokenResponse?, error: NSError?) -> ()) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+    func getToken(_ nexmoClient: NexmoClient, onResponse: @escaping (_ response: TokenResponse?, _ error: NSError?) -> ()) {
+        DispatchQueue.global().async {
             let params = NSMutableDictionary()
-            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
-                let error = NSError(domain: "ServiceExecutor", code: ErrorCode.CANNOT_GET_IP_ADDRESS.rawValue, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
+            if (!self.deviceProperties.addIpAddress(toParams: params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
+                let error = NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_GET_IP_ADDRESS.rawValue, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 ServiceExecutor.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
             }
             ServiceExecutor.Log.info("ipAddress = \(params[ServiceExecutor.PARAM_DEVICE_ID])")
             
-            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
+            if (!self.deviceProperties.addDeviceIdentifier(toParams: params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
                 let error = NSError(domain: "ServiceExecutor", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 ServiceExecutor.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
@@ -341,23 +341,23 @@ class ServiceExecutor {
             
             let swiftParams = params.copy() as! [String:String]
             
-            if let httpRequest = self.generateHttpRequestForService(nexmoClient, path: ServiceExecutor.METHOD_TOKEN, timestamp: NSDate(), params: swiftParams) {
+            if let httpRequest = self.generateHttpRequestForService(nexmoClient, path: ServiceExecutor.METHOD_TOKEN, timestamp: Date(), params: swiftParams) {
                 httpRequest.execute() { httpResponse, error in
                     ServiceExecutor.Log.info("httpResponse callback")
                     if let error = error {
                         ServiceExecutor.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
+                        DispatchQueue.main.async {
+                            onResponse(nil, error)
                         }
                     } else if let tokenResponse = TokenResponse(httpResponse!) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: tokenResponse, error: nil)
+                        DispatchQueue.main.async {
+                            onResponse(tokenResponse, nil)
                         }
                     } else {
                         let error = NSError(domain: "ServiceExecutor", code: 3, userInfo: [NSLocalizedDescriptionKey : "Failed to create TokenResponse object!"])
                         ServiceExecutor.Log.error(error.localizedDescription)
-                        dispatch_async(dispatch_get_main_queue()) {
-                            onResponse(response: nil, error: error)
+                        DispatchQueue.main.async {
+                            onResponse(nil, error)
                         }
                     }
                 }
@@ -366,8 +366,8 @@ class ServiceExecutor {
             } else {
                 let error = NSError(domain: "ServiceExecutor", code: 4, userInfo: [NSLocalizedDescriptionKey : "Failed to create HttpRequest object!"])
                 ServiceExecutor.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
             }
         }
