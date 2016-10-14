@@ -14,11 +14,11 @@ import Foundation
 class HttpRequest {
 
     enum ContentType : String {
-        case HTML = "text/html"
-        case JSON = "application/json"
-        case XML = "application/xml"
-        case TEXT = "text/plain"
-        case FORM = "application/x-www-form-urlencoded"
+        case html = "text/html"
+        case json = "application/json"
+        case xml = "application/xml"
+        case text = "text/plain"
+        case form = "application/x-www-form-urlencoded"
     }
     
     fileprivate static let Log = Logger(String(describing: HttpRequest.self))

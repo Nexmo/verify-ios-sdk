@@ -18,10 +18,10 @@ import DeviceProperties
 class ServiceExecutor {
 
     fileprivate enum ErrorCode : Int {
-        case cannot_GENERATE_SIGNATURE = 1
-        case cannot_PARSE_RESPONSE
-        case cannot_BUILD_HTTP_REQUEST
-        case cannot_GET_IP_ADDRESS
+        case cannotGenerateSignature = 1
+        case cannotParseResponse
+        case cannotBuildHttpRequest
+        case cannotGetIPAddress
         
     }
         
@@ -178,7 +178,7 @@ class ServiceExecutor {
         
         let requestBuilder = HttpRequestBuilder("\(Config.ENDPOINT_PRODUCTION)/\(path)")?
                           .setCharset(String.Encoding.utf8)
-                          .setContentType(HttpRequest.ContentType.TEXT)
+                          .setContentType(HttpRequest.ContentType.text)
                           .setHeaders(ServiceExecutor.headers)
                           .setPost(isPost)
                           
@@ -192,7 +192,7 @@ class ServiceExecutor {
         getToken(nexmoClient) { response, error in
             if let error = error {
                 callback(nil, error)
-            } else if (response!.resultCode == ResponseCode.Code.result_CODE_OK.rawValue) {
+            } else if (response!.resultCode == ResponseCode.Code.resultCodeOK.rawValue) {
                 nexmoClient.sdkToken = response!.token!
                 DispatchQueue.global().async {
                     self.performHttpRequestForService(responseFactory, nexmoClient: nexmoClient, path: path, timestamp: timestamp, params: params, isPost: isPost, callback: callback)
@@ -237,13 +237,13 @@ class ServiceExecutor {
             mutableParams[ServiceExecutor.PARAM_SIGNATURE] = signature
         } else {
             ServiceExecutor.Log.error("unable to generate signature")
-            callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_GENERATE_SIGNATURE.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to generate signature"]))
+            callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannotGenerateSignature.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to generate signature"]))
             return
         }
         
         if let request = makeHttpRequestBuilder("\(Config.ENDPOINT_PRODUCTION)/\(path)")?
                           .setCharset(String.Encoding.utf8)
-                          .setContentType(HttpRequest.ContentType.TEXT)
+                          .setContentType(HttpRequest.ContentType.text)
                           .setHeaders(ServiceExecutor.headers)
                           .setPost(isPost)
                           .setParams(mutableParams)
@@ -256,7 +256,7 @@ class ServiceExecutor {
                 } else if let resultCode = self.getResultCode(httpResponse!),
                               let resultMessage = self.getResultMessage(httpResponse!) {
                     ServiceExecutor.Log.warn("error code was '\(resultCode.rawValue)' and message was '\(resultMessage)'")
-                    if (resultCode == ResponseCode.Code.invalid_TOKEN) {
+                    if (resultCode == ResponseCode.Code.invalidToken) {
                         ServiceExecutor.Log.info("received invalid token request - attempting to acquire new token")
                         self.redispatchRequest(responseFactory, nexmoClient: nexmoClient, path: path, timestamp: timestamp, params: params, isPost: isPost, callback: callback)
                     } else if let customResponse = responseFactory.createResponse(httpResponse!) {
@@ -267,11 +267,11 @@ class ServiceExecutor {
                     }
                 // if let resultCode, resultMessage
                 } else {
-                    callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_PARSE_RESPONSE.rawValue, userInfo: [NSLocalizedDescriptionKey : "Un-parseable response returned from server!"]))
+                    callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannotParseResponse.rawValue, userInfo: [NSLocalizedDescriptionKey : "Un-parseable response returned from server!"]))
                 }
             }
         } else {
-            callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_BUILD_HTTP_REQUEST.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to build http request"]))
+            callback(nil, NSError(domain: "ServiceExecutor", code: ErrorCode.cannotBuildHttpRequest.rawValue, userInfo: [NSLocalizedDescriptionKey : "unable to build http request"]))
         }
     }
     
@@ -319,7 +319,7 @@ class ServiceExecutor {
         DispatchQueue.global().async {
             let params = NSMutableDictionary()
             if (!self.deviceProperties.addIpAddress(toParams: params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
-                let error = NSError(domain: "ServiceExecutor", code: ErrorCode.cannot_GET_IP_ADDRESS.rawValue, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
+                let error = NSError(domain: "ServiceExecutor", code: ErrorCode.cannotGetIPAddress.rawValue, userInfo: [NSLocalizedDescriptionKey : "Failed to get ip address!"])
                 ServiceExecutor.Log.error(error.localizedDescription)
                 DispatchQueue.main.async {
                     onResponse(nil, error)

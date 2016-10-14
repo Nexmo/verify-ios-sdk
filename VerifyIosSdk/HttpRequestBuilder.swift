@@ -22,7 +22,7 @@ class HttpRequestBuilder {
     fileprivate var url : URL
     fileprivate var postBody: String?
     fileprivate var isPost = false
-    fileprivate var contentType = HttpRequest.ContentType.TEXT
+    fileprivate var contentType = HttpRequest.ContentType.text
     fileprivate var encoding = String.Encoding.utf8
     fileprivate var urlQueryPartAllowedCharacterSet : NSMutableCharacterSet
     
@@ -144,7 +144,7 @@ class HttpRequestBuilder {
             HttpRequestBuilder.Log.info("url =\(url.absoluteString)")
             request = NSMutableURLRequest(url: self.url)
             request.httpMethod = "POST"
-            if self.contentType == HttpRequest.ContentType.FORM {
+            if self.contentType == HttpRequest.ContentType.form {
                 request.httpBody = queryString.data(using: String.Encoding.utf8, allowLossyConversion: false)
                 HttpRequestBuilder.Log.info("post data = \(queryString)")
             } else if let postBody = self.postBody {

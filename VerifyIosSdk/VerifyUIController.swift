@@ -249,12 +249,12 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
     func onErrorCallback(_ error: VerifyError) {
         let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
         switch (error) {
-            case .invalid_NUMBER:
+            case .invalidNumber:
                 let controller = UIAlertController(title: "Invalid Phone Number", message: "The phone number you entered is invalid.", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
             
-            case .invalid_PIN_CODE:
+            case .invalidPinCode:
                 let controller = UIAlertController(title: "Wrong Pin Code", message: "The pin code you entered is invalid.", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
@@ -265,39 +265,39 @@ class VerifyUIController : UIViewController, CountryPickerDelegate, UIAlertViewD
                     self.state = .tryagain
                 }
     
-            case .invalid_CODE_TOO_MANY_TIMES:
+            case .invalidCodeTooManyTimes:
                 let controller = UIAlertController(title: "Invalid code too many times", message: "You have entered an invalid code too many times, verification process has stopped..", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .invalid_CREDENTIALS:
+            case .invalidCredentials:
                 let controller = UIAlertController(title: "Invalid Credentials", message: "Having trouble connecting to your account. Please check your app key and secret.", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .user_EXPIRED:
+            case .userExpired:
                 let controller = UIAlertController(title: "User Expired", message: "Verification for current use expired (usually due to timeout), please start verification again.", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .user_BLACKLISTED:
+            case .userBlacklisted:
                 let controller = UIAlertController(title: "User Blacklisted", message: "Unable to verify this user due to blacklisting!", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .quota_EXCEEDED:
+            case .quotaExceeded:
                 let controller = UIAlertController(title: "Quota Exceeded", message: "You do not have enough credit to complete the verification.", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .sdk_REVISION_NOT_SUPPORTED:
+            case .sdkRevisionNotSupported:
                 let controller = UIAlertController(title: "SDK Revision too old", message: "This SDK revision is not supported anymore!", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .os_NOT_SUPPORTED:
+            case .osNotSupported:
                 let controller = UIAlertController(title: "iOS version not supported", message: "This iOS version is not supported", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .network_ERROR:
+            case .networkError:
                 let controller = UIAlertController(title: "Network Error", message: "Having trouble accessing the network.", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)
-            case .verification_ALREADY_STARTED:
+            case .verificationAlreadyStarted:
                 let controller = UIAlertController(title: "Verification already started", message: "A verification is already in progress!", preferredStyle: .alert)
                 controller.addAction(action)
                 self.present(controller, animated: true, completion: nil)

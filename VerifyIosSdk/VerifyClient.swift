@@ -93,7 +93,7 @@ import UIKit
         
         if (self.currentVerifyTask?.userStatus == UserStatus.USER_PENDING) {
             VerifyClient.Log.info("Verification attempted but one is already in progress.")
-            onError(VerifyError.verification_ALREADY_STARTED)
+            onError(VerifyError.verificationAlreadyStarted)
             return
         }
         
@@ -105,18 +105,18 @@ import UIKit
         self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest()) { response, error in
             if let error = error {
                 if (error.code == 1000) {
-                    onError(.network_ERROR)
+                    onError(.networkError)
                 } else {
-                onError(.internal_ERROR)
+                onError(.internalError)
                 }
                 return
             }
             
             if let response = response {
                 if let responseCode =  ResponseCode.Code(rawValue: response.resultCode) ,
-                        (responseCode == .result_CODE_OK ||
-                        responseCode == .verification_RESTARTED ||
-                        responseCode == .verification_EXPIRED_RESTARTED) {
+                        (responseCode == .resultCodeOK ||
+                        responseCode == .verificationRestarted ||
+                        responseCode == .verificationExpiredRestarted) {
                     
                     verifyTask.setUserState(response.userStatus!)
                     
@@ -128,19 +128,19 @@ import UIKit
                             verifyTask.onUserVerified()
                         
                         case UserStatus.USER_EXPIRED:
-                            verifyTask.onError(.user_EXPIRED)
+                            verifyTask.onError(.userExpired)
                         
                         case UserStatus.USER_BLACKLISTED:
-                            verifyTask.onError(.user_BLACKLISTED)
+                            verifyTask.onError(.userBlacklisted)
                         
                         default:
-                            verifyTask.onError(.internal_ERROR)
+                            verifyTask.onError(.internalError)
                     }
                 } else if let responseCode = ResponseCode.Code(rawValue: response.resultCode),
                           let error = ResponseCode.responseCodeToVerifyError[responseCode] {
                     verifyTask.onError(error)
                 } else {
-                    verifyTask.onError(.internal_ERROR)
+                    verifyTask.onError(.internalError)
                 }
             }
         }
@@ -165,14 +165,14 @@ import UIKit
         if let verifyTask = currentVerifyTask , verifyTask.userStatus == UserStatus.USER_PENDING || verifyTask.standalone {
             checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode)) { response, error in
                 if let _ = error {
-                    verifyTask.onError(.internal_ERROR)
+                    verifyTask.onError(.internalError)
                     return
                 }
                 
                 if let response = response,
                         let responseCode = ResponseCode.Code(rawValue: response.resultCode) {
                     switch (responseCode) {
-                        case .result_CODE_OK:
+                        case .resultCodeOK:
                             if (response.userStatus! == UserStatus.USER_VERIFIED) {
                                 self.currentVerifyTask?.setUserState(UserStatus.USER_VERIFIED)
                                 self.currentVerifyTask?.onUserVerified()
@@ -182,11 +182,11 @@ import UIKit
                             if let error = ResponseCode.responseCodeToVerifyError[responseCode] {
                                 verifyTask.onError(error)
                             } else {
-                                verifyTask.onError(.internal_ERROR)
+                                verifyTask.onError(.internalError)
                             }
                     }
                 } else {
-                    verifyTask.onError(.internal_ERROR)
+                    verifyTask.onError(.internalError)
                 }
             }
         } else {
@@ -228,14 +228,14 @@ import UIKit
         self.currentVerifyTask = verifyTask
         checkService.start(request: CheckRequest(verifyTask: verifyTask, pinCode: pinCode)) { response, error in
             if let _ = error {
-                verifyTask.onError(.internal_ERROR)
+                verifyTask.onError(.internalError)
                 return
             }
             
             if let response = response,
                     let responseCode = ResponseCode.Code(rawValue: response.resultCode) {
                 switch (responseCode) {
-                    case .result_CODE_OK:
+                    case .resultCodeOK:
                         if (response.userStatus! == UserStatus.USER_VERIFIED) {
                             self.currentVerifyTask?.setUserState(UserStatus.USER_VERIFIED)
                             self.currentVerifyTask?.onUserVerified()
@@ -245,11 +245,11 @@ import UIKit
                         if let error = ResponseCode.responseCodeToVerifyError[responseCode] {
                             verifyTask.onError(error)
                         } else {
-                            verifyTask.onError(.internal_ERROR)
+                            verifyTask.onError(.internalError)
                         }
                 }
             } else {
-                verifyTask.onError(.internal_ERROR)
+                verifyTask.onError(.internalError)
             }
         }
     }
@@ -266,7 +266,7 @@ import UIKit
     
     func cancelVerification(_ completionBlock: @escaping (_ error: NSError?) -> ()) {
         if let currentVerifyTask = currentVerifyTask {
-            controlService.start(request: ControlRequest(.Cancel, verifyTask: currentVerifyTask)) { response, error in
+            controlService.start(request: ControlRequest(.cancel, verifyTask: currentVerifyTask)) { response, error in
                 if let error = error {
                     completionBlock(error)
                 } else {
@@ -296,7 +296,7 @@ import UIKit
     
     func triggerNextEvent(_ completionBlock: @escaping (_ error: NSError?) -> ()) {
         if let currentVerifyTask = currentVerifyTask {
-            controlService.start(request: ControlRequest(.NextEvent, verifyTask: currentVerifyTask)) { response, error in
+            controlService.start(request: ControlRequest(.nextEvent, verifyTask: currentVerifyTask)) { response, error in
                 if let error = error {
                     completionBlock(error)
                 } else {
@@ -446,7 +446,7 @@ import UIKit
         
         if (self.currentVerifyTask?.userStatus == UserStatus.USER_PENDING) {
             VerifyClient.Log.info("Verification attempted but one is already in progress.")
-            onError(VerifyError.verification_ALREADY_STARTED)
+            onError(VerifyError.verificationAlreadyStarted)
             return
         }
         
@@ -457,34 +457,34 @@ import UIKit
         // begin verification process
         self.verifyService.start(request: self.currentVerifyTask!.createVerifyRequest()) { response, error in
             if let _ = error {
-                onError(.internal_ERROR)
+                onError(.internalError)
                 return
             }
             
             if let response = response {
                 if let responseCode =  ResponseCode.Code(rawValue: response.resultCode) ,
-                        (responseCode == .result_CODE_OK ||
-                        responseCode == .verification_RESTARTED ||
-                        responseCode == .verification_EXPIRED_RESTARTED) {
+                        (responseCode == .resultCodeOK ||
+                        responseCode == .verificationRestarted ||
+                        responseCode == .verificationExpiredRestarted) {
                             
                     switch (response.userStatus!) {
                         case UserStatus.USER_VERIFIED:
                             verifyTask.onVerifyInProgress()
                         
                         case UserStatus.USER_EXPIRED:
-                            verifyTask.onError(.user_EXPIRED)
+                            verifyTask.onError(.userExpired)
                         
                         case UserStatus.USER_BLACKLISTED:
-                            verifyTask.onError(.user_BLACKLISTED)
+                            verifyTask.onError(.userBlacklisted)
                         
                         default:
-                            verifyTask.onError(.internal_ERROR)
+                            verifyTask.onError(.internalError)
                     }
                 } else if let responseCode = ResponseCode.Code(rawValue: response.resultCode),
                           let error = ResponseCode.responseCodeToVerifyError[responseCode] {
                     verifyTask.onError(error)
                 } else {
-                    verifyTask.onError(.internal_ERROR)
+                    verifyTask.onError(.internalError)
                 }
             }
         }

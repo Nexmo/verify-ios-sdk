@@ -29,17 +29,17 @@ class BaseResponse {
     var verifyError : VerifyError? {
         get {
             if let response = ResponseCode.Code(rawValue: resultCode) {
-                if (response == .result_CODE_OK) {
+                if (response == .resultCodeOK) {
                     return nil
                 }
                 
                 if let error = ResponseCode.responseCodeToVerifyError[response] {
                     return error
                 } else {
-                    return .internal_ERROR
+                    return .internalError
                 }
             }
-            return .internal_ERROR
+            return .internalError
         }
     }
     

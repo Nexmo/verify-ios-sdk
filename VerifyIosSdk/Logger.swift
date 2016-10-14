@@ -14,9 +14,9 @@ import Foundation
 class Logger {
 
     enum LogLevel : String {
-        case INFO = "INFO"
-        case WARN = "WARN"
-        case ERROR = "ERROR"
+        case info = "INFO"
+        case warn = "WARN"
+        case error = "ERROR"
     }
     
     fileprivate let className : String
@@ -30,25 +30,25 @@ class Logger {
     
     fileprivate func log(_ level: LogLevel, message: String) {
         switch (level) {
-            case .INFO,
-                 .WARN,
-                 .ERROR:
+            case .info,
+                 .warn,
+                 .error:
                 print("\(dateFormat.string(from: Date())) \(level.rawValue) [\(className)]  \(message)")
         }
     }
     
     /** Log an 'INFO' level debug statement */
     func info(_ message: String) {
-        log(LogLevel.INFO, message: message)
+        log(LogLevel.info, message: message)
     }
     
     /** Log a 'WARN' level debug statement */
     func warn(_ message: String) {
-        log(LogLevel.WARN, message: message)
+        log(LogLevel.warn, message: message)
     }
     
     /** Log an 'ERROR' level debug statement */
     func error(_ message: String) {
-        log(LogLevel.ERROR, message: message)
+        log(LogLevel.error, message: message)
     }
 }
