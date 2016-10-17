@@ -17,9 +17,9 @@ class CheckViewController: UIViewController, PageIndexable {
         get { return 1 }
     }
     
-    private weak var parentPageController : VerifyPageViewController!
+    fileprivate weak var parentPageController : VerifyPageViewController!
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -45,19 +45,19 @@ class CheckViewController: UIViewController, PageIndexable {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (pinField.isFirstResponder() && (event?.allTouches()?.first)?.view != pinField) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (pinField.isFirstResponder && (event?.allTouches?.first)?.view != pinField) {
             pinField.resignFirstResponder()
         }
     }
     
-    @IBAction func checkPinCode(sender: UIButton) {
+    @IBAction func checkPinCode(_ sender: UIButton) {
         if (pinField.text?.characters.count != 4) {
             UIAlertView(title: "Pin code wrong length", message: "Your pin code should be 4 digits long.", delegate: nil, cancelButtonTitle: "Oh, fiddlesticks!").show()
             return
         }
         
-        if (pinField.isFirstResponder()) {
+        if (pinField.isFirstResponder) {
             pinField.resignFirstResponder()
         }
         
