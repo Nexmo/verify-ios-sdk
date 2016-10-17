@@ -21,7 +21,7 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     
     var currentCountry = Countries.list[2] as [String : AnyObject]
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -48,13 +48,13 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (phoneNumberField.isFirstResponder() && (event?.allTouches()?.first)?.view != phoneNumberField) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (phoneNumberField.isFirstResponder && (event?.allTouches?.first)?.view != phoneNumberField) {
             phoneNumberField.resignFirstResponder()
             return
         }
         
-        if (countryField.isFirstResponder() && (event?.allTouches()?.first)?.view != countryField) {
+        if (countryField.isFirstResponder && (event?.allTouches?.first)?.view != countryField) {
             countryField.resignFirstResponder()
             return
         }
@@ -65,14 +65,14 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func beginVerification(sender: UIButton) {
+    @IBAction func beginVerification(_ sender: UIButton) {
         print("beginVerification")
         
-        if (countryField.isFirstResponder()) {
+        if (countryField.isFirstResponder) {
             countryField.resignFirstResponder()
         }
         
-        if (phoneNumberField.isFirstResponder()) {
+        if (phoneNumberField.isFirstResponder) {
             phoneNumberField.resignFirstResponder()
         }
         
@@ -81,26 +81,26 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     
     // Mark: - UIPickerViewDataSource
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Countries.list.count
     }
     
     // Mark: - UIPickerViewDelegate
     
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: Countries.list[row]["country"] as! String, attributes: [NSForegroundColorAttributeName : UIColor.whiteColor()])
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: Countries.list[row]["country"] as! String, attributes: [NSForegroundColorAttributeName : UIColor.white])
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentCountry = Countries.list[row]
         countryField.text = describeCountry(currentCountry)
     }
     
-    func describeCountry(country: [String : AnyObject]) -> String {
+    func describeCountry(_ country: [String : AnyObject]) -> String {
         if let prefix_list = country["int_prefix"] as? NSArray {
             if prefix_list.count > 0 {
                 if let int_prefix = prefix_list[0] as? String {
