@@ -53,7 +53,7 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     fileprivate func onError(_ verifyError: VerifyError) {
         let okAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
         switch (verifyError) {
-            case .invalidError:
+            case .invalidNumber:
                 let controller = UIAlertController(title: "Invalid Phone Number", message: "The phone number you entered is invalid", preferredStyle: .alert)
                 controller.addAction(okAction)
                 self.present(controller, animated: true, completion: nil)
