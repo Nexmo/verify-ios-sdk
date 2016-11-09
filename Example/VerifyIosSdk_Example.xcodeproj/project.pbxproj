@@ -196,7 +196,7 @@
 				TargetAttributes = {
 					2A63D9EC1B66550D00E49F42 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = WA7RC9M55T;
+						DevelopmentTeam = 7F2B5ZSP8Q;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -395,6 +395,7 @@
 				CODE_SIGN_ENTITLEMENTS = VerifyIosSdk_Example/VerifyIosSdk_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = VerifyIosSdk_Example/Info.plist;
@@ -414,6 +415,7 @@
 				CODE_SIGN_ENTITLEMENTS = VerifyIosSdk_Example/VerifyIosSdk_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = VerifyIosSdk_Example/Info.plist;

@@ -181,10 +181,9 @@
 		2A6B60771B67A04B005378E0 /* SDKRequestSigner */ = {
 			isa = PBXGroup;
 			children = (
-				2A9152301B6A6E6600F404E4 /* SDKRequestSigner.m */,
 				2A6B607A1B67A04B005378E0 /* SDKRequestSigner.h */,
+				2A9152301B6A6E6600F404E4 /* SDKRequestSigner.m */,
 				2ADD5E481B7C82AF00650E1B /* RequestSigner.h */,
-				2ADD5E4A1B7C8D1000650E1B /* RequestSigning.h */,
 				2A6B60781B67A04B005378E0 /* Supporting Files */,
 			);
 			name = SDKRequestSigner;
@@ -194,6 +193,7 @@
 		2A6B60781B67A04B005378E0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2ADD5E4A1B7C8D1000650E1B /* RequestSigning.h */,
 				2A6B60791B67A04B005378E0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -202,10 +202,9 @@
 		2A6B60991B67A078005378E0 /* DeviceProperties */ = {
 			isa = PBXGroup;
 			children = (
+				2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */,
 				2A9152321B6A6E7500F404E4 /* SDKDeviceProperties.m */,
 				2ADD5E541B7CF77400650E1B /* DevicePropertyAccessor.h */,
-				2ADD5E531B7CF50700650E1B /* DeviceProperties.h */,
-				2A6B609C1B67A078005378E0 /* SDKDeviceProperties.h */,
 				2A6B609A1B67A078005378E0 /* Supporting Files */,
 			);
 			path = DeviceProperties;
@@ -214,6 +213,7 @@
 		2A6B609A1B67A078005378E0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2ADD5E531B7CF50700650E1B /* DeviceProperties.h */,
 				2A6B609B1B67A078005378E0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -275,7 +275,6 @@
 				2A26A77A1B6168C20062B9FD /* VerifyError.swift */,
 				2A26A77E1B6168C20062B9FD /* VerifyTask.swift */,
 				2A2DDAFD1B946F36009E4AE9 /* ResponseFactory.swift */,
-				2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */,
 				2A9B5B261BF10E1200764007 /* VerifyUI */,
 				2ABA3ABC1B6166A800EB4842 /* Supporting Files */,
 			);
@@ -285,6 +284,7 @@
 		2ABA3ABC1B6166A800EB4842 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2ABA3ABE1B6166A800EB4842 /* VerifyIosSdk.h */,
 				2A5FEF031C036F870019AAA7 /* Countries.plist */,
 				2ABA3ABD1B6166A800EB4842 /* Info.plist */,
 				2AAB53ED1BF643E1004874B6 /* SDKProperties.plist */,

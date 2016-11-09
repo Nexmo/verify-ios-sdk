@@ -1,0 +1,46 @@
+{
+  "name": "NexmoDeviceProperties",
+  "version": "0.0.1",
+  "license": {
+    "type": "Custom"
+  },
+  "homepage": "https://github.com/Nexmo/verify-ios-sdk",
+  "authors": {
+    "Dorian Peake": "dorian@nexmo.com",
+    "Jodi Humphreys": "jodi.humphreys@nexmo.com",
+    "Shams Ahmed": "shams.ahmed@nexmo.com",
+  },
+  "social_media_url": "https://twitter.com/Nexmo",
+  "documentation_url": "https://docs.nexmo.com/verify/verify-sdk-for-iOS",
+  "summary": "Device Properties SDK",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "git@github.com:Nexmo/verify-ios-sdk.git",
+    "branch": "master"
+  },
+  "source_files": "NexmoConversation/**/*.{h,m,swift}",
+  "exclude_files": "NexmoConversation/Private/**/*.{h,m,swift}",
+  "public_header_files": "NexmoConversation/NexmoConversation.h",
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "3.0"
+  },
+  "dependencies": {
+    "RxCocoa": [ /* https://github.com/ReactiveX/RxSwift */
+      "~> 3.0.1"
+    ],
+    "Gloss": [ /* https://github.com/hkellaway/Gloss */
+      "~> 1.1.0"
+    ],
+    "GRDB.swift": [ /* https://github.com/groue/GRDB.swift */
+      "~> 0.90.0"
+    ],
+    "Alamofire": [ /* https://github.com/Alamofire/Alamofire */
+      "~> 4.0.1"
+    ],
+    "Socket.IO-Client-Swift": [ /* https://github.com/socketio/socket.io-client-swift */
+      "~> 8.1.1"
+    ]
+  }
+}
