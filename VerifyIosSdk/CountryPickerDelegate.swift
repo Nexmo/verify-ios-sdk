@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CountryPickerDelegate  {
-    func didSelectCountry(country: [String : AnyObject])
+    func didSelectCountry(_ country: [String : AnyObject])
 }

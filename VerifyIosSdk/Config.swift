@@ -16,11 +16,11 @@ import UIKit
 class Config {
     // Device and SDK information 
     static let sdkVersion = "1.0"
-    static let osFamily = UIDevice.currentDevice().systemName
-    static let osRevision = UIDevice.currentDevice().systemVersion
+    static let osFamily = UIDevice.current.systemName
+    static let osRevision = UIDevice.current.systemVersion
     
     /** Load properties from plist file */
-    static let properties = NSDictionary(contentsOfFile: NSBundle(forClass: NexmoClient.self).pathForResource("SDKProperties", ofType: "plist")!) as! [String : AnyObject]
+    static let properties = NSDictionary(contentsOfFile: Bundle(for: NexmoClient.self).path(forResource: "SDKProperties", ofType: "plist")!) as! [String : AnyObject]
     static let ENDPOINT_PRODUCTION = Config.properties["ENDPOINT_PRODUCTION"] as! String
     static let APP_ID : String! = Config.properties["APP_ID"] as? String
     static let SECRET_KEY : String! = Config.properties["SECRET_KEY"] as? String

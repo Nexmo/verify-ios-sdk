@@ -14,7 +14,7 @@ import Foundation
 */
 class VerifyTask {
 
-    private static let Log = Logger(String(VerifyTask))
+    fileprivate static let Log = Logger(String(describing: VerifyTask.self))
 
     let countryCode : String?
     let phoneNumber : String
@@ -24,9 +24,9 @@ class VerifyTask {
     let standalone : Bool
     let onVerifyInProgress : () -> ()
     let onUserVerified : () -> ()
-    let onError : (error: VerifyError) -> ()
+    let onError : (_ error: VerifyError) -> ()
 
-    init(countryCode: String?, phoneNumber: String, standalone: Bool, gcmToken: String?, onVerifyInProgress: () -> (), onUserVerified: () -> (), onError: (error: VerifyError) -> ()) {
+    init(countryCode: String?, phoneNumber: String, standalone: Bool, gcmToken: String?, onVerifyInProgress: @escaping () -> (), onUserVerified: @escaping () -> (), onError: @escaping (_ error: VerifyError) -> ()) {
         self.countryCode = countryCode
         self.phoneNumber = phoneNumber
         self.standalone = standalone
@@ -46,7 +46,7 @@ class VerifyTask {
     /**
         Change user state according to the appropriate state machine
     */
-    func setUserState(userStatus: String) {
+    func setUserState(_ userStatus: String) {
         switch (userStatus) {
             case UserStatus.USER_PENDING:
                 if (self.userStatus == UserStatus.USER_NEW) {

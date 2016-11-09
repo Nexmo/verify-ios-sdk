@@ -21,8 +21,8 @@ class ControlRequest : Equatable {
     }
     
     enum ControlCommand : String {
-        case Cancel = "cancel"
-        case NextEvent = "trigger_next_event"
+        case cancel = "cancel"
+        case nextEvent = "trigger_next_event"
     }
 }
 

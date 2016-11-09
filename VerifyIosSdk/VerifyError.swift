@@ -14,57 +14,57 @@ import Foundation
 @objc public enum VerifyError : Int {
 
     /** There is already a pending verification in progress. Handle {@link VerifyClientListener} events to check the progress. */
-    case VERIFICATION_ALREADY_STARTED = 1
+    case verificationAlreadyStarted = 1
     
     /** Number is invalid. Either:
         1. Number is missing or not a real number (in international or local format).
         2. Cannot route any verification messages to this number.
     */
-    case INVALID_NUMBER
+    case invalidNumber
     
     /* Number not provided in verify request */
-    case NUMBER_REQUIRED
+    case numberRequired
     
     /** User must be in pending status to be able to perform a PIN check. */
-    case CANNOT_PERFORM_CHECK
+    case cannotPerformCheck
     
     /** Missing or invalid PIN code supplied. */
-    case INVALID_PIN_CODE
+    case invalidPinCode
     
     /** Ongoing verification has failed. A wrong PIN code was provided too many times. */
-    case INVALID_CODE_TOO_MANY_TIMES
+    case invalidCodeTooManyTimes
     
     /** Ongoing verification expired. Need to start verify again. */
-    case USER_EXPIRED
+    case userExpired
     
     /** Ongoing verification rejected. User blacklisted for verification. */
-    case USER_BLACKLISTED
+    case userBlacklisted
     
     /** Throttled. Too many failed requests. */
-    case THROTTLED
+    case throttled
     
     /** Your account does not have sufficient credit to process this request. */
-    case QUOTA_EXCEEDED
+    case quotaExceeded
     
     /**
         Invalid Credentials. Either:
         1. Supplied Application ID may not be listed under your accepted application list.
         2. Shared secret key is invalid.
     */
-    case INVALID_CREDENTIALS
+    case invalidCredentials
     
     /** The SDK revision is not supported anymore. */
-    case SDK_REVISION_NOT_SUPPORTED
+    case sdkRevisionNotSupported
     
     /** Current iOS OS version is not supported. */
-    case OS_NOT_SUPPORTED
+    case osNotSupported
     
     /** Generic internal error, the service might be down for the moment. Please try again later. */
-    case INTERNAL_ERROR
+    case internalError
     
     /** This Nexmo Account has been barred from sending messages */
-    case ACCOUNT_BARRED
+    case accountBarred
     
     /** Having problems accessing the network */
-    case NETWORK_ERROR
+    case networkError
 }

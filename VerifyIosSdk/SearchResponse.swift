@@ -9,7 +9,7 @@
 import Foundation
 
 class SearchResponse : BaseResponse {
-    private(set) var userStatus : String?
+    fileprivate(set) var userStatus : String?
     
     required init?(_ httpResponse: HttpResponse) {
         super.init(httpResponse)
@@ -24,7 +24,7 @@ class SearchResponse : BaseResponse {
         super.init(signature: signature, resultCode: resultCode, resultMessage: resultMessage, timestamp: timestamp, messageBody: messageBody)
     }
     
-    convenience init(userStatus: String, signature: String, resultCode: Int, resultMessage: String, timestamp: NSDate, messageBody: String) {
+    convenience init(userStatus: String, signature: String, resultCode: Int, resultMessage: String, timestamp: Date, messageBody: String) {
         self.init(userStatus: userStatus, signature: signature, resultCode: resultCode, resultMessage: resultMessage, timestamp: "\(Int(timestamp.timeIntervalSince1970))", messageBody: messageBody)
     }
 }

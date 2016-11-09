@@ -13,7 +13,7 @@ import Foundation
 */
 class CheckResponse : BaseResponse {
 
-    private(set) var userStatus : String?
+    fileprivate(set) var userStatus : String?
     
     required init?(_ httpResponse: HttpResponse) {
         super.init(httpResponse)

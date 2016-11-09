@@ -9,7 +9,7 @@
 import Foundation
 
 class LogoutResponseFactory : ResponseFactory {
-    func createResponse(httpResponse: HttpResponse) -> BaseResponse? {
+    func createResponse(_ httpResponse: HttpResponse) -> BaseResponse? {
         return LogoutResponse(httpResponse)
     }
 }

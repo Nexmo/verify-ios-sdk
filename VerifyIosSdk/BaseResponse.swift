@@ -14,32 +14,32 @@ import RequestSigning
 */
 class BaseResponse {
 
-    private static let Log = Logger(String(ServiceExecutor))
+    fileprivate static let Log = Logger(String(describing: ServiceExecutor.self))
     
-    private(set) var signature : String?
+    fileprivate(set) var signature : String?
     let resultCode : Int
     let resultMessage : String
     let timestamp : String
     let messageBody : String
     
     /// message body parsed as json
-    private(set) var json : [String:AnyObject]
+    fileprivate(set) var json : [String:AnyObject]
     
     /// on failure, this variable returns the error code
     var verifyError : VerifyError? {
         get {
             if let response = ResponseCode.Code(rawValue: resultCode) {
-                if (response == .RESULT_CODE_OK) {
+                if (response == .resultCodeOK) {
                     return nil
                 }
                 
                 if let error = ResponseCode.responseCodeToVerifyError[response] {
                     return error
                 } else {
-                    return .INTERNAL_ERROR
+                    return .internalError
                 }
             }
-            return .INTERNAL_ERROR
+            return .internalError
         }
     }
     
@@ -54,11 +54,11 @@ class BaseResponse {
     
     required init?(_ httpResponse: HttpResponse) {
         if let body = httpResponse.body {
-            if let messageData = body.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false),
-                    json = (try? NSJSONSerialization.JSONObjectWithData(messageData, options: NSJSONReadingOptions())) as? [String:AnyObject],
-                    resultCode = json[ServiceExecutor.PARAM_RESULT_CODE] as? Int,
-                    resultMessage = json[ServiceExecutor.PARAM_RESULT_MESSAGE] as? String,
-                    timestamp = json[ServiceExecutor.PARAM_TIMESTAMP] as? String {
+            if let messageData = body.data(using: String.Encoding.utf8, allowLossyConversion: false),
+                    let json = (try? JSONSerialization.jsonObject(with: messageData, options: JSONSerialization.ReadingOptions())) as? [String:AnyObject],
+                    let resultCode = json[ServiceExecutor.PARAM_RESULT_CODE] as? Int,
+                    let resultMessage = json[ServiceExecutor.PARAM_RESULT_MESSAGE] as? String,
+                    let timestamp = json[ServiceExecutor.PARAM_TIMESTAMP] as? String {
                 self.messageBody = body
                 self.resultCode = resultCode
                 self.resultMessage = resultMessage
@@ -94,9 +94,9 @@ class BaseResponse {
     /**
         Determine whether the provided signature is valid
     */
-    func isSignatureValid(signature: String, nexmoClient: NexmoClient, messageBody: String) -> Bool {
+    func isSignatureValid(_ signature: String, nexmoClient: NexmoClient, messageBody: String) -> Bool {
         let sigMessage = "\(messageBody)\(nexmoClient.sharedSecretKey)"
-        let digest = SDKRequestSigner.sharedInstance().md5HashWithData(sigMessage.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
+        let digest = SDKRequestSigner.sharedInstance().md5Hash(with: sigMessage.data(using: String.Encoding.utf8, allowLossyConversion: false))
         
         if (digest == signature) {
             return true
@@ -106,9 +106,9 @@ class BaseResponse {
         }
     }
     
-    func isSignatureValid(nexmoClient: NexmoClient) -> Bool {
+    func isSignatureValid(_ nexmoClient: NexmoClient) -> Bool {
         let sigMessage = "\(messageBody)\(nexmoClient.sharedSecretKey)"
-        let digest = SDKRequestSigner.sharedInstance().md5HashWithData(sigMessage.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false))
+        let digest = SDKRequestSigner.sharedInstance().md5Hash(with: sigMessage.data(using: String.Encoding.utf8, allowLossyConversion: false))
         
         if (digest == signature) {
             return true

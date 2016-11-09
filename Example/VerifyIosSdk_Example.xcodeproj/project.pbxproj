@@ -61,6 +61,7 @@
 		2A63DA281B66567300E49F42 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A63DA2B1B66568400E49F42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2A63DA2D1B66568400E49F42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0770A871DB4F22900562EBC /* VerifyIosSdk_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VerifyIosSdk_Example.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 		2A63D9EF1B66550D00E49F42 /* VerifyIosSdk_Example */ = {
 			isa = PBXGroup;
 			children = (
+				C0770A871DB4F22900562EBC /* VerifyIosSdk_Example.entitlements */,
 				2A63DA2A1B66568400E49F42 /* LaunchScreen.xib */,
 				2A63DA2C1B66568400E49F42 /* Main.storyboard */,
 				2A63DA281B66567300E49F42 /* Images.xcassets */,
@@ -194,10 +196,17 @@
 				TargetAttributes = {
 					2A63D9EC1B66550D00E49F42 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = WA7RC9M55T;
+						DevelopmentTeam = 7F2B5ZSP8Q;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					2A63DA011B66550D00E49F42 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 						TestTargetID = 2A63D9EC1B66550D00E49F42;
 					};
 				};
@@ -383,8 +392,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VerifyIosSdk_Example/VerifyIosSdk_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = VerifyIosSdk_Example/Info.plist;
@@ -393,6 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.VerifyIosSdk-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -400,8 +412,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VerifyIosSdk_Example/VerifyIosSdk_Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = VerifyIosSdk_Example/Info.plist;
@@ -410,6 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nexmo.VerifyIosSdk-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -425,6 +440,7 @@
 				INFOPLIST_FILE = VerifyIosSdk_ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VerifyIosSdk_Example.app/VerifyIosSdk_Example";
 			};
 			name = Debug;
@@ -437,6 +453,7 @@
 				INFOPLIST_FILE = VerifyIosSdk_ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VerifyIosSdk_Example.app/VerifyIosSdk_Example";
 			};
 			name = Release;

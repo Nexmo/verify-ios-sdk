@@ -11,13 +11,21 @@ import RequestSigning
 import DeviceProperties
 
 class SDKLogoutService : LogoutService {
+    /**
+     Begin a service operation
+     
+     - parameter request: The request object a service will use to make the request
+     
+     - parameter onResponse: A callback containing either a valid response or an error if something went wrong.
+     Only one of these variables will be nil at a time.
+     */
 
-    private static let Log = Logger(String(SDKLogoutService))
+    fileprivate static let Log = Logger(String(describing: SDKLogoutService.self))
 
-    private let nexmoClient : NexmoClient
-    private let serviceExecutor : ServiceExecutor
-    private let requestSigner : RequestSigner
-    private let deviceProperties : DevicePropertyAccessor
+    fileprivate let nexmoClient : NexmoClient
+    fileprivate let serviceExecutor : ServiceExecutor
+    fileprivate let requestSigner : RequestSigner
+    fileprivate let deviceProperties : DevicePropertyAccessor
     
     init() {
         self.nexmoClient = NexmoClient.sharedInstance
@@ -33,25 +41,25 @@ class SDKLogoutService : LogoutService {
         self.deviceProperties = deviceProperties
     }
     
-    func start(request request: LogoutRequest, onResponse: (response: LogoutResponse?, error: NSError?) -> ()) {
+    func start(request: LogoutRequest, onResponse: @escaping (_ response: LogoutResponse?, _ error: NSError?) -> ()) {
         let params = NSMutableDictionary()
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            if (!self.deviceProperties.addDeviceIdentifierToParams(params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
+        DispatchQueue.global().async {
+            if (!self.deviceProperties.addDeviceIdentifier(toParams: params, withKey: ServiceExecutor.PARAM_DEVICE_ID)) {
                 let error = NSError(domain: "SDKLogoutService", code: 1, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKLogoutService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
             }
             
-            if (!self.deviceProperties.addIpAddressToParams(params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
+            if (!self.deviceProperties.addIpAddress(toParams: params, withKey: ServiceExecutor.PARAM_SOURCE_IP)) {
                 let error = NSError(domain: "SDKLogoutService", code: 2, userInfo: [NSLocalizedDescriptionKey : "Failed to get duid!"])
                 SDKLogoutService.Log.error(error.localizedDescription)
-                dispatch_async(dispatch_get_main_queue()) {
-                    onResponse(response: nil, error: error)
+                DispatchQueue.main.async {
+                    onResponse(nil, error)
                 }
                 
                 return
@@ -64,14 +72,14 @@ class SDKLogoutService : LogoutService {
             }
             
             let swiftParams = params.copy() as! [String:String]
-            self.serviceExecutor.performHttpRequestForService(LogoutResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_LOGOUT, timestamp: NSDate(), params: swiftParams, isPost: false) { response, error in
+            self.serviceExecutor.performHttpRequestForService(LogoutResponseFactory(), nexmoClient: self.nexmoClient, path: ServiceExecutor.METHOD_LOGOUT, timestamp: Date(), params: swiftParams, isPost: false) { response, error in
                 if let error = error {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        onResponse(response: nil, error: error)
+                    DispatchQueue.main.async {
+                        onResponse(nil, error)
                     }
                 } else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        onResponse(response: (response as! LogoutResponse), error: nil)
+                    DispatchQueue.main.async {
+                        onResponse((response as! LogoutResponse), nil)
                     }
                 }
             }

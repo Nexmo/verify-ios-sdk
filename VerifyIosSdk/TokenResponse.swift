@@ -13,8 +13,8 @@ import Foundation
 */
 final class TokenResponse : BaseResponse {
 
-    private static var Log = Logger(String(TokenResponse))
-    private(set) var token : String?
+    fileprivate static var Log = Logger(String(describing: TokenResponse.self))
+    fileprivate(set) var token : String?
     
     init(token: String?, signature: String?, resultCode: Int, resultMessage: String, timestamp: String, messageBody: String) {
         self.token = token
