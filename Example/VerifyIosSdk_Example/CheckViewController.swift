@@ -13,11 +13,12 @@ class CheckViewController: UIViewController, PageIndexable {
     @IBOutlet weak var pinField: UITextField!
     @IBOutlet weak var statusImage: UIImageView!
     
-    var index: Int {
-        get { return 1 }
-    }
+    var index: Int = 1
     
     fileprivate weak var parentPageController : VerifyPageViewController!
+    
+    // MARK:
+    // MARK: Init
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -27,23 +28,23 @@ class CheckViewController: UIViewController, PageIndexable {
         super.init(coder: aDecoder)
     }
     
-     convenience init(parent: VerifyPageViewController) {
+    convenience init(parent: VerifyPageViewController) {
         self.init(nibName: "CheckViewController", bundle: nil)
+        
         parentPageController = parent
-
     }
+    
+    // MARK:
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         statusImage.alpha = 0
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    // MARK:
+    // MARK: Touch
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (pinField.isFirstResponder && (event?.allTouches?.first)?.view != pinField) {
@@ -51,9 +52,13 @@ class CheckViewController: UIViewController, PageIndexable {
         }
     }
     
+    // MARK:
+    // MARK: Action
+    
     @IBAction func checkPinCode(_ sender: UIButton) {
         if (pinField.text?.characters.count != 4) {
-            UIAlertView(title: "Pin code wrong length", message: "Your pin code should be 4 digits long.", delegate: nil, cancelButtonTitle: "Oh, fiddlesticks!").show()
+            wrongPinAlert()
+            
             return
         }
         
@@ -62,5 +67,18 @@ class CheckViewController: UIViewController, PageIndexable {
         }
         
         parentPageController.checkPinCode()
+    }
+    
+    // MARK:
+    // MARK: Private - Alert
+    
+    private func wrongPinAlert() {
+        let alert = UIAlertController(title: "Pin code wrong length", message: "Your pin code should be 4 digits long.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Oh, fiddlesticks!", style: .default, handler: { [unowned self] _ in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
 }

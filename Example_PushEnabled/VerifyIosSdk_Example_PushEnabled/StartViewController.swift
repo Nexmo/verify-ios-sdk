@@ -8,19 +8,20 @@
 
 import Foundation
 import UIKit
-import VerifyIosSdk
+import NexmoVerify
 
 class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, PageIndexable {
     
+    @IBOutlet weak var info: UIButton!
     @IBOutlet weak var phoneNumberField: UITextField!
     @IBOutlet weak var countryField: UITextField!
     weak var parentPageViewController : VerifyPageViewController!
     
-    var index: Int {
-        get { return 0 }
-    }
-    
+    var index: Int = 0
     var currentCountry = Countries.list[2] as [String : AnyObject]
+    
+    // MARK:
+    // MARK: Init
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -32,26 +33,34 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     
     convenience init(parent: VerifyPageViewController) {
         self.init(nibName: "StartViewController", bundle: nil)
+        
         parentPageViewController = parent
-
     }
+    
+    // MARK:
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+    }
+    
+    // MARK:
+    // MARK: Setup
+    
+    private func setupView() {
         let countryPickerView = UIPickerView()
         countryPickerView.dataSource = self
         countryPickerView.delegate = self
         countryPickerView.showsSelectionIndicator = true
         countryPickerView.backgroundColor = Colors.nexmoDarkBlue
         countryField.inputView = countryPickerView
-        
-        
     }
+
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
+    // MARK:
+    // MARK: Touch
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (phoneNumberField.isFirstResponder && (event?.allTouches?.first)?.view != phoneNumberField) {
@@ -65,10 +74,8 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK:
+    // MARK: Action
     
     @IBAction func beginVerification(_ sender: UIButton) {
         print("beginVerification")
@@ -92,7 +99,24 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         parentPageViewController.standaloneVerification()
     }
     
-    // Mark: - UIPickerViewDataSource
+    @IBAction func moreInfo(_ sender: AnyObject) {
+        let token = NexmoClient.sharedInstance.pushToken
+        let alert = UIAlertController(title: "APNS Device Token", message: token, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in self.dismiss(animated: true, completion: nil) }))
+        alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { _ in
+            UIPasteboard.general.string = token
+            
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    // Mark:
+    // Mark: UIPickerViewDataSource
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -102,7 +126,8 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         return Countries.list.count
     }
     
-    // Mark: - UIPickerViewDelegate
+    // Mark:
+    // Mark: UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: Countries.list[row]["country"] as! String, attributes: [NSForegroundColorAttributeName : UIColor.white])

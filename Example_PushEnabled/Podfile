@@ -1,5 +1,17 @@
-platform :ios, ‘9.0’
+# Configurations
+platform :ios, '9.0'
+inhibit_all_warnings!
+use_frameworks!
 
 target 'VerifyIosSdk_Example_PushEnabled' do
-    pod 'Google/CloudMessaging'
+  
+  pod 'NexmoVerify', :path => '../'
+  
+  target 'VerifyIosSdk_Example_PushEnabledTests' do
+    inherit! :search_paths
+  end
+
+  target 'VerifyIosSdk_Example_PushEnabledUITests' do
+    inherit! :search_paths
+  end
 end

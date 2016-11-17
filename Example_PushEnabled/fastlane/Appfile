@@ -1,0 +1,4 @@
+app_identifier "com.nexmo.VerifyIosSdk" # The bundle identifier of your app
+apple_id "shamsahmed@me.com" # Your Apple email address
+team_id "7F2B5ZSP8Q"  # Developer Portal Team ID
+team_name "Nexmo Inc."

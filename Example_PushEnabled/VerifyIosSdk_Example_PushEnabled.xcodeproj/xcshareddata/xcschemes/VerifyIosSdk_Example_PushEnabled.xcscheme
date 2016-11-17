@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2AEC2C0A1BC4201C001114D0"
-               BuildableName = "VerifyIosSdk_Example_PushEnabled.app"
+               BuildableName = "VerifyDemo.app"
                BlueprintName = "VerifyIosSdk_Example_PushEnabled"
                ReferencedContainer = "container:VerifyIosSdk_Example_PushEnabled.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2AEC2C0A1BC4201C001114D0"
-            BuildableName = "VerifyIosSdk_Example_PushEnabled.app"
+            BuildableName = "VerifyDemo.app"
             BlueprintName = "VerifyIosSdk_Example_PushEnabled"
             ReferencedContainer = "container:VerifyIosSdk_Example_PushEnabled.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2AEC2C0A1BC4201C001114D0"
-            BuildableName = "VerifyIosSdk_Example_PushEnabled.app"
+            BuildableName = "VerifyDemo.app"
             BlueprintName = "VerifyIosSdk_Example_PushEnabled"
             ReferencedContainer = "container:VerifyIosSdk_Example_PushEnabled.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2AEC2C0A1BC4201C001114D0"
-            BuildableName = "VerifyIosSdk_Example_PushEnabled.app"
+            BuildableName = "VerifyDemo.app"
             BlueprintName = "VerifyIosSdk_Example_PushEnabled"
             ReferencedContainer = "container:VerifyIosSdk_Example_PushEnabled.xcodeproj">
          </BuildableReference>

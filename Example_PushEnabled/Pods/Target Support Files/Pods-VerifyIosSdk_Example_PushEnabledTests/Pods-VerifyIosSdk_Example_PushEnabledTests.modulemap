@@ -1,0 +1,6 @@
+framework module Pods_VerifyIosSdk_Example_PushEnabledTests {
+  umbrella header "Pods-VerifyIosSdk_Example_PushEnabledTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

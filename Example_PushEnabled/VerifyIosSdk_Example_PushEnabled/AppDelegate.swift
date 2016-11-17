@@ -7,100 +7,43 @@
 //
 
 import UIKit
-import VerifyIosSdk
+import NexmoVerify
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var pageViewController : VerifyPageViewController!
+    let configurator = AppConfigurator()
 
-    // Your parameters go here!
-    fileprivate var gcmSenderId = "SENDER_ID"
-    fileprivate var applicationId = "YOUR_APP_KEY"
-    fileprivate var sharedSecretKey = "YOUR_SECRET_KEY"
+    // Your parameters go here! see https://dashboard.nexmo.com/verify
+    private let applicationId = "YOUR_APP_KEY"
+    private let sharedSecretKey = "YOUR_SECRET_KEY"
     
-    var registrationOptions : [ String : AnyObject ]!
-
+    // MARK:
+    // MARK: UIApplicationDelegate - Launch
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Register for Push Notitications
-        let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-        application.registerUserNotificationSettings(settings)
-        application.registerForRemoteNotifications()
+        configurator.registerPushNotitications()
 
-        // Start Nexmo Client
         NexmoClient.start(applicationId: applicationId, sharedSecretKey: sharedSecretKey)
+        
         return true
     }
 
+    // MARK:
+    // MARK: UIApplicationDelegate - Notification
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // Initialise GCM
-        let instanceIDConfig = GGLInstanceIDConfig.defaultConfig()
-        instanceIDConfig.delegate = self
-
-        // Start the GGLInstanceID shared instance with that config and request a registration
-        // token to enable reception of notifications
-        GGLInstanceID.sharedInstance().startWithConfig(instanceIDConfig)
-        registrationOptions = [kGGLInstanceIDRegisterAPNSOption:deviceToken,
-          kGGLInstanceIDAPNSServerTypeSandboxOption:true]
-        GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity(gcmSenderId,
-          scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: self.handleGcmToken)
-        print("registered for push notifications")
+        NexmoClient.setPushToken(deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        if error.code == 3010 {
-            print("Push notifications are not supported in the iOS Simulator.")
-        } else {
-            print("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
-        }
+        print("Failed register notifications: \(error)")
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        if (VerifyClient.handleNotification(userInfo, performSilentCheck: false)) {
-            // verification handled successfully
-            return
+        if VerifyClient.handleNotification(userInfo) {
+            // Verification handled successfully
         }
-    }
-
-    func onTokenRefresh() {
-        // A rotation of the registration tokens is happening, so the app needs to request a new token.
-        print("The GCM registration token needs to be changed.")
-        GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity(gcmSenderId,
-          scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: self.handleGcmToken)
-    }
-
-    func handleGcmToken(_ token: String!, error: NSError!) {
-        if let error = error {
-            print("failed to get gcm token with error \(error.localizedDescription)")
-        } else {
-            print("gcm token:\n\(token)")
-
-            // provide nexmo client with gcm token
-            NexmoClient.setGcmToken(token)
-        }
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
-

@@ -1,16 +1,16 @@
 //
 //  RequestSigning.m
-//  VerifyIosSdk
+//  NexmoVerify
 //
 //  Created by Dorian Peake on 03/06/2015.
 //  Copyright (c) 2015 Nexmo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CommonCrypto/CommonCrypto.h>
+@import Foundation;
 
-#include "SDKRequestSigner.h"
-#include "RequestSigner.h"
+#import <CommonCrypto/CommonCrypto.h>
+#import "SDKRequestSigner.h"
+#import "RequestSigner.h"
 
 /// Collection of static methods for signing requests to Nexmo Servers
 @implementation SDKRequestSigner

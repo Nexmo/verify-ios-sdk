@@ -6,10 +6,7 @@
 //  Copyright (c) 2015 Nexmo Inc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-#ifndef VerifyIosSdk_SDKDeviceProperties_h
-#define VerifyIosSdk_SDKDeviceProperties_h
+@import UIKit;
 
 #import "DevicePropertyAccessor.h"
 
@@ -23,5 +20,3 @@
 -(bool)addDeviceIdentifierToParams:(NSMutableDictionary*)params withKey:(NSString*)key;
 
 @end
-
-#endif

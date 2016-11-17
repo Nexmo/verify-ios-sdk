@@ -1,0 +1,13 @@
+# Configurations
+platform :ios, '9.0'
+inhibit_all_warnings!
+use_frameworks!
+
+target 'VerifyIosSdk_Example' do
+  
+  pod 'NexmoVerify', :path => '../'
+
+  target 'VerifyIosSdk_ExampleTests' do
+    inherit! :search_paths
+  end
+end

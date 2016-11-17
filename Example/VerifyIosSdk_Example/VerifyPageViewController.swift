@@ -8,17 +8,19 @@
 
 import Foundation
 import UIKit
-import VerifyIosSdk
+import NexmoVerify
 
 class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     static let START_CONTROLLER_INDEX = 0
     static let CHECK_CONTROLLER_INDEX = 1
 
-    // only two view controllers, one to begin verification, one to check pin
-    var pages = [ UIViewController ]()
+    var pages = [UIViewController]()
     
     fileprivate var currentControllerIndex = 0
+    
+    // MARK:
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,25 +35,26 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
         self.view.layer.backgroundColor = Colors.nexmoBlue.cgColor
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK:
+    // MARK: Callback
     
     fileprivate func onVerifyInProgress() {
         print("verify progress")
+        
         toCheckPage()
     }
     
     fileprivate func onUserVerified() {
         toCheckPage()
+        
         UIView.animate(withDuration: 0.5, animations: {
-        (self.pages[VerifyPageViewController.CHECK_CONTROLLER_INDEX] as! CheckViewController).statusImage.alpha = 1
+            (self.pages[VerifyPageViewController.CHECK_CONTROLLER_INDEX] as! CheckViewController).statusImage.alpha = 1
         }) 
     }
     
     fileprivate func onError(_ verifyError: VerifyError) {
         let okAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        
         switch (verifyError) {
             case .invalidNumber:
                 let controller = UIAlertController(title: "Invalid Phone Number", message: "The phone number you entered is invalid", preferredStyle: .alert)
@@ -100,16 +103,25 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
         print("some error \(verifyError.rawValue)")
     }
     
-    func beginVerification() {
-        VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry["country_code"] as? String, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: onVerifyInProgress,
-            onUserVerified: onUserVerified,
-            onError: onError)
-    }
+    // MARK:
+    // MARK: Verify
     
+    func beginVerification() {
+        VerifyClient.getVerifiedUser(
+            countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry["country_code"] as? String,
+            phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!,
+            onVerifyInProgress: onVerifyInProgress,
+            onUserVerified: onUserVerified,
+            onError: onError
+        )
+    }
     
     func checkPinCode() {
         VerifyClient.checkPinCode((pages[1] as! CheckViewController).pinField.text!)
     }
+    
+    // MARK:
+    // MARK: Page
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = viewController as! PageIndexable
@@ -141,6 +153,9 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return currentControllerIndex
     }
+    
+    // MARK:
+    // MARK: Navigation
     
     func toCheckPage() {
         if (currentControllerIndex != 1) {

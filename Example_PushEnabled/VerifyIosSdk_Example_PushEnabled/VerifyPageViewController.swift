@@ -8,22 +8,20 @@
 
 import Foundation
 import UIKit
-import VerifyIosSdk
+import NexmoVerify
 
 class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     static let START_CONTROLLER_INDEX = 0
     static let CHECK_CONTROLLER_INDEX = 1
 
-    // only two view controllers, one to begin verification, one to check pin
-    var pages = [ UIViewController ]()
+    var pages = [UIViewController]()
     
     fileprivate var currentControllerIndex = 0
     fileprivate var controller : UIAlertController!
     
-    func initialise() {
-        
-    }
+    // MARK:
+    // MARK: Init
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -34,15 +32,12 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
         pages.append(CheckViewController(parent: self))
         
         self.setViewControllers([pages[VerifyPageViewController.START_CONTROLLER_INDEX]], direction: .forward, animated: true, completion: nil)
-        
+
         self.view.layer.backgroundColor = Colors.nexmoBlue.cgColor
-        (UIApplication.shared.delegate as! AppDelegate).pageViewController = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK:
+    // MARK: Callback
     
     fileprivate func onVerifyInProgress() {
         print("verify progress")
@@ -106,6 +101,9 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
         print("some error \(verifyError.rawValue)")
     }
     
+    // MARK:
+    // MARK: Verify
+    
     func beginVerification() {
         VerifyClient.getVerifiedUser(countryCode: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).currentCountry["country_code"] as? String, phoneNumber: (pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController).phoneNumberField.text!, onVerifyInProgress: onVerifyInProgress,
             onUserVerified: onUserVerified,
@@ -114,24 +112,27 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     
     func logoutUser() {
         let startViewController = pages[VerifyPageViewController.START_CONTROLLER_INDEX] as! StartViewController
+        (pages[VerifyPageViewController.CHECK_CONTROLLER_INDEX] as? CheckViewController)?.reset()
+        
         let countryCode = startViewController.currentCountry["country_code"] as! String
         let number = startViewController.phoneNumberField.text!
+       
         VerifyClient.logoutUser(countryCode: countryCode, number: number) { error in
-            let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+            let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            
             if let error = error {
                 let errMsg = "Failed to log out user with error: \(error.localizedDescription)"
                 print(errMsg)
                 
-                self.controller = UIAlertController(title: "Failed to logout user", message: errMsg, preferredStyle: .Alert)
+                self.controller = UIAlertController(title: "Failed to logout user", message: errMsg, preferredStyle: .alert)
                 self.controller.addAction(action)
-                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(self.controller, animated: true, completion: nil)
+                UIApplication.shared.keyWindow?.rootViewController?.present(self.controller, animated: true, completion: nil)
                 return
             }
             
-            self.controller = UIAlertController(title: "Successfully logged out user", message: "User was successfully logged out", preferredStyle: .Alert)
+            self.controller = UIAlertController(title: "Successfully logged out user", message: "User was successfully logged out", preferredStyle: .alert)
             self.controller.addAction(action)
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(self.controller, animated: true, completion: nil)
-            
+            UIApplication.shared.keyWindow?.rootViewController?.present(self.controller, animated: true, completion: nil)
         }
     }
     
@@ -145,6 +146,9 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
             onError: onError)
     }
     
+    // MARK:
+    // MARK: Page
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = viewController as! PageIndexable
         
@@ -157,7 +161,6 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-    
         let index = viewController as! PageIndexable
         
         if (index.index + 1 == pages.count) {
@@ -175,6 +178,9 @@ class VerifyPageViewController : UIPageViewController, UIPageViewControllerDataS
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return currentControllerIndex
     }
+    
+    // MARK:
+    // MARK: Navigation
     
     func toCheckPage() {
         if (currentControllerIndex != 1) {

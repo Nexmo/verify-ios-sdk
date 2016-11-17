@@ -23,7 +23,7 @@ In order to integrate the Verify SDK for iOS in your app, see:
 * [Verify SDK for iOS, advanced use](https://docs.nexmo.com/verify/verify-sdk-for-iOS/advanced): use the advanced features in Verify SDK for iOS.
 * [Example configurations](https://docs.nexmo.com/verify/verify-sdk-for-iOS/example-configurations): configurations for different types of app.
 
-Feel free to checkout the [Verify iOS SDK codebase] (https://github.com/Nexmo/verify-ios-sdk/blob/master/VerifyIosSdk) if you wish to contribute to our open source library.
+Feel free to checkout the [Verify iOS SDK codebase] (https://github.com/Nexmo/verify-ios-sdk/blob/master/VerifySDK) if you wish to contribute to our open source library.
 
 License
 =======

@@ -1,13 +1,10 @@
 //
 //  RequestSigner.h
-//  VerifyIosSdk
+//  NexmoVerify
 //
 //  Created by Dorian Peake on 13/08/2015.
 //  Copyright (c) 2015 Nexmo Inc. All rights reserved.
 //
-
-#ifndef VerifyIosSdk_RequestSigner_h
-#define VerifyIosSdk_RequestSigner_h
 
 @protocol RequestSigner <NSObject>
 
@@ -17,6 +14,3 @@
 -(bool)allowedTimestamp:(NSString*)timestamp;
 
 @end
-
-
-#endif

@@ -8,18 +8,19 @@
 
 import Foundation
 import UIKit
-import VerifyIosSdk
+import NexmoVerify
+
 class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, PageIndexable {
     
     @IBOutlet weak var phoneNumberField: UITextField!
     @IBOutlet weak var countryField: UITextField!
     weak var parentPageViewController : VerifyPageViewController!
     
-    var index: Int {
-        get { return 0 }
-    }
-    
+    var index: Int = 0
     var currentCountry = Countries.list[2] as [String : AnyObject]
+    
+    // MARK:
+    // MARK: Init
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -31,22 +32,34 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     
     convenience init(parent: VerifyPageViewController) {
         self.init(nibName: "StartViewController", bundle: nil)
+       
         parentPageViewController = parent
-
     }
+    
+    // MARK:
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+    }
+    
+    // MARK:
+    // MARK: Setup
+    
+    private func setupView() {
         let countryPickerView = UIPickerView()
         countryPickerView.dataSource = self
         countryPickerView.delegate = self
         countryPickerView.showsSelectionIndicator = true
         countryPickerView.backgroundColor = Colors.nexmoDarkBlue
+     
         countryField.inputView = countryPickerView
-        
-        
     }
+    
+    // MARK:
+    // MARK: Touch
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (phoneNumberField.isFirstResponder && (event?.allTouches?.first)?.view != phoneNumberField) {
@@ -60,14 +73,10 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK:
+    // MARK: Action
     
     @IBAction func beginVerification(_ sender: UIButton) {
-        print("beginVerification")
-        
         if (countryField.isFirstResponder) {
             countryField.resignFirstResponder()
         }
@@ -79,6 +88,7 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         parentPageViewController.beginVerification()
     }
     
+    // Mark:
     // Mark: - UIPickerViewDataSource
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -89,6 +99,7 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         return Countries.list.count
     }
     
+    // Mark:
     // Mark: - UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
@@ -101,12 +112,8 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     func describeCountry(_ country: [String : AnyObject]) -> String {
-        if let prefix_list = country["int_prefix"] as? NSArray {
-            if prefix_list.count > 0 {
-                if let int_prefix = prefix_list[0] as? String {
-                    return "\(country["country_code"] as! String) (+\(int_prefix))"
-                }
-            }
+        if let prefix_list = country["int_prefix"] as? NSArray, let int_prefix = prefix_list[0] as? String {
+            return "\(country["country_code"] as! String) (+\(int_prefix))"
         }
         
         return country["country_code"] as! String

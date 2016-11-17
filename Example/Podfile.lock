@@ -1,0 +1,22 @@
+PODS:
+  - NexmoVerify (1.0.4):
+    - NexmoVerify/Core (= 1.0.4)
+  - NexmoVerify/Core (1.0.4):
+    - NexmoVerify/DeviceProperties (~> 1.0.4)
+    - NexmoVerify/RequestSigning (~> 1.0.4)
+  - NexmoVerify/DeviceProperties (1.0.4)
+  - NexmoVerify/RequestSigning (1.0.4)
+
+DEPENDENCIES:
+  - NexmoVerify (from `../`)
+
+EXTERNAL SOURCES:
+  NexmoVerify:
+    :path: ../
+
+SPEC CHECKSUMS:
+  NexmoVerify: 98af81743633010a037b5f268466ecf7705aa611
+
+PODFILE CHECKSUM: d1aead19d7bcea48b6eddda1fdf2c11a53f2bbd2
+
+COCOAPODS: 1.2.0.beta.1

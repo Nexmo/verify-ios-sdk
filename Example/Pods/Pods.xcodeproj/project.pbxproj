@@ -1,0 +1,1000 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0039BA22826B6E6106C32822F2B14774 /* CountryPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435EC03E583D17972C5FDA1C39FC921 /* CountryPickerController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0966CCD37A218E28FDF3B68C6BB50E39 /* Pods-VerifyIosSdk_ExampleTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6713C6B33C1ED4AB50C2917D9D6DCFB8 /* Pods-VerifyIosSdk_ExampleTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0CC38870BE44D596DC2A31999EFCA914 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB3633BDEDF981D44E4D6E80EF39FD /* SearchService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0DF3865D719DF70D78AEA4CA93C88AAC /* ControlResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EC4C9A75082B2971E270B799658BF1 /* ControlResponseFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		18884AC908C5A76DAEBE1D39C8BC1E19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		19FDE14DEA00CEDEC9B99CCAA1888215 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033C35903BAC2AD16B7D4FE3164A2FA /* Countries.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1E0F279E0357E6623742A021D78D3B3A /* Countries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 129CD8867B4E28D9ABAD31985DC77F92 /* Countries.plist */; };
+		205D8550EA806BA51DB3A5EBC63A643A /* NexmoVerify-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 963268C8C7F7ED8832F82C689BBCB1B5 /* NexmoVerify-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		275D891DA39A60C474B72340C07B1695 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AE00728E95FB5CAAEACF4E7556F1EB /* Logger.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		27ADCFE56EBD9CEE6BF35C269633BEF3 /* VerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE55D3F394C78A3F30BC4A8C87CAAFB /* VerifyService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2DEE6A7704B591223DF1C2418FB8EA8A /* SDKLogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E5CF1BB50B000DDA5DCAC94862EF4 /* SDKLogoutService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2F0D60F11DF48DC05E3A984621521077 /* NexmoVerify-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D835DD76D13F93E9D51B965A65994B8C /* NexmoVerify-dummy.m */; };
+		326185A6E625D541191EFE821BBEB625 /* ResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC4D6A97E81B6A448D70B54CDCF97E /* ResponseFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3B7BC3AE652FE1505D66A28E166C4A3E /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D92B85E5B041C72E8F82817B33CE11 /* LogoutResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3C89AB3629F2F10BBC436A26E8E3D690 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60664C25E6641422B8BCB8D64025A635 /* Config.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3CF8CDAEE118C4C4E9AFDFA54194EA40 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543320D3C0A312FD42BB69576C4C52A /* TokenResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		46D53BB6D20055DA30A1A6CBC8DF2273 /* CheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2269DC4EA736FC974FB79C89DAAEE68 /* CheckService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4A23002E39A591E7CA540DE5FC248111 /* NexmoRequestSigning.h in Headers */ = {isa = PBXBuildFile; fileRef = C2208C939EED58B0E4CB07F2AD21E55C /* NexmoRequestSigning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		536C337407B50E0E142C5FEAAE3E7B7D /* SDKRequestSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B81C09B8EE2125A7166DA7CC6688AF8 /* SDKRequestSigner.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		56008431A531D74B9AF85D1957E940C3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 261014DA01771C0FB0B11F8D488EC3D0 /* Info.plist */; };
+		591620C63AC5D2266B27B3F7E87C6DD6 /* NexmoDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FEA404750B352165E3AF32B5398C2F9 /* NexmoDeviceProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A3AB4744387C325A2E3FAB41504E4E2 /* SDKDeviceProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = A0C416ED340C99D823DA7E780D56D712 /* SDKDeviceProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C15B6FB83DA2378F80BAA014B2B6184 /* Data+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA27B6D04E1BCF710FBD21B7F46D6D /* Data+Helper.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		623D7D728CAC711FC13DDDA2871FCF2D /* DevicePropertyAccessor.h in Headers */ = {isa = PBXBuildFile; fileRef = E8D3BB8C8D721D8E0DA3262743E51536 /* DevicePropertyAccessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		651225C416CF40FE5810AD053DA48480 /* SDKControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0235266A08B8DE213E5C7389F0CC13E /* SDKControlService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		65D5E2071BB812F3350906E03F5B52DB /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ADBEC90844B373880616BB18990618 /* SearchRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		68B9D4B771CBFEB7A1CFC814EACB7D61 /* ServiceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6263365A9A6F1C00337066F936BD99E /* ServiceExecutor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6C564F1BB25BB56A589E13C1616DC1E2 /* NexmoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8BAC5EC9E928553158066093A1C6B /* NexmoClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		70542C700B60860DA18FE450D12AEDFF /* SDKRequestSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = B344D4628027DC05B4DE74AE91921513 /* SDKRequestSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		73C76F86C66DEFEAD2A2CAC051259870 /* VerifyResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC556F82F5A6DF0A35B134F6BF6217E2 /* VerifyResponseFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		759E3ED59649EFCC11572DC26BFDC91A /* VerifyUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8270188415980233D2DE9D120A329344 /* VerifyUI.storyboard */; };
+		76C2E138538CF53CCBE6663FCF533858 /* VerifyUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86ECAE5F57191EB3F9B68B5590494CB /* VerifyUIController.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		78C1B2AD8A0E919DCA482C3A74BDC6C4 /* ControlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26769D40990F7C1D347C39793C32BB73 /* ControlRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		79226A9393571C36CE7E04FA0EAD7154 /* RequestSigner.h in Headers */ = {isa = PBXBuildFile; fileRef = 155625FAF5EB2EBF4C5EE90BFDDE406F /* RequestSigner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CBAA8986F040CAC9F1D67147BB95BE9 /* Pods-VerifyIosSdk_ExampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D533BE01E0B218E08FCBA627DB1402 /* Pods-VerifyIosSdk_ExampleTests-dummy.m */; };
+		7D56D96F536FD23F86B75657EEBA3207 /* SDKVerifyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AE0C0634A0B84AE83060D6D3737D0 /* SDKVerifyService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		844E4B0A34681FAB7027F3E9FE67E187 /* SearchResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8BC8D933EE10907AA7267E7A99C5E /* SearchResponseFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		88FAAC9A76906B2D3A33CB85959B57B0 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B4D8CFA317F00361ED93377366FB5E /* HttpResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8CCFD9614869D69C24998288192305B6 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859B35630FDFDF9C6F29B2674568EEB4 /* LogoutRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		97FA888667ED4618458789665C8CBEEF /* VerifyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858BC441F7EB6A056E1639687A3D2BDE /* VerifyTask.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9D82CF8412E757017517D068B383BA5C /* ResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511E912ABA333736DB423420B441E418 /* ResponseCode.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9FB2BB903BC0CFF3C44DCCC22967A8EB /* CheckReponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590D81C3AC985FF29863AC1EA78F3756 /* CheckReponseFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A24BCF3657D69CFA7B00280981E592FD /* SDKDeviceProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC9DD9212F9B7AFFF36B9C6AC76F393 /* SDKDeviceProperties.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A2EABA4066A7D33C5E401C7CD3C71C4B /* VerifyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEFFF96520E54E8849A5F9187640FB /* VerifyError.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A37928691EC8A3E9BD0862553A5D5777 /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231861C3B7B449D9EC702CED55BEA5CE /* LogoutService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A85A0B192E4FA4094BF109799F0066EF /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107677C5BEF18BD5DC60CF12EF4FF21E /* SearchResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AC3BA3B32D3F49AB4649B528F332B178 /* CheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DCB1BF9C00A59B9E1281C7BA6CF89 /* CheckRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B06E464595E5F25A21D643CD4EFF9CF6 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448F6E1DBEF7F5C555B1FC85000706B /* HttpRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B1A133E28B0348660AA8C8E72FA4F3DC /* CheckResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC2B14622431E7DD7C48B7437CFCE5 /* CheckResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B64B59E5463656F5EC2C969B906B78A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		C3AE0B17E654C53CC9D11982A5E94F35 /* SDKProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BE65DFF038225947EC45661100AABCF /* SDKProperties.plist */; };
+		C995B7AE931E1BD63BAA93CD9B766B12 /* Pods-VerifyIosSdk_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D48A3D80C6BD9DA8FBD2AA986170BDA /* Pods-VerifyIosSdk_Example-dummy.m */; };
+		CB4DC29AE862F1A0FEEB990F0191B529 /* VerifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45633498F453CEFC02900010CD12A4A5 /* VerifyRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D3E9A751F3A30BBAAFD109B61BB004C8 /* ControlService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF29D2924D0979F5715A125841ECE2A /* ControlService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DAD08C0AE8CFF49606DCD600134C42B9 /* CountryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24043F8646D34CB605BF98CEF7AB866 /* CountryPickerDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DC3F12AED94F7AA36BD21A364BC748B3 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B50BB6A829CA1989D8CCD91AF34CA99 /* UserStatus.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E852B38B907F921FF0B795AADA26E8D9 /* SDKCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BA35F1FAD861D20F873659F337186C /* SDKCheckService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E944C06355DCFC96DC6A630127C76820 /* Pods-VerifyIosSdk_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CC3F5853482E2A45A60D308DA10686 /* Pods-VerifyIosSdk_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9FB25486F9C94D29C1A8403C42A105C /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FCF2FE9D68A6C50E57128CB0CDED10 /* BaseResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EE2156F6EBDE21E8B210CE0BF161521B /* NexmoVerify.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0828298656179FFD75D6F7F36E3888 /* NexmoVerify.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEDE779F06EDB04CDE31C2FFD36D349E /* ControlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791B18BEA00535B02FC3374C6C4D9E95 /* ControlResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EEFB40B37506D31856371CA01FE25AB3 /* VerifyUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E1FBD8130B71B7BCFCC735B1BA8D68 /* VerifyUIDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F06D9C5D564EE9DF0E5B05B3E2BD45F0 /* LogoutResponseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6104DCC1C8715C0B1B54005133977893 /* LogoutResponseFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F361F2251EA227AE585F20B9891D734E /* HttpRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F2D87483619CBD2FA37C6723ECF74A /* HttpRequestBuilder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F60AF07347C9EBE47856FE6B81908441 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		F757D0856A1B122E2A6ECC43DA4A069D /* SDKSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8820BAEEA3CA8E774EA8C1DD3CB17 /* SDKSearchService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FE82AA5466E6FB449ABC93BC1C1CE658 /* VerifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA299632E2DFD98086EBD8E3FACB574D /* VerifyResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FF0DC69C6CAC3AB948E8D6CEB22AED3D /* VerifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C578CBDBC8EC0BA47D03327A732694 /* VerifyClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8557045DA7D804B1E86179ACEE8A76C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E96A42180F684E58CA88D45A3F1F354;
+			remoteInfo = NexmoVerify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0448F6E1DBEF7F5C555B1FC85000706B /* HttpRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		08B8BC8D933EE10907AA7267E7A99C5E /* SearchResponseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchResponseFactory.swift; sourceTree = "<group>"; };
+		09E0C5418F6F4621D1D289115FED7A11 /* Pods-VerifyIosSdk_ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VerifyIosSdk_ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0B50BB6A829CA1989D8CCD91AF34CA99 /* UserStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
+		0CD0AEB5D08481223A37B5C4CB675D02 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		107677C5BEF18BD5DC60CF12EF4FF21E /* SearchResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		129CD8867B4E28D9ABAD31985DC77F92 /* Countries.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Countries.plist; sourceTree = "<group>"; };
+		155625FAF5EB2EBF4C5EE90BFDDE406F /* RequestSigner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RequestSigner.h; sourceTree = "<group>"; };
+		18FCF2FE9D68A6C50E57128CB0CDED10 /* BaseResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		1C0828298656179FFD75D6F7F36E3888 /* NexmoVerify.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NexmoVerify.h; sourceTree = "<group>"; };
+		1E7AE0C0634A0B84AE83060D6D3737D0 /* SDKVerifyService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SDKVerifyService.swift; sourceTree = "<group>"; };
+		231861C3B7B449D9EC702CED55BEA5CE /* LogoutService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogoutService.swift; sourceTree = "<group>"; };
+		23F7D1804FDAB75647E489234B54B30D /* NexmoVerify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NexmoVerify.framework; path = NexmoVerify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2435EC03E583D17972C5FDA1C39FC921 /* CountryPickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CountryPickerController.swift; sourceTree = "<group>"; };
+		261014DA01771C0FB0B11F8D488EC3D0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26769D40990F7C1D347C39793C32BB73 /* ControlRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ControlRequest.swift; sourceTree = "<group>"; };
+		3D48A3D80C6BD9DA8FBD2AA986170BDA /* Pods-VerifyIosSdk_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VerifyIosSdk_Example-dummy.m"; sourceTree = "<group>"; };
+		41B3FAFBE70AE09D5A83AC3F65924FFD /* NexmoVerify.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NexmoVerify.modulemap; sourceTree = "<group>"; };
+		44523930E24DEDB59C5CCC14E55CEEA7 /* Pods_VerifyIosSdk_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VerifyIosSdk_Example.framework; path = "Pods-VerifyIosSdk_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45633498F453CEFC02900010CD12A4A5 /* VerifyRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyRequest.swift; sourceTree = "<group>"; };
+		45BB6D133C1CD868CDCC53F1E3624972 /* Pods-VerifyIosSdk_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VerifyIosSdk_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4727DFD52ABF7874CECB639F8DAE147B /* Pods-VerifyIosSdk_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VerifyIosSdk_Example-resources.sh"; sourceTree = "<group>"; };
+		4B81C09B8EE2125A7166DA7CC6688AF8 /* SDKRequestSigner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SDKRequestSigner.m; sourceTree = "<group>"; };
+		4BE65DFF038225947EC45661100AABCF /* SDKProperties.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = SDKProperties.plist; sourceTree = "<group>"; };
+		4F5E19343D433DADEF069113ED1BEE33 /* Pods-VerifyIosSdk_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-VerifyIosSdk_Example.modulemap"; sourceTree = "<group>"; };
+		511E912ABA333736DB423420B441E418 /* ResponseCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResponseCode.swift; sourceTree = "<group>"; };
+		590D81C3AC985FF29863AC1EA78F3756 /* CheckReponseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CheckReponseFactory.swift; sourceTree = "<group>"; };
+		60664C25E6641422B8BCB8D64025A635 /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		6104DCC1C8715C0B1B54005133977893 /* LogoutResponseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogoutResponseFactory.swift; sourceTree = "<group>"; };
+		619E5CF1BB50B000DDA5DCAC94862EF4 /* SDKLogoutService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SDKLogoutService.swift; sourceTree = "<group>"; };
+		62CC3F5853482E2A45A60D308DA10686 /* Pods-VerifyIosSdk_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VerifyIosSdk_Example-umbrella.h"; sourceTree = "<group>"; };
+		64FB3633BDEDF981D44E4D6E80EF39FD /* SearchService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		6713C6B33C1ED4AB50C2917D9D6DCFB8 /* Pods-VerifyIosSdk_ExampleTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VerifyIosSdk_ExampleTests-umbrella.h"; sourceTree = "<group>"; };
+		6B607B12C3B2B0BA5E70EFC013477A92 /* NexmoVerify.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NexmoVerify.xcconfig; sourceTree = "<group>"; };
+		6DF29D2924D0979F5715A125841ECE2A /* ControlService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ControlService.swift; sourceTree = "<group>"; };
+		73D92B85E5B041C72E8F82817B33CE11 /* LogoutResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		791B18BEA00535B02FC3374C6C4D9E95 /* ControlResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ControlResponse.swift; sourceTree = "<group>"; };
+		8104B765723788FD2F045C3FB4CC3470 /* Pods-VerifyIosSdk_ExampleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VerifyIosSdk_ExampleTests-resources.sh"; sourceTree = "<group>"; };
+		8270188415980233D2DE9D120A329344 /* VerifyUI.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; path = VerifyUI.storyboard; sourceTree = "<group>"; };
+		84F2D87483619CBD2FA37C6723ECF74A /* HttpRequestBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HttpRequestBuilder.swift; sourceTree = "<group>"; };
+		858BC441F7EB6A056E1639687A3D2BDE /* VerifyTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyTask.swift; sourceTree = "<group>"; };
+		859B35630FDFDF9C6F29B2674568EEB4 /* LogoutRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
+		86C578CBDBC8EC0BA47D03327A732694 /* VerifyClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyClient.swift; sourceTree = "<group>"; };
+		8786C3569ACE7142A066AF7F5270892C /* Pods-VerifyIosSdk_ExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VerifyIosSdk_ExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		88EEFFF96520E54E8849A5F9187640FB /* VerifyError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyError.swift; sourceTree = "<group>"; };
+		8DE8820BAEEA3CA8E774EA8C1DD3CB17 /* SDKSearchService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SDKSearchService.swift; sourceTree = "<group>"; };
+		8FEA404750B352165E3AF32B5398C2F9 /* NexmoDeviceProperties.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NexmoDeviceProperties.h; sourceTree = "<group>"; };
+		90E1FBD8130B71B7BCFCC735B1BA8D68 /* VerifyUIDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyUIDelegate.swift; sourceTree = "<group>"; };
+		91E8BAC5EC9E928553158066093A1C6B /* NexmoClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NexmoClient.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		963268C8C7F7ED8832F82C689BBCB1B5 /* NexmoVerify-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NexmoVerify-umbrella.h"; sourceTree = "<group>"; };
+		99ADBEC90844B373880616BB18990618 /* SearchRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		9A865972C2333BE3DE3FB51BAA1F856B /* Pods-VerifyIosSdk_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VerifyIosSdk_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		9D9DCB1BF9C00A59B9E1281C7BA6CF89 /* CheckRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CheckRequest.swift; sourceTree = "<group>"; };
+		9E70CC92FA5F14A9917384C7F4C0BF3F /* Pods-VerifyIosSdk_ExampleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VerifyIosSdk_ExampleTests-frameworks.sh"; sourceTree = "<group>"; };
+		A0C416ED340C99D823DA7E780D56D712 /* SDKDeviceProperties.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SDKDeviceProperties.h; sourceTree = "<group>"; };
+		A1AC4D6A97E81B6A448D70B54CDCF97E /* ResponseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResponseFactory.swift; sourceTree = "<group>"; };
+		A31D86A4429EEF407B11B2C97A49B214 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7EC4C9A75082B2971E270B799658BF1 /* ControlResponseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ControlResponseFactory.swift; sourceTree = "<group>"; };
+		AC556F82F5A6DF0A35B134F6BF6217E2 /* VerifyResponseFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyResponseFactory.swift; sourceTree = "<group>"; };
+		B34480447919F233A064FDE5CAA45B4D /* Pods-VerifyIosSdk_ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VerifyIosSdk_ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		B344D4628027DC05B4DE74AE91921513 /* SDKRequestSigner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SDKRequestSigner.h; sourceTree = "<group>"; };
+		B71E801414FDFD182444A5F128E8A129 /* Pods-VerifyIosSdk_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VerifyIosSdk_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		BBE5B49093E5B4F4531D5C019BC48803 /* Pods-VerifyIosSdk_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VerifyIosSdk_Example-frameworks.sh"; sourceTree = "<group>"; };
+		C0235266A08B8DE213E5C7389F0CC13E /* SDKControlService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SDKControlService.swift; sourceTree = "<group>"; };
+		C033C35903BAC2AD16B7D4FE3164A2FA /* Countries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		C1BC2B14622431E7DD7C48B7437CFCE5 /* CheckResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CheckResponse.swift; sourceTree = "<group>"; };
+		C2208C939EED58B0E4CB07F2AD21E55C /* NexmoRequestSigning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NexmoRequestSigning.h; sourceTree = "<group>"; };
+		C24043F8646D34CB605BF98CEF7AB866 /* CountryPickerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CountryPickerDelegate.swift; sourceTree = "<group>"; };
+		C3A1336CF973F2348191B873F9413589 /* NexmoVerify-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NexmoVerify-prefix.pch"; sourceTree = "<group>"; };
+		C6263365A9A6F1C00337066F936BD99E /* ServiceExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ServiceExecutor.swift; sourceTree = "<group>"; };
+		C6914434584AE9561C08AC0C6EFB8C14 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7BA35F1FAD861D20F873659F337186C /* SDKCheckService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SDKCheckService.swift; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D2269DC4EA736FC974FB79C89DAAEE68 /* CheckService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CheckService.swift; sourceTree = "<group>"; };
+		D543320D3C0A312FD42BB69576C4C52A /* TokenResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		D5B4D8CFA317F00361ED93377366FB5E /* HttpResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		D835DD76D13F93E9D51B965A65994B8C /* NexmoVerify-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NexmoVerify-dummy.m"; sourceTree = "<group>"; };
+		DBE55D3F394C78A3F30BC4A8C87CAAFB /* VerifyService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyService.swift; sourceTree = "<group>"; };
+		DDC9DD9212F9B7AFFF36B9C6AC76F393 /* SDKDeviceProperties.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SDKDeviceProperties.m; sourceTree = "<group>"; };
+		DF84D9DE4A843F3A1EAF042692D01E02 /* Pods_VerifyIosSdk_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VerifyIosSdk_ExampleTests.framework; path = "Pods-VerifyIosSdk_ExampleTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2926F58F7C12FDA3C185A438B9979A5 /* Pods-VerifyIosSdk_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VerifyIosSdk_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E8AE00728E95FB5CAAEACF4E7556F1EB /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E8D3BB8C8D721D8E0DA3262743E51536 /* DevicePropertyAccessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DevicePropertyAccessor.h; sourceTree = "<group>"; };
+		F0FA27B6D04E1BCF710FBD21B7F46D6D /* Data+Helper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Data+Helper.swift"; sourceTree = "<group>"; };
+		F6C35BB95E7D4FFE6542E9D1BFB50E86 /* Pods-VerifyIosSdk_ExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VerifyIosSdk_ExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F7D533BE01E0B218E08FCBA627DB1402 /* Pods-VerifyIosSdk_ExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VerifyIosSdk_ExampleTests-dummy.m"; sourceTree = "<group>"; };
+		F86ECAE5F57191EB3F9B68B5590494CB /* VerifyUIController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyUIController.swift; sourceTree = "<group>"; };
+		FA299632E2DFD98086EBD8E3FACB574D /* VerifyResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyResponse.swift; sourceTree = "<group>"; };
+		FF3BD924927140199FD3298A3F58B693 /* Pods-VerifyIosSdk_ExampleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-VerifyIosSdk_ExampleTests.modulemap"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7164DD097EC4ADCF0C457F6902502E5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B64B59E5463656F5EC2C969B906B78A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D90BB231904C3B656211CBB68D62AE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F60AF07347C9EBE47856FE6B81908441 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C1E1731E6B1024034E957AAA9355A13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18884AC908C5A76DAEBE1D39C8BC1E19 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18B376F84B4730667F58F08309BA3F3C /* NexmoVerify */ = {
+			isa = PBXGroup;
+			children = (
+				93DFCF0C90426245164BD6AF8E1D8AE7 /* Core */,
+				3218DBD60C59FBB95ABD74046B8CC8FB /* DeviceProperties */,
+				FDFC9CBDA968CB89836B61ADBA41FDB8 /* RequestSigning */,
+				1C3BBD74C4AD4B2A81779A0CE680F65D /* Support Files */,
+			);
+			name = NexmoVerify;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		1C3BBD74C4AD4B2A81779A0CE680F65D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0AEB5D08481223A37B5C4CB675D02 /* Info.plist */,
+				41B3FAFBE70AE09D5A83AC3F65924FFD /* NexmoVerify.modulemap */,
+				6B607B12C3B2B0BA5E70EFC013477A92 /* NexmoVerify.xcconfig */,
+				D835DD76D13F93E9D51B965A65994B8C /* NexmoVerify-dummy.m */,
+				C3A1336CF973F2348191B873F9413589 /* NexmoVerify-prefix.pch */,
+				963268C8C7F7ED8832F82C689BBCB1B5 /* NexmoVerify-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/NexmoVerify";
+			sourceTree = "<group>";
+		};
+		2889B940F17DEDDD03E40B015FA48560 /* VerifySDK */ = {
+			isa = PBXGroup;
+			children = (
+				18FCF2FE9D68A6C50E57128CB0CDED10 /* BaseResponse.swift */,
+				590D81C3AC985FF29863AC1EA78F3756 /* CheckReponseFactory.swift */,
+				9D9DCB1BF9C00A59B9E1281C7BA6CF89 /* CheckRequest.swift */,
+				C1BC2B14622431E7DD7C48B7437CFCE5 /* CheckResponse.swift */,
+				D2269DC4EA736FC974FB79C89DAAEE68 /* CheckService.swift */,
+				60664C25E6641422B8BCB8D64025A635 /* Config.swift */,
+				26769D40990F7C1D347C39793C32BB73 /* ControlRequest.swift */,
+				791B18BEA00535B02FC3374C6C4D9E95 /* ControlResponse.swift */,
+				A7EC4C9A75082B2971E270B799658BF1 /* ControlResponseFactory.swift */,
+				6DF29D2924D0979F5715A125841ECE2A /* ControlService.swift */,
+				C033C35903BAC2AD16B7D4FE3164A2FA /* Countries.swift */,
+				2435EC03E583D17972C5FDA1C39FC921 /* CountryPickerController.swift */,
+				C24043F8646D34CB605BF98CEF7AB866 /* CountryPickerDelegate.swift */,
+				F0FA27B6D04E1BCF710FBD21B7F46D6D /* Data+Helper.swift */,
+				0448F6E1DBEF7F5C555B1FC85000706B /* HttpRequest.swift */,
+				84F2D87483619CBD2FA37C6723ECF74A /* HttpRequestBuilder.swift */,
+				D5B4D8CFA317F00361ED93377366FB5E /* HttpResponse.swift */,
+				E8AE00728E95FB5CAAEACF4E7556F1EB /* Logger.swift */,
+				859B35630FDFDF9C6F29B2674568EEB4 /* LogoutRequest.swift */,
+				73D92B85E5B041C72E8F82817B33CE11 /* LogoutResponse.swift */,
+				6104DCC1C8715C0B1B54005133977893 /* LogoutResponseFactory.swift */,
+				231861C3B7B449D9EC702CED55BEA5CE /* LogoutService.swift */,
+				91E8BAC5EC9E928553158066093A1C6B /* NexmoClient.swift */,
+				1C0828298656179FFD75D6F7F36E3888 /* NexmoVerify.h */,
+				511E912ABA333736DB423420B441E418 /* ResponseCode.swift */,
+				A1AC4D6A97E81B6A448D70B54CDCF97E /* ResponseFactory.swift */,
+				C7BA35F1FAD861D20F873659F337186C /* SDKCheckService.swift */,
+				C0235266A08B8DE213E5C7389F0CC13E /* SDKControlService.swift */,
+				619E5CF1BB50B000DDA5DCAC94862EF4 /* SDKLogoutService.swift */,
+				8DE8820BAEEA3CA8E774EA8C1DD3CB17 /* SDKSearchService.swift */,
+				1E7AE0C0634A0B84AE83060D6D3737D0 /* SDKVerifyService.swift */,
+				99ADBEC90844B373880616BB18990618 /* SearchRequest.swift */,
+				107677C5BEF18BD5DC60CF12EF4FF21E /* SearchResponse.swift */,
+				08B8BC8D933EE10907AA7267E7A99C5E /* SearchResponseFactory.swift */,
+				64FB3633BDEDF981D44E4D6E80EF39FD /* SearchService.swift */,
+				C6263365A9A6F1C00337066F936BD99E /* ServiceExecutor.swift */,
+				D543320D3C0A312FD42BB69576C4C52A /* TokenResponse.swift */,
+				0B50BB6A829CA1989D8CCD91AF34CA99 /* UserStatus.swift */,
+				86C578CBDBC8EC0BA47D03327A732694 /* VerifyClient.swift */,
+				88EEFFF96520E54E8849A5F9187640FB /* VerifyError.swift */,
+				45633498F453CEFC02900010CD12A4A5 /* VerifyRequest.swift */,
+				FA299632E2DFD98086EBD8E3FACB574D /* VerifyResponse.swift */,
+				AC556F82F5A6DF0A35B134F6BF6217E2 /* VerifyResponseFactory.swift */,
+				DBE55D3F394C78A3F30BC4A8C87CAAFB /* VerifyService.swift */,
+				858BC441F7EB6A056E1639687A3D2BDE /* VerifyTask.swift */,
+				F86ECAE5F57191EB3F9B68B5590494CB /* VerifyUIController.swift */,
+				90E1FBD8130B71B7BCFCC735B1BA8D68 /* VerifyUIDelegate.swift */,
+			);
+			name = VerifySDK;
+			path = VerifySDK;
+			sourceTree = "<group>";
+		};
+		3218DBD60C59FBB95ABD74046B8CC8FB /* DeviceProperties */ = {
+			isa = PBXGroup;
+			children = (
+				B0E261187E3011F96B550FEDB1086B51 /* DeviceProperties */,
+			);
+			name = DeviceProperties;
+			sourceTree = "<group>";
+		};
+		3CB4FB92EF6EA87281A68E4F9572CEE1 /* Pods-VerifyIosSdk_ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6914434584AE9561C08AC0C6EFB8C14 /* Info.plist */,
+				FF3BD924927140199FD3298A3F58B693 /* Pods-VerifyIosSdk_ExampleTests.modulemap */,
+				8786C3569ACE7142A066AF7F5270892C /* Pods-VerifyIosSdk_ExampleTests-acknowledgements.markdown */,
+				F6C35BB95E7D4FFE6542E9D1BFB50E86 /* Pods-VerifyIosSdk_ExampleTests-acknowledgements.plist */,
+				F7D533BE01E0B218E08FCBA627DB1402 /* Pods-VerifyIosSdk_ExampleTests-dummy.m */,
+				9E70CC92FA5F14A9917384C7F4C0BF3F /* Pods-VerifyIosSdk_ExampleTests-frameworks.sh */,
+				8104B765723788FD2F045C3FB4CC3470 /* Pods-VerifyIosSdk_ExampleTests-resources.sh */,
+				6713C6B33C1ED4AB50C2917D9D6DCFB8 /* Pods-VerifyIosSdk_ExampleTests-umbrella.h */,
+				09E0C5418F6F4621D1D289115FED7A11 /* Pods-VerifyIosSdk_ExampleTests.debug.xcconfig */,
+				B34480447919F233A064FDE5CAA45B4D /* Pods-VerifyIosSdk_ExampleTests.release.xcconfig */,
+			);
+			name = "Pods-VerifyIosSdk_ExampleTests";
+			path = "Target Support Files/Pods-VerifyIosSdk_ExampleTests";
+			sourceTree = "<group>";
+		};
+		3F04D59BAEB8363846E0CD9F939345AD /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18B376F84B4730667F58F08309BA3F3C /* NexmoVerify */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		62210D2F48ADBEEC8F55E66AE47F14C4 /* RequestSigning */ = {
+			isa = PBXGroup;
+			children = (
+				C2208C939EED58B0E4CB07F2AD21E55C /* NexmoRequestSigning.h */,
+				155625FAF5EB2EBF4C5EE90BFDDE406F /* RequestSigner.h */,
+				B344D4628027DC05B4DE74AE91921513 /* SDKRequestSigner.h */,
+				4B81C09B8EE2125A7166DA7CC6688AF8 /* SDKRequestSigner.m */,
+			);
+			name = RequestSigning;
+			path = RequestSigning;
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		78762348958BF72D4AC1A22E32FEA76F /* Pods-VerifyIosSdk_Example */ = {
+			isa = PBXGroup;
+			children = (
+				A31D86A4429EEF407B11B2C97A49B214 /* Info.plist */,
+				4F5E19343D433DADEF069113ED1BEE33 /* Pods-VerifyIosSdk_Example.modulemap */,
+				E2926F58F7C12FDA3C185A438B9979A5 /* Pods-VerifyIosSdk_Example-acknowledgements.markdown */,
+				B71E801414FDFD182444A5F128E8A129 /* Pods-VerifyIosSdk_Example-acknowledgements.plist */,
+				3D48A3D80C6BD9DA8FBD2AA986170BDA /* Pods-VerifyIosSdk_Example-dummy.m */,
+				BBE5B49093E5B4F4531D5C019BC48803 /* Pods-VerifyIosSdk_Example-frameworks.sh */,
+				4727DFD52ABF7874CECB639F8DAE147B /* Pods-VerifyIosSdk_Example-resources.sh */,
+				62CC3F5853482E2A45A60D308DA10686 /* Pods-VerifyIosSdk_Example-umbrella.h */,
+				9A865972C2333BE3DE3FB51BAA1F856B /* Pods-VerifyIosSdk_Example.debug.xcconfig */,
+				45BB6D133C1CD868CDCC53F1E3624972 /* Pods-VerifyIosSdk_Example.release.xcconfig */,
+			);
+			name = "Pods-VerifyIosSdk_Example";
+			path = "Target Support Files/Pods-VerifyIosSdk_Example";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				3F04D59BAEB8363846E0CD9F939345AD /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				D70C6096881EFA2A6FCAD4F4CF520978 /* Products */,
+				9D9C12090385374DF20B0973D699A0E7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		93DFCF0C90426245164BD6AF8E1D8AE7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FCAE00E673008E610FA82867E6C0DD6E /* Resources */,
+				2889B940F17DEDDD03E40B015FA48560 /* VerifySDK */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		9D9C12090385374DF20B0973D699A0E7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				78762348958BF72D4AC1A22E32FEA76F /* Pods-VerifyIosSdk_Example */,
+				3CB4FB92EF6EA87281A68E4F9572CEE1 /* Pods-VerifyIosSdk_ExampleTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B0E261187E3011F96B550FEDB1086B51 /* DeviceProperties */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3BB8C8D721D8E0DA3262743E51536 /* DevicePropertyAccessor.h */,
+				8FEA404750B352165E3AF32B5398C2F9 /* NexmoDeviceProperties.h */,
+				A0C416ED340C99D823DA7E780D56D712 /* SDKDeviceProperties.h */,
+				DDC9DD9212F9B7AFFF36B9C6AC76F393 /* SDKDeviceProperties.m */,
+			);
+			name = DeviceProperties;
+			path = DeviceProperties;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D70C6096881EFA2A6FCAD4F4CF520978 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23F7D1804FDAB75647E489234B54B30D /* NexmoVerify.framework */,
+				44523930E24DEDB59C5CCC14E55CEEA7 /* Pods_VerifyIosSdk_Example.framework */,
+				DF84D9DE4A843F3A1EAF042692D01E02 /* Pods_VerifyIosSdk_ExampleTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA8F3837B7B74FD427479B0B0DA10FFF /* VerifySDK */ = {
+			isa = PBXGroup;
+			children = (
+				129CD8867B4E28D9ABAD31985DC77F92 /* Countries.plist */,
+				261014DA01771C0FB0B11F8D488EC3D0 /* Info.plist */,
+				4BE65DFF038225947EC45661100AABCF /* SDKProperties.plist */,
+				8270188415980233D2DE9D120A329344 /* VerifyUI.storyboard */,
+			);
+			name = VerifySDK;
+			path = VerifySDK;
+			sourceTree = "<group>";
+		};
+		FCAE00E673008E610FA82867E6C0DD6E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA8F3837B7B74FD427479B0B0DA10FFF /* VerifySDK */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FDFC9CBDA968CB89836B61ADBA41FDB8 /* RequestSigning */ = {
+			isa = PBXGroup;
+			children = (
+				62210D2F48ADBEEC8F55E66AE47F14C4 /* RequestSigning */,
+			);
+			name = RequestSigning;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6A44DBF456B3EEF463C0661D528ADC83 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0966CCD37A218E28FDF3B68C6BB50E39 /* Pods-VerifyIosSdk_ExampleTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A067A9CB3B2E568DA0E55A56C3D652FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623D7D728CAC711FC13DDDA2871FCF2D /* DevicePropertyAccessor.h in Headers */,
+				591620C63AC5D2266B27B3F7E87C6DD6 /* NexmoDeviceProperties.h in Headers */,
+				4A23002E39A591E7CA540DE5FC248111 /* NexmoRequestSigning.h in Headers */,
+				205D8550EA806BA51DB3A5EBC63A643A /* NexmoVerify-umbrella.h in Headers */,
+				EE2156F6EBDE21E8B210CE0BF161521B /* NexmoVerify.h in Headers */,
+				79226A9393571C36CE7E04FA0EAD7154 /* RequestSigner.h in Headers */,
+				5A3AB4744387C325A2E3FAB41504E4E2 /* SDKDeviceProperties.h in Headers */,
+				70542C700B60860DA18FE450D12AEDFF /* SDKRequestSigner.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B74EE68661A3839C98F63068C8814EDA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E944C06355DCFC96DC6A630127C76820 /* Pods-VerifyIosSdk_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5E96A42180F684E58CA88D45A3F1F354 /* NexmoVerify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCA86917DD21CA8A1BA942B63A160A86 /* Build configuration list for PBXNativeTarget "NexmoVerify" */;
+			buildPhases = (
+				1A18F9412574A7D8CC42804619DAC98A /* Sources */,
+				7164DD097EC4ADCF0C457F6902502E5A /* Frameworks */,
+				A067A9CB3B2E568DA0E55A56C3D652FE /* Headers */,
+				7BCE5AA0D8251E526D7D52C1D77F27F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NexmoVerify;
+			productName = NexmoVerify;
+			productReference = 23F7D1804FDAB75647E489234B54B30D /* NexmoVerify.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		99EB60F8AD6089F50DA6B3173139CCD4 /* Pods-VerifyIosSdk_ExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9736E174799633315463391207C5C159 /* Build configuration list for PBXNativeTarget "Pods-VerifyIosSdk_ExampleTests" */;
+			buildPhases = (
+				284C0B185F7A0332F50CBA0871031CF4 /* Sources */,
+				7D90BB231904C3B656211CBB68D62AE1 /* Frameworks */,
+				6A44DBF456B3EEF463C0661D528ADC83 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-VerifyIosSdk_ExampleTests";
+			productName = "Pods-VerifyIosSdk_ExampleTests";
+			productReference = DF84D9DE4A843F3A1EAF042692D01E02 /* Pods_VerifyIosSdk_ExampleTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9AD7965486CD3EBF434C1F22B2C1AE8C /* Pods-VerifyIosSdk_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 280184FEDCEDDA9FE2C2CEDE332D2357 /* Build configuration list for PBXNativeTarget "Pods-VerifyIosSdk_Example" */;
+			buildPhases = (
+				DB64C794E9CE548CA419681F3BFC5238 /* Sources */,
+				9C1E1731E6B1024034E957AAA9355A13 /* Frameworks */,
+				B74EE68661A3839C98F63068C8814EDA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDC2A26F3C8436A3726BAEAEF4FB1044 /* PBXTargetDependency */,
+			);
+			name = "Pods-VerifyIosSdk_Example";
+			productName = "Pods-VerifyIosSdk_Example";
+			productReference = 44523930E24DEDB59C5CCC14E55CEEA7 /* Pods_VerifyIosSdk_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = D70C6096881EFA2A6FCAD4F4CF520978 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E96A42180F684E58CA88D45A3F1F354 /* NexmoVerify */,
+				9AD7965486CD3EBF434C1F22B2C1AE8C /* Pods-VerifyIosSdk_Example */,
+				99EB60F8AD6089F50DA6B3173139CCD4 /* Pods-VerifyIosSdk_ExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7BCE5AA0D8251E526D7D52C1D77F27F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E0F279E0357E6623742A021D78D3B3A /* Countries.plist in Resources */,
+				56008431A531D74B9AF85D1957E940C3 /* Info.plist in Resources */,
+				C3AE0B17E654C53CC9D11982A5E94F35 /* SDKProperties.plist in Resources */,
+				759E3ED59649EFCC11572DC26BFDC91A /* VerifyUI.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A18F9412574A7D8CC42804619DAC98A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9FB25486F9C94D29C1A8403C42A105C /* BaseResponse.swift in Sources */,
+				9FB2BB903BC0CFF3C44DCCC22967A8EB /* CheckReponseFactory.swift in Sources */,
+				AC3BA3B32D3F49AB4649B528F332B178 /* CheckRequest.swift in Sources */,
+				B1A133E28B0348660AA8C8E72FA4F3DC /* CheckResponse.swift in Sources */,
+				46D53BB6D20055DA30A1A6CBC8DF2273 /* CheckService.swift in Sources */,
+				3C89AB3629F2F10BBC436A26E8E3D690 /* Config.swift in Sources */,
+				78C1B2AD8A0E919DCA482C3A74BDC6C4 /* ControlRequest.swift in Sources */,
+				EEDE779F06EDB04CDE31C2FFD36D349E /* ControlResponse.swift in Sources */,
+				0DF3865D719DF70D78AEA4CA93C88AAC /* ControlResponseFactory.swift in Sources */,
+				D3E9A751F3A30BBAAFD109B61BB004C8 /* ControlService.swift in Sources */,
+				19FDE14DEA00CEDEC9B99CCAA1888215 /* Countries.swift in Sources */,
+				0039BA22826B6E6106C32822F2B14774 /* CountryPickerController.swift in Sources */,
+				DAD08C0AE8CFF49606DCD600134C42B9 /* CountryPickerDelegate.swift in Sources */,
+				5C15B6FB83DA2378F80BAA014B2B6184 /* Data+Helper.swift in Sources */,
+				B06E464595E5F25A21D643CD4EFF9CF6 /* HttpRequest.swift in Sources */,
+				F361F2251EA227AE585F20B9891D734E /* HttpRequestBuilder.swift in Sources */,
+				88FAAC9A76906B2D3A33CB85959B57B0 /* HttpResponse.swift in Sources */,
+				275D891DA39A60C474B72340C07B1695 /* Logger.swift in Sources */,
+				8CCFD9614869D69C24998288192305B6 /* LogoutRequest.swift in Sources */,
+				3B7BC3AE652FE1505D66A28E166C4A3E /* LogoutResponse.swift in Sources */,
+				F06D9C5D564EE9DF0E5B05B3E2BD45F0 /* LogoutResponseFactory.swift in Sources */,
+				A37928691EC8A3E9BD0862553A5D5777 /* LogoutService.swift in Sources */,
+				6C564F1BB25BB56A589E13C1616DC1E2 /* NexmoClient.swift in Sources */,
+				2F0D60F11DF48DC05E3A984621521077 /* NexmoVerify-dummy.m in Sources */,
+				9D82CF8412E757017517D068B383BA5C /* ResponseCode.swift in Sources */,
+				326185A6E625D541191EFE821BBEB625 /* ResponseFactory.swift in Sources */,
+				E852B38B907F921FF0B795AADA26E8D9 /* SDKCheckService.swift in Sources */,
+				651225C416CF40FE5810AD053DA48480 /* SDKControlService.swift in Sources */,
+				A24BCF3657D69CFA7B00280981E592FD /* SDKDeviceProperties.m in Sources */,
+				2DEE6A7704B591223DF1C2418FB8EA8A /* SDKLogoutService.swift in Sources */,
+				536C337407B50E0E142C5FEAAE3E7B7D /* SDKRequestSigner.m in Sources */,
+				F757D0856A1B122E2A6ECC43DA4A069D /* SDKSearchService.swift in Sources */,
+				7D56D96F536FD23F86B75657EEBA3207 /* SDKVerifyService.swift in Sources */,
+				65D5E2071BB812F3350906E03F5B52DB /* SearchRequest.swift in Sources */,
+				A85A0B192E4FA4094BF109799F0066EF /* SearchResponse.swift in Sources */,
+				844E4B0A34681FAB7027F3E9FE67E187 /* SearchResponseFactory.swift in Sources */,
+				0CC38870BE44D596DC2A31999EFCA914 /* SearchService.swift in Sources */,
+				68B9D4B771CBFEB7A1CFC814EACB7D61 /* ServiceExecutor.swift in Sources */,
+				3CF8CDAEE118C4C4E9AFDFA54194EA40 /* TokenResponse.swift in Sources */,
+				DC3F12AED94F7AA36BD21A364BC748B3 /* UserStatus.swift in Sources */,
+				FF0DC69C6CAC3AB948E8D6CEB22AED3D /* VerifyClient.swift in Sources */,
+				A2EABA4066A7D33C5E401C7CD3C71C4B /* VerifyError.swift in Sources */,
+				CB4DC29AE862F1A0FEEB990F0191B529 /* VerifyRequest.swift in Sources */,
+				FE82AA5466E6FB449ABC93BC1C1CE658 /* VerifyResponse.swift in Sources */,
+				73C76F86C66DEFEAD2A2CAC051259870 /* VerifyResponseFactory.swift in Sources */,
+				27ADCFE56EBD9CEE6BF35C269633BEF3 /* VerifyService.swift in Sources */,
+				97FA888667ED4618458789665C8CBEEF /* VerifyTask.swift in Sources */,
+				76C2E138538CF53CCBE6663FCF533858 /* VerifyUIController.swift in Sources */,
+				EEFB40B37506D31856371CA01FE25AB3 /* VerifyUIDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		284C0B185F7A0332F50CBA0871031CF4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CBAA8986F040CAC9F1D67147BB95BE9 /* Pods-VerifyIosSdk_ExampleTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB64C794E9CE548CA419681F3BFC5238 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C995B7AE931E1BD63BAA93CD9B766B12 /* Pods-VerifyIosSdk_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDC2A26F3C8436A3726BAEAEF4FB1044 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NexmoVerify;
+			target = 5E96A42180F684E58CA88D45A3F1F354 /* NexmoVerify */;
+			targetProxy = 8557045DA7D804B1E86179ACEE8A76C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B4D04A19E7CE1B339BD2A2A08343A97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B607B12C3B2B0BA5E70EFC013477A92 /* NexmoVerify.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/NexmoVerify/NexmoVerify-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NexmoVerify/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NexmoVerify/NexmoVerify.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = NexmoVerify;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0FB015F505A7149A43746014A29A02CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09E0C5418F6F4621D1D289115FED7A11 /* Pods-VerifyIosSdk_ExampleTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-VerifyIosSdk_ExampleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VerifyIosSdk_ExampleTests/Pods-VerifyIosSdk_ExampleTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_VerifyIosSdk_ExampleTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		165709B0532DB30362CE349CDCF1C0B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B34480447919F233A064FDE5CAA45B4D /* Pods-VerifyIosSdk_ExampleTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-VerifyIosSdk_ExampleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VerifyIosSdk_ExampleTests/Pods-VerifyIosSdk_ExampleTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_VerifyIosSdk_ExampleTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		174527EF197823F9961908231E223285 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B607B12C3B2B0BA5E70EFC013477A92 /* NexmoVerify.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/NexmoVerify/NexmoVerify-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NexmoVerify/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NexmoVerify/NexmoVerify.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = NexmoVerify;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B1BC3D49B8A15DD62A49AB0F23524762 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A865972C2333BE3DE3FB51BAA1F856B /* Pods-VerifyIosSdk_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-VerifyIosSdk_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VerifyIosSdk_Example/Pods-VerifyIosSdk_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_VerifyIosSdk_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E00E19032EA1B69C8E8FD94C247AA7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45BB6D133C1CD868CDCC53F1E3624972 /* Pods-VerifyIosSdk_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-VerifyIosSdk_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VerifyIosSdk_Example/Pods-VerifyIosSdk_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_VerifyIosSdk_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		280184FEDCEDDA9FE2C2CEDE332D2357 /* Build configuration list for PBXNativeTarget "Pods-VerifyIosSdk_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1BC3D49B8A15DD62A49AB0F23524762 /* Debug */,
+				E00E19032EA1B69C8E8FD94C247AA7C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */,
+				B7324857C38B065FEB1EEE3105C2367A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9736E174799633315463391207C5C159 /* Build configuration list for PBXNativeTarget "Pods-VerifyIosSdk_ExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FB015F505A7149A43746014A29A02CD /* Debug */,
+				165709B0532DB30362CE349CDCF1C0B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCA86917DD21CA8A1BA942B63A160A86 /* Build configuration list for PBXNativeTarget "NexmoVerify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B4D04A19E7CE1B339BD2A2A08343A97 /* Debug */,
+				174527EF197823F9961908231E223285 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

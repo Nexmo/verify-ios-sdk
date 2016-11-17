@@ -1,20 +1,20 @@
 //
 //  NetworkTools.m
-//  VerifyIosSdk
+//  NexmoVerify
 //
 //  Created by Dorian Peake on 02/06/2015.
 //  Copyright (c) 2015 Nexmo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#include <ifaddrs.h>
-#include <arpa/inet.h>
-#include <net/if.h>
-#include <netdb.h>
-
-#include "SDKDeviceProperties.h"
-
+@import Foundation;
 @import UIKit;
+
+#import "ifaddrs.h"
+#import "arpa/inet.h"
+#import <net/if.h>
+#import <netdb.h>
+
+#import "SDKDeviceProperties.h"
 
 @implementation SDKDeviceProperties
 
@@ -112,19 +112,15 @@ static SDKDeviceProperties *instance;
     keychainError = SecItemCopyMatching((__bridge CFDictionaryRef)queryDict, (CFTypeRef *)&idResult);
         
     if (keychainError == errSecSuccess) {
-        NSLog(@"Found keychain entry");
         NSString *identifier = [[NSString alloc] initWithBytes:[(__bridge_transfer NSData*)idResult bytes] length:[(__bridge NSData*)idResult length] encoding:NSUTF8StringEncoding];
-        NSLog(@"Identifier = %@", identifier);
         return identifier;
     } else if (keychainError == errSecItemNotFound) {
-        NSLog(@"Keychain entry not found - creating a new one");
         // generate new identifier
         NSString *deviceId = [self addUniqueDeviceIdentifierToKeychain];
         
         return deviceId;
         
     } else {
-        NSLog(@"Failed to acquire deviceID from keychain with error %d", (int)keychainError);
         return nil;
     }
 }
@@ -132,7 +128,6 @@ static SDKDeviceProperties *instance;
 -(NSString*)addUniqueDeviceIdentifierToKeychain {
     NSUUID *newId = [[UIDevice currentDevice] identifierForVendor];
     NSData *newIdData = [[newId UUIDString] dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"Nexmo UID = %@", [newId UUIDString]);
 
     NSMutableDictionary *keychainData = [[NSMutableDictionary alloc] init];
     [keychainData setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
@@ -146,10 +141,8 @@ static SDKDeviceProperties *instance;
     OSStatus keychainError = SecItemAdd((__bridge CFDictionaryRef)keychainData, NULL);
 
     if (keychainError == noErr) {
-        NSLog(@"Successfully added keychain entry");
         return [newId UUIDString];
     } else {
-        NSLog(@"Failed to add new keychain entry with error %d", (int)keychainError);
         return nil;
     }
 }
@@ -186,14 +179,11 @@ static SDKDeviceProperties *instance;
     OSStatus keychainError = SecItemDelete((__bridge CFDictionaryRef)queryDict);
     
     if (keychainError == noErr) {
-        NSLog(@"Successfully deleted keychain entry");
         return true;
     } else if (keychainError == errSecItemNotFound) {
-        NSLog(@"Keychain item doesn't exist.");
         return true;
     }
     
-    NSLog(@"Failed to delete keychain entry with error %d", (int)keychainError);
     return false;
 }
 
