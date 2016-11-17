@@ -1,5 +1,9 @@
 ## Verify iOS SDK Changelog
 
+### v1.0.4 (16/11/2016)
+
+* New: Push notification sent from APNS
+
 ### v1.0.3 (09/02/2016)
 
 * Fix: Remove Country.swift from example apps entirely as it was still causing compilation issues.
