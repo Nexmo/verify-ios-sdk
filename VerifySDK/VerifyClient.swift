@@ -429,6 +429,7 @@ import UIKit
         return true
     }
     
+    /// Validate standalone verification
     @objc(verifyStandaloneWithCountryCode:phoneNumber:verifyInProgressBlock:userVerifiedBlock:errorBlock:)
     open static func verifyStandalone(countryCode: String?, phoneNumber: String,
                                         onVerifyInProgress: @escaping () -> (),
@@ -488,6 +489,7 @@ import UIKit
         }
     }
 
+    /// Display verification view controller
     @objc(beginManagedVerificationWithMessage:withDelegate:)
     open static func beginManagedVerification(_ message: String, delegate: VerifyUIDelegate) {
         sharedInstance.beginManagedVerification(message, delegate: delegate)

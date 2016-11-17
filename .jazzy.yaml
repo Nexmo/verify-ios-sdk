@@ -1,0 +1,7 @@
+clean: true
+sdk: iphone
+author: Nexmo
+author_url: https://nexmo.com
+github_url: https://github.com/Nexmo/verify-ios-sdk
+readme: readme.md
+output: docs

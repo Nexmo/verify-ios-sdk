@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VerifyClient Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/VerifyClient" class="dashAnchor"></a>
+    <a title="VerifyClient Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">NexmoVerify Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/Nexmo/verify-ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">NexmoVerify Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        VerifyClient Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Countries.html">Countries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NexmoClient.html">NexmoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11NexmoVerify12ResponseCode">ResponseCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserStatus.html">UserStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VerifyClient.html">VerifyClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11NexmoVerify13VerifyRequest">VerifyRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/VerifyError.html">VerifyError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F11NexmoVerifyoi2eeFTCS_13VerifyRequestS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/VerifyUIDelegate.html">VerifyUIDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>VerifyClient</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="n">open</span> <span class="kd">class</span> <span class="kt">VerifyClient</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Contains all verification commands available within the Nexmo Verify Service</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient15getVerifiedUserFT11countryCodeGSqSS_11phoneNumberSS18onVerifyInProgressFT_T_14onUserVerifiedFT_T_7onErrorFOS_11VerifyErrorT__T_"></a>
+                    <a name="//apple_ref/swift/Method/getVerifiedUser(countryCode:phoneNumber:onVerifyInProgress:onUserVerified:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient15getVerifiedUserFT11countryCodeGSqSS_11phoneNumberSS18onVerifyInProgressFT_T_14onUserVerifiedFT_T_7onErrorFOS_11VerifyErrorT__T_">getVerifiedUser(countryCode:phoneNumber:onVerifyInProgress:onUserVerified:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempt to verify a user using Nexmo&rsquo;s Verify Service.
+Once the verification process has been started, updates on its progress
+will be relayed through the callbacks provided.</p>
+
+<p>To check if a user&rsquo;s verification pin code is correct, a subsequent call to checkPinCode should be
+initiated, along with the code provided by the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getVerifiedUser</span><span class="p">(</span><span class="nv">countryCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">phoneNumber</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                        <span class="nv">onVerifyInProgress</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(),</span>
+                                        <span class="nv">onUserVerified</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(),</span>
+                                        <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Enums/VerifyError.html">VerifyError</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>countryCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the ISO 3166-1 alpha-2 two-letter country code</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>phoneNumber</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the local phone number/msisdn of the mobile to verify</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onVerifyInProgress</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback triggered when a verification process has been successfully triggered</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onUserVerified</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback triggered when a user has been successfully verified</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback triggered when some error has occurred, e.g. wrong pin entered</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient12checkPinCodeFSST_"></a>
+                    <a name="//apple_ref/swift/Method/checkPinCode(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient12checkPinCodeFSST_">checkPinCode(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check whether a pin code (ususally entered by the user) is the correct verification code.</p>
+
+<p>Note: This command is only useful if a verification request is in progress, otherwise the command
+will simply quit and no callbacks will be triggered. If a verification request <em>is currently in progress</em>,
+either the onError or onUserVerified callbacks will be triggered, depending on whether the code is correct.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">checkPinCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">pinCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pinCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a string containing the pin code to check.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient12checkPinCodeFTSS11countryCodeGSqSS_6numberSS14onUserVerifiedFT_T_7onErrorFOS_11VerifyErrorT__T_"></a>
+                    <a name="//apple_ref/swift/Method/checkPinCode(_:countryCode:number:onUserVerified:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient12checkPinCodeFTSS11countryCodeGSqSS_6numberSS14onUserVerifiedFT_T_7onErrorFOS_11VerifyErrorT__T_">checkPinCode(_:countryCode:number:onUserVerified:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Check whether a pin code (ususally entered by the user) is the correct verification code.
+A verification attempt does not need to be in progress to call this command. This is useful in the
+case that an App is restarted before the verification is complete.</p>
+
+<p>Note: This version of the command should only be used in cases where an app may restart before verification is complete. Then you have the opportunity to continue with the verification process by calling this function with the appropriate parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">checkPinCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">pinCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">countryCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">number</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">onUserVerified</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(),</span> <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/VerifyError.html">VerifyError</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pinCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a string containing the pin code to check.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>countryCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ISO 3166 alpha-2 country code for the specified number</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>number</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Mobile number to verify</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onUserVerified</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which is executed when a user is verified</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which is executed when an error occurs</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient18cancelVerificationFFGSqCSo7NSError_T_T_"></a>
+                    <a name="//apple_ref/swift/Method/cancelVerification(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient18cancelVerificationFFGSqCSo7NSError_T_T_">cancelVerification(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancel the ongoing verification request - if one exists</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">cancelVerification</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A callback which is invoked when the cancel request completes or fails (with an NSError)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient16triggerNextEventFFGSqCSo7NSError_T_T_"></a>
+                    <a name="//apple_ref/swift/Method/triggerNextEvent(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient16triggerNextEventFFGSqCSo7NSError_T_T_">triggerNextEvent(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Begins the next stage of the verification workflow.</p>
+
+<p>For example having an (SMS)-&gt;TTS-&gt;TTS and being in the SMS stage,
+invoking this function will move the verification stage onto the first TTS stage:
+SMS-&gt;(TTS)-&gt;TTS.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">triggerNextEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A callback which is invoked when the ‘next event’ request completes or fails (with an NSError)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient10logoutUserFT11countryCodeGSqSS_6numberSS15completionBlockFGSqCSo7NSError_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/logoutUser(countryCode:number:completionBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient10logoutUserFT11countryCodeGSqSS_6numberSS15completionBlockFGSqCSo7NSError_T__T_">logoutUser(countryCode:number:completionBlock:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Log&rsquo;s out the current user - if they have already been verified.
+To log out a user is to assume them unverified again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">logoutUser</span><span class="p">(</span><span class="nv">countryCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">number</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>number</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user’s phone number</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A callback which is invoked when the logout request completes of fails (with an NSError)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient13getUserStatusFT11countryCodeGSqSS_6numberSS15completionBlockFTGSqSS_GSqCSo7NSError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getUserStatus(countryCode:number:completionBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient13getUserStatusFT11countryCodeGSqSS_6numberSS15completionBlockFTGSqSS_GSqCSo7NSError__T__T_">getUserStatus(countryCode:number:completionBlock:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the verification status of a given user. </p>
+
+<p>This can be one of:</p>
+
+<pre class="highlight plaintext"><code>*verified*
+    The user has been successfully verified.
+
+*pending*
+    A verification request for this user 
+    is currently in progress.
+
+*new*
+    This user just been created on the SDK service
+
+*failed*
+    A previous verification request for this
+    user has failed.
+
+*expired*
+    A previous verification request for this
+    user expired.
+
+*unverified*
+    A user's verified status has been revoked,
+    possibly due to timeout.
+
+*blacklisted*
+    This user has failed too many verification
+    requests and is therefore blacklisted.
+
+*error*
+    An error ocurred during the last verification
+    attempt for this user.
+
+*unknown*
+    The user is unknown to the SDK service.
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getUserStatus</span><span class="p">(</span><span class="nv">countryCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">number</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionBlock</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A callback which is invoked when the logout request completes or fails (with an NSError)</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient18handleNotificationFTGVs10DictionaryVs11AnyHashableP__18performSilentCheckSb_Sb"></a>
+                    <a name="//apple_ref/swift/Method/handleNotification(_:performSilentCheck:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient18handleNotificationFTGVs10DictionaryVs11AnyHashableP__18performSilentCheckSb_Sb">handleNotification(_:performSilentCheck:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Filters Nexmo Verify push notifications and returns the verify pin code where possible.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">handleNotification</span><span class="p">(</span><span class="n">_</span> <span class="nv">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span><span class="p">:</span> <span class="kt">Any</span><span class="p">],</span> <span class="nv">performSilentCheck</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userInfo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The push data passed in through UIApplicationDelegate’s application:didReceiveRemoteNotification: function.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>performSilentCheck</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>if true, Nexmo Verify SDK will complete the verification request automatically, which verifies the user.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient16verifyStandaloneFT11countryCodeGSqSS_11phoneNumberSS18onVerifyInProgressFT_T_14onUserVerifiedFT_T_7onErrorFOS_11VerifyErrorT__T_"></a>
+                    <a name="//apple_ref/swift/Method/verifyStandalone(countryCode:phoneNumber:onVerifyInProgress:onUserVerified:onError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient16verifyStandaloneFT11countryCodeGSqSS_11phoneNumberSS18onVerifyInProgressFT_T_14onUserVerifiedFT_T_7onErrorFOS_11VerifyErrorT__T_">verifyStandalone(countryCode:phoneNumber:onVerifyInProgress:onUserVerified:onError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Validate standalone verification</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">verifyStandalone</span><span class="p">(</span><span class="nv">countryCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">phoneNumber</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                        <span class="nv">onVerifyInProgress</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(),</span>
+                                        <span class="nv">onUserVerified</span><span class="p">:</span>  <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="p">(),</span>
+                                        <span class="nv">onError</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Enums/VerifyError.html">VerifyError</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11NexmoVerify12VerifyClient24beginManagedVerificationFTSS8delegatePS_16VerifyUIDelegate__T_"></a>
+                    <a name="//apple_ref/swift/Method/beginManagedVerification(_:delegate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11NexmoVerify12VerifyClient24beginManagedVerificationFTSS8delegatePS_16VerifyUIDelegate__T_">beginManagedVerification(_:delegate:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Display verification view controller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">beginManagedVerification</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/VerifyUIDelegate.html">VerifyUIDelegate</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2016-11-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

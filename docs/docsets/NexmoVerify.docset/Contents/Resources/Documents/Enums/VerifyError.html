@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VerifyError Enum Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/VerifyError" class="dashAnchor"></a>
+    <a title="VerifyError Enum Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">NexmoVerify Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/Nexmo/verify-ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">NexmoVerify Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        VerifyError Enum Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Countries.html">Countries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NexmoClient.html">NexmoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11NexmoVerify12ResponseCode">ResponseCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserStatus.html">UserStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VerifyClient.html">VerifyClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11NexmoVerify13VerifyRequest">VerifyRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/VerifyError.html">VerifyError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F11NexmoVerifyoi2eeFTCS_13VerifyRequestS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/VerifyUIDelegate.html">VerifyUIDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>VerifyError</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VerifyError</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                </div>
+              </div>
+            <p>Possible error responses which may be returned from verify services</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError26verificationAlreadyStartedFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/verificationAlreadyStarted" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError26verificationAlreadyStartedFMS0_S0_">verificationAlreadyStarted</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>There is already a pending verification in progress. Handle {@link VerifyClientListener} events to check the progress.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">verificationAlreadyStarted</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError13invalidNumberFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/invalidNumber" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError13invalidNumberFMS0_S0_">invalidNumber</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number is invalid. Either:
+    1. Number is missing or not a real number (in international or local format).
+    2. Cannot route any verification messages to this number.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">invalidNumber</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError14numberRequiredFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/numberRequired" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError14numberRequiredFMS0_S0_">numberRequired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number not provided in verify request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">numberRequired</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError18cannotPerformCheckFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/cannotPerformCheck" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError18cannotPerformCheckFMS0_S0_">cannotPerformCheck</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User must be in pending status to be able to perform a PIN check.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">cannotPerformCheck</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError14invalidPinCodeFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/invalidPinCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError14invalidPinCodeFMS0_S0_">invalidPinCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Missing or invalid PIN code supplied.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">invalidPinCode</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError23invalidCodeTooManyTimesFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/invalidCodeTooManyTimes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError23invalidCodeTooManyTimesFMS0_S0_">invalidCodeTooManyTimes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Ongoing verification has failed. A wrong PIN code was provided too many times.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">invalidCodeTooManyTimes</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError11userExpiredFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/userExpired" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError11userExpiredFMS0_S0_">userExpired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Ongoing verification expired. Need to start verify again.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">userExpired</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError15userBlacklistedFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/userBlacklisted" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError15userBlacklistedFMS0_S0_">userBlacklisted</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Ongoing verification rejected. User blacklisted for verification.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">userBlacklisted</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError9throttledFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/throttled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError9throttledFMS0_S0_">throttled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Throttled. Too many failed requests.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">throttled</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError13quotaExceededFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/quotaExceeded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError13quotaExceededFMS0_S0_">quotaExceeded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Your account does not have sufficient credit to process this request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">quotaExceeded</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError18invalidCredentialsFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/invalidCredentials" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError18invalidCredentialsFMS0_S0_">invalidCredentials</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invalid Credentials. Either:
+1. Supplied Application ID may not be listed under your accepted application list.
+2. Shared secret key is invalid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">invalidCredentials</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError23sdkRevisionNotSupportedFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/sdkRevisionNotSupported" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError23sdkRevisionNotSupportedFMS0_S0_">sdkRevisionNotSupported</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The SDK revision is not supported anymore.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">sdkRevisionNotSupported</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError14osNotSupportedFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/osNotSupported" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError14osNotSupportedFMS0_S0_">osNotSupported</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Current iOS OS version is not supported.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">osNotSupported</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError13internalErrorFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/internalError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError13internalErrorFMS0_S0_">internalError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generic internal error, the service might be down for the moment. Please try again later.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">internalError</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError13accountBarredFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/accountBarred" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError13accountBarredFMS0_S0_">accountBarred</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This Nexmo Account has been barred from sending messages</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">accountBarred</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO11NexmoVerify11VerifyError12networkErrorFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/networkError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO11NexmoVerify11VerifyError12networkErrorFMS0_S0_">networkError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Having problems accessing the network</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">networkError</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2016-11-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

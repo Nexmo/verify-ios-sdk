@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>NexmoVerify  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="NexmoVerify  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">NexmoVerify Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/Nexmo/verify-ios-sdk"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">NexmoVerify Reference</a>
+        <img id="carat" src="img/carat.png" />
+        NexmoVerify  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Countries.html">Countries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NexmoClient.html">NexmoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:C11NexmoVerify12ResponseCode">ResponseCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/UserStatus.html">UserStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/VerifyClient.html">VerifyClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:C11NexmoVerify13VerifyRequest">VerifyRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/VerifyError.html">VerifyError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F11NexmoVerifyoi2eeFTCS_13VerifyRequestS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/VerifyUIDelegate.html">VerifyUIDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#nexmoverify-ios' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='nexmoverify-ios'>NexmoVerify iOS</h1>
+
+<p><a href="https://dashboard.buddybuild.com/apps/582daf0a4204e80100cde7d5/build/latest"><img src="https://dashboard.buddybuild.com/api/statusImage?appID=582daf0a4204e80100cde7d5&amp;branch=master&amp;build=latest" alt="BuddyBuild"></a>
+<a href=""><img src="https://img.shields.io/cocoapods/v/NexmoVerify.svg" alt="CocoaPods"></a> 
+<a href=""><img src="https://img.shields.io/cocoapods/l/NexmoVerify.svg" alt="CocoaPods"></a> 
+<a href=""><img src="https://img.shields.io/cocoapods/p/NexmoVerify.svg" alt="CocoaPods"></a> 
+<a href=""><img src="https://img.shields.io/cocoapods/metrics/doc-percent/NexmoVerify.svg" alt="CocoaPods"></a> 
+<a href=""><img src="https://img.shields.io/badge/Swift-3.0.X-orange.svg" alt="Swift"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-soon-4BC51D.svg?style=flat" alt="Carthage compatible"></a> 
+<a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-soon-brightgreen.svg" alt="Swift Package Manager compatible"></a>
+<a href="https://twitter.com/Nexmo"><img src="https://img.shields.io/badge/twitter-@Nexmo-blue.svg?style=flat" alt="Twitter"></a></p>
+
+<p>You use Nexmo Verify to check that a person has access to a specific phone number.</p>
+
+<p>To complete phone verification:</p>
+
+<ol>
+<li>Verify sends a PIN in an SMS and/or Text-to-speech (TTS) call to your user.</li>
+<li>The user enters this PIN into your app or website.</li>
+<li>You use Verify to check that the PIN entered by your user is the one you sent.</li>
+</ol>
+
+<p>Using Verify SDK for iOS you easily integrate Verify functionality into your iOS app. With the NexmoVerify for iOS, you enter the user&rsquo;s phone number and the SDK completes verification for you.</p>
+
+<p>In order to integrate the NexmoVerify for iOS in your app, see:
+* <a href="https://docs.nexmo.com/verify/verify-sdk-for-iOS/prerequisites">Setting up your environment</a>: before you start coding, create a Verify SDK app in the Dashboard and configure Xcode.
+* <a href="https://docs.nexmo.com/verify/verify-sdk-for-iOS/integration">Integrate Verify SDK for iOS</a>: create and run your first app.
+* <a href="https://docs.nexmo.com/verify/verify-sdk-for-iOS/verify-sample">Verify SDK for iOS sample app</a>: integrate and run a more complete app.
+* <a href="https://docs.nexmo.com/verify/verify-sdk-for-iOS/verify-push-sample">Verify SDK for iOS push enabled sample app</a>: integrate and run a more complete app with APNS.
+* <a href="https://docs.nexmo.com/verify/verify-sdk-for-iOS/advanced">Verify SDK for iOS, advanced use</a>: use the advanced features in Verify SDK for iOS.
+* <a href="https://docs.nexmo.com/verify/verify-sdk-for-iOS/example-configurations">Example configurations</a>: configurations for different types of app.</p>
+
+<p>Feel free to checkout the <a href="https://github.com/Nexmo/verify-ios-sdk/blob/master/VerifySDK">NexmoVerify codebase</a> if you wish to contribute to our open source library.</p>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+<a href='#cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cocoapods'>CocoaPods</h3>
+
+<p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>gem install cocoapods
+</code></pre>
+
+<blockquote>
+<p>CocoaPods 1.1.0+ is required to build NexmoVerify 1.0.0+</p>
+</blockquote>
+
+<p>To integrate NexmoVerify into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+<span class="n">platform</span> <span class="ss">:ios</span><span class="p">,</span> <span class="s1">'10.0'</span>
+<span class="n">use_frameworks!</span>
+
+<span class="n">target</span> <span class="s1">'&lt;Your Target Name&gt;'</span> <span class="k">do</span>
+    <span class="n">pod</span> <span class="s1">'NexmoVerify'</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Then, run the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+</code></pre>
+<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='license'>License</h1>
+
+<p>Copyright &copy; 2015 Nexmo, Inc.
+All rights reserved.
+Licensed only under the NexmoVerify License Agreement (the <q>License</q>) located at</p>
+<pre class="highlight plaintext"><code>https://www.nexmo.com/terms-use/verify-sdk/
+</code></pre>
+
+<p>By downloading or otherwise using our software or services, you acknowledge
+that you have read, understand and agree to be bound by the
+<a href="https://www.nexmo.com/terms-use/verify-sdk/">Nexmo Verify SDK License Agreement</a> and <a href="https://www.nexmo.com/privacy-policy/">Privacy Policy</a>.</p>
+
+<p>You may not use, exercise any rights with respect to or exploit this SDK,
+or any modifications or derivative works thereof, except in accordance with the License.</p>
+<a href='#author' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='author'>Author</h2>
+
+<p>Dorian Peake, <a href="mailto:dorian@nexmo.com">dorian@nexmo.com</a></p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2016-11-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

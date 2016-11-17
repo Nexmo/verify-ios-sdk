@@ -9,7 +9,7 @@
 import Foundation
 
 /**
-    Contains core information relevant to all Nexmo services
+    Nexmo Client more information
 */
 @objc open class NexmoClient: NSObject {
 
@@ -28,6 +28,7 @@ import Foundation
     // MARK:
     // MARK: Static
     
+    /// Nexmo client shared instance
     public static let sharedInstance = NexmoClient(applicationId: Config.APP_ID ?? "", sharedSecretKey: Config.SECRET_KEY ?? "")
     
     // MARK:
@@ -82,7 +83,7 @@ import Foundation
     }
     
     // MARK:
-    // MARK: Helper
+    // MARK: Push Notification
     
     /**
         Set the Push notification token in the Nexmo Client to enable verification via push notification.

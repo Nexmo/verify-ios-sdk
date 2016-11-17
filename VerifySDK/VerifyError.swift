@@ -22,7 +22,7 @@ import Foundation
     */
     case invalidNumber
     
-    /* Number not provided in verify request */
+    /** Number not provided in verify request */
     case numberRequired
     
     /** User must be in pending status to be able to perform a PIN check. */

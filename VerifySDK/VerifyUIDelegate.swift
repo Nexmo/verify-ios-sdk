@@ -8,7 +8,9 @@
 
 import Foundation
 
+/// Callback from Nexmo verification view controller
 @objc public protocol VerifyUIDelegate {
+    
     /**
         Variable holds the outcome of a verification attempt once completed
     */

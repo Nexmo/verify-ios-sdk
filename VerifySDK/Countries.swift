@@ -8,7 +8,13 @@
 
 import Foundation
 
+/// List of all Countries
 open class Countries {
+    
+    // MARK:
+    // MARK: List
 
-    open static let list = (NSDictionary(contentsOfFile: Bundle(for: VerifyClient.self).path(forResource: "Countries", ofType: "plist")!) as! [String : AnyObject])["country_list"] as! [[String: AnyObject]]
+    /// Countries list
+    open static let list = (NSDictionary(
+        contentsOfFile: Bundle(for: VerifyClient.self).path(forResource: "Countries", ofType: "plist")!) as! [String : AnyObject])["country_list"] as! [[String: AnyObject]]
 }

@@ -19,6 +19,12 @@ class SearchRequest : Equatable {
     }
 }
 
+/// Validate search request is the same
+///
+/// - Parameters:
+///   - lhs: lhs
+///   - rhs: rhs
+/// - Returns: result
 func ==(lhs: SearchRequest, rhs: SearchRequest) -> Bool {
     return (lhs.number == rhs.number &&
             lhs.countryCode == rhs.countryCode)

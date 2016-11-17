@@ -1,7 +1,7 @@
 The Nexmo Verify iOS SDK Sample App
 ===================================
 
-The Nexmo Verify SDK sample App shows you how to implement the Verify SDK with Google Cloud Messaging (GCM) in an App you run on your mobile device. To run this app:
+The Nexmo Verify SDK sample App shows you how to implement the Verify SDK with APNS in an App you run on your mobile device. To run this app:
 
 1. <a href="#prereq">Prerequisites</a>
 2. <a href="#setup">Setting up the Sample App</a>
@@ -51,7 +51,6 @@ $ git submodule add https://github.com/nexmo/verify-ios-sdk.git
 - Set your __ID__ and __shared Secret__ in the provided variables at the top of `AppDelegate.swift`: 
 
 ```swift
-private var gcmSenderId = "SENDER_ID"
 private var applicationId = "YOUR_APP_KEY"
 private var sharedSecretKey = "YOUR_SECRET_KEY"
 ```

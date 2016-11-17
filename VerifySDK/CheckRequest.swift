@@ -28,6 +28,12 @@ class CheckRequest : Equatable {
     }
 }
 
+/// Validate check request is the same
+///
+/// - Parameters:
+///   - lhs: lhs
+///   - rhs: rhs
+/// - Returns: result
 func ==(lhs: CheckRequest, rhs: CheckRequest) -> Bool {
     return (lhs.pinCode == rhs.pinCode &&
             lhs.countryCode == rhs.countryCode &&

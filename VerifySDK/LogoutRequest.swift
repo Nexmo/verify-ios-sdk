@@ -19,6 +19,12 @@ class LogoutRequest : Equatable {
     }
 }
 
+/// Validate login request
+///
+/// - Parameters:
+///   - lhs: lhs
+///   - rhs: rhs
+/// - Returns: result
 func ==(lhs: LogoutRequest, rhs: LogoutRequest) -> Bool {
     return (lhs.number == rhs.number &&
             lhs.countryCode == rhs.countryCode)

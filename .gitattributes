@@ -1,0 +1,9 @@
+buddybuild_postbuild.sh linguist-documentation
+CHANGELOG.md linguist-documentation
+Fastlane/* linguist-documentation
+NexmoVerify.podspec.json linguist-documentation
+Notes.txt linguist-documentation
+Playgrounds/* linguist-documentation
+Podfile linguist-documentation
+Podfile.lock linguist-documentation
+README.md linguist-documentation

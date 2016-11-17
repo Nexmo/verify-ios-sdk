@@ -26,6 +26,12 @@ class ControlRequest : Equatable {
     }
 }
 
+/// Validate control request is the same
+///
+/// - Parameters:
+///   - lhs: lhs
+///   - rhs: rhs
+/// - Returns: result
 func ==(lhs: ControlRequest, rhs: ControlRequest) -> Bool {
     return (lhs.command == rhs.command &&
             lhs.phoneNumber == rhs.phoneNumber &&

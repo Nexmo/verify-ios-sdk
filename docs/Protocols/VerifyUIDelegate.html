@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VerifyUIDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/VerifyUIDelegate" class="dashAnchor"></a>
+    <a title="VerifyUIDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">NexmoVerify Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/Nexmo/verify-ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">NexmoVerify Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        VerifyUIDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Countries.html">Countries</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NexmoClient.html">NexmoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11NexmoVerify12ResponseCode">ResponseCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserStatus.html">UserStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VerifyClient.html">VerifyClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11NexmoVerify13VerifyRequest">VerifyRequest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/VerifyError.html">VerifyError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F11NexmoVerifyoi2eeFTCS_13VerifyRequestS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/VerifyUIDelegate.html">VerifyUIDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>VerifyUIDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">VerifyUIDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>Callback from Nexmo verification view controller</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP11NexmoVerify16VerifyUIDelegate22verificationSuccessfulSb"></a>
+                    <a name="//apple_ref/swift/Property/verificationSuccessful" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP11NexmoVerify16VerifyUIDelegate22verificationSuccessfulSb">verificationSuccessful</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Variable holds the outcome of a verification attempt once completed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">verificationSuccessful</span> <span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11NexmoVerify16VerifyUIDelegate12userVerifiedFSbT_"></a>
+                    <a name="//apple_ref/swift/Method/userVerified(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11NexmoVerify16VerifyUIDelegate12userVerifiedFSbT_">userVerified(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called once a verification attempt has terminated, with the result of the verification</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">optional</span> <span class="kd">func</span> <span class="nf">userVerified</span><span class="p">(</span><span class="n">_</span> <span class="nv">verified</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2016-11-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

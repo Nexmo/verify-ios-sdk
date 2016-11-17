@@ -30,6 +30,12 @@ open class VerifyRequest {
     }
 }
 
+/// Validate verify request are the same
+///
+/// - Parameters:
+///   - lhs: lhs
+///   - rhs: rhs
+/// - Returns: result
 public func ==(lhs: VerifyRequest, rhs: VerifyRequest) -> Bool {
     return (lhs.countryCode == rhs.countryCode &&
             lhs.phoneNumber == rhs.phoneNumber &&

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Response code from Verfiy
 open class ResponseCode {
 
     enum Code : Int {
