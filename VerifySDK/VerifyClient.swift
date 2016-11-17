@@ -402,7 +402,7 @@ import UIKit
     }
     
     func handleNotification(_ userInfo: [AnyHashable: Any], performSilentCheck: Bool) -> Bool {
-        guard let payload = (userInfo["NexmoVerify"] ?? userInfo["data"]) as? [AnyHashable: String],
+        guard let payload = (userInfo["NexmoVerify"] as? [AnyHashable: String] ?? userInfo["data"] as? [AnyHashable: String]),
             let pin = payload["pin"] else { return false }
         
         if performSilentCheck {
