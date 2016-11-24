@@ -21,9 +21,20 @@ class Config {
     
     /** Load properties from plist file */
     static let properties = NSDictionary(contentsOfFile: Bundle(for: NexmoClient.self).path(forResource: "SDKProperties", ofType: "plist")!) as! [String : AnyObject]
+
     static let ENDPOINT_PRODUCTION = Config.properties["ENDPOINT_PRODUCTION"] as! String
+    
+    static var ENDPOINT_PRODUCTION_URL: URL = {
+        guard let url = URL(string: Config.ENDPOINT_PRODUCTION) else { fatalError("NEXMO SDK URL not found") }
+        
+        return url
+    }()
+    
     static let APP_ID : String! = Config.properties["APP_ID"] as? String
     static let SECRET_KEY : String! = Config.properties["SECRET_KEY"] as? String
+    
     static let TEST_APP_ID : String! = Config.properties["TEST_APP_ID"] as? String
     static let TEST_SECRET_KEY : String! = Config.properties["TEST_SECRET_KEY"] as? String
+
+    
 }

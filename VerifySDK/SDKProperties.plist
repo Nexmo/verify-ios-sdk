@@ -7,6 +7,6 @@
 	<key>SECRET_KEY</key>
 	<string></string>
 	<key>ENDPOINT_PRODUCTION</key>
-	<string>https://test.nexmoinc.net/sdk</string>
+	<string>https://api.nexmo.com/sdk</string>
 </dict>
 </plist>
