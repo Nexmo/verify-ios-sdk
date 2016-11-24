@@ -36,6 +36,7 @@ class ServiceExecutorTests : XCTestCase {
         let nexmoClient = NexmoClient.sharedInstance
         nexmoClient.applicationId = VerifyIosSdkTests.APP_KEY
         nexmoClient.sharedSecretKey = VerifyIosSdkTests.APP_SECRET
+        nexmoClient.sdkToken = VerifyIosSdkTests.TEST_TOKEN
         
         let deviceProperties = DevicePropertiesMock()
         let serviceExecutor = ServiceExecutorMock(requestSigner: requestSigner, deviceProperties: deviceProperties)
@@ -104,9 +105,14 @@ class ServiceExecutorTests : XCTestCase {
             return
         }
         let url = request!.url.absoluteString
-        guard let signatureParam = "\(ServiceExecutor.PARAM_SIGNATURE)=\(requestSigner.generateSignature(withParams: [:], sharedSecretKey: secretKey))" else { return XCTFail("") }
+        
+        guard let signature = requestSigner.generateSignature(withParams: [:], sharedSecretKey: secretKey)
+            else { return XCTFail("") }
+        
+        let signatureParam = "\(ServiceExecutor.PARAM_SIGNATURE)=\(signature)"
         
         let range = url.range(of: signatureParam)
+        
         if (range == nil) {
             XCTFail("could not find [ \(signatureParam) ] in [ \(url) ]")
         }
@@ -119,7 +125,7 @@ class ServiceExecutorTests : XCTestCase {
         nexmoClient.sdkToken = VerifyIosSdkTests.TEST_TOKEN
         
         let requestSigner = RequestSignerMock()
-        let tokenParam = "\(ServiceExecutor.PARAM_TOKEN)=\(nexmoClient.sdkToken)"
+        let tokenParam = "\(ServiceExecutor.PARAM_TOKEN)=\(VerifyIosSdkTests.TEST_TOKEN)"
         let timestamp = Date()
         let path = "some_path"
         let deviceProperties = DevicePropertiesMock()
@@ -164,6 +170,8 @@ class ServiceExecutorTests : XCTestCase {
     }
     
     func testPerformHttpRequestForServiceCallsTokenServiceWhenNoToken() {
+        let exp = expectation(description: "")
+        
         let serviceExecutor = ServiceExecutorTokenServiceMock()
         let responseFactory = ResponseFactoryMock()
 
@@ -175,9 +183,10 @@ class ServiceExecutorTests : XCTestCase {
         let path = "some_path"
         let params : [String : String] = [:]
         serviceExecutor.performHttpRequestForService(responseFactory, nexmoClient: nexmoClient, path: path, timestamp: timestamp, params: params, isPost: true) { response, error in
-        
+            
+            XCTAssert(serviceExecutor.getTokenCalled, "Token service was never called")
+            exp.fulfill()
         }
-        XCTAssert(serviceExecutor.getTokenCalled, "Token service was never called")
     }
     
     func testPerformHttpRequestForServiceDoesntCallTokenServiceWhenToken() {

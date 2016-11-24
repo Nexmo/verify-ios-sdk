@@ -22,35 +22,6 @@
                BlueprintName = "NexmoVerifyTests"
                ReferencedContainer = "container:VerifySDK.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "BaseResponseTests">
-               </Test>
-               <Test
-                  Identifier = "CheckServiceTests">
-               </Test>
-               <Test
-                  Identifier = "ConfigTests">
-               </Test>
-               <Test
-                  Identifier = "LogoutServiceTests">
-               </Test>
-               <Test
-                  Identifier = "NexmoClientTests">
-               </Test>
-               <Test
-                  Identifier = "NexmoVerifyTests">
-               </Test>
-               <Test
-                  Identifier = "SearchServiceTests">
-               </Test>
-               <Test
-                  Identifier = "VerifyClientTests">
-               </Test>
-               <Test
-                  Identifier = "VerifyIosSdkTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <AdditionalOptions>
