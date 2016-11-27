@@ -34,7 +34,6 @@
 		10D85E331DE6F0F6005647A8 /* BaseResponseFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194CC1DE5B21200AC3E68 /* BaseResponseFactoryMock.swift */; };
 		10D85E341DE6F0FE005647A8 /* BaseResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194CD1DE5B21200AC3E68 /* BaseResponseTests.swift */; };
 		10D85E351DE6F15C005647A8 /* CheckServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194CE1DE5B21200AC3E68 /* CheckServiceMock.swift */; };
-		10D85E381DE6F195005647A8 /* NexmoVerifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194BF1DE5AE4000AC3E68 /* NexmoVerifyTests.swift */; };
 		10D85E3F1DE6F1BF005647A8 /* ControlServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194D11DE5B21200AC3E68 /* ControlServiceMock.swift */; };
 		10D85E401DE6F1C2005647A8 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194D01DE5B21200AC3E68 /* ConfigTests.swift */; };
 		10F173BA1DD4833C00F1AEB9 /* NexmoRequestSigning.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADD5E4A1B7C8D1000650E1B /* NexmoRequestSigning.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,7 +152,6 @@
 		109194B01DE5AD8B00AC3E68 /* NexmoRequestSigningTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexmoRequestSigningTest.swift; sourceTree = "<group>"; };
 		109194B21DE5AD8B00AC3E68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		109194BD1DE5AE4000AC3E68 /* NexmoVerifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NexmoVerifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		109194BF1DE5AE4000AC3E68 /* NexmoVerifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexmoVerifyTests.swift; sourceTree = "<group>"; };
 		109194C11DE5AE4000AC3E68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		109194C81DE5AF7D00AC3E68 /* NexmoRequestSigningTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NexmoRequestSigningTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		109194C91DE5AF7E00AC3E68 /* RequestSigningTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestSigningTests.m; sourceTree = "<group>"; };
@@ -373,6 +371,55 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
+		10914DFD1DEB8B8600BDDFCA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				109194C11DE5AE4000AC3E68 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10914DFE1DEB8BB000BDDFCA /* services */ = {
+			isa = PBXGroup;
+			children = (
+				109194DC1DE5B21200AC3E68 /* ServiceExecutorTests.swift */,
+				109194DA1DE5B21200AC3E68 /* SearchServiceTests.swift */,
+				109194D41DE5B21200AC3E68 /* LogoutServiceTests.swift */,
+				109194E01DE5B21200AC3E68 /* VerifyServiceTests.swift */,
+				109194CF1DE5B21200AC3E68 /* CheckServiceTests.swift */,
+				109194CE1DE5B21200AC3E68 /* CheckServiceMock.swift */,
+				109194D11DE5B21200AC3E68 /* ControlServiceMock.swift */,
+				109194D31DE5B21200AC3E68 /* LogoutServiceMock.swift */,
+				109194D91DE5B21200AC3E68 /* SearchServiceMock.swift */,
+				109194DF1DE5B21200AC3E68 /* VerifyServiceMock.swift */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		10914DFF1DEB8BC500BDDFCA /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				109194D71DE5B21200AC3E68 /* RequestSignerMock.swift */,
+				109194D21DE5B21200AC3E68 /* DevicePropertiesMock.swift */,
+				109194CC1DE5B21200AC3E68 /* BaseResponseFactoryMock.swift */,
+				109194D51DE5B21200AC3E68 /* MockResponse.swift */,
+				109194D81DE5B21200AC3E68 /* ResponseFactoryMock.swift */,
+				109194DB1DE5B21200AC3E68 /* ServiceExecutorMock.swift */,
+			);
+			name = mock;
+			sourceTree = "<group>";
+		};
+		10914E001DEB8BD900BDDFCA /* client */ = {
+			isa = PBXGroup;
+			children = (
+				109194D61DE5B21200AC3E68 /* NexmoClientTests.swift */,
+				109194DD1DE5B21200AC3E68 /* VerifyClientTests.swift */,
+				109194CD1DE5B21200AC3E68 /* BaseResponseTests.swift */,
+				109194D01DE5B21200AC3E68 /* ConfigTests.swift */,
+			);
+			name = client;
+			sourceTree = "<group>";
+		};
 		1091949C1DE48C9F00AC3E68 /* DevicePropertiesTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,28 +455,10 @@
 			isa = PBXGroup;
 			children = (
 				109194DE1DE5B21200AC3E68 /* VerifyIosSdkTests.swift */,
-				109194DC1DE5B21200AC3E68 /* ServiceExecutorTests.swift */,
-				109194DA1DE5B21200AC3E68 /* SearchServiceTests.swift */,
-				109194D41DE5B21200AC3E68 /* LogoutServiceTests.swift */,
-				109194E01DE5B21200AC3E68 /* VerifyServiceTests.swift */,
-				109194D61DE5B21200AC3E68 /* NexmoClientTests.swift */,
-				109194D71DE5B21200AC3E68 /* RequestSignerMock.swift */,
-				109194DD1DE5B21200AC3E68 /* VerifyClientTests.swift */,
-				109194CF1DE5B21200AC3E68 /* CheckServiceTests.swift */,
-				109194D21DE5B21200AC3E68 /* DevicePropertiesMock.swift */,
-				109194CC1DE5B21200AC3E68 /* BaseResponseFactoryMock.swift */,
-				109194CD1DE5B21200AC3E68 /* BaseResponseTests.swift */,
-				109194CE1DE5B21200AC3E68 /* CheckServiceMock.swift */,
-				109194D01DE5B21200AC3E68 /* ConfigTests.swift */,
-				109194D11DE5B21200AC3E68 /* ControlServiceMock.swift */,
-				109194D31DE5B21200AC3E68 /* LogoutServiceMock.swift */,
-				109194D51DE5B21200AC3E68 /* MockResponse.swift */,
-				109194D81DE5B21200AC3E68 /* ResponseFactoryMock.swift */,
-				109194D91DE5B21200AC3E68 /* SearchServiceMock.swift */,
-				109194DB1DE5B21200AC3E68 /* ServiceExecutorMock.swift */,
-				109194DF1DE5B21200AC3E68 /* VerifyServiceMock.swift */,
-				109194BF1DE5AE4000AC3E68 /* NexmoVerifyTests.swift */,
-				109194C11DE5AE4000AC3E68 /* Info.plist */,
+				10914E001DEB8BD900BDDFCA /* client */,
+				10914DFE1DEB8BB000BDDFCA /* services */,
+				10914DFF1DEB8BC500BDDFCA /* mock */,
+				10914DFD1DEB8B8600BDDFCA /* Supporting Files */,
 			);
 			name = VerifyTests;
 			path = ../NexmoVerifyTests;
@@ -900,7 +929,6 @@
 			files = (
 				100479371DE6FB4500892D50 /* ServiceExecutorTests.swift in Sources */,
 				100479311DE6FA4B00892D50 /* DevicePropertiesMock.swift in Sources */,
-				10D85E381DE6F195005647A8 /* NexmoVerifyTests.swift in Sources */,
 				1004792C1DE6F99700892D50 /* VerifyClientTests.swift in Sources */,
 				10D85E331DE6F0F6005647A8 /* BaseResponseFactoryMock.swift in Sources */,
 				10D85E351DE6F15C005647A8 /* CheckServiceMock.swift in Sources */,

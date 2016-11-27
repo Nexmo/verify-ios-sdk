@@ -18,5 +18,14 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Nexmo</key>
+	<dict>
+		<key>Verify_Application_Id</key>
+		<string></string>
+		<key>Verify_Application_Secret</key>
+		<string></string>
+		<key>Verify_Phone_Number</key>
+		<string></string>
+	</dict>
 </dict>
 </plist>

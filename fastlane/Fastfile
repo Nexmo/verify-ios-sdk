@@ -1,0 +1,17 @@
+fastlane_version "1.107.0"
+default_platform :ios
+
+platform :ios do
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+      scheme: "NexmoVerify",
+      code_coverage: true,
+      open_report: true
+    )
+    xcov(
+      scheme: "NexmoVerify",
+      include_targets: "NexmoVerify.framework"
+    )  
+  end
+end

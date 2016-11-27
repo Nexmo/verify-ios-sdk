@@ -22,5 +22,14 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
+	<key>Nexmo</key>
+	<dict>
+		<key>Verify_Application_Id</key>
+		<string></string>
+		<key>Verify_Application_Secret</key>
+		<string></string>
+		<key>Verify_Phone_Number</key>
+		<string></string>
+	</dict>
 </dict>
 </plist>

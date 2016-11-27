@@ -13,8 +13,47 @@ import Foundation
 @testable import NexmoVerify
 
 class VerifyIosSdkTests: XCTestCase {
+   
+    private enum VariableKey: String {
+        case nexmo = "Nexmo"
+        case applicationId = "Verify_Application_Id"
+        case applicationSecret = "Verify_Application_Secret"
+        case phoneNumber = "Verify_Phone_Number"
+    }
     
-    static let TEST_NUMBER = "447507274888"
+    static let APP_KEY: String = {
+        guard let id = UserDefaults.standard.dictionary(forKey: VariableKey.nexmo.rawValue)?[VariableKey.applicationId.rawValue] as? String,
+            !id.isEmpty else {
+            XCTFail("Variable not set in info.plist")
+            
+            fatalError("Variable not set in info.plist")
+        }
+        
+        return id
+    }()
+    
+    static let APP_SECRET: String = {
+        guard let secret = UserDefaults.standard.dictionary(forKey: VariableKey.nexmo.rawValue)?[VariableKey.applicationSecret.rawValue] as? String,
+            !secret.isEmpty else {
+            XCTFail("Variable not set in info.plist")
+            
+            fatalError("Variable not set in info.plist")
+        }
+        
+        return secret
+    }()
+    
+    static let TEST_NUMBER: String = {
+        guard let number = UserDefaults.standard.dictionary(forKey: VariableKey.nexmo.rawValue)?[VariableKey.phoneNumber.rawValue] as? String,
+            !number.isEmpty else {
+                XCTFail("Variable not set in info.plist")
+                
+                fatalError("Variable not set in info.plist")
+        }
+        
+        return number
+    }()
+    
     static let TEST_TOKEN = "some_test_token"
     static let TEST_PIN_CODE = "1010"
     static let TEST_SIGNATURE = "some_test_signature"
@@ -23,14 +62,12 @@ class VerifyIosSdkTests: XCTestCase {
     static let TEST_USER_STATUS = "pending"
     static let TEST_COUNTRY_CODE = "GB"
     static let TEST_PUSH_TOKEN = "ljdbwpYvXV8:APA91bHwPw5sk8zoHNTE7iZy58ufdMHULVMYMYuI8UazbnqLqW0uPKyykr62F69RKjsFEj0bNDUHhtmMTk_7wUvCoA6C-UO0AV3w_a_ES7qossgfJu7sJ6Z0mTPDC0AX_Ck5TyG8vUxX"
-    static let APP_KEY = "app2-push"
-    static let APP_SECRET = "123456"
     static let PUSH_TOKEN = "ljdbwpYvXV8:APA91bHwPw5sk8zoHNTE7iZy58ufdMHULVMYMYuI8UazbnqLqW0uPKyykr62F69RKjsFEj0bNDUHhtmMTk_7wUvCoA6C-UO0AV3w_a_ES7qossgfJu7sJ6Z0mTPDC0AX_Ck5TyG8vUxX"
+   
     static var nexmoClient: NexmoClient = {
         let nexmo = NexmoClient.sharedInstance
-        
-        nexmo.applicationId = "app2-push"
-        nexmo.sharedSecretKey = "123456"
+        nexmo.applicationId = VerifyIosSdkTests.APP_KEY
+        nexmo.sharedSecretKey = VerifyIosSdkTests.APP_SECRET
         
         return nexmo
     }()
@@ -417,7 +454,7 @@ class VerifyIosSdkTests: XCTestCase {
         NexmoClient.start(applicationId: VerifyIosSdkTests.APP_KEY, sharedSecretKey: VerifyIosSdkTests.APP_SECRET)
 
         let checkExpectation = expectation(description: "check request finished")
-        VerifyClient.checkPinCode("1234", countryCode: "GB", number: "07507274888",
+        VerifyClient.checkPinCode("1234", countryCode: "GB", number: VerifyIosSdkTests.TEST_NUMBER,
         onUserVerified: {
             checkExpectation.fulfill()
             print("verified")

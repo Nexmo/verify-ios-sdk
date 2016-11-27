@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "109194AD1DE5AD8B00AC3E68"
+               BuildableName = "NexmoRequestSigningTest.xctest"
+               BlueprintName = "NexmoRequestSigningTest"
+               ReferencedContainer = "container:VerifySDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2A6B60751B67A04B005378E0"
+            BuildableName = "NexmoRequestSigning.framework"
+            BlueprintName = "NexmoRequestSigning"
+            ReferencedContainer = "container:VerifySDK.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
