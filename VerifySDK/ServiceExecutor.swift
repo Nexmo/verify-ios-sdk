@@ -15,7 +15,7 @@ import Foundation
 
 class ServiceExecutor {
 
-    fileprivate enum ErrorCode : Int {
+    private enum ErrorCode : Int {
         case cannotGenerateSignature = 1
         case cannotParseResponse
         case cannotBuildHttpRequest
