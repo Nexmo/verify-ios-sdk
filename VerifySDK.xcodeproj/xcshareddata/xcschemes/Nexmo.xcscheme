@@ -33,16 +33,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1091949A1DE48C9F00AC3E68"
-               BuildableName = "NexmoDevicePropertiesTest.xctest"
-               BlueprintName = "NexmoDevicePropertiesTest"
-               ReferencedContainer = "container:VerifySDK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "109194AD1DE5AD8B00AC3E68"
                BuildableName = "NexmoRequestSigningTest.xctest"
                BlueprintName = "NexmoRequestSigningTest"
@@ -56,6 +46,16 @@
                BlueprintIdentifier = "109194BC1DE5AE4000AC3E68"
                BuildableName = "NexmoVerifyTests.xctest"
                BlueprintName = "NexmoVerifyTests"
+               ReferencedContainer = "container:VerifySDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1091949A1DE48C9F00AC3E68"
+               BuildableName = "NexmoDevicePropertiesTest.xctest"
+               BlueprintName = "NexmoDevicePropertiesTest"
                ReferencedContainer = "container:VerifySDK.xcodeproj">
             </BuildableReference>
          </TestableReference>

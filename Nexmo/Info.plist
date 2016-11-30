@@ -20,15 +20,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>Nexmo</key>
-	<dict>
-		<key>Verify_Application_Id</key>
-		<string></string>
-		<key>Verify_Application_Secret</key>
-		<string></string>
-		<key>Verify_Phone_Number</key>
-		<string></string>
-	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

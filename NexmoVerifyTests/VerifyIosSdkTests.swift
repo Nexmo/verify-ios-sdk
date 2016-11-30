@@ -10,6 +10,7 @@ import UIKit
 import XCTest
 import SystemConfiguration
 import Foundation
+@testable import Nexmo
 @testable import NexmoVerify
 
 class VerifyIosSdkTests: XCTestCase {
@@ -22,33 +23,39 @@ class VerifyIosSdkTests: XCTestCase {
     }
     
     static let APP_KEY: String = {
-        guard let id = UserDefaults.standard.dictionary(forKey: VariableKey.nexmo.rawValue)?[VariableKey.applicationId.rawValue] as? String,
+        let bundle = Bundle(for: VerifyIosSdkTests.self).infoDictionary
+        
+        guard let id = (bundle?[VariableKey.nexmo.rawValue] as? [String : String])?[VariableKey.applicationId.rawValue],
             !id.isEmpty else {
-            XCTFail("Variable not set in info.plist")
+            XCTFail("Variable not set in NexmoVerifyTests -> info.plist")
             
-            fatalError("Variable not set in info.plist")
+            fatalError("Variable not set in NexmoVerifyTests -> info.plist")
         }
         
         return id
     }()
     
     static let APP_SECRET: String = {
-        guard let secret = UserDefaults.standard.dictionary(forKey: VariableKey.nexmo.rawValue)?[VariableKey.applicationSecret.rawValue] as? String,
+        let bundle = Bundle(for: VerifyIosSdkTests.self).infoDictionary
+        
+        guard let secret = (bundle?[VariableKey.nexmo.rawValue] as? [String : String])?[VariableKey.applicationSecret.rawValue],
             !secret.isEmpty else {
-            XCTFail("Variable not set in info.plist")
+            XCTFail("Variable not set in NexmoVerifyTests -> info.plist")
             
-            fatalError("Variable not set in info.plist")
+            fatalError("Variable not set in NexmoVerifyTests -> info.plist")
         }
         
         return secret
     }()
     
     static let TEST_NUMBER: String = {
-        guard let number = UserDefaults.standard.dictionary(forKey: VariableKey.nexmo.rawValue)?[VariableKey.phoneNumber.rawValue] as? String,
+        let bundle = Bundle(for: VerifyIosSdkTests.self).infoDictionary
+        
+        guard let number = (bundle?[VariableKey.nexmo.rawValue] as? [String : String])?[VariableKey.phoneNumber.rawValue],
             !number.isEmpty else {
-                XCTFail("Variable not set in info.plist")
+            XCTFail("Variable not set in NexmoVerifyTests -> info.plist")
                 
-                fatalError("Variable not set in info.plist")
+            fatalError("Variable not set in NexmoVerifyTests -> info.plist")
         }
         
         return number
@@ -188,7 +195,7 @@ class VerifyIosSdkTests: XCTestCase {
             requestFinished.fulfill()
         }
         
-        self.waitForExpectations(timeout: 10.0, handler: nil)
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
     
     /** Test HttpBuilder, HttpRequest and HttpResponse classes in POST request
@@ -242,7 +249,7 @@ class VerifyIosSdkTests: XCTestCase {
             requestFinished.fulfill()
         }
         
-        self.waitForExpectations(timeout: 10.0, handler: nil)
+        self.waitForExpectations(timeout: 10, handler: nil)
     }
 
     /** Test retrieving the device IP address
@@ -293,7 +300,7 @@ class VerifyIosSdkTests: XCTestCase {
                 XCTFail("Verification failed with error [ \(error.rawValue) ]")
             })
         
-        waitForExpectations(timeout: 60, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
     }
     
     func testOneShotVerification() {
@@ -316,7 +323,7 @@ class VerifyIosSdkTests: XCTestCase {
                 XCTFail("Verification failed with error [ \(error.rawValue) ]")
             })
         
-        waitForExpectations(timeout: 60, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
     }
     
     func testVerifyAlreadyPending() {
@@ -379,7 +386,7 @@ class VerifyIosSdkTests: XCTestCase {
                 tokenRequestFinished.fulfill()
             }
             
-            waitForExpectations(timeout: 10.0, handler: nil)
+            waitForExpectations(timeout: 10, handler: nil)
             if (failed) {
                 break
             }
@@ -402,7 +409,7 @@ class VerifyIosSdkTests: XCTestCase {
                 XCTFail("Failed with some error \(error.rawValue)")
             }
         )
-        waitForExpectations(timeout: 60, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
     }
     
     func testVerifyClientPerformsLogoutRequest() {

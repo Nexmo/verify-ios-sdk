@@ -43,6 +43,7 @@
     XCTAssert(([params objectForKey:key] != nil), "IP Address not added");
 }
 
+// TODO: fails due to apple bug: https://forums.developer.apple.com/message/179846#179846
 - (void)testAddsDeviceIdentifierToParameters {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSString *key = @"key";
@@ -52,6 +53,7 @@
     XCTAssert(([params objectForKey:key] != nil), "Device Identifier not added");
 }
 
+// TODO: fails due to apple bug: https://forums.developer.apple.com/message/179846#179846
 - (void)testAddDeviceIdentifierToKeychain {
     id <DevicePropertyAccessor> deviceProperties = [[SDKDeviceProperties alloc] init];
     NSString *deviceId = [deviceProperties addUniqueDeviceIdentifierToKeychain];
@@ -60,6 +62,7 @@
     XCTAssertNotNil(deviceId, "Device identifier came back nil!");
 }
 
+// TODO: fails due to apple bug: https://forums.developer.apple.com/message/179846#179846
 - (void)testGetDeviceIdentifierFromKeychain {
     id <DevicePropertyAccessor> deviceProperties = [[SDKDeviceProperties alloc] init];
     XCTAssertTrue([deviceProperties deleteUniqueDeviceIdentifier], @"Error resetting keychain...");
@@ -69,6 +72,7 @@
     XCTAssertEqualObjects(deviceId, deviceId2, @"Device ID's didn't match!");
 }
 
+// TODO: fails due to apple bug: https://forums.developer.apple.com/message/179846#179846
 - (void)testDeleteDeviceIdentifierFromKeychain {
     id <DevicePropertyAccessor> deviceProperties = [[SDKDeviceProperties alloc] init];
     [deviceProperties addUniqueDeviceIdentifierToKeychain];

@@ -24,7 +24,6 @@
 		100479361DE6FB1D00892D50 /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194DA1DE5B21200AC3E68 /* SearchServiceTests.swift */; };
 		100479371DE6FB4500892D50 /* ServiceExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109194DC1DE5B21200AC3E68 /* ServiceExecutorTests.swift */; };
 		107CE7C41DEC3775008E044B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107CE7C31DEC3775008E044B /* AppDelegate.swift */; };
-		107CE7C61DEC3775008E044B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107CE7C51DEC3775008E044B /* ViewController.swift */; };
 		107CE7C91DEC3775008E044B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107CE7C71DEC3775008E044B /* Main.storyboard */; };
 		107CE7CB1DEC3775008E044B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107CE7CA1DEC3775008E044B /* Assets.xcassets */; };
 		107CE7CE1DEC3775008E044B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107CE7CC1DEC3775008E044B /* LaunchScreen.storyboard */; };
@@ -130,6 +129,13 @@
 			remoteGlobalIDString = 2ABA3AB81B6166A800EB4842;
 			remoteInfo = NexmoVerify;
 		};
+		10BF0D5C1DEF333700E2850A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ABA3AB01B6166A800EB4842 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 107CE7C01DEC3775008E044B;
+			remoteInfo = Nexmo;
+		};
 		10D85E2F1DE607F9005647A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2ABA3AB01B6166A800EB4842 /* Project object */;
@@ -149,7 +155,6 @@
 /* Begin PBXFileReference section */
 		107CE7C11DEC3775008E044B /* Nexmo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nexmo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		107CE7C31DEC3775008E044B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		107CE7C51DEC3775008E044B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		107CE7C81DEC3775008E044B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		107CE7CA1DEC3775008E044B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		107CE7CD1DEC3775008E044B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -188,6 +193,7 @@
 		109194DE1DE5B21200AC3E68 /* VerifyIosSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyIosSdkTests.swift; sourceTree = "<group>"; };
 		109194DF1DE5B21200AC3E68 /* VerifyServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyServiceMock.swift; sourceTree = "<group>"; };
 		109194E01DE5B21200AC3E68 /* VerifyServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyServiceTests.swift; sourceTree = "<group>"; };
+		10BF0D601DEF3F0900E2850A /* Nexmo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nexmo.entitlements; sourceTree = "<group>"; };
 		2A1E47D91B78869B00C02690 /* ControlResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlResponse.swift; sourceTree = "<group>"; };
 		2A1E47DA1B78869B00C02690 /* SDKControlService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKControlService.swift; sourceTree = "<group>"; };
 		2A25363F1BE1346100107884 /* VerifyUI.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VerifyUI.storyboard; sourceTree = "<group>"; };
@@ -312,8 +318,7 @@
 		107CE7C21DEC3775008E044B /* Nexmo */ = {
 			isa = PBXGroup;
 			children = (
-				107CE7D41DEC37F1008E044B /* Application */,
-				107CE7D51DEC37F8008E044B /* ViewController */,
+				107CE7C31DEC3775008E044B /* AppDelegate.swift */,
 				107CE7D31DEC37E3008E044B /* Supporting Files */,
 			);
 			path = Nexmo;
@@ -322,28 +327,13 @@
 		107CE7D31DEC37E3008E044B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				10BF0D601DEF3F0900E2850A /* Nexmo.entitlements */,
 				107CE7C71DEC3775008E044B /* Main.storyboard */,
 				107CE7CA1DEC3775008E044B /* Assets.xcassets */,
 				107CE7CC1DEC3775008E044B /* LaunchScreen.storyboard */,
 				107CE7CF1DEC3775008E044B /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		107CE7D41DEC37F1008E044B /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				107CE7C31DEC3775008E044B /* AppDelegate.swift */,
-			);
-			name = Application;
-			sourceTree = "<group>";
-		};
-		107CE7D51DEC37F8008E044B /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				107CE7C51DEC3775008E044B /* ViewController.swift */,
-			);
-			name = ViewController;
 			sourceTree = "<group>";
 		};
 		10845F2A1DDB118100E08158 /* model */ = {
@@ -768,6 +758,7 @@
 				109194971DE48C9F00AC3E68 /* Sources */,
 				109194981DE48C9F00AC3E68 /* Frameworks */,
 				109194991DE48C9F00AC3E68 /* Resources */,
+				10BF0D5F1DEF3DA500E2850A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -804,6 +795,7 @@
 				109194B91DE5AE4000AC3E68 /* Sources */,
 				109194BA1DE5AE4000AC3E68 /* Frameworks */,
 				109194BB1DE5AE4000AC3E68 /* Resources */,
+				10BF0D5E1DEF3CAA00E2850A /* Code Sign Unit Test */,
 			);
 			buildRules = (
 			);
@@ -811,6 +803,7 @@
 				10D85E301DE607F9005647A8 /* PBXTargetDependency */,
 				10D85E321DE607F9005647A8 /* PBXTargetDependency */,
 				109194C41DE5AE4000AC3E68 /* PBXTargetDependency */,
+				10BF0D5D1DEF333700E2850A /* PBXTargetDependency */,
 			);
 			name = NexmoVerifyTests;
 			productName = NexmoVerifyTests;
@@ -885,6 +878,11 @@
 					107CE7C01DEC3775008E044B = {
 						CreatedOnToolsVersion = 8.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					1091949A1DE48C9F00AC3E68 = {
 						CreatedOnToolsVersion = 8.2;
@@ -900,6 +898,7 @@
 						CreatedOnToolsVersion = 8.2;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 107CE7C01DEC3775008E044B;
 					};
 					2A6B60751B67A04B005378E0 = {
 						CreatedOnToolsVersion = 6.4;
@@ -995,12 +994,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10BF0D5E1DEF3CAA00E2850A /* Code Sign Unit Test */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Code Sign Unit Test";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "codesign --verify --force --sign \"$CODE_SIGN_IDENTITY\" \"$CODESIGNING_FOLDER_PATH\"";
+		};
+		10BF0D5F1DEF3DA500E2850A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "codesign --verify --force --sign \"$CODE_SIGN_IDENTITY\" \"$CODESIGNING_FOLDER_PATH\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		107CE7BD1DEC3775008E044B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				107CE7C61DEC3775008E044B /* ViewController.swift in Sources */,
 				107CE7C41DEC3775008E044B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1140,6 +1168,11 @@
 			target = 2ABA3AB81B6166A800EB4842 /* NexmoVerify */;
 			targetProxy = 109194C31DE5AE4000AC3E68 /* PBXContainerItemProxy */;
 		};
+		10BF0D5D1DEF333700E2850A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 107CE7C01DEC3775008E044B /* Nexmo */;
+			targetProxy = 10BF0D5C1DEF333700E2850A /* PBXContainerItemProxy */;
+		};
 		10D85E301DE607F9005647A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2A6B60751B67A04B005378E0 /* NexmoRequestSigning */;
@@ -1178,6 +1211,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = Nexmo/Nexmo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
@@ -1197,6 +1232,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = Nexmo/Nexmo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
 				INFOPLIST_FILE = Nexmo/Info.plist;
@@ -1295,6 +1332,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
@@ -1305,6 +1343,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nexmo.app/Nexmo";
 			};
 			name = Debug;
 		};
@@ -1313,6 +1352,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7F2B5ZSP8Q;
 				INFOPLIST_FILE = NexmoVerifyTests/Info.plist;
@@ -1321,6 +1361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexmo.verify.NexmoVerifyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nexmo.app/Nexmo";
 			};
 			name = Release;
 		};
@@ -1442,13 +1483,15 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENTITLEMENTS_REQUIRED = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1495,13 +1538,15 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENTITLEMENTS_REQUIRED = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1589,6 +1634,7 @@
 				107CE7D11DEC3775008E044B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		109194A51DE48C9F00AC3E68 /* Build configuration list for PBXNativeTarget "NexmoDevicePropertiesTest" */ = {
 			isa = XCConfigurationList;
