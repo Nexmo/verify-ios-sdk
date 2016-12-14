@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 import NexmoVerify
 
-class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, PageIndexable {
+class StartViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, PageIndexable {
+    
+    private struct UserSelectedKey {
+        static let country = "NexmoCountrySelectedKey"
+        static let phoneNumber = "NexmoPhoneNumberKey"
+    }
     
     @IBOutlet weak var info: UIButton!
     @IBOutlet weak var phoneNumberField: UITextField!
@@ -44,6 +49,7 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         super.viewDidLoad()
         
         setupView()
+        setupObserve()
     }
     
     // MARK:
@@ -56,8 +62,29 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         countryPickerView.showsSelectionIndicator = true
         countryPickerView.backgroundColor = Colors.nexmoDarkBlue
         countryField.inputView = countryPickerView
+        
+        UserDefaults.standard.synchronize()
+        
+        // add pre set values
+        if let country = UserDefaults.standard.value(forKey: UserSelectedKey.country) as? [String : AnyObject], !country.isEmpty {
+            countryField.text = describeCountry(country)
+        }
+        
+        if let number = UserDefaults.standard.value(forKey: UserSelectedKey.phoneNumber) as? String, !number.isEmpty {
+            phoneNumberField.text = number
+        }
     }
+    
+    private func setupObserve() {
+        phoneNumberField.addTarget(self, action: #selector(didEndEditingPhoneNumber(textfield:)), for: .editingDidEnd)
+    }
+    
+    // MARK:
+    // MARK: TextField
 
+    func didEndEditingPhoneNumber(textfield: UITextField) {
+        UserDefaults.standard.set(textfield.text, forKey: UserSelectedKey.phoneNumber)
+    }
     
     // MARK:
     // MARK: Touch
@@ -111,8 +138,6 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
         }))
         
         present(alert, animated: true, completion: nil)
-        
-        
     }
     
     // Mark:
@@ -136,6 +161,8 @@ class StartViewController : UIViewController, UIPickerViewDataSource, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentCountry = Countries.list[row]
         countryField.text = describeCountry(currentCountry)
+        
+        UserDefaults.standard.set(currentCountry, forKey: UserSelectedKey.country)
     }
 
     func describeCountry(_ country: [String : AnyObject]) -> String {

@@ -166,7 +166,7 @@
 			name = check;
 			sourceTree = "<group>";
 		};
-		10845F261DD9F3C900E08158 /* Viewcontroller */ = {
+		10845F261DD9F3C900E08158 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				2AF474F01BC57BE200FBE0EE /* Main.storyboard */,
@@ -174,7 +174,7 @@
 				10845F241DD9F3B500E08158 /* start */,
 				10845F251DD9F3BE00E08158 /* check */,
 			);
-			name = Viewcontroller;
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		10845F271DD9FB6C00E08158 /* configurator */ = {
@@ -221,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				10845F231DD9F3A000E08158 /* Application */,
-				10845F261DD9F3C900E08158 /* Viewcontroller */,
+				10845F261DD9F3C900E08158 /* ViewController */,
 				10845F221DD9F38900E08158 /* Helper */,
 				10845F211DD9F37E00E08158 /* Supporting Files */,
 			);

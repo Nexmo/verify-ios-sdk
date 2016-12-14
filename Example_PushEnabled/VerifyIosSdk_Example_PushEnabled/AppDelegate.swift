@@ -15,17 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let configurator = AppConfigurator()
 
-    // Your parameters go here! see https://dashboard.nexmo.com/verify
+    // Your parameters go here, see https://dashboard.nexmo.com/verify/sdk/your-apps
     private let applicationId = "YOUR_APP_KEY"
-    private let sharedSecretKey = "YOUR_SECRET_KEY"
+    private let secretKey = "YOUR_SECRET_KEY"
     
     // MARK:
     // MARK: UIApplicationDelegate - Launch
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configurator.registerPushNotitications()
-
-        NexmoClient.start(applicationId: applicationId, sharedSecretKey: sharedSecretKey)
+        
+        guard let _ = try? configurator.isClientSetup(applicationId: applicationId, secretKey: secretKey) else {
+            fatalError("Client not setup, pleae enter your application id and secret key above!")
+        }
+        
+        NexmoClient.start(applicationId: applicationId, sharedSecretKey: secretKey)
         
         return true
     }
@@ -35,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         NexmoClient.setPushToken(deviceToken)
+        print("device token: \(NexmoClient.sharedInstance.pushToken)")
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
