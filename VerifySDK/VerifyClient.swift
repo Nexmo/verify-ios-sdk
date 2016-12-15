@@ -105,6 +105,8 @@ import UIKit
             if let error = error {
                 if (error.code == 1000) {
                     onError(.networkError)
+                } else if (error.code == 2) {
+                    onError(.invalidCredentials)
                 } else {
                 onError(.internalError)
                 }
