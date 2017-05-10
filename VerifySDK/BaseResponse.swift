@@ -96,7 +96,7 @@ class BaseResponse {
         if (digest == signature) {
             return true
         } else {
-            BaseResponse.Log.error("Generated signature [ \(digest) ] didn't match response signature [ \(signature) ]")
+            BaseResponse.Log.error("Generated signature [ \(String(describing: digest)) ] didn't match response signature [ \(signature) ]")
             return false
         }
     }
@@ -108,7 +108,7 @@ class BaseResponse {
         if (digest == signature) {
             return true
         } else {
-            BaseResponse.Log.error("Generated signature [ \(digest) ] didn't match response signature [ \(signature) ]")
+            BaseResponse.Log.error("Generated signature [ \(String(describing: digest)) ] didn't match response signature [ \(String(describing: signature)) ]")
             return false
         }
     }

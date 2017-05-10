@@ -152,7 +152,7 @@ class HttpRequestBuilder {
 
         // content-type and charset
         let charsetName = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(self.encoding.rawValue))
-        request.addValue(self.contentType.rawValue + "; charset=" + (charsetName as! String), forHTTPHeaderField: "Content-Type")
+        request.addValue(self.contentType.rawValue + "; charset=" + (charsetName! as String), forHTTPHeaderField: "Content-Type")
         
         return HttpRequest(request: request as URLRequest, encoding: self.encoding)
     }

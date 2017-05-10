@@ -36,7 +36,7 @@ class HttpResponse {
         self.statusCode = response.statusCode
         self.headers = response.allHeaderFields
         
-        if let stringData = NSString(data: data, encoding: encoding.rawValue) as? String {
+        if let stringData = NSString(data: data, encoding: encoding.rawValue) as String? {
             self.body = stringData
             HttpResponse.Log.info("message body = \(stringData)")
         } else  {
