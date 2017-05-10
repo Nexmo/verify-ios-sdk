@@ -190,7 +190,7 @@ class VerifyIosSdkTests: XCTestCase {
             }
                 
             XCTAssertEqual(200, response!.statusCode, "HttpRequest returned status code [ \(response!.statusCode)")
-            VerifyIosSdkTests.Log.info("Response body = \(response!.body)")
+            VerifyIosSdkTests.Log.info("Response body = \(String(describing: response!.body))")
             
             requestFinished.fulfill()
         }
@@ -234,7 +234,7 @@ class VerifyIosSdkTests: XCTestCase {
             }
 
             XCTAssertEqual(200, response!.statusCode, "HttpRequest returned status code [ \(response!.statusCode)")
-            VerifyIosSdkTests.Log.info("Response body = \(response!.body)")
+            VerifyIosSdkTests.Log.info("Response body = \(String(describing: response!.body))")
             
             if let body = response!.body,
             let json = (try? JSONSerialization.jsonObject(with: body.data(using: .utf8, allowLossyConversion: false)!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: AnyObject] {
@@ -270,14 +270,14 @@ class VerifyIosSdkTests: XCTestCase {
         VerifyIosSdkTests.Log.info("Successfully connected to internet")
         let ipAddress = SDKDeviceProperties.sharedInstance().getIpAddress()
         XCTAssertNotNil(ipAddress, "IP Address returned null")
-        VerifyIosSdkTests.Log.info("IP Address returned = \(ipAddress)")
+        VerifyIosSdkTests.Log.info("IP Address returned = \(String(describing: ipAddress))")
     }
     
     /** Test retrieving or creating the unique device identifier */
     func testGetUid() {
         let uid = SDKDeviceProperties.sharedInstance().getUniqueDeviceIdentifierAsString()
         XCTAssertNotNil(uid, "Uid returned was nil!")
-        VerifyIosSdkTests.Log.info("Returned UID = \(uid)")
+        VerifyIosSdkTests.Log.info("Returned UID = \(String(describing: uid))")
     }
 
     func testVerifySuccess() {
@@ -400,7 +400,7 @@ class VerifyIosSdkTests: XCTestCase {
         VerifyClient.sharedInstance.getVerifiedUser(countryCode: nil, phoneNumber: VerifyIosSdkTests.TEST_NUMBER, onVerifyInProgress: {
                 sleep(30)
                 VerifyClient.cancelVerification() { error in
-                    XCTAssertNil(error, "Cancel request returned error: \(error)")
+                    XCTAssertNil(error, "Cancel request returned error: \(String(describing: error))")
                     cancelExpectation.fulfill()
                 }
             }, onUserVerified: {
@@ -430,7 +430,7 @@ class VerifyIosSdkTests: XCTestCase {
         let nextEventExpetation = expectation(description: "trigger next event callback")
         VerifyClient.getVerifiedUser(countryCode: nil, phoneNumber: VerifyIosSdkTests.TEST_NUMBER, onVerifyInProgress: {
                 VerifyClient.triggerNextEvent() { error in
-                    XCTAssertNil(error, "triggerNextEvent request returned error: \(error)")
+                    XCTAssertNil(error, "triggerNextEvent request returned error: \(String(describing: error))")
                     nextEventExpetation.fulfill()
                 }
             }, onUserVerified: {
@@ -447,7 +447,7 @@ class VerifyIosSdkTests: XCTestCase {
         NexmoClient.start(applicationId: VerifyIosSdkTests.APP_KEY, sharedSecretKey: VerifyIosSdkTests.APP_SECRET)
         let searchExpectation = expectation(description: "search callback")
         VerifyClient.getUserStatus(countryCode: VerifyIosSdkTests.TEST_COUNTRY_CODE, number: VerifyIosSdkTests.TEST_NUMBER) { status, error in
-            XCTAssertNil(error, "search request returned error: \(error)")
+            XCTAssertNil(error, "search request returned error: \(String(describing: error))")
             if let status = status {
                 print("search returned user status: \(status)")
             }

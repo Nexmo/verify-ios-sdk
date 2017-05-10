@@ -1,5 +1,9 @@
 ## Verify iOS SDK Changelog
 
+### v1.0.6 (10/05/2017)
+
+- Swift 3.1 support
+
 ### v1.0.4 (16/11/2016)
 
 * New: Push notification sent from APNS
