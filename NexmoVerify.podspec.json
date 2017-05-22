@@ -18,10 +18,10 @@
     },
     "source": {
         "git": "https://github.com/Nexmo/verify-ios-sdk.git",
-        "tag": "1.0.5"
+        "tag": "1.0.6"
     },
     "pod_target_xcconfig": {
-        "SWIFT_VERSION": "3.0"
+        "SWIFT_VERSION": "3.1"
     },
     "default_subspecs": "Core",
     "subspecs": [
@@ -31,10 +31,10 @@
             "resources": ["VerifySDK/*.storyboard", "VerifySDK/*.plist"],
             "dependencies": {
                 "NexmoVerify/DeviceProperties": [
-                    "~> 1.0.5"
+                    "~> 1.0.6"
                 ],
                 "NexmoVerify/RequestSigning": [
-                    "~> 1.0.5"
+                    "~> 1.0.6"
                 ]
             }
         },
