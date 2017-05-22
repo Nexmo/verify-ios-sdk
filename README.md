@@ -82,4 +82,5 @@ or any modifications or derivative works thereof, except in accordance with the 
 
 ## Author
 
-Dorian Peake, dorian@nexmo.com
+Jodi Humphreys, jodi.humphreys@vonage.com
+Shams Ahmed, shams.ahmed@vonage.com
