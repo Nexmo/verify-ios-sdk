@@ -1,5 +1,9 @@
 ## Verify iOS SDK Changelog
 
+### v1.0.7 (23/05/2017)
+
+- Support IPv6
+
 ### v1.0.6 (10/05/2017)
 
 - Swift 3.1 support
