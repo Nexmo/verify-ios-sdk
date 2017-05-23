@@ -501,10 +501,7 @@ import UIKit
         let bundle = Bundle(for: VerifyClient.self)
         let storyBoard = UIStoryboard(name: "VerifyUI", bundle: bundle)
         let verifyController = storyBoard.instantiateInitialViewController() as! VerifyUIController
-        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else {
-            print("unable to find root view controller!")
-            return
-        }
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController else { return }
         
         //verifyController.view.frame = rootViewController.view.bounds
         verifyController.delegate = delegate

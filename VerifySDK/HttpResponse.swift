@@ -38,7 +38,6 @@ class HttpResponse {
         
         if let stringData = NSString(data: data, encoding: encoding.rawValue) as String? {
             self.body = stringData
-            HttpResponse.Log.info("message body = \(stringData)")
         } else  {
             body = nil
         }

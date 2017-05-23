@@ -194,12 +194,14 @@ static SDKDeviceProperties *instance;
     
     @return An NSString representation of the OSStatus
 */
-NSString *NSStringFromOSStatus(OSStatus errCode)
-{
-    if (errCode == noErr)
+NSString *NSStringFromOSStatus(OSStatus errCode) {
+    if (errCode == noErr) {
         return @"noErr";
+    }
+    
     char message[5] = {0};
     *(UInt32*) message = CFSwapInt32HostToBig(errCode);
+    
     return [NSString stringWithCString:message encoding:NSASCIIStringEncoding];
 }
 
