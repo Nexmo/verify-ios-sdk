@@ -13,7 +13,7 @@
 @interface SDKDeviceProperties : NSObject <DevicePropertyAccessor>
 
 +(SDKDeviceProperties*)sharedInstance;
--(NSString*)getIpAddress;
+-(NSString*)getIpAddress:(BOOL)preferIPv4;
 -(NSString*)getUniqueDeviceIdentifierAsString;
 -(bool)deleteUniqueDeviceIdentifier;
 -(bool)addIpAddressToParams:(NSMutableDictionary*)params withKey:(NSString*)key;

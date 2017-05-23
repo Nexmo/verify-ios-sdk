@@ -8,7 +8,7 @@
 
 @protocol DevicePropertyAccessor
 
--(NSString*)getIpAddress;
+-(NSString*)getIpAddress:(BOOL)preferIPv4;
 -(NSString*)getUniqueDeviceIdentifierAsString;
 -(bool)deleteUniqueDeviceIdentifier;
 -(NSString*)addUniqueDeviceIdentifierToKeychain;
