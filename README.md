@@ -1,3 +1,7 @@
+# The Verify SDK will shut down effective 14th November, 2018. 
+
+## To assist with a seamless migration to the Verify API, we have prepared [technical documentation](https://www.nexmo.com/blog/2018/05/10/nexmo-verify-api-implementation-guide-dr/) that will guide you in implementing the Verify API into your client side applications.
+
 NexmoVerify iOS
 ============
 
